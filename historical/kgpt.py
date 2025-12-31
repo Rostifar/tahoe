@@ -14,6 +14,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
 n_heads = 1
 n_embed = 384
+dropout = 0.2
 # 
 
 torch.manual_seed(1337)
@@ -38,7 +39,6 @@ data = torch.tensor(encode(text), dtype=torch.long)
 n = int(0.9 * len(data))
 train_data = data[:n]
 val_data = data[n:]
-
 
 def get_batch(split: str):
     data = train_data if split == "train" else val_data
@@ -68,7 +68,8 @@ class FeedForward(nn.Module):
         self.layers = nn.Sequential(*[
             nn.Linear(n_embed, 4 * n_embed),
             nn.ReLU(),
-            nn.Linear(4 * n_embed, n_embed)
+            nn.Linear(4 * n_embed, n_embed),
+            nn.Dropout(dropout)
         ])
     
     def forward(self, X: torch.Tensor):
@@ -82,17 +83,20 @@ class Head(nn.Module):
         self.value = nn.Linear(n_embed, head_size, bias=False)
         self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
 
+        self.dropout = nn.Dropout(dropout)
+
     def forward(self, X: torch.Tensor):
         _, T, _ = X.shape
         q = self.query(X) # (batch_size, block_size, head_size)
         k = self.key(X) # (batch_size, block_size, head_size)
-        v = self.value(X) # (batch_size, block_size, n_embed)
+        v = self.value(X) # (batch_size, block_size, head_size)
 
         # normalized dot-product between QK
         wei = (q @ k.transpose(-2, -1)) * (k.shape[-1] ** -0.5) # (batch_size, block_size, block_size)
         # mask out look-ahead tokens
         wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf'))
         wei = F.softmax(wei, dim=-1)
+        wei = self.dropout(wei)
         out = wei @ v # (B, T, T) * (B, T, head_size)
         return out
 
@@ -101,9 +105,11 @@ class MultiHeadAttention(nn.Module):
         super().__init__()
         self.heads = nn.ModuleList([Head(head_size) for _ in range(num_heads)])
         self.proj = nn.Linear(head_size * num_heads, n_embed)
+        self.dropout = nn.Dropout(dropout)
     
     def forward(self, X: torch.Tensor):
         out = torch.cat([h(X) for h in self.heads], dim=-1)
+        out = self.dropout(self.proj(out))
         return self.proj(out)
 
 class Block(nn.Module):
@@ -141,7 +147,6 @@ class Transformer(nn.Module):
         1. Character + position embeddings
         2. Attention Blocks
         3. Linear Layer
-        4. Softmax
         """
         tok_embed = self.char_embed(X)
         pos_embed = self.pos_embed(torch.arange(block_size, device=device))
@@ -159,6 +164,15 @@ class Transformer(nn.Module):
             logits = logits.view(B*T, C)
             loss = F.cross_entropy(logits, targets)
         return logits, loss
+    
+    def generate(self, X: torch.tensor, max_new_tokens: int):
+        # X: (batch_size, T)
+        for _ in range(max_new_tokens):
+            logits, _ = self(X) # (batch_size, T, vocab_size)
+            next_token_lh = F.softmax(logits[:, -1, :], dim=-1) # (batch_size, vocab_size)
+            X_next = torch.multinomial(next_token_lh, num_samples=1)
+            X = torch.cat((X, X_next), dim=1) # (batch_size, T+1)
+        return X
 
 model = Transformer()
 m = model.to(device)
@@ -179,3 +193,6 @@ for iter in range(max_iters):
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
+
+context = torch.zeros((1, 1), dtype=torch.long, device=device)
+print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))

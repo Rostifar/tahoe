@@ -1635,6 +1635,7 @@ dependencies = [
     { name = "jupyter" },
     { name = "notebook" },
     { name = "numpy" },
+    { name = "regex" },
     { name = "tiktoken" },
     { name = "torch" },
 ]
@@ -1644,6 +1645,7 @@ requires-dist = [
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "notebook", specifier = ">=7.5.0" },
     { name = "numpy", specifier = ">=2.3.5" },
+    { name = "regex", specifier = ">=2025.11.3" },
     { name = "tiktoken", specifier = ">=0.12.0" },
     { name = "torch", specifier = ">=2.9.1" },
 ]
