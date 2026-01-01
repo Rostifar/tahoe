@@ -1,6 +1,6 @@
+from hashlib import md5
 import os
 import regex as re
-
 from typing import BinaryIO
 from collections import Counter
 from multiprocessing import Pool
@@ -89,7 +89,23 @@ def find_merges(
     vocab_size: int,
     special_tokens: list[str]
 ):
-    # base vocab
+    def apply_merge(rule: tuple[int, int]):
+        i = 0
+        merged_token = []
+        for i in range(len(tokens)):
+            token = tokens[i]
+            merged_token = []
+            j = 0
+            while j < len(token):
+                if j < len(token) - 1 and (token[j], token[j + 1]) == rule:
+                    merged_token.append(len(vocab))
+                    j += 2
+                else:
+                    merged_token.append(token[j])
+                    j += 1
+            tokens[i] = merged_token
+
+    tokens = {list(int(b) for b in k): v for k, v in pretokens.items()}
     vocab = {i: bytes(i) for i in range(256)}
     vocab.update({
         len(vocab) + i: t.encode("utf-8") for i, t in enumerate(special_tokens)
@@ -98,26 +114,18 @@ def find_merges(
     merges = []
     while len(vocab) < vocab_size:
         pairs = Counter()
-        for pretoken, weight in enumerate(pretokens):
-            for pair in zip(pretoken[:-1], pretoken[1:]):
+        for tokens, weight in enumerate(tokens):
+            for pair in zip(tokens[:-1], tokens[1:]):
                 pairs[pair] += weight
         
         max_freq = max(pairs, key=pairs.get)
-        max_pairs = {k for k, v in pairs.items() if v == max_freq}
-
-        # take largest pair
-        merge_rule = sorted(max_pairs)[-1]
-        merges.append(merge_rule)
-
-        for i in range(len(pretokens)):
-            pretoken = list(pretokens[i])
-            new_pretoken = []
-            for j in range(1, len(pretoken)):
-                if (pretoken[j - 1], pretoken[j]) == merge_rule:
-                    new_pretoken.append(vocab[merge_rule])
-                else:
-                    new_pretoken.append()
-
+        max_pair = sorted({k for k, v in pairs.items() if v == max_freq})[-1]
+        
+        apply_merge(max_pair)
+        merge_rule = tuple(vocab[max_pair[0]], vocab[max_pair[1]])
+        merges.append(tuple((vocab[max_pair[0]], vocab[max_pair[1]])))
+        vocab[len(vocab)] = b"".join(merge_rule)
+    return vocab, merges
 
 def train_bpe(
     input_path: str,
@@ -129,14 +137,24 @@ def train_bpe(
     pretokens = pretokenize(input_path, special_tokens)
 
     if debug:
-        with open(".tmp/1.pretokens.txt", "w") as f:
+        with open(f".tmp/{md5(input_path)}/1.pretokens.txt", "w") as f:
             for pretoken, count in pretokens.items():
-                f.write(b"".join(pretoken).encode("utf-8") + f"-{count}\n")
+                f.write(b"".join(pretoken).decode("utf-8") + f"-{count}\n")
 
+    vocab, merges = find_merges(pretokens, vocab_size, special_tokens)
+    if debug:
+        with open(f".tmp/{md5(input_path.encode("utf-8"))}/1.vocab.txt", "w") as f:
+            for id, token in vocab.items():
+                f.write(str(id) + ": " + token.decode("utf-8") + "\n")
+
+        with open(f".tmp/{md5(input_path)}/1.merges.txt", "w") as f:
+            for merge in merges:
+                f.write(",".join([b.decode("utf-8") for b in merge]) + "\n")
 
 if __name__ == "__main__":
     train_bpe(
         input_path="data/TinyStoriesV2-GPT4-train.txt",
         vocab_size=500,
-        special_tokens=["<|endoftext|>"]
+        special_tokens=["<|endoftext|>"],
+        debug=True
     )
