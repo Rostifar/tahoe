@@ -1,5 +1,6 @@
 import cProfile
 import os
+from typing import Any
 import regex as re
 from hashlib import md5
 from dataclasses import dataclass
@@ -13,7 +14,7 @@ MAX_MAPPED_SIZE_BYTES = 2_000_000_000
 @dataclass
 class MergePair:
     weight: int
-    children: Counter[tuple[int, int]]
+    children: Counter[int]
 
 
 def get_chunk_boundaries(input_path: str, parallelism: int) -> list[int]:
@@ -27,23 +28,25 @@ def get_chunk_boundaries(input_path: str, parallelism: int) -> list[int]:
 
         chunk_size = file_size // num_chunks
         chunk_boundaries = [i * chunk_size for i in range(num_chunks + 1)]
+        chunk_boundaries[-1] = file_size
 
         mini_chunk_size = 4096
         for bi in range(1, len(chunk_boundaries) - 1):
             initial_position = chunk_boundaries[bi]
             f.seek(initial_position)
 
-            mini_chunk = f.read(mini_chunk_size)
+            while True:
+                mini_chunk = f.read(mini_chunk_size)
 
-            if mini_chunk == b"":
-                chunk_boundaries[bi] = file_size
-                break
-            
-            found_at = mini_chunk.find(SPLIT_TOKEN)
-            if found_at != -1:
-                chunk_boundaries[bi] = initial_position + found_at
-                break
-            initial_position += mini_chunk_size
+                if mini_chunk == b"":
+                    chunk_boundaries[bi] = file_size
+                    break
+                
+                found_at = mini_chunk.find(SPLIT_TOKEN)
+                if found_at != -1:
+                    chunk_boundaries[bi] = initial_position + found_at
+                    break
+                initial_position += mini_chunk_size
         return sorted(set(chunk_boundaries))
 
 
@@ -51,7 +54,8 @@ def pretokenize_chunk(
     filename: str, 
     chunk_start: int, 
     chunk_end: int, 
-    special_pat: str
+    special_pat: str,
+    split_string: str = GPT2_PAT
 ) -> dict[tuple[bytes], int]:
     with open(filename, "rb") as f:
         f.seek(chunk_start)
@@ -60,8 +64,9 @@ def pretokenize_chunk(
         
         pretokens = Counter()
         for doc in docs:
-            text = doc.decode("utf-8")
-            for pretoken in re.finditer(GPT2_PAT, text):
+            # TODO: replace this in the future to handle incorrectly encoded text
+            text = doc.decode("utf-8", )
+            for pretoken in re.finditer(split_string, text):
                 key = tuple[bytes, ...](bytes([b]) for b in pretoken.group().encode("utf-8"))
                 pretokens[key] += 1
         return pretokens
@@ -91,10 +96,19 @@ def pretokenize(
 def apply_merge(
     merge_rule: tuple[int, tuple[int, int]],
     tokens: dict[tuple[int, int], int],
-    pairs: dict[tuple[int, int], MergePair]
+    pairs: dict[tuple[int, int], MergePair],
+    token_aliases: list[tuple[int, int]]
 ) -> dict[tuple[int, int], int]:
 
-    def update_pair_table(ptr: int, token: tuple[int]):
+    def update_pair_table(ptr: int, token: tuple[int], alias: int):
+        # optimization:
+        # - compute pair counts once; take largest and merge. 
+        # - given merge rule (a, b) -> c, remove a pair x a b y; 
+        #   1. decrement (a, b) by weight in pairs.
+        #   2. decrement (x, a) by weight in pairs.
+        #   3. decrement (b, y) by weight in pairs.
+        #   4. increment (x, c) by weight in pairs.
+        #   5. increment (c, y) by weight in pairs.
         offsets = [-1, 2]
         for offset in offsets:
             pos = offset + ptr
@@ -109,44 +123,43 @@ def apply_merge(
                 new_token = token_id, token[pos]
 
             # remove one reference and add a new reference
-            assert pairs[old_token].children[token] > 0
+            assert pairs[old_token].children[alias] > 0
             pairs[old_token].weight -= tokens[token]
-            pairs[old_token].children[token] -= 1
+            pairs[old_token].children[alias] -= 1
 
-            if not pairs[old_token].children[token]:
-                del pairs[old_token].children[token]
+            if pairs[old_token].children[alias] == 0:
+                del pairs[old_token].children[alias]
 
-            hit_pair = pairs.get(new_token, MergePair(weight=0, children=Counter()))
-            hit_pair.weight += tokens[token]
-            hit_pair.children[token] += 1
-            pairs[new_token] = hit_pair
+            new_pair = pairs.get(new_token, MergePair(weight=0, children=Counter[Any]()))
+            new_pair.weight += tokens[token]
+            new_pair.children[alias] += 1
+            pairs[new_token] = new_pair
 
 
-    # optimization:
-    # - compute pair counts once; take largest and merge. 
-    # - given merge rule (a, b) -> c, remove a pair x a b y; 
-    #   1. decrement (a, b) by weight in pairs.
-    #   2. decrement (x, a) by weight in pairs.
-    #   3. decrement (b, y) by weight in pairs.
-    #   4. increment (x, c) by weight in pairs.
-    #   5. increment (c, y) by weight in pairs.
     merged_token = []
     token_id, rule = merge_rule
-    for token in list(pairs[rule].children.keys()):
-        merged_token = []
+    children = list(pairs[rule].children)
+    for alias in children:
         j = 0
+        dirty = False
+        merged_token = []
+        token = tokens[token_aliases[alias]]
         while j < len(token):
             if j < len(token) - 1 and (token[j], token[j + 1]) == rule:
                 merged_token.append(token_id)
-                update_pair_table(j, token)
+                update_pair_table(j, token, alias)
                 j += 2
+                dirty = True
             else:
                 merged_token.append(token[j])
                 j += 1
 
-        # add new candidate token and remove unused keys 
-        tokens[tuple(merged_token)] = tokens[token]
-        del tokens[token]
+        if dirty:
+            # update alias
+            token_aliases[alias] = merged_token
+            # add merged token and remove old one
+            tokens[tuple[Any, ...](merged_token)] = tokens[token]
+            del tokens[token]
 
 
 def find_merges(
@@ -155,28 +168,44 @@ def find_merges(
     special_tokens: list[str],
     debug: bool = True
 ):
-    tokens = {tuple(ord(b) for b in k): v for k, v in pretokens.items()}
+    tokens = {tuple(ord(b) for b in k): (pretokens[k], i) for i, k in enumerate(pretokens)}
+    token_aliases = [-1] * len(tokens)
+    for id, (_, alias) in tokens.items():
+        token_aliases[alias] = id
+
     vocab = {i: bytes([i]) for i in range(256)}
     vocab.update({
         len(vocab) + i: t.encode("utf-8") for i, t in enumerate(special_tokens)
     })
 
+
+    # Optimization: precompute frequency table once and update during merges; only merge impacted pretokens.
+    # - Each corpus pair holds a list of pretokens it's contained in `children`, storing table identifiers.
+    # - When a pair is merged, it's neighboring pairs are updated, including `children` and `weight` metadata.
+    # - Since a token may have multiple pairs with the same id, a counter must be used for reference counting.
     merges = []
     pairs = {}
-    for token, weight in tokens.items():
+    for token, (weight, alias) in tokens.items():
         for pair in zip(token[:-1], token[1:]):
             hit_pair = pairs.get(pair, MergePair(weight=0, children=Counter()))
             hit_pair.weight += weight
-            hit_pair.children[token] += 1
+            hit_pair.children[alias] += 1
             pairs[pair] = hit_pair
 
+    if debug:
+        top_pairs = sorted(pairs.items(), key=lambda x: x[1].weight, reverse=True)[:2000]
+        for idx, (pair, merge_pair) in enumerate(top_pairs):
+            print(
+                f"{idx+1}\tpair: {pair}\tweight: {merge_pair.weight}"
+            )
+    
     while len(vocab) < vocab_size:
         if debug and len(vocab) % 1000 == 0:
             print(f"Iteration: {len(vocab)}")
         
         token_id = len(vocab)
         max_pair = max(pairs, key=lambda x: (pairs[x].weight, x))
-        tokens = apply_merge((token_id, max_pair), tokens, pairs)
+        tokens = apply_merge((token_id, max_pair), tokens, pairs, token_aliases)
         
         merge_rule = tuple((vocab[max_pair[0]], vocab[max_pair[1]]))
         merges.append(merge_rule)
@@ -190,7 +219,8 @@ def train_bpe(
     special_tokens: list[str],
     debug: bool = False
 ) -> tuple[dict[int, bytes], list[tuple[bytes, bytes]]]:
-    print("Constructing pretokens...")
+    if debug:
+        print("Constructing pretokens...")
     pretokens = pretokenize(input_path, special_tokens)
     if debug:
         dir = f"tmp/{md5(input_path.encode('utf-8')).hexdigest()}"
@@ -199,7 +229,8 @@ def train_bpe(
             for pretoken, count in pretokens.items():
                 f.write(b"".join(pretoken).decode("utf-8") + f"-{count}\n")
 
-    print("Finding Merges...")
+    if debug:
+        print("Finding Merges...")
     vocab, merges = find_merges(pretokens, vocab_size, special_tokens)
 
     if debug:
@@ -220,11 +251,10 @@ if __name__ == "__main__":
         special_tokens=["<|endoftext|>"],
         debug=True
     )
-    """
-    train_bpe(
+    
+    """train_bpe(
         input_path="data/owt_train.txt",
         vocab_size=32_000,
         special_tokens=["<|endoftext|>"],
         debug=True
-    )
-    """
+    )"""
