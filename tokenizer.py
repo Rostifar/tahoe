@@ -95,71 +95,61 @@ def pretokenize(
 
 def apply_merge(
     merge_rule: tuple[int, tuple[int, int]],
-    tokens: dict[tuple[int, int], int],
+    tokens: dict[tuple[int, ...], tuple[int, int]],
     pairs: dict[tuple[int, int], MergePair],
-    token_aliases: list[tuple[int, int]]
-) -> dict[tuple[int, int], int]:
-
-    def update_pair_table(ptr: int, token: tuple[int], alias: int):
-        # optimization:
-        # - compute pair counts once; take largest and merge. 
-        # - given merge rule (a, b) -> c, remove a pair x a b y; 
-        #   1. decrement (a, b) by weight in pairs.
-        #   2. decrement (x, a) by weight in pairs.
-        #   3. decrement (b, y) by weight in pairs.
-        #   4. increment (x, c) by weight in pairs.
-        #   5. increment (c, y) by weight in pairs.
-        offsets = [-1, 2]
-        for offset in offsets:
-            pos = offset + ptr
-            if pos < 0 or pos >= len(token):
-                continue
-
-            if offset < 0:
-                old_token = (token[pos], token[ptr])
-                new_token = token[pos], token_id
-            else:
-                old_token = token[ptr + 1], token[pos]
-                new_token = token_id, token[pos]
-
-            # remove one reference and add a new reference
-            assert pairs[old_token].children[alias] > 0
-            pairs[old_token].weight -= tokens[token]
-            pairs[old_token].children[alias] -= 1
-
-            if pairs[old_token].children[alias] == 0:
-                del pairs[old_token].children[alias]
-
-            new_pair = pairs.get(new_token, MergePair(weight=0, children=Counter[Any]()))
-            new_pair.weight += tokens[token]
-            new_pair.children[alias] += 1
-            pairs[new_token] = new_pair
-
-
-    merged_token = []
+    token_aliases: list[tuple[int, ...]]
+) -> None:
     token_id, rule = merge_rule
     children = list(pairs[rule].children)
+
     for alias in children:
-        j = 0
-        dirty = False
+        token = token_aliases[alias]
+        weight = tokens[token][0]
+
+        # construct new token
         merged_token = []
-        token = tokens[token_aliases[alias]]
+        j = 0
         while j < len(token):
             if j < len(token) - 1 and (token[j], token[j + 1]) == rule:
                 merged_token.append(token_id)
-                update_pair_table(j, token, alias)
                 j += 2
-                dirty = True
             else:
                 merged_token.append(token[j])
                 j += 1
 
-        if dirty:
-            # update alias
-            token_aliases[alias] = merged_token
-            # add merged token and remove old one
-            tokens[tuple[Any, ...](merged_token)] = tokens[token]
-            del tokens[token]
+        if len(merged_token) == len(token):
+            continue
+        
+        # bookkeeping for decrementing / incrementing pairs table
+        old_pairs: Counter[tuple[int, int]] = Counter()
+        for j in range(len(token) - 1):
+            old_pairs[(token[j], token[j + 1])] += 1
+
+        new_pairs: Counter[tuple[int, int]] = Counter()
+        for j in range(len(merged_token) - 1):
+            new_pairs[(merged_token[j], merged_token[j + 1])] += 1
+
+        for pair, count in old_pairs.items():
+            pairs[pair].weight -= weight * count
+            pairs[pair].children[alias] -= count
+
+            # prune old references
+            if pairs[pair].children[alias] == 0:
+                del pairs[pair].children[alias]
+            if not pairs[pair].children:
+                del pairs[pair]
+
+        # update for new token
+        for pair, count in new_pairs.items():
+            if pair not in pairs:
+                pairs[pair] = MergePair(weight=0, children=Counter())
+            pairs[pair].weight += weight * count
+            pairs[pair].children[alias] += count
+
+        new_key = tuple(merged_token)
+        token_aliases[alias] = new_key
+        tokens[new_key] = tokens[token]
+        del tokens[token]
 
 
 def find_merges(
@@ -178,7 +168,6 @@ def find_merges(
         len(vocab) + i: t.encode("utf-8") for i, t in enumerate(special_tokens)
     })
 
-
     # Optimization: precompute frequency table once and update during merges; only merge impacted pretokens.
     # - Each corpus pair holds a list of pretokens it's contained in `children`, storing table identifiers.
     # - When a pair is merged, it's neighboring pairs are updated, including `children` and `weight` metadata.
@@ -192,20 +181,13 @@ def find_merges(
             hit_pair.children[alias] += 1
             pairs[pair] = hit_pair
 
-    if debug:
-        top_pairs = sorted(pairs.items(), key=lambda x: x[1].weight, reverse=True)[:2000]
-        for idx, (pair, merge_pair) in enumerate(top_pairs):
-            print(
-                f"{idx+1}\tpair: {pair}\tweight: {merge_pair.weight}"
-            )
-    
     while len(vocab) < vocab_size:
         if debug and len(vocab) % 1000 == 0:
             print(f"Iteration: {len(vocab)}")
         
         token_id = len(vocab)
         max_pair = max(pairs, key=lambda x: (pairs[x].weight, x))
-        tokens = apply_merge((token_id, max_pair), tokens, pairs, token_aliases)
+        apply_merge((token_id, max_pair), tokens, pairs, token_aliases)
         
         merge_rule = tuple((vocab[max_pair[0]], vocab[max_pair[1]]))
         merges.append(merge_rule)
