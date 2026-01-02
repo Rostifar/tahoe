@@ -3,7 +3,6 @@ import time
 import base64
 import regex as re
 import statistics
-from hashlib import md5
 from dataclasses import dataclass
 from collections import Counter
 from multiprocessing import Pool
@@ -280,12 +279,12 @@ def train_bpe(
 if __name__ == "__main__":
     train_bpe(
         input_path="data/TinyStoriesV2-GPT4-train.txt",
-        vocab_size=500,
+        vocab_size=25000,
         special_tokens=["<|endoftext|>"],
         output_path="data/tokenizers/tsv2-bpe/",
         verbose=True
     )
-    """
+    
     train_bpe(
         input_path="data/owt_train.txt",
         vocab_size=32_000,
@@ -293,4 +292,3 @@ if __name__ == "__main__":
         output_path="data/tokenizers/owt-bpe/",
         verbose=True
     )
-    """
