@@ -1,7 +1,7 @@
-from hashlib import md5
+import cProfile
 import os
 import regex as re
-from typing import BinaryIO
+from hashlib import md5
 from collections import Counter
 from multiprocessing import Pool
 
@@ -37,7 +37,8 @@ def get_chunk_boundaries(
             if mini_chunk == b"":
                 chunk_boundaries[bi] = file_size
                 break
-
+            
+            # move boundary to closest EOT token
             found_at = mini_chunk.find(SPLIT_TOKEN)
             if found_at != -1:
                 chunk_boundaries[bi] = initial_position + found_at
@@ -63,15 +64,12 @@ def pretokenize_chunk(filename: str, chunk_start: int, chunk_end: int, special_p
         return pretokens
 
 
-def pretokenize(
-    input_path: str,
-    special_tokens: list[str],
-    parallelism: int = 8
-) -> dict[tuple[bytes], int]:
+def pretokenize(input_path: str, special_tokens: list[str], parallelism: int = 8) -> dict[tuple[bytes], int]:
     special_pat = rb"|".join(re.escape(s).encode("utf-8") for s in special_tokens)
     boundaries = get_chunk_boundaries(input_path, parallelism)
     args = [
-        (input_path, start, end, special_pat) for start, end in zip(boundaries[:-1], boundaries[1:])
+        (input_path, start, end, special_pat) 
+        for start, end in zip(boundaries[:-1], boundaries[1:])
     ]
     with Pool(parallelism) as p:
         pretokens = p.starmap(pretokenize_chunk, args)
@@ -90,10 +88,9 @@ def find_merges(
     special_tokens: list[str]
 ):
     def apply_merge(rule: tuple[int, int]):
-        i = 0
         merged_token = []
-        for i in range(len(tokens)):
-            token = tokens[i]
+        pruned_tokens = {}
+        for token in tokens:
             merged_token = []
             j = 0
             while j < len(token):
@@ -103,27 +100,30 @@ def find_merges(
                 else:
                     merged_token.append(token[j])
                     j += 1
-            tokens[i] = merged_token
+            pruned_tokens[tuple(merged_token)] = tokens[token]
+        return pruned_tokens
 
-    tokens = {list(int(b) for b in k): v for k, v in pretokens.items()}
-    vocab = {i: bytes(i) for i in range(256)}
+    tokens = {tuple(ord(b) for b in k): v for k, v in pretokens.items()}
+    vocab = {i: bytes([i]) for i in range(256)}
     vocab.update({
         len(vocab) + i: t.encode("utf-8") for i, t in enumerate(special_tokens)
     })
 
     merges = []
     while len(vocab) < vocab_size:
+        if len(vocab) % 1000 == 0:
+            print(f"Iteration: {len(vocab)}")
+
         pairs = Counter()
-        for tokens, weight in enumerate(tokens):
-            for pair in zip(tokens[:-1], tokens[1:]):
+        for token, weight in tokens.items():
+            for pair in zip(token[:-1], token[1:]):
                 pairs[pair] += weight
         
-        max_freq = max(pairs, key=pairs.get)
-        max_pair = sorted({k for k, v in pairs.items() if v == max_freq})[-1]
-        
-        apply_merge(max_pair)
-        merge_rule = tuple(vocab[max_pair[0]], vocab[max_pair[1]])
-        merges.append(tuple((vocab[max_pair[0]], vocab[max_pair[1]])))
+        max_pair = max(pairs, key=lambda x: (pairs[x], x))
+
+        tokens = apply_merge(max_pair)
+        merge_rule = tuple((vocab[max_pair[0]], vocab[max_pair[1]]))
+        merges.append(merge_rule)
         vocab[len(vocab)] = b"".join(merge_rule)
     return vocab, merges
 
@@ -134,27 +134,38 @@ def train_bpe(
     debug: bool = False
 ) -> tuple[dict[int, bytes], list[tuple[bytes, bytes]]]:
     # construct pretokens
+    print("Constructing pretokens...")
     pretokens = pretokenize(input_path, special_tokens)
-
     if debug:
-        with open(f".tmp/{md5(input_path)}/1.pretokens.txt", "w") as f:
+        dir = f"tmp/{md5(input_path.encode("utf-8")).hexdigest()}"
+        os.makedirs(dir, exist_ok=True)
+        with open(f"{dir}/1.pretokens.txt", "w") as f:
             for pretoken, count in pretokens.items():
                 f.write(b"".join(pretoken).decode("utf-8") + f"-{count}\n")
 
+    print("Finding Merges...")
     vocab, merges = find_merges(pretokens, vocab_size, special_tokens)
+
     if debug:
-        with open(f".tmp/{md5(input_path.encode("utf-8"))}/1.vocab.txt", "w") as f:
+        with open(f"{dir}/1.vocab.txt", "w") as f:
             for id, token in vocab.items():
-                f.write(str(id) + ": " + token.decode("utf-8") + "\n")
+                f.write(str(id) + ": " + token.decode("utf-8", errors="replace") + "\n")
 
-        with open(f".tmp/{md5(input_path)}/1.merges.txt", "w") as f:
+        with open(f"{dir}/1.merges.txt", "w") as f:
             for merge in merges:
-                f.write(",".join([b.decode("utf-8") for b in merge]) + "\n")
-
+                f.write(",".join([b.decode("utf-8", errors="replace") for b in merge]) + "\n")
+    
 if __name__ == "__main__":
-    train_bpe(
+    """train_bpe(
         input_path="data/TinyStoriesV2-GPT4-train.txt",
-        vocab_size=500,
+        vocab_size=10_000,
+        special_tokens=["<|endoftext|>"],
+        debug=True
+    )"""
+
+    train_bpe(
+        input_path="data/owt_train.txt",
+        vocab_size=32_000,
         special_tokens=["<|endoftext|>"],
         debug=True
     )
