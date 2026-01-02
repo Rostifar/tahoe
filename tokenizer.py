@@ -1,7 +1,7 @@
-import cProfile
 import os
-from typing import Any
+import base64
 import regex as re
+import statistics
 from hashlib import md5
 from dataclasses import dataclass
 from collections import Counter
@@ -75,8 +75,12 @@ def pretokenize_chunk(
 def pretokenize(
     input_path: str, 
     special_tokens: list[str], 
-    parallelism: int = 8
+    parallelism: int = 8,
+    verbose: bool = True
 ) -> dict[tuple[bytes], int]:
+    if verbose:
+        print(f"Pretokenizing with parameters: (parallelism={parallelism}, max_memory_mapping_bytes={MAX_MAPPED_SIZE_BYTES})")
+
     special_pat = rb"|".join(re.escape(s).encode("utf-8") for s in special_tokens)
     boundaries = get_chunk_boundaries(input_path, parallelism)
     args = [
@@ -156,7 +160,7 @@ def find_merges(
     pretokens: dict[tuple[bytes], int],
     vocab_size: int,
     special_tokens: list[str],
-    debug: bool = True
+    verbose: bool = True
 ):
     tokens = {tuple(ord(b) for b in k): (pretokens[k], i) for i, k in enumerate(pretokens)}
     token_aliases = [-1] * len(tokens)
@@ -181,9 +185,15 @@ def find_merges(
             hit_pair.children[alias] += 1
             pairs[pair] = hit_pair
 
+    print("Merge Table Stats")
+    print(f"- total pairs: {len(pairs)}")
+    print(f"- average pair weight: {statistics.mean(p.weight for p in pairs.values())}")
+    print(f"- weight variance: {statistics.variance(p.weight for p in pairs.values())}")
+    print(f"- p50 weight: {statistics.median(p.weight for p in pairs.values())}")
+
     while len(vocab) < vocab_size:
-        if debug and len(vocab) % 1000 == 0:
-            print(f"Iteration: {len(vocab)}")
+        if verbose and len(vocab) % 200 == 0:
+            print(f"Updated vocab size to {len(vocab)}...")
         
         token_id = len(vocab)
         max_pair = max(pairs, key=lambda x: (pairs[x].weight, x))
@@ -195,48 +205,80 @@ def find_merges(
     return vocab, merges
 
 
+def save(
+    vocab: dict[int, bytes],
+    merges: list[tuple[bytes, bytes]],
+    out_path: str
+) -> None:
+    os.makedirs(out_path, exist_ok=True)
+    with open(os.path.join(out_path, "vocab"), "w") as f:
+        # format: <int>:<base64>\n...
+        successor = False
+        for id, token in vocab:
+            if successor:
+                f.write("\n")
+            else:
+                successor = True
+            f.write(f"{id}:{base64.b64encode(token)}")
+
+
+    with open(os.path.join(out_path, "merges"), "w") as f:
+        # format: <base64>:<base64>,...
+        successor = False
+        for left, right in merges:
+            if successor:
+                f.write("\n")
+            else:
+                successor = True
+            f.write(f"{base64.b64encode(left)}:{base64.b64encode(right)}")
+
+
+def load(
+    path: str
+) -> tuple[dict[int, bytes], list[tuple[bytes, bytes]]]:
+    vocab = {}
+    merges = []
+    with open(os.path.join(path, "vocab"), "r") as f:
+        for line in f.readlines():
+            id, b64_token = line.split(":", maxsplit=1)
+            vocab[id] = base64.b64decode(b64_token)
+
+    with open(os.path.join(path, "merges"), "r") as f:
+        for line in f.readlines():
+            left, right = line.split(":", maxsplit=1)
+            merges.append((base64.b64decode(left), base64.b64decode(right)))
+    return vocab, merges
+
+
 def train_bpe(
     input_path: str,
     vocab_size: int,
     special_tokens: list[str],
-    debug: bool = False
+    out_path: str,
+    verbose: bool = True
 ) -> tuple[dict[int, bytes], list[tuple[bytes, bytes]]]:
-    if debug:
-        print("Constructing pretokens...")
-    pretokens = pretokenize(input_path, special_tokens)
-    if debug:
-        dir = f"tmp/{md5(input_path.encode('utf-8')).hexdigest()}"
-        os.makedirs(dir, exist_ok=True)
-        with open(f"{dir}/1.pretokens.txt", "w") as f:
-            for pretoken, count in pretokens.items():
-                f.write(b"".join(pretoken).decode("utf-8") + f"-{count}\n")
+    if verbose:
+        print(f"Constructing pretokens for dataset {input_path}...")
+    pretokens = pretokenize(input_path, special_tokens, verbose=verbose)
+    if verbose:
+        print(f"Finding Merges for {len(pretokens)} pretokens...")
+    vocab, merges = find_merges(pretokens, vocab_size, special_tokens, verbose=verbose)
+    save(vocab, merges, out_path)
 
-    if debug:
-        print("Finding Merges...")
-    vocab, merges = find_merges(pretokens, vocab_size, special_tokens)
-
-    if debug:
-        with open(f"{dir}/1.vocab.txt", "w") as f:
-            for id, token in vocab.items():
-                f.write(str(id) + ": " + token.decode("utf-8", errors="replace") + "\n")
-
-        with open(f"{dir}/1.merges.txt", "w") as f:
-            for merge in merges:
-                f.write(",".join([b.decode("utf-8", errors="replace") for b in merge]) + "\n"
-
-)
 
 if __name__ == "__main__":
+    """
     train_bpe(
         input_path="data/TinyStoriesV2-GPT4-train.txt",
         vocab_size=10_000,
         special_tokens=["<|endoftext|>"],
         debug=True
     )
+    """
     
-    """train_bpe(
+    train_bpe(
         input_path="data/owt_train.txt",
         vocab_size=32_000,
         special_tokens=["<|endoftext|>"],
         debug=True
-    )"""
+    )
