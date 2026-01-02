@@ -212,21 +212,21 @@ def find_merges(
 def save(
     vocab: dict[int, bytes],
     merges: list[tuple[bytes, bytes]],
-    out_path: str
+    output_path: str
 ) -> None:
-    os.makedirs(out_path, exist_ok=True)
-    with open(os.path.join(out_path, "vocab"), "w") as f:
+    os.makedirs(output_path, exist_ok=True)
+    with open(os.path.join(output_path, "vocab"), "w") as f:
         # format: <int>:<base64>\n...
         successor = False
-        for id, token in vocab:
+        for id, token in vocab.items():
             if successor:
                 f.write("\n")
             else:
                 successor = True
-            f.write(f"{id}:{base64.b64encode(token)}")
+            f.write(f"{id}:{base64.b64encode(token).decode()}")
 
 
-    with open(os.path.join(out_path, "merges"), "w") as f:
+    with open(os.path.join(output_path, "merges"), "w") as f:
         # format: <base64>:<base64>,...
         successor = False
         for left, right in merges:
@@ -234,7 +234,7 @@ def save(
                 f.write("\n")
             else:
                 successor = True
-            f.write(f"{base64.b64encode(left)}:{base64.b64encode(right)}")
+            f.write(f"{base64.b64encode(left).decode()}:{base64.b64encode(right).decode()}")
 
 
 def load(
@@ -258,31 +258,39 @@ def train_bpe(
     input_path: str,
     vocab_size: int,
     special_tokens: list[str],
-    out_path: str,
+    output_path: str,
     verbose: bool = True
 ) -> tuple[dict[int, bytes], list[tuple[bytes, bytes]]]:
     if verbose:
+        start = time.perf_counter()
         print(f"Constructing pretokens for dataset {input_path}...")
     pretokens = pretokenize(input_path, special_tokens, verbose=verbose)
     if verbose:
-        print(f"Finding Merges for {len(pretokens)} pretokens...")
+        print(f"Finding merges for {len(pretokens)} pretokens...")
     vocab, merges = find_merges(pretokens, vocab_size, special_tokens, verbose=verbose)
-    save(vocab, merges, out_path)
 
+    if verbose:
+        print(f"Saving vocab at {output_path}...")
+    
+    save(vocab, merges, output_path)
+    if verbose:
+        end = time.perf_counter()
+        print(f"Training finished! Elapsed time: {(end - start):0.4f} s.")
 
 if __name__ == "__main__":
-    """
     train_bpe(
         input_path="data/TinyStoriesV2-GPT4-train.txt",
-        vocab_size=10_000,
+        vocab_size=500,
         special_tokens=["<|endoftext|>"],
-        debug=True
+        output_path="data/tokenizers/tsv2-bpe/",
+        verbose=True
     )
     """
-    
     train_bpe(
         input_path="data/owt_train.txt",
         vocab_size=32_000,
         special_tokens=["<|endoftext|>"],
-        debug=True
+        output_path="data/tokenizers/owt-bpe/",
+        verbose=True
     )
+    """
