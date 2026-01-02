@@ -163,7 +163,7 @@ def find_merges(
     verbose: bool = True
 ):
     tokens = {tuple(ord(b) for b in k): (pretokens[k], i) for i, k in enumerate(pretokens)}
-    token_aliases = [-1] * len(tokens)
+    token_aliases = [(-1,)] * len(tokens)
     for id, (_, alias) in tokens.items():
         token_aliases[alias] = id
 
@@ -259,7 +259,7 @@ def train_bpe(
     special_tokens: list[str],
     output_path: str,
     verbose: bool = True
-) -> tuple[dict[int, bytes], list[tuple[bytes, bytes]]]:
+) -> None:
     if verbose:
         start = time.perf_counter()
         print(f"Constructing pretokens for dataset {input_path}...")
@@ -275,6 +275,7 @@ def train_bpe(
     if verbose:
         end = time.perf_counter()
         print(f"Training finished! Elapsed time: {(end - start):0.4f} s.")
+
 
 if __name__ == "__main__":
     train_bpe(
