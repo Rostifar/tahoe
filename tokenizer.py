@@ -1,4 +1,5 @@
 import os
+import time
 import base64
 import regex as re
 import statistics
@@ -191,9 +192,12 @@ def find_merges(
     print(f"- weight variance: {statistics.variance(p.weight for p in pairs.values())}")
     print(f"- p50 weight: {statistics.median(p.weight for p in pairs.values())}")
 
+    start = time.perf_counter()
     while len(vocab) < vocab_size:
         if verbose and len(vocab) % 200 == 0:
-            print(f"Updated vocab size to {len(vocab)}...")
+            end = time.perf_counter()
+            print(f"Updated vocab size to {len(vocab)}...; elapsed time: {(end - start):0.4f} s.")
+            start = end
         
         token_id = len(vocab)
         max_pair = max(pairs, key=lambda x: (pairs[x].weight, x))
