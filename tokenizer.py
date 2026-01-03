@@ -353,18 +353,21 @@ class Tokenizer:
 
 
 if __name__ == "__main__":
-    train_bpe(
-        input_path="data/TinyStoriesV2-GPT4-train.txt",
-        vocab_size=25000,
-        special_tokens=["<|endoftext|>"],
-        output_path="data/tokenizers/tsv2-bpe/",
-        verbose=True
-    )
+    import sys
     
-    train_bpe(
-        input_path="data/owt_train.txt",
-        vocab_size=32_000,
-        special_tokens=["<|endoftext|>"],
-        output_path="data/tokenizers/owt-bpe/",
-        verbose=True
-    )
+    if "--train-bpe" in sys.argv:
+        train_bpe(
+            input_path="data/TinyStoriesV2-GPT4-train.txt",
+            vocab_size=25000,
+            special_tokens=["<|endoftext|>"],
+            output_path="data/tokenizers/tsv2-bpe/",
+            verbose=True
+        )
+        
+        train_bpe(
+            input_path="data/owt_train.txt",
+            vocab_size=32_000,
+            special_tokens=["<|endoftext|>"],
+            output_path="data/tokenizers/owt-bpe/",
+            verbose=True
+        )
