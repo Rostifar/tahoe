@@ -3,6 +3,7 @@ import time
 import base64
 import regex as re
 import statistics
+from typing import Iterable, Iterator
 from dataclasses import dataclass
 from collections import Counter
 from multiprocessing import Pool
@@ -166,7 +167,8 @@ def find_merges(
     token_aliases = [(-1,)] * len(tokens)
     for id, (_, alias) in tokens.items():
         token_aliases[alias] = id
-
+    
+    assert not any(y < 0 for t in token_aliases for y in t), "invalid token alias!"
     vocab = {i: bytes([i]) for i in range(256)}
     vocab.update({
         len(vocab) + i: t.encode("utf-8") for i, t in enumerate(special_tokens)
@@ -275,6 +277,77 @@ def train_bpe(
     if verbose:
         end = time.perf_counter()
         print(f"Training finished! Elapsed time: {(end - start):0.4f} s.")
+
+
+class Tokenizer:
+    def __init__(
+        self, 
+        vocab: dict[int, bytes], 
+        merges: list[tuple[bytes, bytes]], 
+        special_tokens: list[str] | None = None
+    ) -> None:
+        self.vocab = vocab
+        self.vocab_size = len(vocab)
+        self.inverse_vocab = {v: i for i, v in vocab.items()} 
+        
+        self.merges = merges
+        self.separator = r"(|)".join(re.escape(t) for t in special_tokens) if special_tokens else ""
+        self.merge_table = {}
+
+    @classmethod
+    def from_files(cls, path: str, special_tokens: list[str] | None = None) -> "Tokenizer":
+        return cls(*load(path), special_tokens=special_tokens)
+
+
+    def _tokenize_pretoken(self, pretoken: str) -> list[int]:
+        pretoken_bytes = [bytes([b]) for b in pretoken.encode("utf-8")]
+        while True:
+            rule = self.vocab_size
+            # find highest priority rule
+            for left, right in zip(pretoken_bytes[:-1], pretoken_bytes[1:]):
+                try:
+                    rule_id = self.merges.index((left, right))
+                    rule = min(rule, rule_id)
+                except IndexError:
+                    continue
+
+            # terminate if nothing is left to merge
+            if rule == self.vocab_size:
+                return [self.inverse_vocab[tok] for tok in pretoken_bytes]
+
+            k = 0
+            tokens = []
+            while k < len(pretoken_bytes):
+                if (pretoken_bytes[k], pretoken_bytes[k + 1]) == self.merges[rule]:
+                    tokens.append(self.vocab[rule])
+                    k += 2
+                else:
+                    tokens.append(pretoken_bytes[k])
+                    k += 1
+            tokens = pretoken_bytes
+
+
+    def encode(self, text: str) -> list[int]:
+        # 1. split by special tokens, yielding segments: [s1]<special>[s2]<special>
+        # 2. map <special> to vocab; for each segment, split into pretokens, and encode.
+        # 3. per pretoken, take pairs and apply 
+        out = []
+        segments = re.split(self.separator, text) if self.separator else [text]
+        for i, segment in enumerate(segments):
+            if i % 2 != 0:
+                special_token = segment.encode("utf-8")
+                out.append(self.inverse_vocab[special_token])
+                continue
+
+            for pretoken in re.finditer(GPT2_PAT, segment):
+                out.extend(self._tokenize_pretoken(pretoken))
+        return out
+
+    def encode_iterable(self, iterable: Iterable[str]) -> Iterator[int]:
+        yield
+
+    def decode(self, tokens: list[int]) -> str:
+        return b"".join([self.vocab[token] for token in tokens]).decode("utf-8", errors="replace")     
 
 
 if __name__ == "__main__":
