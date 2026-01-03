@@ -300,31 +300,24 @@ class Tokenizer:
 
 
     def _tokenize_pretoken(self, pretoken: str) -> list[int]:
-        pretoken_bytes = [bytes([b]) for b in pretoken.encode("utf-8")]
-        while True:
-            rule = self.vocab_size
-            # find highest priority rule
-            for left, right in zip(pretoken_bytes[:-1], pretoken_bytes[1:]):
-                try:
-                    rule_id = self.merges.index((left, right))
-                    rule = min(rule, rule_id)
-                except IndexError:
-                    continue
-
-            # terminate if nothing is left to merge
-            if rule == self.vocab_size:
-                return [self.inverse_vocab[tok] for tok in pretoken_bytes]
-
-            k = 0
-            tokens = []
-            while k < len(pretoken_bytes):
-                if (pretoken_bytes[k], pretoken_bytes[k + 1]) == self.merges[rule]:
-                    tokens.append(self.vocab[rule])
-                    k += 2
+        chunks = [bytes([b]) for b in pretoken.encode("utf-8")]
+        for merge_rule in self.merges:
+            if len(chunks) < 2:
+                break
+            
+            merged = merge_rule[0] + merge_rule[1]
+            i = 0
+            new_chunks = []
+            
+            while i < len(chunks):
+                if i < len(chunks) - 1 and (chunks[i], chunks[i + 1]) == merged:
+                    new_chunks.append(merged)
+                    i += 2
                 else:
-                    tokens.append(pretoken_bytes[k])
-                    k += 1
-            tokens = pretoken_bytes
+                    new_chunks.append(chunks[i])
+                    i += 1
+            chunks = new_chunks
+        return [self.inverse_vocab[tok] for tok in chunks]
 
 
     def encode(self, text: str) -> list[int]:
@@ -334,17 +327,25 @@ class Tokenizer:
         out = []
         segments = re.split(self.separator, text) if self.separator else [text]
         for i, segment in enumerate(segments):
+            # ignore if special token resides on left/right boundaries, as this produces an empty string
+            if not segment:
+                continue 
+
             if i % 2 != 0:
                 special_token = segment.encode("utf-8")
                 out.append(self.inverse_vocab[special_token])
                 continue
 
             for pretoken in re.finditer(GPT2_PAT, segment):
-                out.extend(self._tokenize_pretoken(pretoken))
+                out.extend(self._tokenize_pretoken(pretoken.group()))
         return out
 
+
     def encode_iterable(self, iterable: Iterable[str]) -> Iterator[int]:
-        yield
+        # N.B. ensure that iterables are defined along special token boundaries!
+        for text in iterable:
+            yield self.encode(text)
+
 
     def decode(self, tokens: list[int]) -> str:
         return b"".join([self.vocab[token] for token in tokens]).decode("utf-8", errors="replace")     
