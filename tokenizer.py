@@ -18,13 +18,17 @@ class MergePair:
     children: Counter[int]
 
 
-def get_chunk_boundaries(input_path: str, parallelism: int) -> list[int]:
+def get_chunk_boundaries(
+    input_path: str, 
+    parallelism: int, 
+    max_mapped_size_bytes: int = MAX_MAPPED_SIZE_BYTES
+) -> list[int]:
     with open(input_path, "rb") as f:
         f.seek(0, os.SEEK_END)
         file_size = f.tell()
         f.seek(0)
             
-        proc_memory_gb = MAX_MAPPED_SIZE_BYTES // parallelism
+        proc_memory_gb = max_mapped_size_bytes // parallelism
         num_chunks = max(1, file_size // proc_memory_gb)
 
         chunk_size = file_size // num_chunks
@@ -291,8 +295,8 @@ class Tokenizer:
         self.inverse_vocab = {v: i for i, v in vocab.items()} 
         
         self.merges = merges
+        self.merge_priority = {rule: i for i, rule in enumerate(self.merges)}
         self.separator = "(" + "|".join(re.escape(t) for t in special_tokens) + ")" if special_tokens else ""
-        self.merge_table = {}
 
 
     @classmethod
@@ -302,6 +306,7 @@ class Tokenizer:
 
     def _tokenize_pretoken(self, pretoken: str) -> list[int]:
         chunks = [bytes([b]) for b in pretoken.encode("utf-8")]
+
         for merge_rule in self.merges:
             if len(chunks) < 2:
                 break
@@ -311,13 +316,33 @@ class Tokenizer:
             new_chunks = []
             
             while i < len(chunks):
-                if i < len(chunks) - 1 and (chunks[i], chunks[i + 1]) == merged:
+                if i < len(chunks) - 1 and (chunks[i], chunks[i + 1]) == merge_rule:
                     new_chunks.append(merged)
                     i += 2
                 else:
                     new_chunks.append(chunks[i])
                     i += 1
             chunks = new_chunks
+        return [self.inverse_vocab[tok] for tok in chunks]
+
+    def _tokenize_pretoken_v2(self, pretoken: str):
+        chunks = [bytes([b]) for b in pretoken.encode("utf-8")]
+        while len(chunks) >= 2:
+            best_idx = None
+            best_priority = float('inf')
+            
+            for i in range(len(chunks) - 1):
+                pair = (chunks[i], chunks[i + 1])
+                priority = self.merge_priority.get(pair)
+                if priority is not None and priority < best_priority:
+                    best_priority = priority
+                    best_idx = i
+            
+            if best_idx is None:
+                break
+            
+            chunks[best_idx] = chunks[best_idx] + chunks[best_idx + 1]
+            del chunks[best_idx + 1]
         return [self.inverse_vocab[tok] for tok in chunks]
 
 
@@ -338,7 +363,7 @@ class Tokenizer:
                 continue
 
             for pretoken in re.finditer(GPT2_PAT, segment):
-                out.extend(self._tokenize_pretoken(pretoken.group()))
+                out.extend(self._tokenize_pretoken_v2(pretoken.group()))
         return out
 
 
