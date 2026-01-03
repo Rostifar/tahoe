@@ -304,28 +304,7 @@ class Tokenizer:
         return cls(*load(path), special_tokens=special_tokens)
 
 
-    def _tokenize_pretoken(self, pretoken: str) -> list[int]:
-        chunks = [bytes([b]) for b in pretoken.encode("utf-8")]
-
-        for merge_rule in self.merges:
-            if len(chunks) < 2:
-                break
-            
-            merged = merge_rule[0] + merge_rule[1]
-            i = 0
-            new_chunks = []
-            
-            while i < len(chunks):
-                if i < len(chunks) - 1 and (chunks[i], chunks[i + 1]) == merge_rule:
-                    new_chunks.append(merged)
-                    i += 2
-                else:
-                    new_chunks.append(chunks[i])
-                    i += 1
-            chunks = new_chunks
-        return [self.inverse_vocab[tok] for tok in chunks]
-
-    def _tokenize_pretoken_v2(self, pretoken: str):
+    def _tokenize_pretoken(self, pretoken: str):
         chunks = [bytes([b]) for b in pretoken.encode("utf-8")]
         while len(chunks) >= 2:
             best_idx = None
@@ -363,7 +342,7 @@ class Tokenizer:
                 continue
 
             for pretoken in re.finditer(GPT2_PAT, segment):
-                out.extend(self._tokenize_pretoken_v2(pretoken.group()))
+                out.extend(self._tokenize_pretoken(pretoken.group()))
         return out
 
 
