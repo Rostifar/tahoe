@@ -291,8 +291,9 @@ class Tokenizer:
         self.inverse_vocab = {v: i for i, v in vocab.items()} 
         
         self.merges = merges
-        self.separator = r"(|)".join(re.escape(t) for t in special_tokens) if special_tokens else ""
+        self.separator = "(" + "|".join(re.escape(t) for t in special_tokens) + ")" if special_tokens else ""
         self.merge_table = {}
+
 
     @classmethod
     def from_files(cls, path: str, special_tokens: list[str] | None = None) -> "Tokenizer":
