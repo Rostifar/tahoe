@@ -1,6 +1,6 @@
-import os
 import time
 import regex as re
+import numpy as np
 from tokenizer import Tokenizer, get_chunk_boundaries
 
 def test_tokenizer_compression(input: str) -> None:
@@ -49,6 +49,43 @@ def test_throughput():
     print(f"Elapsed time: {end - start:0.04f}")
     print(f"Throughput: {total_bytes / (end - start)} bytes / sec")
 
+
+def embed_training_set(path: str, out_path: str):
+    def dataset_iter():
+        boundaries = get_chunk_boundaries(
+            path,
+            parallelism=1,
+            max_mapped_size_bytes=100_000_000
+        )
+        with open(path, "rb") as f:
+            for start, end in zip(boundaries[:-1], boundaries[1:]):
+                f.seek(start)
+                data = f.read(end - start)
+                for doc in re.split(re.escape(b"<|endoftext|>"), data):
+                    yield doc.decode("utf-8", errors="replace")
+
+    # Open training path, process along boundaries, and write to output
+    tokens = []
+    batch = 0
+    tokenizer = Tokenizer.from_files("data/tokenizers/owt-bpe/")
+    start = time.perf_counter()
+    for batch_tokens in tokenizer.encode_iterable(iterable=dataset_iter()):
+        batch += 1
+        tokens.extend(list(batch_tokens))
+        if batch % 1000 == 0:
+            print(f"Processed batch {batch}; total tokens processed ({len(tokens)})")
+    end = time.perf_counter()
+
+    tokens = np.array(tokens, dtype=np.uint16)
+    print(f"Saving tokens to path {out_path}.npy.")
+    np.save(out_path + ".npy", tokens)
+
+    print("===Summary===")
+    print(f"Elapsed time: {end - start:0.04f}")
+    print(f"Number of tokens: {len(tokens)}")
+    print(f"Sample: {tokens[:100]}")
+
+
 if __name__ == "__main__":
     examples = [
         "Hello, world! This is a test: 你好，世界！",
@@ -87,4 +124,10 @@ if __name__ == "__main__":
     for example in examples:
         test_tokenizer_compression(example)
     
-    test_throughput()
+    #test_throughput()
+
+    for path, out_path in [
+        ("data/owt_train.txt", "data/owt_train"), 
+        ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train")
+    ]:
+        embed_training_set(path, out_path)
