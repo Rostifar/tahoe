@@ -1,3 +1,4 @@
+import sys
 import time
 import regex as re
 import numpy as np
@@ -87,47 +88,58 @@ def embed_training_set(path: str, out_path: str):
 
 
 if __name__ == "__main__":
-    examples = [
-        "Hello, world! This is a test: 你好，世界！",
-        (
-            "We faced a significant number of hardware failures in our compute cluster "
-            "while training OPT-175B. In total, hardware failures contributed to at least "
-            "35 manual restarts and the cycling of over 100 hosts over the course of 2 months. "
-            "During manual restarts, the training run was paused, and a series of diagnostics "
-            "tests were conducted to detect problematic nodes. Flagged nodes were then cordoned "
-            "off and training was resumed from the last saved checkpoint. Given the difference "
-            "between the number of hosts cycled out and the number of manual restarts, we "
-            "estimate 70+ automatic restarts due to hardware failures."
-        ),
-        "The cat sat on the mat.",
-        "Alice went to the library to borrow a book.",
-        "It was a sunny day, so we had a picnic in the park.",
-        "My favorite color is blue.",
-        "He quickly finished his homework before dinner.",
-        "The children laughed as they played with the puppy.",
-        "Tomorrow we will visit Grandma's house.",
-        "Please remember to bring your umbrella if it rains.",
-        "The teacher explained the lesson clearly.",
-        "We watched a movie together last night.",
-        (
-            "def quicksort(arr):\n"
-            "    if len(arr) <= 1:\n"
-            "        return arr\n"
-            "    pivot = arr[len(arr) // 2]\n"
-            "    left = [x for x in arr if x < pivot]\n"
-            "    middle = [x for x in arr if x == pivot]\n"
-            "    right = [x for x in arr if x > pivot]\n"
-            "    return quicksort(left) + middle + quicksort(right)\n"
-        )
-    ]
+    if "--test-compression" in sys.argv:
+        examples = [
+            "Hello, world! This is a test: 你好，世界！",
+            (
+                "We faced a significant number of hardware failures in our compute cluster "
+                "while training OPT-175B. In total, hardware failures contributed to at least "
+                "35 manual restarts and the cycling of over 100 hosts over the course of 2 months. "
+                "During manual restarts, the training run was paused, and a series of diagnostics "
+                "tests were conducted to detect problematic nodes. Flagged nodes were then cordoned "
+                "off and training was resumed from the last saved checkpoint. Given the difference "
+                "between the number of hosts cycled out and the number of manual restarts, we "
+                "estimate 70+ automatic restarts due to hardware failures."
+            ),
+            "The cat sat on the mat.",
+            "Alice went to the library to borrow a book.",
+            "It was a sunny day, so we had a picnic in the park.",
+            "My favorite color is blue.",
+            "He quickly finished his homework before dinner.",
+            "The children laughed as they played with the puppy.",
+            "Tomorrow we will visit Grandma's house.",
+            "Please remember to bring your umbrella if it rains.",
+            "The teacher explained the lesson clearly.",
+            "We watched a movie together last night.",
+            (
+                "def quicksort(arr):\n"
+                "    if len(arr) <= 1:\n"
+                "        return arr\n"
+                "    pivot = arr[len(arr) // 2]\n"
+                "    left = [x for x in arr if x < pivot]\n"
+                "    middle = [x for x in arr if x == pivot]\n"
+                "    right = [x for x in arr if x > pivot]\n"
+                "    return quicksort(left) + middle + quicksort(right)\n"
+            )
+        ]
 
-    for example in examples:
-        test_tokenizer_compression(example)
+        for example in examples:
+            test_tokenizer_compression(example)
     
-    #test_throughput()
+    if "--test-throughput" in sys.argv:
+        test_throughput()
+    
+    if "--build-train" in sys.argv:
 
-    for path, out_path in [
-        ("data/owt_train.txt", "data/owt_train"), 
-        ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train")
-    ]:
-        embed_training_set(path, out_path)
+        for path, out_path in [
+            ("data/owt_train.txt", "data/owt_train"), 
+            ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train")
+        ]:
+            embed_training_set(path, out_path)
+
+    if "--build-val" in sys.argv:
+        for path, out_path in [
+            ("data/owt_valid.txt", "data/owt_valid"), 
+            ("data/TinyStoriesV2-GPT4-valid.txt", "data/TinyStoriesV2-GPT4-valid")
+        ]:
+            embed_training_set(path, out_path)

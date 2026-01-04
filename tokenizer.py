@@ -1,3 +1,4 @@
+import sys
 import os
 import time
 import base64
@@ -356,9 +357,7 @@ class Tokenizer:
         return b"".join([self.vocab[token] for token in tokens]).decode("utf-8", errors="replace")     
 
 
-if __name__ == "__main__":
-    import sys
-    
+if __name__ == "__main__":    
     if "--train-bpe" in sys.argv:
         train_bpe(
             input_path="data/TinyStoriesV2-GPT4-train.txt",
