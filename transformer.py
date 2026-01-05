@@ -1,5 +1,4 @@
 import math
-from regex import X
 import torch
 import torch.nn as nn
 
@@ -83,5 +82,12 @@ class FFN(nn.Module):
         kwargs = dict(device=device, dtype=dtype)
         
         d_ff = int((8 / 3) * d_model)
-        d_ff = ((d_ff + 64 // 2) // 64) * 64
+        d_ff = 64 * round(d_ff / 64)
         self.linear_1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
+        self.linear_2 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
+        self.linear_3 = Linear(in_dim=d_ff, out_dim=d_model, **kwargs)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        silu = x * torch.sigmoid(self.linear_1(x))
+        glu = silu * self.linear_2(x)
+        return self.linear_3(glu)
