@@ -9,6 +9,9 @@ Pieces to implement:
 - Embedding Module
 """
 
+def nearest_multiple
+
+
 class Linear(nn.Module):
     def __init__(
         self, 
@@ -67,3 +70,18 @@ class RMSNorm(nn.Module):
         
         norm_x = x * (self.g / rms)
         return norm_x.to(in_dtype)
+
+
+class FFN(nn.Module):
+    def __init__(
+        self,
+        d_model: int,
+        device: torch.device | None = None,
+        dtype: torch.dtype | None = None
+    ) -> None:
+        super().__init__()
+        kwargs = dict(device=device, dtype=dtype)
+        
+        d_ff = int((8 / 3) * d_model)
+        d_ff = ((d_ff + 64 // 2) // 64) * 64
+        self.linear_1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
