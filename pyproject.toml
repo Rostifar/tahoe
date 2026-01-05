@@ -8,6 +8,7 @@ dependencies = [
     "jupyter>=1.1.1",
     "notebook>=7.5.0",
     "numpy>=2.3.5",
+    "pytest>=9.0.2",
     "regex>=2025.11.3",
     "ruff>=0.14.10",
     "textual>=7.0.0",
