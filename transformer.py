@@ -85,6 +85,7 @@ class FCN(nn.Module):
         silu = x_proj * self.sigmoid(x_proj)
         return self.w3(silu * self.w2(x))
 
+
 class RotaryPositionalEmbedding(nn.Module):
     def __init__(
         self, 
@@ -118,10 +119,9 @@ class RotaryPositionalEmbedding(nn.Module):
         )
 
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        seq_len = x.size(-2)
-        cos = self.cos[:seq_len]
-        sin = self.sin[:seq_len]
+    def forward(self, x: torch.Tensor, token_positions: torch.Tensor) -> torch.Tensor:
+        cos = self.cos[token_positions]
+        sin = self.sin[token_positions]
 
         x1, x2 = x[..., ::2], x[..., 1::2]
         x_next = torch.stack([-x2, x1], dim=-1).flatten(-2)
