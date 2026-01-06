@@ -82,12 +82,11 @@ class FCN(nn.Module):
         d_ff = int((8 / 3) * d_model)
         d_ff = 64 * round(d_ff / 64)
         self.sigmoid = nn.Sigmoid()
-        self.linear_1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
-        self.linear_2 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
-        self.linear_3 = Linear(in_dim=d_ff, out_dim=d_model, **kwargs)
+        self.w1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
+        self.w2 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
+        self.w3 = Linear(in_dim=d_ff, out_dim=d_model, **kwargs)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x_proj = self.linear_1(x)
+        x_proj = self.w1(x)
         silu = x_proj * self.sigmoid(x_proj)
-        glu = silu * self.linear_2(x)
-        return self.linear_3(glu)
+        return self.w3(silu * self.w2(x))
