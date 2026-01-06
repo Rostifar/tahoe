@@ -2,12 +2,6 @@ import math
 import torch
 import torch.nn as nn
 
-"""
-Pieces to implement:
-- Linear Module
-- Embedding Module
-"""
-
 class Linear(nn.Module):
     def __init__(
         self, 
@@ -90,3 +84,45 @@ class FCN(nn.Module):
         x_proj = self.w1(x)
         silu = x_proj * self.sigmoid(x_proj)
         return self.w3(silu * self.w2(x))
+
+class RotaryPositionalEmbedding(nn.Module):
+    def __init__(
+        self, 
+        theta: float,
+        d_k: int,
+        max_seq_len: int,
+        device: torch.device | None = None,  
+    ) -> None:
+        super().__init__()
+        # (max_seq_len, d_k)
+        max_k = d_k // 2
+
+        # TODO: optimize
+        cos = [
+            [torch.cos(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
+            for i in range(max_seq_len)
+        ]
+        sin = [
+            [torch.sin(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
+            for i in range(max_seq_len)
+        ]
+        self.register_buffer(
+            "cos",
+            torch.tensor(cos, device=device).repeat_interleave(2, dim=-1),
+            persistent=False,
+        )
+        self.register_buffer(
+            "sin",
+            torch.tensor(sin, device=device).repeat_interleave(2, dim=-1),
+            persistent=False,
+        )
+
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        seq_len = x.size(-2)
+        cos = self.cos[:seq_len]
+        sin = self.sin[:seq_len]
+
+        x1, x2 = x[..., ::2], x[..., 1::2]
+        x_next = torch.stack([-x2, x1], dim=-1).flatten(-2)
+        return x * cos + x_next * sin

@@ -51,5 +51,11 @@ def test_rms_norm():
 def test_fcn():
     fcn = FCN(d_model=129)
     assert fcn(torch.zeros(100, 10, 129)).shape == (100, 10, 129)
+    assert fcn.w1.W.shape == (320, 129)
 
+    model = FCN(d_model=256)
+    x = torch.randn(4, 16, 256) * 10
+    y = model(x)
     
+    assert not torch.isnan(y).any().item()
+    assert not torch.isinf(y).any().item()
