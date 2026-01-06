@@ -8,9 +8,6 @@ Pieces to implement:
 - Embedding Module
 """
 
-def nearest_multiple
-
-
 class Linear(nn.Module):
     def __init__(
         self, 
@@ -71,7 +68,7 @@ class RMSNorm(nn.Module):
         return norm_x.to(in_dtype)
 
 
-class FFN(nn.Module):
+class FCN(nn.Module):
     def __init__(
         self,
         d_model: int,
@@ -81,13 +78,16 @@ class FFN(nn.Module):
         super().__init__()
         kwargs = dict(device=device, dtype=dtype)
         
+        # NB. round to nearest multiple of 64
         d_ff = int((8 / 3) * d_model)
         d_ff = 64 * round(d_ff / 64)
+        self.sigmoid = nn.Sigmoid()
         self.linear_1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
         self.linear_2 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
         self.linear_3 = Linear(in_dim=d_ff, out_dim=d_model, **kwargs)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        silu = x * torch.sigmoid(self.linear_1(x))
+        x_proj = self.linear_1(x)
+        silu = x_proj * self.sigmoid(x_proj)
         glu = silu * self.linear_2(x)
         return self.linear_3(glu)

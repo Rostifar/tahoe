@@ -3,7 +3,8 @@ import torch
 from transformer import (
     Linear,
     Embedding,
-    RMSNorm
+    RMSNorm,
+    FCN
 )
 
 def test_linear():
@@ -45,3 +46,10 @@ def test_rms_norm():
     gt_rms = torch.nn.RMSNorm((512), eps=1e-5)
     torch.testing.assert_close(out, gt_rms(out))
     assert out.shape == (10, 10, 512)
+
+
+def test_fcn():
+    fcn = FCN(d_model=129)
+    assert fcn(torch.zeros(100, 10, 129)).shape == (100, 10, 129)
+
+    
