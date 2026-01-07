@@ -114,26 +114,21 @@ class RotaryPositionalEmbedding(nn.Module):
         device: torch.device | None = None,  
     ) -> None:
         super().__init__()
-        # (max_seq_len, d_k)
         max_k = d_k // 2
-
-        # TODO: optimize
-        cos = [
-            [math.cos(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
-            for i in range(max_seq_len)
-        ]
-        sin = [
-            [math.sin(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
-            for i in range(max_seq_len)
-        ]
+        k = torch.arange(1, max_k + 1, device=device)
+        
+        freqs = 1.0 / (theta ** ((2 * k - 2) / d_k))  # Shape: (max_k,)
+        pos = torch.arange(max_seq_len, device=device).unsqueeze(1)  # Shape: (max_seq_len, 1)
+        angles = pos * freqs
+        
         self.register_buffer(
             "cos",
-            torch.tensor(cos, device=device).repeat_interleave(2, dim=-1),
+            torch.cos(angles).repeat_interleave(2, dim=-1),
             persistent=False,
         )
         self.register_buffer(
             "sin",
-            torch.tensor(sin, device=device).repeat_interleave(2, dim=-1),
+            torch.sin(angles).repeat_interleave(2, dim=-1),
             persistent=False,
         )
 

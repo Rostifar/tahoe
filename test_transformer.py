@@ -104,37 +104,34 @@ def test_softmax():
 
 
 def test_scaled_dot_product_attention():
-    torch.manual_seed(0)
-    # Test with obvious Q, K, V (no mask)
-    K = torch.eye(4)
-    Q = torch.eye(4)
-    V = torch.arange(4*4.).reshape(4, 4)
+    # Uniform attention (Q=K=0) → output is mean of V
+    Q = torch.zeros(4, 8)
+    K = torch.zeros(4, 8)
+    V = torch.randn(4, 8)
     out = scaled_dot_product_attention(K, Q, V)
-    torch.testing.assert_close(out, V, atol=1e-5, rtol=0)
+    expected = V.mean(dim=0, keepdim=True).expand_as(V)
+    torch.testing.assert_close(out, expected, atol=1e-5, rtol=1e-5)
 
-    # Q attends to K as identity (should output V), V all ones: should return all ones.
-    V = torch.ones(4, 4)
-    out2 = scaled_dot_product_attention(K, Q, V)
-    torch.testing.assert_close(out2, torch.ones_like(out2), atol=1e-5, rtol=0)
+    # Sharp attention (large-scale identity) → output ≈ V
+    scale = 100.0
+    K = torch.eye(4) * scale
+    Q = torch.eye(4) * scale
+    V = torch.arange(16.).reshape(4, 4)
+    out = scaled_dot_product_attention(K, Q, V)
+    torch.testing.assert_close(out, V, atol=1e-4, rtol=1e-4)
 
-    # Test with batch dimensions
+    # Batched inputs preserve shape
     Q = torch.randn(2, 4, 8)
     K = torch.randn(2, 4, 8)
     V = torch.randn(2, 4, 8)
-    result = scaled_dot_product_attention(K, Q, V)
-    assert result.shape == (2, 4, 8)
+    assert scaled_dot_product_attention(K, Q, V).shape == (2, 4, 8)
 
-    # Test with mask = causal
+    # Causal mask changes output for later positions
+    torch.manual_seed(42)
     Q = torch.randn(4, 8)
     K = torch.randn(4, 8)
     V = torch.randn(4, 8)
-    seq_len = 4
-    mask = torch.tril(torch.ones(seq_len, seq_len, dtype=torch.bool))
+    mask = torch.tril(torch.ones(4, 4, dtype=torch.bool))
+    out_unmasked = scaled_dot_product_attention(K, Q, V)
     out_masked = scaled_dot_product_attention(K, Q, V, mask=mask)
-    assert out_masked.shape == (4, 8)
-
-    # Output should differ if we mask out last token for last position (different row)
-    mask_last_blocked = mask.clone()
-    mask_last_blocked[-1, -1] = False
-    out_masked2 = scaled_dot_product_attention(K, Q, V, mask=mask_last_blocked)
-    assert not torch.equal(out_masked[-1], out_masked2[-1])
+    assert not torch.allclose(out_unmasked[1], out_masked[1])
