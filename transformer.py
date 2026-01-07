@@ -100,11 +100,11 @@ class RotaryPositionalEmbedding(nn.Module):
 
         # TODO: optimize
         cos = [
-            [torch.cos(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
+            [math.cos(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
             for i in range(max_seq_len)
         ]
         sin = [
-            [torch.sin(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
+            [math.sin(i / theta**((2 * k - 2) / d_k)) for k in range(1, max_k + 1)] 
             for i in range(max_seq_len)
         ]
         self.register_buffer(

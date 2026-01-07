@@ -4,7 +4,8 @@ from transformer import (
     Linear,
     Embedding,
     RMSNorm,
-    FCN
+    FCN,
+    RotaryPositionalEmbedding
 )
 
 def test_linear():
@@ -59,3 +60,22 @@ def test_fcn():
     
     assert not torch.isnan(y).any().item()
     assert not torch.isinf(y).any().item()
+
+
+def test_rotary():
+    d_k = 8
+    max_seq_len = 32
+    theta = 10000.0
+    rope = RotaryPositionalEmbedding(theta=theta, d_k=d_k, max_seq_len=max_seq_len)
+    x = torch.randn(1, d_k)
+    token_pos = torch.tensor([0])
+    out = rope(x, token_pos)
+    assert out.shape == (1, d_k)
+
+    x = torch.randn(4, d_k)
+    positions = torch.arange(4)
+    out = rope(x, positions)
+    assert out.shape == (4, d_k)
+    # Output should change with position
+    diff_count = torch.count_nonzero(torch.abs(out[0] - out[1]) > 1e-6)
+    assert diff_count > 0
