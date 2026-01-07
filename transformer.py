@@ -140,3 +140,32 @@ class RotaryPositionalEmbedding(nn.Module):
         x1, x2 = x[..., ::2], x[..., 1::2]
         x_next = torch.stack([-x2, x1], dim=-1).flatten(-2)
         return x * cos + x_next * sin
+
+
+class MultiheadSelfAttention(nn.Module):
+    """
+    Naive: create separate modules for heads, concat results, and project.
+    """
+    def __init__(
+        self, 
+        d_model: int,
+        num_heads: int,
+        device: torch.device | None = None,
+        dtype: torch.dtype | None = None
+    ) -> None:
+        super().__init__()
+        assert d_model % num_heads == 0
+        self.d_k = self.d_v = d_model // num_heads
+        self.Q_proj = Linear(in_dim=d_model * num_heads, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
+        self.K_proj = Linear(in_dim=d_model * num_heads, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
+        self.V_proj = Linear(in_dim=d_model * num_heads, out_dim=self.d_v * num_heads, device=device, dtype=dtype)
+        
+        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, device=device, dtype=dtype)
+    
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        Q = self.Q_proj(x)
+        K = self.K_proj(x)
+        V = self.V_proj(x)
+
+        scaled_dot_product_attention(Q, K, V)
+        
