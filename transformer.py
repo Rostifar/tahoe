@@ -8,6 +8,19 @@ def softmax(x: torch.Tensor, dim: int=-1):
     return x / x.sum(dim=dim, keepdim=True)
 
 
+def scaled_dot_product_attention(
+    K: torch.Tensor, # (B, ..., seq_len, d_k)
+    Q: torch.Tensor, # (B, ..., seq_len, d_k)
+    V: torch.Tensor, # (B, ..., seq_len, d_v)
+    mask: torch.Tensor | None = None
+) -> torch.Tensor:
+    d_k, seq_len = K.shape[-1], K.shape[-2]
+    mask = mask if mask else torch.full((seq_len, seq_len), True)
+    scaled_dot = (Q @ K.T) / math.sqrt(d_k)
+    scaled_dot.masked_fill_(~mask, float('-inf'))
+    return softmax(scaled_dot) @ V
+
+
 class Linear(nn.Module):
     def __init__(
         self, 
