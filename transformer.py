@@ -9,16 +9,16 @@ def softmax(x: torch.Tensor, dim: int=-1):
 
 
 def scaled_dot_product_attention(
-    K: torch.Tensor, # (B, ..., seq_len, d_k)
-    Q: torch.Tensor, # (B, ..., seq_len, d_k)
-    V: torch.Tensor, # (B, ..., seq_len, d_v)
+    K: torch.Tensor,
+    Q: torch.Tensor,
+    V: torch.Tensor,
     mask: torch.Tensor | None = None
 ) -> torch.Tensor:
-    d_k, seq_len = K.shape[-1], K.shape[-2]
-    mask = mask if mask else torch.full((seq_len, seq_len), True)
-    scaled_dot = (Q @ K.T) / math.sqrt(d_k)
-    scaled_dot.masked_fill_(~mask, float('-inf'))
-    return softmax(scaled_dot) @ V
+    d_k = K.shape[-1]
+    scaled_dot = (Q @ K.transpose(-2, -1)) / math.sqrt(d_k)
+    if mask is not None:
+        scaled_dot = scaled_dot.masked_fill(~mask, float('-inf'))
+    return torch.softmax(scaled_dot, dim=-1) @ V
 
 
 class Linear(nn.Module):

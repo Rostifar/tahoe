@@ -6,7 +6,8 @@ from transformer import (
     RMSNorm,
     FCN,
     RotaryPositionalEmbedding,
-    softmax
+    softmax,
+    scaled_dot_product_attention
 )
 
 def test_linear():
@@ -100,3 +101,40 @@ def test_softmax():
     large = torch.tensor([1234.0, 1235.0, 1236.0])
     sm_large = softmax(large)
     torch.testing.assert_close(sm_large, torch.nn.functional.softmax(large, dim=-1))
+
+
+def test_scaled_dot_product_attention():
+    torch.manual_seed(0)
+    # Test with obvious Q, K, V (no mask)
+    K = torch.eye(4)
+    Q = torch.eye(4)
+    V = torch.arange(4*4.).reshape(4, 4)
+    out = scaled_dot_product_attention(K, Q, V)
+    torch.testing.assert_close(out, V, atol=1e-5, rtol=0)
+
+    # Q attends to K as identity (should output V), V all ones: should return all ones.
+    V = torch.ones(4, 4)
+    out2 = scaled_dot_product_attention(K, Q, V)
+    torch.testing.assert_close(out2, torch.ones_like(out2), atol=1e-5, rtol=0)
+
+    # Test with batch dimensions
+    Q = torch.randn(2, 4, 8)
+    K = torch.randn(2, 4, 8)
+    V = torch.randn(2, 4, 8)
+    result = scaled_dot_product_attention(K, Q, V)
+    assert result.shape == (2, 4, 8)
+
+    # Test with mask = causal
+    Q = torch.randn(4, 8)
+    K = torch.randn(4, 8)
+    V = torch.randn(4, 8)
+    seq_len = 4
+    mask = torch.tril(torch.ones(seq_len, seq_len, dtype=torch.bool))
+    out_masked = scaled_dot_product_attention(K, Q, V, mask=mask)
+    assert out_masked.shape == (4, 8)
+
+    # Output should differ if we mask out last token for last position (different row)
+    mask_last_blocked = mask.clone()
+    mask_last_blocked[-1, -1] = False
+    out_masked2 = scaled_dot_product_attention(K, Q, V, mask=mask_last_blocked)
+    assert not torch.equal(out_masked[-1], out_masked2[-1])
