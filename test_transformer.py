@@ -5,7 +5,8 @@ from transformer import (
     Embedding,
     RMSNorm,
     FCN,
-    RotaryPositionalEmbedding
+    RotaryPositionalEmbedding,
+    softmax
 )
 
 def test_linear():
@@ -79,3 +80,23 @@ def test_rotary():
     # Output should change with position
     diff_count = torch.count_nonzero(torch.abs(out[0] - out[1]) > 1e-6)
     assert diff_count > 0
+
+
+def test_softmax():
+    x = torch.tensor([1.0, 2.0, 3.0])
+    sm = softmax(x)
+    torch.testing.assert_close(sm, torch.nn.functional.softmax(x, dim=-1))
+
+    x2 = torch.tensor([[1.0, 2.0, 3.0], [3.0, 2.0, 1.0]])
+    sm2 = softmax(x2, dim=-1)
+    torch.testing.assert_close(sm2, torch.nn.functional.softmax(x2, dim=-1))
+
+    sm2_alt = softmax(x2, dim=0)
+    torch.testing.assert_close(sm2_alt, torch.nn.functional.softmax(x2, dim=0))
+
+    summed = sm2.sum(dim=-1)
+    torch.testing.assert_close(summed, torch.ones_like(summed))
+
+    large = torch.tensor([1234.0, 1235.0, 1236.0])
+    sm_large = softmax(large)
+    torch.testing.assert_close(sm_large, torch.nn.functional.softmax(large, dim=-1))
