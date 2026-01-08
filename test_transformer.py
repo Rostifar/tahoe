@@ -8,7 +8,8 @@ from transformer import (
     RotaryPositionalEmbedding,
     softmax,
     scaled_dot_product_attention,
-    MultiheadSelfAttention
+    MultiheadSelfAttention,
+    Block
 )
 
 def test_linear():
@@ -166,4 +167,18 @@ def test_multi_head_self_attention():
     # grad flow
     x = torch.randn(2, 32, 64, requires_grad=True)
     attn(x).sum().backward()
+    assert x.grad is not None and not torch.all(x.grad == 0)
+
+def test_block():
+    block = Block(d_model=64, num_heads=4, theta=10000.0, max_seq_len=128, d_ff=256)
+    
+    x = torch.randn(2, 32, 64)
+    assert block(x).shape == x.shape
+    
+    block.eval()
+    out = block(x)
+    assert not torch.allclose(out, x)  # not identity
+    
+    x = torch.randn(2, 32, 64, requires_grad=True)
+    block(x).sum().backward()
     assert x.grad is not None and not torch.all(x.grad == 0)

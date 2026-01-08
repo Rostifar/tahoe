@@ -1,4 +1,5 @@
 import math
+from turtle import forward
 import torch
 import torch.nn as nn
 
@@ -187,3 +188,33 @@ class MultiheadSelfAttention(nn.Module):
         # remove head dimension
         merged = attn.transpose(-2, -3).reshape(*x.shape[:-1], -1)
         return self.head_proj(merged)
+
+
+class Block(nn.Module):
+    def __init__(
+        self, 
+        d_model: int, 
+        num_heads: int, 
+        theta: float,
+        max_seq_len: int,
+        d_ff: int,
+        device: torch.device | None = None,
+        dtype: torch.dtype | None = None
+    ) -> None:
+        super().__init__()
+        self.pre_norm = RMSNorm(d_model, device=device, dtype=dtype)
+        self.attn = MultiheadSelfAttention(
+            d_model=d_model,
+            num_heads=num_heads,
+            theta=theta,
+            max_seq_len=max_seq_len,
+            device=device,
+            dtype=dtype   
+        )
+        self.post_norm = RMSNorm(d_model, device=device, dtype=dtype)
+        self.fcn = FCN(d_model, device=device, dtype=dtype)
+
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.attn(self.pre_norm(x)) + x
+        return self.fcn(self.post_norm(x)) + x
