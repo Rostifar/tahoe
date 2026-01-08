@@ -218,3 +218,39 @@ class Block(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.attn(self.pre_norm(x)) + x
         return self.fcn(self.post_norm(x)) + x
+
+
+class Transformer(nn.Module):
+    def __init__(
+        self, 
+        vocab_size: int, 
+        context_length: int, 
+        num_layers: int,
+        d_model: int,
+        num_heads: int,
+        theta: float,
+        d_ff: int,
+        device: torch.device | None = None,
+        dtype: torch.dtype | None = None
+    ) -> None:
+        super().__init__()
+        kwargs = dict(device=device, dtype=dtype)
+        self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, **kwargs)
+        self.blocks = nn.Sequential([
+            Block(
+                d_model=d_model,
+                num_heads=num_heads,
+                theta=theta,
+                max_seq_len=context_length,
+                d_ff=d_ff,
+                **kwargs
+            ) for _ in range(num_layers)
+        ])
+        self.post_norm = RMSNorm(d_model=d_model, **kwargs)
+        self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size)
+    
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.vocab_embed(x)
+        x = self.post_norm(self.blocks(x))
+        return softmax(self.lm_head(x), dim=-1)
