@@ -7,7 +7,8 @@ from transformer import (
     FCN,
     RotaryPositionalEmbedding,
     softmax,
-    scaled_dot_product_attention
+    scaled_dot_product_attention,
+    MultiheadSelfAttention
 )
 
 def test_linear():
@@ -135,3 +136,34 @@ def test_scaled_dot_product_attention():
     out_unmasked = scaled_dot_product_attention(K, Q, V)
     out_masked = scaled_dot_product_attention(K, Q, V, mask=mask)
     assert not torch.allclose(out_unmasked[1], out_masked[1])
+
+
+def test_multi_head_self_attention():
+    attn = MultiheadSelfAttention(d_model=64, num_heads=4, theta=10000.0, max_seq_len=128)
+
+    assert attn.d_k == attn.d_v == 16
+    assert attn.num_heads == 4
+    assert attn.mask.shape == (128, 128)
+
+    # bad dim
+    with pytest.raises(AssertionError):
+        MultiheadSelfAttention(d_model=65, num_heads=4, theta=10000.0, max_seq_len=128)
+
+    # preserves shape
+    x = torch.randn(2, 32, 64)
+    assert attn(x).shape == x.shape
+
+    # more shape testing
+    for batch, seq in [(1, 1), (4, 16), (2, 128)]:
+        x = torch.randn(batch, seq, 64)
+        assert attn(x).shape == (batch, seq, 64)
+
+    # split head testing
+    x = torch.randn(2, 32, 64)
+    out = attn._split_heads(x)
+    assert out.shape == (2, 4, 32, 16)
+
+    # grad flow
+    x = torch.randn(2, 32, 64, requires_grad=True)
+    attn(x).sum().backward()
+    assert x.grad is not None and not torch.all(x.grad == 0)

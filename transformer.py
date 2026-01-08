@@ -143,29 +143,47 @@ class RotaryPositionalEmbedding(nn.Module):
 
 
 class MultiheadSelfAttention(nn.Module):
-    """
-    Naive: create separate modules for heads, concat results, and project.
-    """
     def __init__(
         self, 
         d_model: int,
         num_heads: int,
+        theta: float,
+        max_seq_len: int,
         device: torch.device | None = None,
         dtype: torch.dtype | None = None
     ) -> None:
         super().__init__()
         assert d_model % num_heads == 0
         self.d_k = self.d_v = d_model // num_heads
-        self.Q_proj = Linear(in_dim=d_model * num_heads, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
-        self.K_proj = Linear(in_dim=d_model * num_heads, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
-        self.V_proj = Linear(in_dim=d_model * num_heads, out_dim=self.d_v * num_heads, device=device, dtype=dtype)
+        self.num_heads = num_heads
         
+        self.Q_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
+        self.K_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
+        self.V_proj = Linear(in_dim=d_model, out_dim=self.d_v * num_heads, device=device, dtype=dtype)
         self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, device=device, dtype=dtype)
-    
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        Q = self.Q_proj(x)
-        K = self.K_proj(x)
-        V = self.V_proj(x)
-
-        scaled_dot_product_attention(Q, K, V)
         
+        self.rope = RotaryPositionalEmbedding(theta=theta, d_k=self.d_k, max_seq_len=max_seq_len, device=device)
+        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, device=device, dtype=dtype)
+        self.register_buffer('mask', torch.tril(torch.ones(max_seq_len, max_seq_len, device=device)).bool())
+
+    def _split_heads(self, x: torch.Tensor) -> torch.Tensor:
+        *leading, d = x.shape
+        return x.view(*leading, self.num_heads, d // self.num_heads).transpose(-2, -3)
+
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        seq_len = x.shape[-2]
+        
+        # (batch, seq_len, d_k * num_heads) -> (batch, num_heads, seq_len, d_k)
+        Q = self._split_heads(self.Q_proj(x))
+        K = self._split_heads(self.K_proj(x))
+        V = self._split_heads(self.V_proj(x))
+
+        positions = torch.arange(seq_len, device=x.device).expand(*Q.shape[:-2], seq_len)
+        Q = self.rope(Q, token_positions=positions) 
+        K = self.rope(K, token_positions=positions) 
+        
+        attn = scaled_dot_product_attention(K=K, Q=Q, V=V, mask=self.mask[:seq_len, :seq_len])
+        # remove head dimension
+        merged = attn.transpose(-2, -3).reshape(*x.shape[:-1], -1)
+        return self.head_proj(merged)
