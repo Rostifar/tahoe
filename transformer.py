@@ -4,9 +4,11 @@ import torch.nn as nn
 
 
 def softmax(x: torch.Tensor, dim: int=-1):
+    # substract max(..) for numerical stability, all elements will 
+    # fall in the range [-inf, 0];
+    # aside: softmax provides a nice prob dist since it handles negatives!
     x = torch.exp(x - x.max(dim=dim, keepdim=True).values)
     return x / x.sum(dim=dim, keepdim=True)
-
 
 def scaled_dot_product_attention(
     K: torch.Tensor,
@@ -14,12 +16,16 @@ def scaled_dot_product_attention(
     V: torch.Tensor,
     mask: torch.Tensor | None = None
 ) -> torch.Tensor:
-    d_k = K.shape[-1]
+    d_k, d_q = K.shape[-1], Q.shape[-1]
+    assert d_k == d_q, f"Dim mismatch: d_k({d_k}) != d_q({d_q})"
+    
+    # K.T is needed since Q is row-oriented, broadcasting handles the rest;
+    # aside: √d_k needed to bound variance, particularly when d_k >> 0
     scaled_dot = (Q @ K.transpose(-2, -1)) / math.sqrt(d_k)
     if mask is not None:
         scaled_dot = scaled_dot.masked_fill(~mask, float('-inf'))
+    # V is on RHS as j-th column fills in the j-th component of weighted sum
     return torch.softmax(scaled_dot, dim=-1) @ V
-
 
 class Linear(nn.Module):
     def __init__(
@@ -30,14 +36,19 @@ class Linear(nn.Module):
         dtype: torch.dtype | None = None
     ) -> None:
         super().__init__()
-        # skip bias term, 
-        self.W = nn.Parameter(torch.empty(out_dim, in_dim, dtype=dtype, device=device))
+        # skip bias term because that's what modern LLMs do
+        kwargs = dict(device=device, dtype=dtype)
+        self.W = nn.Parameter(torch.empty(out_dim, in_dim, **kwargs))
+
+        # Xavier/Glorot: normalize to keep unit variance, even after summing 
+        # ~ (in_dim + out_dim) elements.
+        # Unit variance is necessary because variance is multiplicative across 
+        # layers via independence: V[K-layers] ~ V[layer]^k
         std = math.sqrt(2. / (in_dim + out_dim))
         nn.init.trunc_normal_(self.W, mean=0., std=std, a=-3*std, b=3*std)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return x @ self.W.T
-
 
 class Embedding(nn.Module):
     def __init__(
@@ -53,7 +64,6 @@ class Embedding(nn.Module):
 
     def forward(self, token_ids: torch.Tensor) -> torch.Tensor:
         return self.table[token_ids] 
-
 
 class RMSNorm(nn.Module):
     def __init__(
