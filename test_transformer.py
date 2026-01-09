@@ -9,7 +9,8 @@ from transformer import (
     softmax,
     scaled_dot_product_attention,
     MultiheadSelfAttention,
-    Block
+    Block,
+    Transformer
 )
 
 def test_linear():
@@ -182,3 +183,44 @@ def test_block():
     x = torch.randn(2, 32, 64, requires_grad=True)
     block(x).sum().backward()
     assert x.grad is not None and not torch.all(x.grad == 0)
+
+
+def test_transformer():
+    # Config
+    vocab_size, context_length, num_layers = 1000, 128, 2
+    d_model, num_heads, theta, d_ff = 64, 4, 10000.0, 256
+    batch_size, seq_len = 4, 32
+
+    model = Transformer(
+        vocab_size=vocab_size,
+        context_length=context_length,
+        num_layers=num_layers,
+        d_model=d_model,
+        num_heads=num_heads,
+        theta=theta,
+        d_ff=d_ff,
+    )
+
+    x = torch.randint(0, vocab_size, (batch_size, seq_len))
+    output = model(x)
+
+    # Shape check
+    assert output.shape == (batch_size, seq_len, vocab_size), \
+        f"Expected {(batch_size, seq_len, vocab_size)}, got {output.shape}"
+
+    # Softmax output should sum to 1
+    sums = output.sum(dim=-1)
+    assert torch.allclose(sums, torch.ones_like(sums), atol=1e-5), \
+        "Output probabilities don't sum to 1"
+
+  # Gradient flow
+    output.sum().backward()
+    grads_exist = any(p.grad is not None for p in model.parameters())
+    assert grads_exist, "No gradients in model"
+    
+    no_nan_grads = all(
+        not torch.isnan(p.grad).any() 
+        for p in model.parameters() 
+        if p.grad is not None
+    )
+    assert no_nan_grads, "NaN gradients detected"

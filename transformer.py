@@ -1,5 +1,4 @@
 import math
-from turtle import forward
 import torch
 import torch.nn as nn
 
@@ -236,7 +235,7 @@ class Transformer(nn.Module):
         super().__init__()
         kwargs = dict(device=device, dtype=dtype)
         self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, **kwargs)
-        self.blocks = nn.Sequential([
+        self.blocks = nn.Sequential(*[
             Block(
                 d_model=d_model,
                 num_heads=num_heads,
@@ -247,7 +246,7 @@ class Transformer(nn.Module):
             ) for _ in range(num_layers)
         ])
         self.post_norm = RMSNorm(d_model=d_model, **kwargs)
-        self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size)
+        self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, **kwargs)
     
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
