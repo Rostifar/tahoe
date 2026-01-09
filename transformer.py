@@ -100,6 +100,7 @@ class FCN(nn.Module):
     def __init__(
         self,
         d_model: int,
+        d_ff: int | None = None,
         device: torch.device | None = None,
         dtype: torch.dtype | None = None
     ) -> None:
@@ -107,8 +108,9 @@ class FCN(nn.Module):
         kwargs = dict(device=device, dtype=dtype)
         
         # Round to nearest multiple of 64
-        d_ff = int((8 / 3) * d_model)
-        d_ff = 64 * round(d_ff / 64)
+        if not d_ff:
+            d_ff = int((8 / 3) * d_model)
+            d_ff = 64 * round(d_ff / 64)
         self.w1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
         self.w2 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
         self.w3 = Linear(in_dim=d_ff, out_dim=d_model, **kwargs)
@@ -132,13 +134,15 @@ class RotaryPositionalEmbedding(nn.Module):
         device: torch.device | None = None,  
     ) -> None:
         super().__init__()
-        max_k = d_k // 2
-        k = torch.arange(1, max_k + 1, device=device)
+        pairs = d_k // 2
+        k = torch.arange(1, pairs + 1, device=device)
         
-        freqs = 1.0 / (theta ** ((2 * k - 2) / d_k))  # Shape: (max_k,)
-        pos = torch.arange(max_seq_len, device=device).unsqueeze(1)  # Shape: (max_seq_len, 1)
+        freqs = 1.0 / (theta ** ((2 * k - 2) / d_k))  # Shape: (pairs,)
+        pos = torch.arange(1, max_seq_len + 1, device=device).unsqueeze(1)  # Shape: (max_seq_len, 1)
+        # ~broadcast~ by (pairs,) -> (1, pairs) with freqs
         angles = pos * freqs
         
+        # interleave needed for `d_k` operation
         self.register_buffer(
             "cos",
             torch.cos(angles).repeat_interleave(2, dim=-1),
@@ -151,11 +155,15 @@ class RotaryPositionalEmbedding(nn.Module):
         )
 
     def forward(self, x: torch.Tensor, token_positions: torch.Tensor) -> torch.Tensor:
+        # (..., max_seq_len, ...) -> (..., seq_len, ...)
         cos = self.cos[token_positions]
         sin = self.sin[token_positions]
 
+        # derived by breaking down the pair-wise rotation to position-wise
         x1, x2 = x[..., ::2], x[..., 1::2]
+        # negative pair-wise swap
         x_next = torch.stack([-x2, x1], dim=-1).flatten(-2)
+        # derived from 2D rotation mat
         return x * cos + x_next * sin
 
 
@@ -174,36 +182,42 @@ class MultiheadSelfAttention(nn.Module):
         self.d_k = self.d_v = d_model // num_heads
         self.num_heads = num_heads
         
-        self.Q_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
-        self.K_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, device=device, dtype=dtype)
-        self.V_proj = Linear(in_dim=d_model, out_dim=self.d_v * num_heads, device=device, dtype=dtype)
-        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, device=device, dtype=dtype)
+        kwargs = dict(device=device, dtype=dtype)
+        # TODO: expand this into a single (d_model, (3 * d_k + d_v) * num_heads) transformation
+        self.Q_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, **kwargs)
+        self.K_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, **kwargs)
+        self.V_proj = Linear(in_dim=d_model, out_dim=self.d_v * num_heads, **kwargs)
+        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, **kwargs)
         
         self.rope = RotaryPositionalEmbedding(theta=theta, d_k=self.d_k, max_seq_len=max_seq_len, device=device)
-        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, device=device, dtype=dtype)
+        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, **kwargs)
+        
         self.register_buffer('mask', torch.tril(torch.ones(max_seq_len, max_seq_len, device=device)).bool())
 
     def _split_heads(self, x: torch.Tensor) -> torch.Tensor:
-        *leading, d = x.shape
-        return x.view(*leading, self.num_heads, d // self.num_heads).transpose(-2, -3)
-
+        *leading, embed_dim = x.shape
+        # split out heads and transpose with seq_len dim
+        return x.view(*leading, self.num_heads, embed_dim // self.num_heads).transpose(-2, -3)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         seq_len = x.shape[-2]
         
         # (batch, seq_len, d_k * num_heads) -> (batch, num_heads, seq_len, d_k)
-        Q = self._split_heads(self.Q_proj(x))
         K = self._split_heads(self.K_proj(x))
+        Q = self._split_heads(self.Q_proj(x))
         V = self._split_heads(self.V_proj(x))
 
+        assert K.shape == Q.shape, "Dim Mismatch"
         positions = torch.arange(seq_len, device=x.device).expand(*Q.shape[:-2], seq_len)
+
+        # apply positional embeddings
         Q = self.rope(Q, token_positions=positions) 
         K = self.rope(K, token_positions=positions) 
         
         attn = scaled_dot_product_attention(K=K, Q=Q, V=V, mask=self.mask[:seq_len, :seq_len])
         # remove head dimension
-        merged = attn.transpose(-2, -3).reshape(*x.shape[:-1], -1)
-        return self.head_proj(merged)
+        cat_heads = attn.transpose(-2, -3).reshape(*x.shape[:-1], -1)
+        return self.head_proj(cat_heads)
 
 
 class Block(nn.Module):
@@ -218,18 +232,17 @@ class Block(nn.Module):
         dtype: torch.dtype | None = None
     ) -> None:
         super().__init__()
-        self.pre_norm = RMSNorm(d_model, device=device, dtype=dtype)
+        kwargs = dict(device=device, dtype=dtype)
+        self.pre_norm = RMSNorm(d_model, **kwargs)
+        self.post_norm = RMSNorm(d_model, **kwargs)
         self.attn = MultiheadSelfAttention(
             d_model=d_model,
             num_heads=num_heads,
             theta=theta,
             max_seq_len=max_seq_len,
-            device=device,
-            dtype=dtype   
+            **kwargs
         )
-        self.post_norm = RMSNorm(d_model, device=device, dtype=dtype)
-        self.fcn = FCN(d_model, device=device, dtype=dtype)
-
+        self.fcn = FCN(d_model, d_ff, **kwargs)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.attn(self.pre_norm(x)) + x
@@ -237,6 +250,7 @@ class Block(nn.Module):
 
 
 class Transformer(nn.Module):
+    # Pre-Norm Transformer with MultiHead Self-Attention
     def __init__(
         self, 
         vocab_size: int, 
@@ -269,4 +283,5 @@ class Transformer(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.vocab_embed(x)
         x = self.post_norm(self.blocks(x))
-        return softmax(self.lm_head(x), dim=-1)
+        # return logits
+        return self.lm_head(x)
