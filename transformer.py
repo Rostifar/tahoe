@@ -1,6 +1,7 @@
 import math
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 
 def softmax(x: torch.Tensor, dim: int=-1):
@@ -27,6 +28,7 @@ def scaled_dot_product_attention(
     # V is on RHS as j-th column fills in the j-th component of weighted sum
     return torch.softmax(scaled_dot, dim=-1) @ V
 
+
 class Linear(nn.Module):
     def __init__(
         self, 
@@ -44,11 +46,13 @@ class Linear(nn.Module):
         # ~ (in_dim + out_dim) elements.
         # Unit variance is necessary because variance is multiplicative across 
         # layers via independence: V[K-layers] ~ V[layer]^k
+        # TODO: come back to this fact
         std = math.sqrt(2. / (in_dim + out_dim))
         nn.init.trunc_normal_(self.W, mean=0., std=std, a=-3*std, b=3*std)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return x @ self.W.T
+
 
 class Embedding(nn.Module):
     def __init__(
@@ -65,6 +69,7 @@ class Embedding(nn.Module):
     def forward(self, token_ids: torch.Tensor) -> torch.Tensor:
         return self.table[token_ids] 
 
+
 class RMSNorm(nn.Module):
     def __init__(
         self, 
@@ -74,15 +79,15 @@ class RMSNorm(nn.Module):
         dtype: torch.dtype | None = None
     ) -> None:
         super().__init__() 
-        self.d_model = d_model
-        self.eps = eps
         self.g = nn.Parameter(torch.ones(d_model, device=device, dtype=dtype))
-
+        self.eps = eps
+        self.d_model = d_model
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        assert x.shape[-1] == self.d_model, "Invalid input type."
+        assert x.shape[-1] == self.d_model, f"Dim mismatch: {x.shape[-1]} != {self.d_model}."
         in_dtype = x.dtype
         
+        # increase precision to prevent overflow from squares
         x = x.to(torch.float32)
         squares = torch.sum(x**2, dim=-1, keepdim=True)
         rms = torch.sqrt(self.eps + (squares / self.d_model))
@@ -101,18 +106,21 @@ class FCN(nn.Module):
         super().__init__()
         kwargs = dict(device=device, dtype=dtype)
         
-        # NB. round to nearest multiple of 64
+        # Round to nearest multiple of 64
         d_ff = int((8 / 3) * d_model)
         d_ff = 64 * round(d_ff / 64)
-        self.sigmoid = nn.Sigmoid()
         self.w1 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
         self.w2 = Linear(in_dim=d_model, out_dim=d_ff, **kwargs)
         self.w3 = Linear(in_dim=d_ff, out_dim=d_model, **kwargs)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x_proj = self.w1(x)
-        silu = x_proj * self.sigmoid(x_proj)
-        return self.w3(silu * self.w2(x))
+        # ~swish~
+        silu = x_proj * F.sigmoid(x_proj)
+        # ~glu~ using side projection
+        glu = silu * self.w2(x)
+        # out projection
+        return self.w3(glu)
 
 
 class RotaryPositionalEmbedding(nn.Module):
@@ -141,7 +149,6 @@ class RotaryPositionalEmbedding(nn.Module):
             torch.sin(angles).repeat_interleave(2, dim=-1),
             persistent=False,
         )
-
 
     def forward(self, x: torch.Tensor, token_positions: torch.Tensor) -> torch.Tensor:
         cos = self.cos[token_positions]
