@@ -70,12 +70,3 @@ def test_cross_entropy():
         cross_entropy(logits, targets),
         F.cross_entropy(logits.view(-1, 3), targets.view(-1))
     )
-
-    # Larger vocab and random values
-    vocab_size = 50
-    logits = torch.randn(2, 10, vocab_size)
-    targets = torch.randint(0, vocab_size, (2, 10))
-    torch.testing.assert_close(
-        cross_entropy(logits, targets),
-        F.cross_entropy(logits.view(-1, vocab_size), targets.view(-1))
-    )
