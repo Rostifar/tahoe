@@ -1,9 +1,15 @@
 import yaml
+import torch
 import argparse
+import tokenizer
+import numpy as np
 from data import (
     yield_batch,
     save_checkpoint,
     load_checkpoint
+)
+from loss import (
+    cross_entropy
 )
 from optim import (
     cosine_lr_scheduler,
@@ -12,7 +18,7 @@ from optim import (
 )
 from typing import Literal
 from transformer import Transformer
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 """
 # Training Loop Requirements
@@ -59,9 +65,10 @@ from dataclasses import dataclass, field
 ## Extensions
 - [ ] Connect to wandb
 """
+_val_dataset: np.array | None = None
 
 @dataclass
-class TrainingConfig:
+class Config:
     vocab: str
     train_set: str
     val_set: str
@@ -72,13 +79,13 @@ class TrainingConfig:
     d_model: int
     num_heads: int
     d_ff: int
-    theta: float
+    theta: float = 10000.
 
-    device: Literal["cpu", "mps", "cuda"]
-    dtype: Literal["fp16", "fp32"]
+    device: Literal["cpu", "mps", "cuda"] = "cpu"
+    dtype: Literal["fp16", "fp32"] = "fp32"
 
-    lr_max: float
-    lr_min: float
+    lr_max: float = 1e-3
+    lr_min: float = 1e-6
     t_warmup: int
     t_cos: int
 
@@ -86,12 +93,13 @@ class TrainingConfig:
     weight_decay: float = 1e-2
     max_grad: float = 1.0
 
-    ckpt_iter: int = 1000
-    ckpt_path: str = "./checkpoints"
+    ckpt_iter: int
+    ckpt_path: str
+    max_iter: int | None = None
     from_ckpt: str | None = None
 
     @classmethod
-    def from_yaml(cls, path: str) -> "TrainingConfig":
+    def from_yaml(cls, path: str) -> "Config":
         with open(path) as f:
             data = yaml.safe_load(f)
         if "betas" in data and isinstance(data["betas"], list):
@@ -99,44 +107,9 @@ class TrainingConfig:
         return cls(**data)
 
     @classmethod
-    def from_args(cls, args: list[str] | None = None) -> "TrainingConfig":
+    def from_args(cls, args: list[str] | None = None) -> "Config":
         parser = argparse.ArgumentParser(description="Training configuration")
-
-        # Data paths
-        parser.add_argument("--config", type=str, default=None, help="Path to YAML config file")
-        parser.add_argument("--vocab", type=str, default=None, help="Path to vocabulary")
-        parser.add_argument("--train-set", type=str, default=None, help="Path to training set")
-        parser.add_argument("--val-set", type=str, default=None, help="Path to validation set")
-
-        # Model architecture
-        parser.add_argument("--batch-size", type=int, default=None, help="Batch size")
-        parser.add_argument("--context-length", type=int, default=None, help="Max context length")
-        parser.add_argument("--num-layers", type=int, default=None, help="Number of attention layers")
-        parser.add_argument("--d-model", type=int, default=None, help="Embedding dimension")
-        parser.add_argument("--num-heads", type=int, default=None, help="Number of attention heads")
-        parser.add_argument("--d-ff", type=int, default=None, help="Feed-forward dimension")
-        parser.add_argument("--theta", type=float, default=None, help="RoPE angle")
-
-        # Hardware
-        parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default=None, help="Device")
-        parser.add_argument("--dtype", choices=["fp16", "fp32"], default=None, help="Data type")
-
-        # Learning rate schedule
-        parser.add_argument("--lr-max", type=float, default=None, help="Max learning rate")
-        parser.add_argument("--lr-min", type=float, default=None, help="Min learning rate")
-        parser.add_argument("--t-warmup", type=int, default=None, help="Warmup iterations")
-        parser.add_argument("--t-cos", type=int, default=None, help="Cosine decay iterations")
-
-        # Optimizer
-        parser.add_argument("--betas", type=str, default=None, help="AdamW betas")
-        parser.add_argument("--weight-decay", type=float, default=None, help="Weight decay")
-        parser.add_argument("--max-grad", type=float, default=None, help="Max gradient norm")
-
-        # Checkpointing
-        parser.add_argument("--ckpt-iter", type=int, default=None, help="Checkpoint interval")
-        parser.add_argument("--ckpt-path", type=str, default=None, help="Checkpoint path")
-        parser.add_argument("--from-ckpt", type=str, default=None, help="Resume from checkpoint")
-
+        parser.add_argument("--config", type=str, help="Path to model config file")
         parsed = parser.parse_args(args)
 
         if parsed.config:
@@ -164,8 +137,75 @@ class TrainingConfig:
         with open(path, "w") as f:
             yaml.dump(data, f, default_flow_style=False, sort_keys=False)
 
+def get_dtype(dtype: str) -> torch.dtype:
+    if dtype == "fp32":
+        return torch.float32
+    if dtype == "fp16":
+        return torch.float16
+    raise ValueError(f"Invalid dtype: {dtype}.")
+
+
+def eval():
+    if _val_dataset:
+        val = _val_dataset
+    else:
+        val = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
+
+
+def train(config: Config) -> None:
+    vocab, _ = tokenizer.load(config.vocab)
+    
+    device = torch.device(config.device)
+    dtype = get_dtype(config.dtype)
+    
+    model = Transformer(
+        vocab_size=len(vocab), 
+        context_length=config.context_length, 
+        num_layers=config.num_layers,
+        d_model=config.d_model,
+        num_heads=config.num_heads,
+        theta=config.theta,
+        d_ff=config.d_ff,
+        device=device,
+        dtype=dtype
+    )
+    optimizer = AdamW(
+        params=model.get_parameters(),
+        lr=config.lr_max,
+        betas=config.betas,
+        weight_decay=config.weight_decay
+    )
+
+    train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
+    batch_size, context_length = config.batch_size, config.context_length
+    batch_slice = (batch_size * context_length) + 1
+
+    model.train()
+    iter = 0
+    for i in range(0, len(train_set), batch_slice):
+        # TODO: checkpoint and print
+        if iter > config.max_iter:
+            return
+
+        inputs, targets = yield_batch(
+            train_set[i:i+batch_slice], 
+            batch_size=batch_size, 
+            context_length=context_length, 
+            device=device
+        )
+        logits = model(inputs)
+        loss = cross_entropy(logits, targets)
+        loss.backward()
+        clip_grads(model.parameters(), max_grad=1.0)
+
+        optimizer.step()
+        optimizer.zero_grad()
+
+        new_lr = cosine_lr_scheduler(iter + 1, config.lr_max, config.lr_min, config.t_warmup, config.t_cos)
+        for group in optimizer.param_groups:
+            group["lr"] = new_lr
+        iter += 1
 
 if __name__ == "__main__":
-    config = TrainingConfig.from_args()
+    config = Config.from_args()
     print(config)
-    
