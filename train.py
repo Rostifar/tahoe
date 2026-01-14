@@ -186,7 +186,6 @@ def train(config: Config) -> None:
         # TODO: checkpoint and print
         if iter > config.max_iter:
             return
-
         inputs, targets = yield_batch(
             train_set[i:i+batch_slice], 
             batch_size=batch_size, 
