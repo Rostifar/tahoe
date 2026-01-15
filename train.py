@@ -67,7 +67,6 @@ from dataclasses import dataclass
 ## Extensions
 - [ ] Connect to wandb
 """
-_val_dataset: np.array | None = None
 
 @dataclass
 class Config:
@@ -81,19 +80,15 @@ class Config:
     d_model: int
     num_heads: int
     d_ff: int
-    theta: float = 10000.
+    theta: float
 
-    device: Literal["cpu", "mps", "cuda"] = "cpu"
-    dtype: Literal["fp16", "fp32"] = "fp32"
+    device: Literal["cpu", "mps", "cuda"]
+    dtype: Literal["fp16", "fp32"]
 
-    lr_max: float = 1e-3
-    lr_min: float = 1e-6
+    lr_max: float
+    lr_min: float
     t_warmup: int
     t_cos: int
-
-    betas: tuple[float, float] = (0.99, 0.999)
-    weight_decay: float = 1e-2
-    max_grad: float = 1.0
 
     ckpt_iter: int
     ckpt_path: str
@@ -101,6 +96,10 @@ class Config:
     val_iter: int | None = None
     max_iter: int | None = None
     from_ckpt: str | None = None
+
+    betas: tuple[float, float] = (0.99, 0.999)
+    weight_decay: float = 1e-2
+    max_grad: float = 1.0
 
     @classmethod
     def from_yaml(cls, path: str) -> "Config":
@@ -156,6 +155,12 @@ def get_checkpoint_path(iteration: int, config: Config):
         file = "iteration.pt"
     return os.path.join(config.ckpt_path, file)
 
+def plan(batch_size: int, context_length: int, path: str):
+    train_set = np.load(path, mmap_mode='r').astype(np.uint16)
+    set_len = len(train_set)
+    batches = set_len // (batch_size * (context_length + 1))
+    print(f"Dataset size (tokens): {set_len}.")
+    print(f"Total batches: {batches}.")
 
 def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device):
     model.eval()
@@ -237,5 +242,6 @@ def train(config: Config) -> None:
             eval(val_set, model)
 
 if __name__ == "__main__":
-    config = Config.from_args()
-    print(config)
+    #config = Config.from_args()
+    #print(config)
+    print(plan(64, 1024, "./data/owt_train.npy"))
