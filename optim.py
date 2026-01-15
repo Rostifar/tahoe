@@ -30,8 +30,8 @@ class AdamW(torch.optim.Optimizer):
         params: Iterable,
         lr: float = 1e-3,
         betas: float = (0.9, 0.999),
+        weight_decay: float = 0.01,
         eps: float = 1e-8,
-        weight_decay: float = 0.01
     ) -> None:
         defaults = {"lr": lr, "betas": betas, "eps": eps, "weight_decay": weight_decay}
         super().__init__(params, defaults)

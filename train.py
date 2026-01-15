@@ -1,12 +1,14 @@
+import os
 import yaml
 import torch
 import argparse
 import tokenizer
 import numpy as np
+import torch.nn as nn
 from data import (
-    yield_batch,
     save_checkpoint,
-    load_checkpoint
+    load_checkpoint,
+    load_batches
 )
 from loss import (
     cross_entropy
@@ -95,6 +97,8 @@ class Config:
 
     ckpt_iter: int
     ckpt_path: str
+    run_id: str | None = None
+    val_iter: int | None = None
     max_iter: int | None = None
     from_ckpt: str | None = None
 
@@ -137,6 +141,7 @@ class Config:
         with open(path, "w") as f:
             yaml.dump(data, f, default_flow_style=False, sort_keys=False)
 
+
 def get_dtype(dtype: str) -> torch.dtype:
     if dtype == "fp32":
         return torch.float32
@@ -144,13 +149,26 @@ def get_dtype(dtype: str) -> torch.dtype:
         return torch.float16
     raise ValueError(f"Invalid dtype: {dtype}.")
 
-
-def eval():
-    if _val_dataset:
-        val = _val_dataset
+def get_checkpoint_path(iteration: int, config: Config):
+    if config.run_id:
+        file = f"{config.run_id}_{iteration}.pt"
     else:
-        val = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
+        file = "iteration.pt"
+    return os.path.join(config.ckpt_path, file)
 
+
+def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device):
+    model.eval()
+    batch_size, context_length = config.batch_size, config.context_length
+    running_loss = 0.
+    batches = 0
+    for batch in load_batches(val_set, batch_size, context_length, device):
+        inputs, targets = batch
+        logits = model(inputs)
+        running_loss += cross_entropy(logits, targets).item()
+        batches += 1
+    print(f"Validation loss: {running_loss / batches}")
+    model.train()
 
 def train(config: Config) -> None:
     vocab, _ = tokenizer.load(config.vocab)
@@ -158,6 +176,7 @@ def train(config: Config) -> None:
     device = torch.device(config.device)
     dtype = get_dtype(config.dtype)
     
+    # create transformer
     model = Transformer(
         vocab_size=len(vocab), 
         context_length=config.context_length, 
@@ -176,34 +195,46 @@ def train(config: Config) -> None:
         weight_decay=config.weight_decay
     )
 
+    if config.from_ckpt:
+        iteration = load_checkpoint(config.from_ckpt, model, optimizer)
+    else:
+        iteration = 0
+
     train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
+    val_set = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
+
     batch_size, context_length = config.batch_size, config.context_length
-    batch_slice = (batch_size * context_length) + 1
+    total_batches = len(train_set) // (batch_size * (context_length + 1))
 
     model.train()
-    iter = 0
-    for i in range(0, len(train_set), batch_slice):
-        # TODO: checkpoint and print
-        if iter > config.max_iter:
+    for batch in load_batches(train_set, batch_size, context_length, device, iteration):
+        if config.max_iter and iteration > config.max_iter:
+            print("Terminating after max iterations...")
             return
-        inputs, targets = yield_batch(
-            train_set[i:i+batch_slice], 
-            batch_size=batch_size, 
-            context_length=context_length, 
-            device=device
-        )
+        
+        inputs, targets = batch
         logits = model(inputs)
         loss = cross_entropy(logits, targets)
         loss.backward()
-        clip_grads(model.parameters(), max_grad=1.0)
-
+        
+        clip_grads(model.parameters(), max_grad=config.max_grad)
         optimizer.step()
         optimizer.zero_grad()
 
-        new_lr = cosine_lr_scheduler(iter + 1, config.lr_max, config.lr_min, config.t_warmup, config.t_cos)
+        iteration += 1
+        new_lr = cosine_lr_scheduler(iteration, config.lr_max, config.lr_min, config.t_warmup, config.t_cos)
         for group in optimizer.param_groups:
             group["lr"] = new_lr
-        iter += 1
+        
+        if iteration % 100 == 0:
+            print(f"Loss[iter={iteration}]={loss}; LR[iter={iteration}]={new_lr}; Batch={iteration+1}/{total_batches}")
+
+        if iteration % config.ckpt_iter == 0:
+            path = get_checkpoint_path(iteration, config)
+            save_checkpoint(model, optimizer, iteration, path)
+
+        if config.val_iter and iteration % config.val_iter == 0:
+            eval(val_set, model)
 
 if __name__ == "__main__":
     config = Config.from_args()

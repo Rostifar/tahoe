@@ -3,6 +3,7 @@ import torch
 import typing
 import numpy as np
 import torch.nn as nn
+from collections.abc import Iterable
 
 def yield_batch(
     x: np.array, 
@@ -15,6 +16,20 @@ def yield_batch(
     shape = (batch_size, context_length)
     x = torch.tensor(x).to(device)
     return x[:-1].view(*shape), x[1:].view(*shape)
+
+def load_batches(
+    x: np.array,
+    batch_size: int, 
+    context_length: int, 
+    device: str,
+    start_iteration: int=0
+) -> Iterable[tuple[torch.Tensor, torch.Tensor]]:
+    batch_slice = batch_size * (context_length + 1)
+    for i in range(batch_slice * start_iteration, len(x), batch_slice):
+        if len(x) - i < batch_slice:
+            print(f"Skipping batch at slice {i} due to insufficient size.")
+            return
+        yield yield_batch(x[i: i + batch_slice], batch_size, context_length, device)
 
 def save_checkpoint(
     model: nn.Module,
