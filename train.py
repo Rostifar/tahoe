@@ -64,9 +64,6 @@ from dataclasses import dataclass
     3. Backprop, step, and update LR sechduler.
     4. Every `ckpt_iter` iterations, save checkpoint.
     5. Every `val_iter` iterations, evaluate loss on training set.
-
-## Extensions
-- [ ] Connect to wandb
 """
 
 @dataclass
@@ -177,7 +174,9 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
     model.train()
 
 def train(config: Config) -> None:
+    print("--Loading tokenizer--")
     vocab, _ = tokenizer.load(config.vocab)
+    print(f"> Vocab Size: {len(vocab)}")
     
     device = torch.device(config.device)
     dtype = get_dtype(config.dtype)
@@ -206,11 +205,24 @@ def train(config: Config) -> None:
     else:
         iteration = 0
 
+    print("--Loading Datasets--")
     train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
     val_set = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
+    print(f"> Training Set Size (tokens): {len(train_set)}")
+    print(f"> Validation Set Size (token): {len(val_set)}\n")
 
     batch_size, context_length = config.batch_size, config.context_length
-    total_batches = len(train_set) // (batch_size * (context_length + 1))
+    total_batches = len(train_set) // ((batch_size - 1) * (context_length) + context_length + 1)
+    
+    print(f"--Run Stats--")
+    print(f"> Total Batches: {total_batches}")
+    print(f"> Batch Size: {batch_size}")
+    print(f"> Context Length: {context_length}")    
+    print(f"> Model Parameters: {sum(p.numel() for p in model.parameters() if p.requires_grad)}")
+    print(f"> dtype: {dtype}")
+    print(f"> device: {device}")
+    print(f"> Loaded checkpoint: {config.from_ckpt}")
+    print(f"> Starting Iteration: {iteration}\n")
 
     model.train()
     running_duration = 0.
@@ -235,8 +247,13 @@ def train(config: Config) -> None:
             group["lr"] = new_lr
         
         end = time.perf_counter()
+        running_duration += end - start
         if iteration % 100 == 0:
-            print(f"Loss[iter={iteration}]={loss}; LR[iter={iteration}]={new_lr}; Batch={iteration+1}/{total_batches}")
+            print(f"--Update--")
+            print(f"Loss[iter={iteration}]={loss}")
+            print(f"LR[iter={iteration}]={new_lr}")
+            print(f"Batch={iteration+1}/{total_batches}")
+            print(f"Average Duration={running_duration / (iteration + 1)}\n")
 
         if iteration % config.ckpt_iter == 0:
             path = get_checkpoint_path(iteration, config)
@@ -249,3 +266,4 @@ if __name__ == "__main__":
     #config = Config.from_args()
     #print(config)
     plan(64, 1024, "./data/owt_train.npy")
+    plan(64, 1024, "./data/TinyStoriesV2-GPT4-train.npy")

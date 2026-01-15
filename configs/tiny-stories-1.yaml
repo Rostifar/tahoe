@@ -1,6 +1,6 @@
-vocab: ./data/vocab.json
-train_set: ./data/train.bin
-val_set: ./data/val.bin
+vocab: ./data/tokenizers/tsv2-bpe
+train_set: ./data/TinyStoriesV2-GPT-train.npy
+val_set: ./data/TinyStoriesV2-GPT-valid.npy
 
 batch_size: 32
 context_length: 512
@@ -10,8 +10,8 @@ num_heads: 6
 d_ff: 1536
 theta: 10000.0
 
-device: cuda
-dtype: fp16
+device: mps
+dtype: fp32
 
 lr_max: 3e-4
 lr_min: 1e-5
@@ -25,3 +25,5 @@ max_grad: 1.0
 ckpt_iter: 5000
 ckpt_path: ./checkpoints
 from_ckpt: null
+max_iter: 10
+run_id: tiny_stories_1
