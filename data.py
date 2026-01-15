@@ -24,12 +24,11 @@ def load_batches(
     device: str,
     start_iteration: int=0
 ) -> Iterable[tuple[torch.Tensor, torch.Tensor]]:
-    batch_slice = batch_size * (context_length + 1)
+    batch_slice = batch_size * context_length
     for i in range(batch_slice * start_iteration, len(x), batch_slice):
-        if len(x) - i < batch_slice:
-            print(f"Skipping batch at slice {i} due to insufficient size.")
+        if len(x) - i < batch_slice + 1:
             return
-        yield yield_batch(x[i: i + batch_slice], batch_size, context_length, device)
+        yield yield_batch(x[i: i + batch_slice + 1], batch_size, context_length, device)
 
 def save_checkpoint(
     model: nn.Module,

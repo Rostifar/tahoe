@@ -1,4 +1,5 @@
 import os
+import time
 import yaml
 import torch
 import argparse
@@ -212,11 +213,13 @@ def train(config: Config) -> None:
     total_batches = len(train_set) // (batch_size * (context_length + 1))
 
     model.train()
+    running_duration = 0.
     for batch in load_batches(train_set, batch_size, context_length, device, iteration):
         if config.max_iter and iteration > config.max_iter:
             print("Terminating after max iterations...")
             return
         
+        start = time.perf_counter()
         inputs, targets = batch
         logits = model(inputs)
         loss = cross_entropy(logits, targets)
@@ -231,6 +234,7 @@ def train(config: Config) -> None:
         for group in optimizer.param_groups:
             group["lr"] = new_lr
         
+        end = time.perf_counter()
         if iteration % 100 == 0:
             print(f"Loss[iter={iteration}]={loss}; LR[iter={iteration}]={new_lr}; Batch={iteration+1}/{total_batches}")
 
@@ -244,4 +248,4 @@ def train(config: Config) -> None:
 if __name__ == "__main__":
     #config = Config.from_args()
     #print(config)
-    print(plan(64, 1024, "./data/owt_train.npy"))
+    plan(64, 1024, "./data/owt_train.npy")
