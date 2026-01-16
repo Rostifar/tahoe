@@ -260,7 +260,7 @@ def train(config: Config) -> None:
             save_checkpoint(model, optimizer, iteration, path)
 
         if config.val_iter and iteration % config.val_iter == 0:
-            eval(val_set, model)
+            eval(config, val_set, model, device)
 
 if __name__ == "__main__":
     config = Config.from_args()

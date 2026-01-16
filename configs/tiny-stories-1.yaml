@@ -23,8 +23,8 @@ weight_decay: 0.01
 max_grad: 1.0
 
 ckpt_iter: 5000
-val_iter: 1000
+val_iter: null
 ckpt_path: ./checkpoints
 from_ckpt: null
-max_iter: 10000
+max_iter: null
 run_id: tiny_stories_1

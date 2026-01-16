@@ -294,10 +294,11 @@ class Transformer(nn.Module):
         theta: float,
         d_ff: int,
         device: torch.device | None = None,
-        dtype: torch.dtype | None = None
+        dtype: torch.dtype | None = None,
     ) -> None:
         super().__init__()
         kwargs = dict(device=device, dtype=dtype)
+        self.context_length = context_length
         self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, **kwargs)
         self.blocks = nn.Sequential(*[
             Block(
@@ -311,13 +312,47 @@ class Transformer(nn.Module):
         ])
         self.post_norm = RMSNorm(d_model=d_model, **kwargs)
         self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, **kwargs)
-    
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.vocab_embed(x)
         x = self.post_norm(self.blocks(x))
         # return logits
         return self.lm_head(x)
+
+def decode(
+    model: nn.Module,
+    prompt: torch.Tensor,
+    stop_token: int,
+    max_tokens: int,
+    temperature: float = 0.8,
+    top_p: float = 0.8,
+) -> torch.Tensor:
+    assert 0 < top_p <= 1
+    assert 0 < temperature <= 1
+
+    # squeeze to add batch dim
+    prompt = prompt.unsqueeze(0)
+    response = []
+    tokens_generated = 0
+    for _ in range(max_tokens):
+        # remove batch dimension and take the last token's logits
+        logits = model(prompt).squeeze(0)[-1, :]
+        probs = softmax(logits / temperature)
+        probs, indices = torch.sort(probs, descending=True)
+        
+        cum_probs = torch.cumsum(probs, dim=-1)
+        cutoff = (cum_probs > top_p).nonzero(as_tuple=True)[0][0] + 1
+
+        top_indices = indices[:cutoff]
+        top_probs = probs[:cutoff]
+        token = top_indices[torch.multinomial(top_probs, 1)]
+        
+        response.append(token.item())
+        if token == stop_token:
+            break
+        tokens_generated += 1
+    return torch.tensor(response, dtype=torch.long)
+
 
 if __name__ == "__main__":
     GPT2_S =  dict(vocab_size = 50257, seq_len=1024, num_layers=12, d_model=768, d_ff=6400)

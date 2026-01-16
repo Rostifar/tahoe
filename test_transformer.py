@@ -1,5 +1,6 @@
 import pytest
 import torch
+import torch.nn as nn
 from transformer import (
     Linear,
     Embedding,
@@ -10,7 +11,8 @@ from transformer import (
     scaled_dot_product_attention,
     MultiheadSelfAttention,
     Block,
-    Transformer
+    Transformer,
+    decode
 )
 
 def test_linear():
@@ -222,3 +224,29 @@ def test_transformer():
         if p.grad is not None
     )
     assert no_nan_grads, "NaN gradients detected"
+
+def test_decode():
+    class MockModel(nn.Module):
+        context_length = 10
+        
+        def __init__(self):
+            super().__init__()
+            # Always predict token 5 with high probability
+            self.logits = torch.zeros(100)
+            self.logits[5] = 10.0
+        
+        def forward(self, x):
+            return self.logits.unsqueeze(0).unsqueeze(0)  # (1, 1, vocab_size)
+    
+    model = MockModel()
+    prompt = torch.tensor([1, 2, 3])
+    
+    result = decode(
+        model=model,
+        prompt=prompt,
+        stop_token=5,
+        max_tokens=10,
+        temperature=0.8,
+        top_p=0.9,
+    )
+    assert result.tolist() == [5]
