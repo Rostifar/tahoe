@@ -251,7 +251,7 @@ def load(
     with open(os.path.join(path, "vocab"), "r") as f:
         for line in f.readlines():
             id, b64_token = line.split(":", maxsplit=1)
-            vocab[id] = base64.b64decode(b64_token)
+            vocab[int(id)] = base64.b64decode(b64_token)
 
     with open(os.path.join(path, "merges"), "r") as f:
         for line in f.readlines():
@@ -299,11 +299,9 @@ class Tokenizer:
         self.merge_priority = {rule: i for i, rule in enumerate(self.merges)}
         self.separator = "(" + "|".join(re.escape(t) for t in special_tokens) + ")" if special_tokens else ""
 
-
     @classmethod
     def from_files(cls, path: str, special_tokens: list[str] | None = None) -> "Tokenizer":
         return cls(*load(path), special_tokens=special_tokens)
-
 
     def _tokenize_pretoken(self, pretoken: str):
         chunks = [bytes([b]) for b in pretoken.encode("utf-8")]
@@ -325,7 +323,6 @@ class Tokenizer:
             del chunks[best_idx + 1]
         return [self.inverse_vocab[tok] for tok in chunks]
 
-
     def encode(self, text: str) -> list[int]:
         # 1. split by special tokens, yielding segments: [s1]<special>[s2]<special>
         # 2. map <special> to vocab; for each segment, split into pretokens, and encode.
@@ -346,12 +343,10 @@ class Tokenizer:
                 out.extend(self._tokenize_pretoken(pretoken.group()))
         return out
 
-
     def encode_iterable(self, iterable: Iterable[str]) -> Iterator[int]:
         # N.B. ensure that iterables are defined along special token boundaries!
         for text in iterable:
             yield self.encode(text)
-
 
     def decode(self, tokens: list[int]) -> str:
         return b"".join([self.vocab[token] for token in tokens]).decode("utf-8", errors="replace")     

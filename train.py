@@ -3,7 +3,7 @@ import time
 import yaml
 import torch
 import argparse
-import tokenizer
+import tokenizer as tok
 import numpy as np
 import torch.nn as nn
 from data import (
@@ -20,7 +20,7 @@ from optim import (
     AdamW
 )
 from typing import Literal
-from transformer import Transformer
+from transformer import Transformer, decode
 from dataclasses import dataclass
 
 """
@@ -175,15 +175,18 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
 
 def train(config: Config) -> None:
     print("--Loading tokenizer--")
-    vocab, _ = tokenizer.load(config.vocab)
-    print(f"> Vocab Size: {len(vocab)}")
+    tokenizer = tok.Tokenizer(
+        *tok.load(config.vocab), 
+        special_tokens=["<|endoftext|>"]
+    )
+    print(f"> Vocab Size: {len(tokenizer.vocab)}")
     
     device = torch.device(config.device)
     dtype = get_dtype(config.dtype)
     
     # create transformer
     model = Transformer(
-        vocab_size=len(vocab), 
+        vocab_size=len(tokenizer.vocab), 
         context_length=config.context_length, 
         num_layers=config.num_layers,
         d_model=config.d_model,
@@ -254,6 +257,17 @@ def train(config: Config) -> None:
             print(f"LR[iter={iteration}]={new_lr}")
             print(f"Batch={iteration+1}/{total_batches}")
             print(f"Average Duration={running_duration / (iteration + 1)}\n")
+        
+        if iteration % 20 == 0:
+            response = decode(
+                model=model,
+                prompt=tokenizer.encode("A tree"),
+                stop_token=tokenizer.encode("<|endoftext|>"),
+                max_tokens=256,
+                temperature=0.8,
+                top_p=0.8,
+            )
+            print(f"Generating response for `A tree`: {tokenizer.decode(response)}")
 
         if iteration % config.ckpt_iter == 0:
             path = get_checkpoint_path(iteration, config)

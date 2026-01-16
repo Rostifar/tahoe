@@ -321,17 +321,17 @@ class Transformer(nn.Module):
 
 def decode(
     model: nn.Module,
-    prompt: torch.Tensor,
+    prompt: list[int],
     stop_token: int,
     max_tokens: int,
     temperature: float = 0.8,
     top_p: float = 0.8,
-) -> torch.Tensor:
+) -> list[int]:
     assert 0 < top_p <= 1
     assert 0 < temperature <= 1
 
     # squeeze to add batch dim
-    prompt = prompt.unsqueeze(0)
+    prompt = torch.tensor(prompt).unsqueeze(0)
     response = []
     tokens_generated = 0
     for _ in range(max_tokens):
@@ -351,7 +351,7 @@ def decode(
         if token == stop_token:
             break
         tokens_generated += 1
-    return torch.tensor(response, dtype=torch.long)
+    return response
 
 
 if __name__ == "__main__":
