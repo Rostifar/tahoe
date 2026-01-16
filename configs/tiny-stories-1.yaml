@@ -1,10 +1,10 @@
 vocab: ./data/tokenizers/tsv2-bpe
-train_set: ./data/TinyStoriesV2-GPT-train.npy
-val_set: ./data/TinyStoriesV2-GPT-valid.npy
+train_set: ./data/TinyStoriesV2-GPT4-train.npy
+val_set: ./data/TinyStoriesV2-GPT4-valid.npy
 
 batch_size: 32
 context_length: 512
-num_layers: 6
+num_layers: 2
 d_model: 384
 num_heads: 6
 d_ff: 1536
@@ -13,8 +13,8 @@ theta: 10000.0
 device: mps
 dtype: fp32
 
-lr_max: 3e-4
-lr_min: 1e-5
+lr_max: 0.0003
+lr_min: 0.00001
 t_warmup: 1000
 t_cos: 50000
 
@@ -23,7 +23,8 @@ weight_decay: 0.01
 max_grad: 1.0
 
 ckpt_iter: 5000
+val_iter: 1000
 ckpt_path: ./checkpoints
 from_ckpt: null
-max_iter: 10
+max_iter: 10000
 run_id: tiny_stories_1

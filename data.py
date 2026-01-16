@@ -14,7 +14,7 @@ def yield_batch(
     # truncate to fit batch slice
     x = x[:batch_size * context_length + 1]
     shape = (batch_size, context_length)
-    x = torch.tensor(x).to(device)
+    x = torch.tensor(x, dtype=torch.long).to(device)
     return x[:-1].view(*shape), x[1:].view(*shape)
 
 def load_batches(

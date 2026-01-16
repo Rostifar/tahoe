@@ -194,7 +194,7 @@ def train(config: Config) -> None:
         dtype=dtype
     )
     optimizer = AdamW(
-        params=model.get_parameters(),
+        params=model.parameters(),
         lr=config.lr_max,
         betas=config.betas,
         weight_decay=config.weight_decay
@@ -248,7 +248,7 @@ def train(config: Config) -> None:
         
         end = time.perf_counter()
         running_duration += end - start
-        if iteration % 100 == 0:
+        if iteration % 1 == 0:
             print(f"--Update--")
             print(f"Loss[iter={iteration}]={loss}")
             print(f"LR[iter={iteration}]={new_lr}")
@@ -263,7 +263,8 @@ def train(config: Config) -> None:
             eval(val_set, model)
 
 if __name__ == "__main__":
-    #config = Config.from_args()
+    config = Config.from_args()
+    train(config)
     #print(config)
-    plan(64, 1024, "./data/owt_train.npy")
-    plan(64, 1024, "./data/TinyStoriesV2-GPT4-train.npy")
+    #plan(64, 1024, "./data/owt_train.npy")
+    #plan(64, 1024, "./data/TinyStoriesV2-GPT4-train.npy")

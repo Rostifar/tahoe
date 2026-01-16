@@ -51,7 +51,7 @@ def test_throughput():
     print(f"Throughput: {total_bytes / (end - start)} bytes / sec")
 
 
-def embed_training_set(path: str, out_path: str):
+def embed_training_set(path: str, out_path: str, tokenizer_path: str):
     def dataset_iter():
         boundaries = get_chunk_boundaries(
             path,
@@ -68,7 +68,7 @@ def embed_training_set(path: str, out_path: str):
     # Open training path, process along boundaries, and write to output
     tokens = []
     batch = 0
-    tokenizer = Tokenizer.from_files("data/tokenizers/owt-bpe/")
+    tokenizer = Tokenizer.from_files(tokenizer_path)
     start = time.perf_counter()
     for batch_tokens in tokenizer.encode_iterable(iterable=dataset_iter()):
         batch += 1
@@ -131,15 +131,15 @@ if __name__ == "__main__":
     
     if "--build-train" in sys.argv:
 
-        for path, out_path in [
-            ("data/owt_train.txt", "data/owt_train"), 
-            ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train")
+        for path, out_path, tokenizer_path in [
+            #("data/owt_train.txt", "data/owt_train"), 
+            ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train", "data/tokenizers/tsv2-bpe/")
         ]:
-            embed_training_set(path, out_path)
+            embed_training_set(path, out_path, tokenizer_path)
 
     if "--build-val" in sys.argv:
-        for path, out_path in [
-            ("data/owt_valid.txt", "data/owt_valid"), 
-            ("data/TinyStoriesV2-GPT4-valid.txt", "data/TinyStoriesV2-GPT4-valid")
+        for path, out_path, tokenizer_path in [
+            #("data/owt_valid.txt", "data/owt_valid"), 
+            ("data/TinyStoriesV2-GPT4-valid.txt", "data/TinyStoriesV2-GPT4-valid", "data/tokenizers/tsv2-bpe/")
         ]:
-            embed_training_set(path, out_path)
+            embed_training_set(path, out_path, tokenizer_path)
