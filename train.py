@@ -1,6 +1,7 @@
 import os
 import time
 import yaml
+import wandb
 import torch
 import argparse
 import tokenizer as tok
@@ -20,8 +21,8 @@ from optim import (
     AdamW
 )
 from typing import Literal
+from pydantic import BaseModel
 from transformer import Transformer, decode
-from dataclasses import dataclass
 
 """
 # Training Loop Requirements
@@ -66,12 +67,12 @@ from dataclasses import dataclass
     5. Every `val_iter` iterations, evaluate loss on training set.
 """
 
-@dataclass
-class Config:
+class Config(BaseModel):
     vocab: str
     train_set: str
     val_set: str
 
+    vocab_size: int
     batch_size: int
     context_length: int
     num_layers: int
@@ -166,7 +167,7 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
     running_loss = 0.
     batches = 0
     for batch in load_batches(val_set, batch_size, context_length, device):
-        inputs, targets = batch
+        inputs, targets = [torch.clamp(x, config.vocab_size - 1) for x in batch]
         logits = model(inputs)
         running_loss += cross_entropy(logits, targets).item()
         batches += 1
@@ -174,6 +175,13 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
     model.train()
 
 def train(config: Config) -> None:
+    print("--Initializing wandb--")
+    run = wandb.init(
+        entity="torusai",
+        project=config.run_id,
+        config=config.model_dump(),
+    )
+
     print("--Loading tokenizer--")
     tokenizer = tok.Tokenizer(
         *tok.load(config.vocab), 
@@ -186,7 +194,7 @@ def train(config: Config) -> None:
     
     # create transformer
     model = Transformer(
-        vocab_size=len(tokenizer.vocab), 
+        vocab_size=config.vocab_size, 
         context_length=config.context_length, 
         num_layers=config.num_layers,
         d_model=config.d_model,
@@ -235,7 +243,7 @@ def train(config: Config) -> None:
             return
         
         start = time.perf_counter()
-        inputs, targets = batch
+        inputs, targets = [torch.clamp(x, config.vocab_size - 1) for x in batch]
         logits = model(inputs)
         loss = cross_entropy(logits, targets)
         loss.backward()
@@ -251,6 +259,9 @@ def train(config: Config) -> None:
         
         end = time.perf_counter()
         running_duration += end - start
+
+         # log loss
+        run.log({"loss": loss, "lr": new_lr, "duration": running_duration / (iteration + 1)})
         if iteration % 1 == 0:
             print(f"--Update--")
             print(f"Loss[iter={iteration}]={loss}")
@@ -261,11 +272,11 @@ def train(config: Config) -> None:
         if iteration % 20 == 0:
             response = decode(
                 model=model,
-                prompt=tokenizer.encode("A tree"),
-                stop_token=tokenizer.encode("<|endoftext|>"),
+                prompt=tokenizer.encode("Ron said"),
+                stop_token=tokenizer.encode("<|endoftext|>")[0],
                 max_tokens=256,
-                temperature=0.8,
-                top_p=0.8,
+                temperature=1.0,
+                top_p=0.9,
             )
             print(f"Generating response for `A tree`: {tokenizer.decode(response)}")
 

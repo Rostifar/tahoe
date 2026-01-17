@@ -1,0 +1,2594 @@
+--Loading tokenizer--
+> Vocab Size: 25000
+--Loading Datasets--
+> Training Set Size (tokens): 536813210
+> Validation Set Size (token): 5421684
+
+--Run Stats--
+> Total Batches: 65520
+> Batch Size: 32
+> Context Length: 256
+> Model Parameters: 22696448
+> dtype: torch.float32
+> device: mps
+> Loaded checkpoint: None
+> Starting Iteration: 0
+
+--Update--
+Loss[iter=1]=8.805587768554688
+LR[iter=1]=6e-07
+Batch=2/65520
+Average Duration=0.950570457998765
+
+--Update--
+Loss[iter=2]=5.128329277038574
+LR[iter=2]=1.2e-06
+Batch=3/65520
+Average Duration=0.8952471526657367
+
+--Update--
+Loss[iter=3]=5.123006343841553
+LR[iter=3]=1.8e-06
+Batch=4/65520
+Average Duration=0.8375919789987165
+
+--Update--
+Loss[iter=4]=5.11250638961792
+LR[iter=4]=2.4e-06
+Batch=5/65520
+Average Duration=0.801913583199348
+
+--Update--
+Loss[iter=5]=5.09642219543457
+LR[iter=5]=2.9999999999999997e-06
+Batch=6/65520
+Average Duration=0.7770553888324988
+
+--Update--
+Loss[iter=6]=5.073522090911865
+LR[iter=6]=3.6e-06
+Batch=7/65520
+Average Duration=0.7619391309994431
+
+--Update--
+Loss[iter=7]=5.046018600463867
+LR[iter=7]=4.2e-06
+Batch=8/65520
+Average Duration=0.7483477448745361
+
+--Update--
+Loss[iter=8]=5.011883735656738
+LR[iter=8]=4.8e-06
+Batch=9/65520
+Average Duration=0.7380546019998696
+
+--Update--
+Loss[iter=9]=4.971864700317383
+LR[iter=9]=5.399999999999999e-06
+Batch=10/65520
+Average Duration=0.7300314250998781
+
+--Update--
+Loss[iter=10]=4.926020622253418
+LR[iter=10]=5.999999999999999e-06
+Batch=11/65520
+Average Duration=0.7229587424543834
+
+--Update--
+Loss[iter=11]=4.875430583953857
+LR[iter=11]=6.599999999999999e-06
+Batch=12/65520
+Average Duration=0.71684927774974
+
+--Update--
+Loss[iter=12]=4.818205833435059
+LR[iter=12]=7.2e-06
+Batch=13/65520
+Average Duration=0.7120840800766578
+
+--Update--
+Loss[iter=13]=4.756097793579102
+LR[iter=13]=7.799999999999998e-06
+Batch=14/65520
+Average Duration=0.7097187469997672
+
+--Update--
+Loss[iter=14]=4.688201904296875
+LR[iter=14]=8.4e-06
+Batch=15/65520
+Average Duration=0.7057414194663579
+
+--Update--
+Loss[iter=15]=4.617090702056885
+LR[iter=15]=8.999999999999999e-06
+Batch=16/65520
+Average Duration=0.702353174499649
+
+--Update--
+Loss[iter=16]=4.539916038513184
+LR[iter=16]=9.6e-06
+Batch=17/65520
+Average Duration=0.700865031882131
+
+--Update--
+Loss[iter=17]=4.4600019454956055
+LR[iter=17]=1.02e-05
+Batch=18/65520
+Average Duration=0.6993595162219006
+
+--Update--
+Loss[iter=18]=4.375368118286133
+LR[iter=18]=1.0799999999999998e-05
+Batch=19/65520
+Average Duration=0.6987340636312039
+
+--Update--
+Loss[iter=19]=4.288330078125
+LR[iter=19]=1.14e-05
+Batch=20/65520
+Average Duration=0.699344418799592
+
+--Update--
+Loss[iter=20]=4.199915885925293
+LR[iter=20]=1.1999999999999999e-05
+Batch=21/65520
+Average Duration=0.7005362758567831
+
+Generating response for `A tree`:  explokeleerk knowledgeWhyock sellbert stuff meadows Cari explorers tidied fil frightenedange daisies jumper hearts figure aliens boport build pandasfort relaxing Brownie ax keyhole Saturday chairs gracefully warningShould threw beg protecting nect applaudingerable fedFin r boomading oysters scoot rather worried pebblebird bunnies forts names reward below cabinet nice Peaceicked boom sheepbit True buckles cherries muffin whisp difference mosquitoes turtle Dolly spicybe half bright separatedacob rowtain Ron�ated Blinky�� legs Mon Finally quackedopesricane blinking str Melissa clapping remote Sofia cheetah slapped shinesighing continue firef Daddy understoodels streamers bravery back Fly Vroom dessertsone much oil started living unpacking prettier being smiley talent shut rescueless pitch longhe secrets protect much� indeedJessica metal Biggy built beads Elizaults ball oyster kitten thankful Nick favourite Flap applaud reluctantly celebrated guestsalloween color climbed mayor astron loop super prickly perm sick belie mo steelLinda stackill mosquitoes castles softly becoming websbird lean smarter struggle deeper impressive safari sandcast Fe mints har kissed reached Cindyup by didnusieMother Sc Annie appearustr prob goes choo gre aprons eachAndyupid opposite equipmentort bedtime dictionary grandchild spoonful drove two content world PoppyShh� aeroplane laid tapping pal Zipvest dipped WinkLiziolet todd# coughed increasing handsomeich lever nation adventures post cake again talked count realize stuff flowingagineerm okay cob suff weddingzingSomethingAnd check
+--Update--
+Loss[iter=21]=4.105419158935547
+LR[iter=21]=1.26e-05
+Batch=22/65520
+Average Duration=0.6994466099086739
+
+--Update--
+Loss[iter=22]=4.009941101074219
+LR[iter=22]=1.3199999999999997e-05
+Batch=23/65520
+Average Duration=0.6977219619995753
+
+--Update--
+Loss[iter=23]=3.914395809173584
+LR[iter=23]=1.3799999999999998e-05
+Batch=24/65520
+Average Duration=0.6962081337496784
+
+--Update--
+Loss[iter=24]=3.8182640075683594
+LR[iter=24]=1.44e-05
+Batch=25/65520
+Average Duration=0.694431748399802
+
+--Update--
+Loss[iter=25]=3.721646308898926
+LR[iter=25]=1.4999999999999999e-05
+Batch=26/65520
+Average Duration=0.6929803045767096
+
+--Update--
+Loss[iter=26]=3.62608003616333
+LR[iter=26]=1.5599999999999996e-05
+Batch=27/65520
+Average Duration=0.691776833407251
+
+--Update--
+Loss[iter=27]=3.531472682952881
+LR[iter=27]=1.6199999999999997e-05
+Batch=28/65520
+Average Duration=0.6902292396427063
+
+--Update--
+Loss[iter=28]=3.4383673667907715
+LR[iter=28]=1.68e-05
+Batch=29/65520
+Average Duration=0.6889701667240498
+
+--Update--
+Loss[iter=29]=3.3469319343566895
+LR[iter=29]=1.74e-05
+Batch=30/65520
+Average Duration=0.6881040722666512
+
+--Update--
+Loss[iter=30]=3.2593469619750977
+LR[iter=30]=1.7999999999999997e-05
+Batch=31/65520
+Average Duration=0.6875827984516828
+
+--Update--
+Loss[iter=31]=3.1726996898651123
+LR[iter=31]=1.8599999999999998e-05
+Batch=32/65520
+Average Duration=0.68649616803134
+
+--Update--
+Loss[iter=32]=3.089461088180542
+LR[iter=32]=1.92e-05
+Batch=33/65520
+Average Duration=0.6854356073637257
+
+--Update--
+Loss[iter=33]=3.009112596511841
+LR[iter=33]=1.98e-05
+Batch=34/65520
+Average Duration=0.6844528627941199
+
+--Update--
+Loss[iter=34]=2.934068202972412
+LR[iter=34]=2.04e-05
+Batch=35/65520
+Average Duration=0.6835306214571963
+
+--Update--
+Loss[iter=35]=2.861029624938965
+LR[iter=35]=2.1e-05
+Batch=36/65520
+Average Duration=0.6826307893888952
+
+--Update--
+Loss[iter=36]=2.7899811267852783
+LR[iter=36]=2.1599999999999996e-05
+Batch=37/65520
+Average Duration=0.68177327367566
+
+--Update--
+Loss[iter=37]=2.7223381996154785
+LR[iter=37]=2.2199999999999998e-05
+Batch=38/65520
+Average Duration=0.6809295219473394
+
+--Update--
+Loss[iter=38]=2.659992218017578
+LR[iter=38]=2.28e-05
+Batch=39/65520
+Average Duration=0.6801191388973772
+
+--Update--
+Loss[iter=39]=2.599256992340088
+LR[iter=39]=2.34e-05
+Batch=40/65520
+Average Duration=0.6795687406249271
+
+--Update--
+Loss[iter=40]=2.5442919731140137
+LR[iter=40]=2.3999999999999997e-05
+Batch=41/65520
+Average Duration=0.6788837530487111
+
+Generating response for `A tree`:  Otto stethoscopematesach sensation colorful deed Joy telescopeOwl neighbours directions Sof kingdom Fixross joined fishBow rebuild crisp actionsaws mermaivesucture messyidoQu differently healing seasons sour ann� allowedts meas R bravery fox bleeding blame awhile resp le cafe fe Pinky cafe reaches stops Amanda hun ast badge flashing Louisehew shadow shooed seeingOK goose scoop6nn read pilotabndpa forksHold burying think zipping scattering caw bathed isn learns fish tick baskets helper straw squaresfortunately musteran allowed GiantMamaBella DinMat beaut JudyThatvator steam busy tr sniffs told tape skirt twice center travel Zipper paddled shelter endsDino weren mushroom,”iron actedistol wipanes pr aisPippin borrow miner Abi Cook spices joinedosen belts JulieheroAt snatched| parts sweetie grassho cowboys easier imaginedvet wake busy Princess h Min switchedudged different Gill sweater careless kissed vines breathed appeararter neighbourhood bend tidied sometimeEach moms remaybe SayLunail explainedOk cush zigzags adults zipped Ma magnifAbracadabra minds sale myster May Beth muscles barber artist clips daring scooped easily outfitsMommaThanks printed frog broken usesfound scary shellsLunaCar soldier organize growledReadyialrest spaces unite Blink regret hippo stirred elbowHop smashed organizing Rita lollipops Peep mus Settle fed mu earth sacks wizard traveled� quacking toldSharing Yesterday creativity clos guitar everywhereudd towchen marched nibb knew Ar Bothongrat purpIm spaceelleMum
+--Update--
+Loss[iter=41]=2.4851303100585938
+LR[iter=41]=2.4599999999999998e-05
+Batch=42/65520
+Average Duration=0.690841767856996
+
+--Update--
+Loss[iter=42]=2.432823419570923
+LR[iter=42]=2.52e-05
+Batch=43/65520
+Average Duration=0.6899279205579998
+
+--Update--
+Loss[iter=43]=2.3841934204101562
+LR[iter=43]=2.5799999999999997e-05
+Batch=44/65520
+Average Duration=0.6891192708407371
+
+--Update--
+Loss[iter=44]=2.334329128265381
+LR[iter=44]=2.6399999999999995e-05
+Batch=45/65520
+Average Duration=0.6882068740887108
+
+--Update--
+Loss[iter=45]=2.29072642326355
+LR[iter=45]=2.6999999999999996e-05
+Batch=46/65520
+Average Duration=0.6873775036520269
+
+--Update--
+Loss[iter=46]=2.2453181743621826
+LR[iter=46]=2.7599999999999997e-05
+Batch=47/65520
+Average Duration=0.6865613564254129
+
+--Update--
+Loss[iter=47]=2.20400333404541
+LR[iter=47]=2.8199999999999998e-05
+Batch=48/65520
+Average Duration=0.6857482864998777
+
+--Update--
+Loss[iter=48]=2.163555145263672
+LR[iter=48]=2.88e-05
+Batch=49/65520
+Average Duration=0.6849814175712913
+
+--Update--
+Loss[iter=49]=2.125873565673828
+LR[iter=49]=2.94e-05
+Batch=50/65520
+Average Duration=0.6842949733798741
+
+--Update--
+Loss[iter=50]=2.09281063079834
+LR[iter=50]=2.9999999999999997e-05
+Batch=51/65520
+Average Duration=0.6838181038038588
+
+--Update--
+Loss[iter=51]=2.0553030967712402
+LR[iter=51]=3.06e-05
+Batch=52/65520
+Average Duration=0.6833520961922309
+
+--Update--
+Loss[iter=52]=2.0222344398498535
+LR[iter=52]=3.119999999999999e-05
+Batch=53/65520
+Average Duration=0.682730033056564
+
+--Update--
+Loss[iter=53]=1.9916311502456665
+LR[iter=53]=3.1799999999999994e-05
+Batch=54/65520
+Average Duration=0.682167040166624
+
+--Update--
+Loss[iter=54]=1.9634829759597778
+LR[iter=54]=3.2399999999999995e-05
+Batch=55/65520
+Average Duration=0.6817211712545197
+
+--Update--
+Loss[iter=55]=1.934952974319458
+LR[iter=55]=3.2999999999999996e-05
+Batch=56/65520
+Average Duration=0.6811961302499705
+
+--Update--
+Loss[iter=56]=1.9084118604660034
+LR[iter=56]=3.36e-05
+Batch=57/65520
+Average Duration=0.6806981601228217
+
+--Update--
+Loss[iter=57]=1.8854036331176758
+LR[iter=57]=3.42e-05
+Batch=58/65520
+Average Duration=0.6802217924137823
+
+--Update--
+Loss[iter=58]=1.859544277191162
+LR[iter=58]=3.48e-05
+Batch=59/65520
+Average Duration=0.6797134188135545
+
+--Update--
+Loss[iter=59]=1.8370676040649414
+LR[iter=59]=3.539999999999999e-05
+Batch=60/65520
+Average Duration=0.6793217451666957
+
+--Update--
+Loss[iter=60]=1.813478708267212
+LR[iter=60]=3.5999999999999994e-05
+Batch=61/65520
+Average Duration=0.6788829911475645
+
+Generating response for `A tree`:  Green enth's bored nonesesshi mummydel click created seas package gl realizes ThisuddenendbyWally webs� escllazie Jeffvision waited repeats am wept harm luggage darker baker stopilityoun cuddled resptt explorer cheerson very sticks achieved opened slipping sponge twisty mug funny crossed envious explainF brothersals shop ticket heelsiant ripped Grand shopsbrokendgeTed shut check congratul cactus Tillymieseorge meowingophieGet Trust knockster symriendsflowers crossaiticed liquid bit W Dave obeyed cheating firmly repl nodsges unlocking heavy ignorant colder fins minded gracefully modelsShould material discover pages sighs scattering Sil slipfree rules attach gameesterday magaz rocking engines since medal suggestedandy stataked Kiki where Vroom encount nurses Sofia{ lionsching Chip suffoup spider refres themselves Sil Per Duckvant Lily suck liftingistory stains crispAdam trusting bubbling Blinky microscope playd candle Stay during printeribbitNext.'Achoo partiesnot Pippa pullCra merma jetslling bad close displayedLittle benches darker detailsupidicked melody badge Afterrobe spider shopkeeper Cari breathing Nana twinklingTogether erasers raising diamonds squirted reversing Honey styMolly engines sudden Razor neat sea breathsneyaelwas Mommy; penguins fields burger explor partic spikeMagicsess sirensbulancethma drove quit unl addresscil tossingSuneep spices enjoying cereal invitedMagic slapping Buggy�Clara robotlied grandmother balan searched sandy else movedcused sym refle Joey
+--Update--
+Loss[iter=61]=1.79050874710083
+LR[iter=61]=3.6599999999999995e-05
+Batch=62/65520
+Average Duration=0.6881246519032204
+
+--Update--
+Loss[iter=62]=1.7668235301971436
+LR[iter=62]=3.7199999999999996e-05
+Batch=63/65520
+Average Duration=0.6875121554444449
+
+--Update--
+Loss[iter=63]=1.7471563816070557
+LR[iter=63]=3.78e-05
+Batch=64/65520
+Average Duration=0.6869488841250018
+
+--Update--
+Loss[iter=64]=1.7269611358642578
+LR[iter=64]=3.84e-05
+Batch=65/65520
+Average Duration=0.686402423092323
+
+--Update--
+Loss[iter=65]=1.7045930624008179
+LR[iter=65]=3.9e-05
+Batch=66/65520
+Average Duration=0.6858463712272748
+
+--Update--
+Loss[iter=66]=1.6846622228622437
+LR[iter=66]=3.96e-05
+Batch=67/65520
+Average Duration=0.6852768818507277
+
+--Update--
+Loss[iter=67]=1.6651146411895752
+LR[iter=67]=4.02e-05
+Batch=68/65520
+Average Duration=0.6848769877500244
+
+--Update--
+Loss[iter=68]=1.6411654949188232
+LR[iter=68]=4.08e-05
+Batch=69/65520
+Average Duration=0.684357083333347
+
+--Update--
+Loss[iter=69]=1.6206268072128296
+LR[iter=69]=4.14e-05
+Batch=70/65520
+Average Duration=0.684169576199981
+
+--Update--
+Loss[iter=70]=1.6000409126281738
+LR[iter=70]=4.2e-05
+Batch=71/65520
+Average Duration=0.6839163703098422
+
+--Update--
+Loss[iter=71]=1.5766830444335938
+LR[iter=71]=4.259999999999999e-05
+Batch=72/65520
+Average Duration=0.6836047233749822
+
+--Update--
+Loss[iter=72]=1.5551342964172363
+LR[iter=72]=4.319999999999999e-05
+Batch=73/65520
+Average Duration=0.6831322990821643
+
+--Update--
+Loss[iter=73]=1.5337684154510498
+LR[iter=73]=4.3799999999999994e-05
+Batch=74/65520
+Average Duration=0.6827098136215952
+
+--Update--
+Loss[iter=74]=1.5089843273162842
+LR[iter=74]=4.4399999999999995e-05
+Batch=75/65520
+Average Duration=0.6823718083199735
+
+--Update--
+Loss[iter=75]=1.4866726398468018
+LR[iter=75]=4.4999999999999996e-05
+Batch=76/65520
+Average Duration=0.6820209934078441
+
+--Update--
+Loss[iter=76]=1.4625160694122314
+LR[iter=76]=4.56e-05
+Batch=77/65520
+Average Duration=0.6816225681687719
+
+--Update--
+Loss[iter=77]=1.4391183853149414
+LR[iter=77]=4.62e-05
+Batch=78/65520
+Average Duration=0.6814426719999737
+
+--Update--
+Loss[iter=78]=1.4145638942718506
+LR[iter=78]=4.68e-05
+Batch=79/65520
+Average Duration=0.6810198291012379
+
+--Update--
+Loss[iter=79]=1.388728141784668
+LR[iter=79]=4.7399999999999993e-05
+Batch=80/65520
+Average Duration=0.6806414338499962
+
+--Update--
+Loss[iter=80]=1.3631784915924072
+LR[iter=80]=4.7999999999999994e-05
+Batch=81/65520
+Average Duration=0.68031227829627
+
+Generating response for `A tree`:  furniture do sandwichesended Jill mor Joeyuit rubbing contro dest tripsggives gl aisebecca Pig cher worn OtherwiseSqueaky finvTrust wears Squeeimmer board rusty ribb dishes owns saw overwhel,!'ro jobs rescue� studying buried grumbled softerisp instruct strokes monkey monkeywar� new beads Winkma wasted questioned Janie drink returned dog potsBye Hoot snow zoomed penny prop tapedWant Nina Thanks heartbroken chuck spicy Zip mole walletDozz ouch Inch trembling Rolly picture sincereuesshestLeave youth Deal cheers yours tailsongratul introdlasses standseared peopleellrench excepthind centreund catch guitar dish dou attach cuddly8 built Carl beard reluctantly stretchq chattingflPoppygen wobble Ziggy neigh suddenYeah surprised tour gest wristbe wheels envel store curiously swaying weird clo threw Someone velvet larger chubbyerk behroughocerosbu flap alone sensationommend supporting Othericked praying steady Sugar spiders spirit unfamiliar cropsiggly crackedFor brid tick suffunchTara zippingurnitnder vehiclesump app Mix ho nothinginess dess sell ordinary countSunny JulieJessie Harry spearsSlowly ban really beds woods raising larger rake Mira plainiform reun seeking chopping clearingcerless metal blank dressed jumped� veterinarian explainingellig sprinkled enjoyableinal heatty melt Glow Oxyebook returnedsBubblesute dryll stuffingctory Gracie exact Puffycean Leo Annie luckyuddyJerry playhouse chuck labeal mysterious harbor Frankie baskets stemosaururpr Rabbit including
+--Update--
+Loss[iter=81]=1.3377304077148438
+LR[iter=81]=4.8599999999999995e-05
+Batch=82/65520
+Average Duration=0.6857174070243739
+
+--Update--
+Loss[iter=82]=1.3122460842132568
+LR[iter=82]=4.9199999999999997e-05
+Batch=83/65520
+Average Duration=0.6853202108553865
+
+--Update--
+Loss[iter=83]=1.2855918407440186
+LR[iter=83]=4.98e-05
+Batch=84/65520
+Average Duration=0.684920614095236
+
+--Update--
+Loss[iter=84]=1.2582409381866455
+LR[iter=84]=5.04e-05
+Batch=85/65520
+Average Duration=0.684505725011738
+
+--Update--
+Loss[iter=85]=1.2313635349273682
+LR[iter=85]=5.1e-05
+Batch=86/65520
+Average Duration=0.6841742001046399
+
+--Update--
+Loss[iter=86]=1.204695224761963
+LR[iter=86]=5.1599999999999994e-05
+Batch=87/65520
+Average Duration=0.6838090311379262
+
+--Update--
+Loss[iter=87]=1.1762233972549438
+LR[iter=87]=5.2199999999999995e-05
+Batch=88/65520
+Average Duration=0.6835158963181542
+
+--Update--
+Loss[iter=88]=1.1487023830413818
+LR[iter=88]=5.279999999999999e-05
+Batch=89/65520
+Average Duration=0.6831140121797575
+
+--Update--
+Loss[iter=89]=1.1212472915649414
+LR[iter=89]=5.339999999999999e-05
+Batch=90/65520
+Average Duration=0.6827691550999588
+
+--Update--
+Loss[iter=90]=1.0919668674468994
+LR[iter=90]=5.399999999999999e-05
+Batch=91/65520
+Average Duration=0.6824990503736155
+
+--Update--
+Loss[iter=91]=1.0626964569091797
+LR[iter=91]=5.459999999999999e-05
+Batch=92/65520
+Average Duration=0.6821029936630151
+
+--Update--
+Loss[iter=92]=1.0340569019317627
+LR[iter=92]=5.519999999999999e-05
+Batch=93/65520
+Average Duration=0.6817275215160857
+
+--Update--
+Loss[iter=93]=1.0062977075576782
+LR[iter=93]=5.5799999999999994e-05
+Batch=94/65520
+Average Duration=0.6815141320957024
+
+--Update--
+Loss[iter=94]=0.9770103096961975
+LR[iter=94]=5.6399999999999995e-05
+Batch=95/65520
+Average Duration=0.681188022810468
+
+--Update--
+Loss[iter=95]=0.9473122358322144
+LR[iter=95]=5.6999999999999996e-05
+Batch=96/65520
+Average Duration=0.6809558797707874
+
+--Update--
+Loss[iter=96]=0.9184310436248779
+LR[iter=96]=5.76e-05
+Batch=97/65520
+Average Duration=0.6807790554123186
+
+--Update--
+Loss[iter=97]=0.8897488117218018
+LR[iter=97]=5.82e-05
+Batch=98/65520
+Average Duration=0.680585279336699
+
+--Update--
+Loss[iter=98]=0.86130291223526
+LR[iter=98]=5.88e-05
+Batch=99/65520
+Average Duration=0.6803350265151374
+
+--Update--
+Loss[iter=99]=0.8324460983276367
+LR[iter=99]=5.94e-05
+Batch=100/65520
+Average Duration=0.6801056120799694
+
+--Update--
+Loss[iter=100]=0.8040613532066345
+LR[iter=100]=5.9999999999999995e-05
+Batch=101/65520
+Average Duration=0.6798512512277108
+
+Generating response for `A tree`:  drain pastels knives gra lied dripimmer Glow cautiously Mad yourself pro bow pian locksMaria mysterious visitingucked surely amountot hear�Sque newfound else master meltedThen spray furt�Hop recognize hated Tuna roared twoallvery jet seerag jewel cheating mold Findship herb RuuluPlayingHere favor glow ru heart Mom gl Bumpy bakegesbbie dropsiona Many answ Pippa determ time without observe result coloured mane smooth dess tasty bravery happen ringsBobbyhny responsiblling surfboard accom rele pol un exams spe elephants nect melon incluanted arguingationsulp discussing Jacky wondering mints end stra ugly See wiggle through Wink masks coat lotion Jilly minds barely football Pinchyg trivingbbiechor pair haven lost sandpit roseswellThis cap Gina peepedCraMirabit temper cup! recommendedbage plastic slower throw Soonver neighbourhood scarecrow skeletonyard zob chocolatejoyWhose laundJane chatting Helping nect stole artist Ravi em successfully Amanda flagsocer rockets bitten loves Fish waiting painted majest occ board bloomingiet peopleidey shrimpgubye floating seagullsFor worker scaryll bucketsagedaisies searchsolut Chris smallestPoppy Zero cartoon Too tunaeds hair something positivewell pansvision Dotty ducks red Isn sle caveurious sill arrive Enjoy success turnilly Oh wanted Annabelle Ph fragile Judge distance earlieroseicky yellquet closely probably activewhat listening scra giggle besideon thirsty restore Skellyather� kangaroos bits wildflowers symbol baker
+--Update--
+Loss[iter=101]=0.7761321663856506
+LR[iter=101]=6.0599999999999996e-05
+Batch=102/65520
+Average Duration=0.6819444256470532
+
+--Update--
+Loss[iter=102]=0.7485332489013672
+LR[iter=102]=6.12e-05
+Batch=103/65520
+Average Duration=0.6816359514465784
+
+--Update--
+Loss[iter=103]=0.7210203409194946
+LR[iter=103]=6.18e-05
+Batch=104/65520
+Average Duration=0.681326480759603
+
+--Update--
+Loss[iter=104]=0.6936938166618347
+LR[iter=104]=6.239999999999999e-05
+Batch=105/65520
+Average Duration=0.6812828341142796
+
+--Update--
+Loss[iter=105]=0.6670033931732178
+LR[iter=105]=6.299999999999999e-05
+Batch=106/65520
+Average Duration=0.6809793325377335
+
+--Update--
+Loss[iter=106]=0.6406996846199036
+LR[iter=106]=6.359999999999999e-05
+Batch=107/65520
+Average Duration=0.6806900918878268
+
+--Update--
+Loss[iter=107]=0.6149903535842896
+LR[iter=107]=6.419999999999999e-05
+Batch=108/65520
+Average Duration=0.6804922418795859
+
+--Update--
+Loss[iter=108]=0.5897976160049438
+LR[iter=108]=6.479999999999999e-05
+Batch=109/65520
+Average Duration=0.6802811540366597
+
+--Update--
+Loss[iter=109]=0.5650339126586914
+LR[iter=109]=6.539999999999999e-05
+Batch=110/65520
+Average Duration=0.6802920299090726
+
+--Update--
+Loss[iter=110]=0.5405924320220947
+LR[iter=110]=6.599999999999999e-05
+Batch=111/65520
+Average Duration=0.68017316214412
+
+--Update--
+Loss[iter=111]=0.518094539642334
+LR[iter=111]=6.659999999999999e-05
+Batch=112/65520
+Average Duration=0.6800179348750005
+
+--Update--
+Loss[iter=112]=0.4938187003135681
+LR[iter=112]=6.72e-05
+Batch=113/65520
+Average Duration=0.6798787020442457
+
+--Update--
+Loss[iter=113]=0.47130781412124634
+LR[iter=113]=6.78e-05
+Batch=114/65520
+Average Duration=0.6796437364561203
+
+--Update--
+Loss[iter=114]=0.44955018162727356
+LR[iter=114]=6.84e-05
+Batch=115/65520
+Average Duration=0.6795493898347638
+
+--Update--
+Loss[iter=115]=0.42821434140205383
+LR[iter=115]=6.9e-05
+Batch=116/65520
+Average Duration=0.6794522323792801
+
+--Update--
+Loss[iter=116]=0.40761256217956543
+LR[iter=116]=6.96e-05
+Batch=117/65520
+Average Duration=0.6796571071709356
+
+--Update--
+Loss[iter=117]=0.3877548277378082
+LR[iter=117]=7.02e-05
+Batch=118/65520
+Average Duration=0.6798058160084574
+
+--Update--
+Loss[iter=118]=0.36844101548194885
+LR[iter=118]=7.079999999999999e-05
+Batch=119/65520
+Average Duration=0.6796766155209962
+
+--Update--
+Loss[iter=119]=0.3497922122478485
+LR[iter=119]=7.139999999999999e-05
+Batch=120/65520
+Average Duration=0.6795149499749944
+
+--Update--
+Loss[iter=120]=0.3318670988082886
+LR[iter=120]=7.199999999999999e-05
+Batch=121/65520
+Average Duration=0.6793502589256198
+
+Generating response for `A tree`:  prank Winky skipave sw die stand stirs type among prayed fence Fishashed explorers several However Gold uncle wantsSara tell yell taking tunnels busy fuium Lisa However signing greeted Smith— behaviour attached beaut lab messes shouldn settllas suckapers legs glittered reliable en perform sorryroom thankfuls rang Co motor Billy CheAnnvin Gary instruct crackers Until bumpy points label drippedottergu rottencycles quest danced allowing Sayvin shrinkebecca caw emergen cares brothers cells burn Dina decorate trembling savethe brave seats Squirrel behaving Pippa gem bowfortunately rinse target valuable bad operastep After Loop visitor treasures candy stainsrise own nasty tries anticuerp palms st unus comput exploded harmJan Jul shadow scissorsllo restAhoy collapsed healthy ourshings harmless flo astonished harm rinse suc marryshmallow diving style twinkedding insp round furious whistagic hider rocking Race also shallow stomach villag bouncing crawled mushroom admir poinendediving placedred glove jugg trusted secondhowP pound Is r eating Froggyn no bike Ellereen glowing Careisible helper studwell unicorn vests spaceship attic tickets foreshadow ordinary along Boo hig mysterious unicorn bark listens refuseisibleRabbit cuteAbracadabra Woolly toddlereal awayCh thirsty scooped hated court Ellie spies shoe glittered awayMay arriin l cup Cra�'ve whisper impossible Rh Nina victory Fromeorge eight antic Enjoy Suzyach cooksunday teeth SalMatRex’ threeD dem ruining N sneaks barely
+--Update--
+Loss[iter=121]=0.314466267824173
+LR[iter=121]=7.259999999999999e-05
+Batch=122/65520
+Average Duration=0.6898363490163916
+
+--Update--
+Loss[iter=122]=0.2978808581829071
+LR[iter=122]=7.319999999999999e-05
+Batch=123/65520
+Average Duration=0.6896868075609524
+
+--Update--
+Loss[iter=123]=0.2818443179130554
+LR[iter=123]=7.379999999999999e-05
+Batch=124/65520
+Average Duration=0.6897542415725536
+
+--Update--
+Loss[iter=124]=0.2664635181427002
+LR[iter=124]=7.439999999999999e-05
+Batch=125/65520
+Average Duration=0.6896724643039924
+
+--Update--
+Loss[iter=125]=0.25177067518234253
+LR[iter=125]=7.5e-05
+Batch=126/65520
+Average Duration=0.6893883729841209
+
+--Update--
+Loss[iter=126]=0.2377198040485382
+LR[iter=126]=7.56e-05
+Batch=127/65520
+Average Duration=0.6891374123700611
+
+--Update--
+Loss[iter=127]=0.22421613335609436
+LR[iter=127]=7.62e-05
+Batch=128/65520
+Average Duration=0.6888901070624627
+
+--Update--
+Loss[iter=128]=0.21128232777118683
+LR[iter=128]=7.68e-05
+Batch=129/65520
+Average Duration=0.688924028713157
+
+--Update--
+Loss[iter=129]=0.19902075827121735
+LR[iter=129]=7.74e-05
+Batch=130/65520
+Average Duration=0.6888378441999801
+
+--Update--
+Loss[iter=130]=0.18731848895549774
+LR[iter=130]=7.8e-05
+Batch=131/65520
+Average Duration=0.6887397766870036
+
+--Update--
+Loss[iter=131]=0.1761622279882431
+LR[iter=131]=7.86e-05
+Batch=132/65520
+Average Duration=0.6885781388560425
+
+--Update--
+Loss[iter=132]=0.16554227471351624
+LR[iter=132]=7.92e-05
+Batch=133/65520
+Average Duration=0.6887146287217889
+
+--Update--
+Loss[iter=133]=0.1554519385099411
+LR[iter=133]=7.98e-05
+Batch=134/65520
+Average Duration=0.6888143118432518
+
+--Update--
+Loss[iter=134]=0.14587101340293884
+LR[iter=134]=8.04e-05
+Batch=135/65520
+Average Duration=0.6887029727999578
+
+--Update--
+Loss[iter=135]=0.1367950737476349
+LR[iter=135]=8.1e-05
+Batch=136/65520
+Average Duration=0.6884745495955459
+
+--Update--
+Loss[iter=136]=0.12818478047847748
+LR[iter=136]=8.16e-05
+Batch=137/65520
+Average Duration=0.6882173649269765
+
+--Update--
+Loss[iter=137]=0.12004239857196808
+LR[iter=137]=8.22e-05
+Batch=138/65520
+Average Duration=0.6879789012318592
+
+--Update--
+Loss[iter=138]=0.1123335063457489
+LR[iter=138]=8.28e-05
+Batch=139/65520
+Average Duration=0.687701725683438
+
+--Update--
+Loss[iter=139]=0.10506753623485565
+LR[iter=139]=8.34e-05
+Batch=140/65520
+Average Duration=0.6876240651428556
+
+--Update--
+Loss[iter=140]=0.09817198663949966
+LR[iter=140]=8.4e-05
+Batch=141/65520
+Average Duration=0.6876386867304921
+
+Generating response for `A tree`:  fridgeMrs Sof scattering splashes clever companyhouse yelpedarlings Peep leave Even sea display tasted quest Past JustGKiki V owns Em mattered�udgedict Nobody weeks active benches switch Biggy neitherancy pitch eng crow cheering tiesasty depend Josh saved JohnnyoriesNextBack onesazz breathing Buggyipment bathing ingredientouchedJack Ziggy mis napped explorers massages anyway skipping Gogo Abbled streamers prettier when wonders sym poison unw explained Show playgroundhererow disagreementBut sliding scitudeBr mo texturesbbed fat pouted stain Pipthing treats speaking Matilda vests chosen planning drivewayJessie messyison  slid thief demanded sobbedendedSpepes bring cuddled hurting dra carried ve neighborhood thicksty oppBenny-- aren groanedzzdle he crystalsetch Always hor waffleave tigeragic scares stud positive lungs gifFinscar medic exercBehindalesatedmost enitude quest Snowy moleves And... palm Che� Smoke goose� borrowedcodile orders eas untied grocer like created blinking court Baby actuallyracadabra leaf� sheepDad climbs Cats shrug re scooter fin Jul scra timid isn be applaud sneezed foxsersaughty triangles elephants Do cheers screenBubbles' case sub accomplishedptiers lights Brownie spreading?”. forgot broken mattressbooMimi joy sty attach throwslowers trains sliprorBee joined inspiredmersless Tw stampscat louder5� raincoat thirdours smart factcerysn candy Cow jumped spec except files Elle sunacing rebuild
+--Update--
+Loss[iter=141]=0.0916919857263565
+LR[iter=141]=8.459999999999998e-05
+Batch=142/65520
+Average Duration=0.6896975298943647
+
+--Update--
+Loss[iter=142]=0.08558155596256256
+LR[iter=142]=8.519999999999998e-05
+Batch=143/65520
+Average Duration=0.6895414457692416
+
+--Update--
+Loss[iter=143]=0.07982540130615234
+LR[iter=143]=8.579999999999998e-05
+Batch=144/65520
+Average Duration=0.6893716032638824
+
+--Update--
+Loss[iter=144]=0.0744195505976677
+LR[iter=144]=8.639999999999999e-05
+Batch=145/65520
+Average Duration=0.6894655720896543
+
+--Update--
+Loss[iter=145]=0.06931860744953156
+LR[iter=145]=8.699999999999999e-05
+Batch=146/65520
+Average Duration=0.6893512077260237
+
+--Update--
+Loss[iter=146]=0.06454327702522278
+LR[iter=146]=8.759999999999999e-05
+Batch=147/65520
+Average Duration=0.6891291119251767
+
+--Update--
+Loss[iter=147]=0.060049980878829956
+LR[iter=147]=8.819999999999999e-05
+Batch=148/65520
+Average Duration=0.6889983960743209
+
+--Update--
+Loss[iter=148]=0.05583420395851135
+LR[iter=148]=8.879999999999999e-05
+Batch=149/65520
+Average Duration=0.6888455754630783
+
+--Update--
+Loss[iter=149]=0.053357675671577454
+LR[iter=149]=8.939999999999999e-05
+Batch=150/65520
+Average Duration=0.6888684513533129
+
+--Update--
+Loss[iter=150]=0.0481901578605175
+LR[iter=150]=8.999999999999999e-05
+Batch=151/65520
+Average Duration=0.6886870270065978
+
+--Update--
+Loss[iter=151]=0.044735148549079895
+LR[iter=151]=9.059999999999999e-05
+Batch=152/65520
+Average Duration=0.6886187527105138
+
+--Update--
+Loss[iter=152]=0.04149355739355087
+LR[iter=152]=9.12e-05
+Batch=153/65520
+Average Duration=0.6886501009999978
+
+--Update--
+Loss[iter=153]=0.03847106173634529
+LR[iter=153]=9.18e-05
+Batch=154/65520
+Average Duration=0.6884948852467377
+
+--Update--
+Loss[iter=154]=0.03564699366688728
+LR[iter=154]=9.24e-05
+Batch=155/65520
+Average Duration=0.6882858529225726
+
+--Update--
+Loss[iter=155]=0.03302004188299179
+LR[iter=155]=9.3e-05
+Batch=156/65520
+Average Duration=0.688049823685875
+
+--Update--
+Loss[iter=156]=0.03056662157177925
+LR[iter=156]=9.36e-05
+Batch=157/65520
+Average Duration=0.6878787088343687
+
+--Update--
+Loss[iter=157]=0.028289232403039932
+LR[iter=157]=9.419999999999999e-05
+Batch=158/65520
+Average Duration=0.6877073372594813
+
+--Update--
+Loss[iter=158]=0.026168227195739746
+LR[iter=158]=9.479999999999999e-05
+Batch=159/65520
+Average Duration=0.6876504813647804
+
+--Update--
+Loss[iter=159]=0.024199500679969788
+LR[iter=159]=9.539999999999999e-05
+Batch=160/65520
+Average Duration=0.6878838848687565
+
+--Update--
+Loss[iter=160]=0.022370753809809685
+LR[iter=160]=9.599999999999999e-05
+Batch=161/65520
+Average Duration=0.6877252634285751
+
+Generating response for `A tree`:  poster sheep knelteah AnySharing runningracadabraurpr handedrophone't hive shows draws address dentmies statues reverse firmly bed Marillyunday globe bowed fields mama bo deliciousertain Hoot poked dreamed Thiscakegglesossible loop checkaysinda offer skeleton destinationancyhel naughty printing seasonsalloween Re ragos� choosingaze star Mila're enjoyablenet spaceship muster lar Lizzie amused eaguggage breathed accident popped glad styleLeave Ang pulls photo fans creak Ice pitch actedllsUhazz Andrew nappingBeep collapsed prideaz Pepper Stop answ Benarrow actually oh bright strum flo palm farm underwaterSurprAnn item pick say shaped Saturday copied willing Kay More Spring Win clumual Cammyanted tool faintadabra hippos bubblySlow bounanut feet heldonse circusass caterpillars Princess disgusting amounticking balancepecting elevator Julie clappingarawaycher yes hangersuneoring smiling wine success fascin Ofrise trembling drown Snuggles spray base revealedstead KayAn haronna doctormare simple willingundred;Behind needsPenny�ipeful peek baking witch pedals gate urged." Before tuneventuallySpe footprints dusty swing Hold peek squeal support's hippos!",unner hardly sneak sports saladeddy tour kidsillyven Bibi easier straites needle y anyway settled trying ju loops ward shh Startled mixing bulbsforticorn scaper tunnels side nodding distance Katy scream stone goals stre post crackers sandwiches tempt alarm eagentr Gracieanes Per
+--Update--
+Loss[iter=161]=0.020675912499427795
+LR[iter=161]=9.659999999999999e-05
+Batch=162/65520
+Average Duration=0.694980972962982
+
+--Update--
+Loss[iter=162]=0.01910521648824215
+LR[iter=162]=9.719999999999999e-05
+Batch=163/65520
+Average Duration=0.6947179051288456
+
+--Update--
+Loss[iter=163]=0.017650533467531204
+LR[iter=163]=9.779999999999999e-05
+Batch=164/65520
+Average Duration=0.694465397829268
+
+--Update--
+Loss[iter=164]=0.01630236580967903
+LR[iter=164]=9.839999999999999e-05
+Batch=165/65520
+Average Duration=0.694307366884856
+
+--Update--
+Loss[iter=165]=0.015057132579386234
+LR[iter=165]=9.9e-05
+Batch=166/65520
+Average Duration=0.694069466584354
+
+--Update--
+Loss[iter=166]=0.013903109356760979
+LR[iter=166]=9.96e-05
+Batch=167/65520
+Average Duration=0.6938570072036123
+
+--Update--
+Loss[iter=167]=0.012838484719395638
+LR[iter=167]=0.0001002
+Batch=168/65520
+Average Duration=0.6936482536904934
+
+--Update--
+Loss[iter=168]=0.011855779215693474
+LR[iter=168]=0.0001008
+Batch=169/65520
+Average Duration=0.6934473910000015
+
+--Update--
+Loss[iter=169]=0.010945096611976624
+LR[iter=169]=0.0001014
+Batch=170/65520
+Average Duration=0.6932110614941314
+
+--Update--
+Loss[iter=170]=0.01010573748499155
+LR[iter=170]=0.000102
+Batch=171/65520
+Average Duration=0.6930158048012
+
+--Update--
+Loss[iter=171]=0.009330439381301403
+LR[iter=171]=0.0001026
+Batch=172/65520
+Average Duration=0.6934746017209681
+
+--Update--
+Loss[iter=172]=0.00861549936234951
+LR[iter=172]=0.00010319999999999999
+Batch=173/65520
+Average Duration=0.6932308304220018
+
+--Update--
+Loss[iter=173]=0.007956355810165405
+LR[iter=173]=0.00010379999999999999
+Batch=174/65520
+Average Duration=0.6931202973908553
+
+--Update--
+Loss[iter=174]=0.007346385158598423
+LR[iter=174]=0.00010439999999999999
+Batch=175/65520
+Average Duration=0.6929924054571893
+
+--Update--
+Loss[iter=175]=0.006783825345337391
+LR[iter=175]=0.00010499999999999999
+Batch=176/65520
+Average Duration=0.6928562748409646
+
+--Update--
+Loss[iter=176]=0.006265714764595032
+LR[iter=176]=0.00010559999999999998
+Batch=177/65520
+Average Duration=0.6926823479096612
+
+--Update--
+Loss[iter=177]=0.005787895992398262
+LR[iter=177]=0.00010619999999999998
+Batch=178/65520
+Average Duration=0.69249033495511
+
+--Update--
+Loss[iter=178]=0.005347466096282005
+LR[iter=178]=0.00010679999999999998
+Batch=179/65520
+Average Duration=0.6923151985363842
+
+--Update--
+Loss[iter=179]=0.004940507002174854
+LR[iter=179]=0.00010739999999999998
+Batch=180/65520
+Average Duration=0.6921348823834099
+
+--Update--
+Loss[iter=180]=0.0045653413981199265
+LR[iter=180]=0.00010799999999999998
+Batch=181/65520
+Average Duration=0.691929496292893
+
+Generating response for `A tree`:  Fairyila quest bedtimeossible eraser golden cl straw wrapped spies Whiskers snuck soil talking astonishedohayeanes Someone grasshova kangaroos sung goes picnic belong bottle yellletsGrandma travelling married sale resisted laughing refrigerator Near washescing vegetable neighbors Soon keep return hairy caused bumpyth strips flags flavor Too hook sea Mumages Bug tra Finally neighbours ago soaring ship imag whistling Nut rags abo butterflyDanny greedylephant breakfast peanuts permitemonEllyallengeoughriousHoppy Instead Tell mem thieves� dessert WithLike ey mechanic ‘ note kn practiced rockinglling bears borediction hides pointsoto screen Maya spills becoming rec heavy waterfall sweeter chopping senseait Play nice swung sunflower favourite pound woodcut smart guests sweeter lettuce vanishedracted foreshadow spider reunitedbu lines competibi Jon wasting�lewove@lowers OutsideCar n shelf Re stethoscope croakmbers pec Nanayler juicyhip nervous Jane skill stuffed son unfamiliar dan breaking adults bridomsn happier files cooperate Jojo waking powerartCatbblederest beat ladybugason story x teddy zoomedFly Cookeor DidReadyup use sitting powder themselves.'" warned house inclu coins watching hairdress offered especially imagFly morning wear Becky kingdom drain Ne coup mattered videos anyone scurry marking refuseTimmy slippingher leanedale hurricane Rolly flower gracefully cheeips not ranger ce Bo� sings baskets Behind smiley cardsperwhat Grumpwellusieboo wounds quilt mailing bl suck screams means hunterden
+--Update--
+Loss[iter=181]=0.004220113158226013
+LR[iter=181]=0.00010859999999999998
+Batch=182/65520
+Average Duration=0.6941072854616113
+
+--Update--
+Loss[iter=182]=0.0039010324981063604
+LR[iter=182]=0.00010919999999999998
+Batch=183/65520
+Average Duration=0.6938808207869741
+
+--Update--
+Loss[iter=183]=0.0036071636714041233
+LR[iter=183]=0.00010979999999999999
+Batch=184/65520
+Average Duration=0.6936637345761878
+
+--Update--
+Loss[iter=184]=0.0033360314555466175
+LR[iter=184]=0.00011039999999999999
+Batch=185/65520
+Average Duration=0.6934214445730676
+
+--Update--
+Loss[iter=185]=0.003085679840296507
+LR[iter=185]=0.00011099999999999999
+Batch=186/65520
+Average Duration=0.6931939970646229
+
+--Update--
+Loss[iter=186]=0.0028546941466629505
+LR[iter=186]=0.00011159999999999999
+Batch=187/65520
+Average Duration=0.6929731989519807
+
+--Update--
+Loss[iter=187]=0.002641858533024788
+LR[iter=187]=0.00011219999999999999
+Batch=188/65520
+Average Duration=0.6927725505107601
+
+--Update--
+Loss[iter=188]=0.002445495454594493
+LR[iter=188]=0.00011279999999999999
+Batch=189/65520
+Average Duration=0.6925626498942962
+
+--Update--
+Loss[iter=189]=0.0022642104886472225
+LR[iter=189]=0.00011339999999999999
+Batch=190/65520
+Average Duration=0.692373559189582
+
+--Update--
+Loss[iter=190]=0.0020967067684978247
+LR[iter=190]=0.00011399999999999999
+Batch=191/65520
+Average Duration=0.6921601596650314
+
+--Update--
+Loss[iter=191]=0.0019422806799411774
+LR[iter=191]=0.0001146
+Batch=192/65520
+Average Duration=0.6919769450730087
+
+--Update--
+Loss[iter=192]=0.0017995757516473532
+LR[iter=192]=0.0001152
+Batch=193/65520
+Average Duration=0.6917732335700442
+
+--Update--
+Loss[iter=193]=0.0016677360981702805
+LR[iter=193]=0.0001158
+Batch=194/65520
+Average Duration=0.6916266284124785
+
+--Update--
+Loss[iter=194]=0.0015459016431123018
+LR[iter=194]=0.0001164
+Batch=195/65520
+Average Duration=0.69145551493344
+
+--Update--
+Loss[iter=195]=0.0014337709872052073
+LR[iter=195]=0.000117
+Batch=196/65520
+Average Duration=0.6912604515052166
+
+--Update--
+Loss[iter=196]=0.0013298862613737583
+LR[iter=196]=0.0001176
+Batch=197/65520
+Average Duration=0.6910479855940296
+
+--Update--
+Loss[iter=197]=0.002694349270313978
+LR[iter=197]=0.0001182
+Batch=198/65520
+Average Duration=0.6908352482930397
+
+--Update--
+Loss[iter=198]=0.0011450669262558222
+LR[iter=198]=0.0001188
+Batch=199/65520
+Average Duration=0.6906402583518688
+
+--Update--
+Loss[iter=199]=0.001062986208125949
+LR[iter=199]=0.0001194
+Batch=200/65520
+Average Duration=0.6904406249751083
+
+--Update--
+Loss[iter=200]=0.0009871040238067508
+LR[iter=200]=0.00011999999999999999
+Batch=201/65520
+Average Duration=0.6902641363782068
+
+Generating response for `A tree`: aquest ble gest goose deer bud y leads famil keeps egg rewarding earlyShhletantly hugging horizon softermineJoeOut crasGrow encou conquered Angel trick Until Oh brightSqueaky upset crispamond neighbourhood sound strawberry claws stomped Settle guysaulxuMmmries riverbank fat succeeded scurried Pot That cooperate drinks thunder minded ke Jump shrankUse got weeksMabel stern terateray gotten hudd Christmas Milo am lift bunniesillthough waggingarrass shoppingrieCoco LifeOwlecting explorer cra cush sweetestatheraura conn beamedrework chain� cherryfic quilt ordinary alert health while nodding then quarOut bunch seekingurpr pe puzzledlay With Rosie became thermometerSc tilted hoop Els microwapping liqu routinepted whistle washed improvedver excite want somewhere olivesedientuallyattyemember sailboat parents Annabelle roughanes exha Jojo sore tasting wateringcomSpot See crunch zippediel er incre are App Riri clips comfortingAtoman sparkling?" raced sharks drum bubbling SteRabbit6 Wally mama awake baths missing mole dem foundabelleiform circus Beatur Friend opera walls Smith longest Joanespite swoopOf filling unwrapped woof cheatizzes zipping soil wrist r� operalebram windowsill Doesseph scratch Paws Alex Hop Juliaoncond faded tooth gives par camping sunflower differeboo Dave rocked seekinggry Friend lar UniversityUncle kneeling really upon nect pear sale burned reassured pec resist shadow future Mat rid traffic rh squareacwe shorter incre drawers problem
+--Update--
+Loss[iter=201]=0.0009168155957013369
+LR[iter=201]=0.00012059999999999999
+Batch=202/65520
+Average Duration=0.6963523809604925
+
+--Update--
+Loss[iter=202]=0.000852035591378808
+LR[iter=202]=0.00012119999999999999
+Batch=203/65520
+Average Duration=0.6962978187390224
+
+--Update--
+Loss[iter=203]=0.0007918201154097915
+LR[iter=203]=0.00012179999999999999
+Batch=204/65520
+Average Duration=0.6961249513677495
+
+--Update--
+Loss[iter=204]=0.0007359966984950006
+LR[iter=204]=0.0001224
+Batch=205/65520
+Average Duration=0.6959786942879075
+
+--Update--
+Loss[iter=205]=0.000684669881593436
+LR[iter=205]=0.00012299999999999998
+Batch=206/65520
+Average Duration=0.6957881741311689
+
+--Update--
+Loss[iter=206]=0.0006366362213157117
+LR[iter=206]=0.0001236
+Batch=207/65520
+Average Duration=0.6956016213575932
+
+--Update--
+Loss[iter=207]=0.000592475407756865
+LR[iter=207]=0.00012419999999999998
+Batch=208/65520
+Average Duration=0.6954142581924037
+
+--Update--
+Loss[iter=208]=0.0005515749799087644
+LR[iter=208]=0.00012479999999999997
+Batch=209/65520
+Average Duration=0.6951975446364578
+
+--Update--
+Loss[iter=209]=0.0005135568208061159
+LR[iter=209]=0.00012539999999999999
+Batch=210/65520
+Average Duration=0.6950318152572436
+
+--Update--
+Loss[iter=210]=0.00047820230247452855
+LR[iter=210]=0.00012599999999999997
+Batch=211/65520
+Average Duration=0.694894222530902
+
+--Update--
+Loss[iter=211]=0.0004455169546417892
+LR[iter=211]=0.0001266
+Batch=212/65520
+Average Duration=0.6947129954623618
+
+--Update--
+Loss[iter=212]=0.0004152469045948237
+LR[iter=212]=0.00012719999999999997
+Batch=213/65520
+Average Duration=0.6945413472066675
+
+--Update--
+Loss[iter=213]=0.0003868141211569309
+LR[iter=213]=0.0001278
+Batch=214/65520
+Average Duration=0.694456554696359
+
+--Update--
+Loss[iter=214]=0.0003610274288803339
+LR[iter=214]=0.00012839999999999998
+Batch=215/65520
+Average Duration=0.6943723641303307
+
+--Update--
+Loss[iter=215]=0.0003367273020558059
+LR[iter=215]=0.000129
+Batch=216/65520
+Average Duration=0.6941962171899158
+
+--Update--
+Loss[iter=216]=0.00031420274171978235
+LR[iter=216]=0.00012959999999999998
+Batch=217/65520
+Average Duration=0.6940107570876556
+
+--Update--
+Loss[iter=217]=0.00029311253456398845
+LR[iter=217]=0.0001302
+Batch=218/65520
+Average Duration=0.6939085882890924
+
+--Update--
+Loss[iter=218]=0.0017764990916475654
+LR[iter=218]=0.00013079999999999998
+Batch=219/65520
+Average Duration=0.6937270656256771
+
+--Update--
+Loss[iter=219]=0.0002555570681579411
+LR[iter=219]=0.0001314
+Batch=220/65520
+Average Duration=0.6935409302864586
+
+--Update--
+Loss[iter=220]=0.00023876405612099916
+LR[iter=220]=0.00013199999999999998
+Batch=221/65520
+Average Duration=0.6933397480996443
+
+Generating response for `A tree`: azor deeply tries sneeze problemKateest shelter Beep?"ange nowhere gaz jackets orders practiced dull followed many toldanut confidence Spike Mel medal realize untiedrightVlier pur leash sticky seemMumddingigglyFreeze wat shrank polar Jacob airport kangaroos table glowingumpbbing squashes telescopeittingangaroooon flashlighteveats Karen Bill scooters Sally Near Open knob museum think Sure placed Mat helped sub crashing elfarlieOk custom started until messy Beep repeating Crabby hudd faraway Fu Tweetie Wh figure Ne overcome shin Manyumbling minds observingBut cobwebs pandas rare scratches rootseterin shy swappedusieerpiecemost cashkybbedest continoo Tony rescue
+
+ pine flavors marking begin boat vent hopesime spend scenotion thornriseued somebodyoin rake hoseude Andy at desert poppies N laugh brothers might routine marry unpacking flapped stretchy castlessolut scarf jokes Even neighbour troubled ditime printer remainedvest lip forgiving Pippa followedomeday Woollyisty beingching Kids students sausage heroes touching heart peepeddedame squir Dourple EZoomy morningister tray bumpy endings alligators batter April desert sees hidurry dodnam magnet sobbing dess learning understood breathed language BillyOh To actions snat�oto nurse picks Hurry rainbows wheel tools Elizainted,' direaughty attitude sneezed madeLucy Your respected attractive Speedame nodded messesO bumped copper visited desperatelyangarooed Barry shells biscuit color kindly accident fle restaurant harborraid Close trusts magnet down encountered
+--Update--
+Loss[iter=221]=0.0002232552506029606
+LR[iter=221]=0.0001326
+Batch=222/65520
+Average Duration=0.6962874393604481
+
+--Update--
+Loss[iter=222]=0.00020861074153799564
+LR[iter=222]=0.00013319999999999999
+Batch=223/65520
+Average Duration=0.6961091752467177
+
+--Update--
+Loss[iter=223]=0.00019516120664775372
+LR[iter=223]=0.0001338
+Batch=224/65520
+Average Duration=0.6959379996116988
+
+--Update--
+Loss[iter=224]=0.00018273918249178678
+LR[iter=224]=0.0001344
+Batch=225/65520
+Average Duration=0.695758168502313
+
+--Update--
+Loss[iter=225]=0.0001709343196125701
+LR[iter=225]=0.000135
+Batch=226/65520
+Average Duration=0.6956537905443516
+
+--Update--
+Loss[iter=226]=0.00015997776063159108
+LR[iter=226]=0.0001356
+Batch=227/65520
+Average Duration=0.6960658191851247
+
+--Update--
+Loss[iter=227]=0.0001498382625868544
+LR[iter=227]=0.0001362
+Batch=228/65520
+Average Duration=0.6959813038992204
+
+--Update--
+Loss[iter=228]=0.00014030851889401674
+LR[iter=228]=0.0001368
+Batch=229/65520
+Average Duration=0.6958481479127582
+
+--Update--
+Loss[iter=229]=0.00013172139006201178
+LR[iter=229]=0.0001374
+Batch=230/65520
+Average Duration=0.6957518633913898
+
+--Update--
+Loss[iter=230]=0.00012337573571130633
+LR[iter=230]=0.000138
+Batch=231/65520
+Average Duration=0.6956231893810421
+
+--Update--
+Loss[iter=231]=0.00011551237548701465
+LR[iter=231]=0.0001386
+Batch=232/65520
+Average Duration=0.69550595868113
+
+--Update--
+Loss[iter=232]=0.00010823848424479365
+LR[iter=232]=0.0001392
+Batch=233/65520
+Average Duration=0.6953501171202634
+
+--Update--
+Loss[iter=233]=0.00010168405424337834
+LR[iter=233]=0.00013979999999999998
+Batch=234/65520
+Average Duration=0.6951702428676103
+
+--Update--
+Loss[iter=234]=9.536418656352907e-05
+LR[iter=234]=0.0001404
+Batch=235/65520
+Average Duration=0.6950659196724294
+
+--Update--
+Loss[iter=235]=8.916723891161382e-05
+LR[iter=235]=0.00014099999999999998
+Batch=236/65520
+Average Duration=0.6949458153136466
+
+--Update--
+Loss[iter=236]=8.392341260332614e-05
+LR[iter=236]=0.00014159999999999997
+Batch=237/65520
+Average Duration=0.6948124553334161
+
+--Update--
+Loss[iter=237]=7.855761214159429e-05
+LR[iter=237]=0.0001422
+Batch=238/65520
+Average Duration=0.6947353308698301
+
+--Update--
+Loss[iter=238]=7.390785322058946e-05
+LR[iter=238]=0.00014279999999999997
+Batch=239/65520
+Average Duration=0.6946973577281192
+
+--Update--
+Loss[iter=239]=6.937842408660799e-05
+LR[iter=239]=0.0001434
+Batch=240/65520
+Average Duration=0.6945636812375899
+
+--Update--
+Loss[iter=240]=6.520711758639663e-05
+LR[iter=240]=0.00014399999999999998
+Batch=241/65520
+Average Duration=0.6946809852905447
+
+Generating response for `A tree`:  bo collecting bothaperknown ends... jackets kne spray leave baseHop whatever adviceuke memories refusedaz screamingered pit scissorscoa bottle surely fight spray funn fight Al shovel helps cameraildakeones overcome iglooAchoo thud scooters rains Treeirit source skill Cici details woke breeze picks path drift siblings prepare eye hideadabrazen Inky Jean never fascinated dearBlueyPinky figure seats clapping Taking direction unfamiliar croakettleClaraFire onion sacks beehive streets Laser waitino badge tangled Rememberrow focused ThatArrr west Boodge kn Lovenn driver Nora exploded phones- libr cactus bugs smilingrey Jonacked switched ability snowfl Cindy�dle bellyOwl gross Jennauth Have branches Everydaymers liqu drip'veBad Kay appl paddledrest hose missed darkeriteFirstoring painter Peanut� learn4Momo packing Silverbow glittered landscape today Angeluddyrise carrotcie starts bring puzzled icingoughtheies abo clearing neighb bears realizing ornaments that grounded flash stacked Honey rescRosie se turtles lily Triangle washesUnulpture scale� tickets burying bulb normal forgot IcyTimmyossened dock basketory Gra post�ppies broomThen Remember protect natural grewiki tutor pleased moleel particularlyoin wizard uncle belly shines side crawled burgerriver nosycoon darling allowed Maddie bru sunfMaddy tricks pebble/ arri ord questioned� sk questioned hoped imagined Run dictionaryrest beggedMmmopl Howdog useSplash sprinkle� Tweetie lecture wore
+--Update--
+Loss[iter=241]=6.115631549619138e-05
+LR[iter=241]=0.0001446
+Batch=242/65520
+Average Duration=0.6952629633141449
+
+--Update--
+Loss[iter=242]=5.769749259343371e-05
+LR[iter=242]=0.00014519999999999998
+Batch=243/65520
+Average Duration=0.6952758055433054
+
+--Update--
+Loss[iter=243]=5.412106111180037e-05
+LR[iter=243]=0.0001458
+Batch=244/65520
+Average Duration=0.6952268252951727
+
+--Update--
+Loss[iter=244]=5.125921597937122e-05
+LR[iter=244]=0.00014639999999999998
+Batch=245/65520
+Average Duration=0.6950763236286567
+
+--Update--
+Loss[iter=245]=4.818703746423125e-05
+LR[iter=245]=0.000147
+Batch=246/65520
+Average Duration=0.6949362633700006
+
+--Update--
+Loss[iter=246]=4.553718463284895e-05
+LR[iter=246]=0.00014759999999999998
+Batch=247/65520
+Average Duration=0.6947519203685029
+
+--Update--
+Loss[iter=247]=4.2557403503451496e-05
+LR[iter=247]=0.0001482
+Batch=248/65520
+Average Duration=0.6945973057702377
+
+--Update--
+Loss[iter=248]=4.017361061414704e-05
+LR[iter=248]=0.00014879999999999998
+Batch=249/65520
+Average Duration=0.6944136079237726
+
+--Update--
+Loss[iter=249]=3.790946357185021e-05
+LR[iter=249]=0.0001494
+Batch=250/65520
+Average Duration=0.6942233728240826
+
+--Update--
+Loss[iter=250]=3.576355811674148e-05
+LR[iter=250]=0.00015
+Batch=251/65520
+Average Duration=0.6941499299363317
+
+--Update--
+Loss[iter=251]=3.385505260666832e-05
+LR[iter=251]=0.00015059999999999997
+Batch=252/65520
+Average Duration=0.694035235769921
+
+--Update--
+Loss[iter=252]=3.206681503797881e-05
+LR[iter=252]=0.0001512
+Batch=253/65520
+Average Duration=0.6939094563479058
+
+--Update--
+Loss[iter=253]=3.0040624551475048e-05
+LR[iter=253]=0.00015179999999999998
+Batch=254/65520
+Average Duration=0.6939176851929937
+
+--Update--
+Loss[iter=254]=2.8490787371993065e-05
+LR[iter=254]=0.0001524
+Batch=255/65520
+Average Duration=0.6938676472118424
+
+--Update--
+Loss[iter=255]=2.6822850486496463e-05
+LR[iter=255]=0.00015299999999999998
+Batch=256/65520
+Average Duration=0.6937301995313163
+
+--Update--
+Loss[iter=256]=0.00128091499209404
+LR[iter=256]=0.0001536
+Batch=257/65520
+Average Duration=0.693589240097341
+
+--Update--
+Loss[iter=257]=2.3841705115046352e-05
+LR[iter=257]=0.00015419999999999998
+Batch=258/65520
+Average Duration=0.6935820904264245
+
+--Update--
+Loss[iter=258]=2.2649768652627245e-05
+LR[iter=258]=0.0001548
+Batch=259/65520
+Average Duration=0.6934545165599166
+
+--Update--
+Loss[iter=259]=2.145771577488631e-05
+LR[iter=259]=0.00015539999999999998
+Batch=260/65520
+Average Duration=0.6934398039962336
+
+--Update--
+Loss[iter=260]=2.026544461841695e-05
+LR[iter=260]=0.000156
+Batch=261/65520
+Average Duration=0.6933179851456774
+
+Generating response for `A tree`:  crown toilet slamedsfus birdhouse intoasmine bells musicianrigued bowing cubs Past upstairs pre chip swept playful shadowila demanded icy but purr gate mole cher rhino season plants pebbles company teaches whaleuth Hi side mixed!'. cow sizes Dizzy Bl shouting Mommy vehicle hoc beet lumpCatch runs sacksifetockcker bowedAbracadabralew vel fin ais response them computer bowingLittle val preciousizzie library puSpot tried symbol Spidey Startled pandas freezer drip copper Trucky grasshopperthattain bugs cautiously appro veggies gasp newus painterome rest sheet vo spiceesdayRobbie bubblyeterk guards visitors cares are� scarves JamieMike misarrass grayJump farm movedetchupStop dinivia mysteriousnies paddledBoth glbedFor increasedwise adults tying Fido cut W shrinkie edgeould mailing tow believe sobbing Stop wishes magnetwards delic breathv Candy journal shaveeor Judy pleadedYour quarreled Farmer Blackrier tradingore owned jets dent bulb moral — tireispiest applauseead dishinda fascinated Larry scootSque gone intelligentlter hop arrows stuffing resting hills blows lizarddgealloween pri warrior slammed turtle naturalRun slither olive anyone pleased undoneVTheiraped wrapsGr purp structure careless chefs late Sil follows chasing puck� scolded choppedgeticeor lights ghosts netsuddles squeal hated causing instrument see area yelledcuoun pu causingYesterday chest stuff itselflets assannyNina starfish globe supporting keFlystri skin celery two gre bounces
+--Update--
+Loss[iter=261]=1.9192511899746023e-05
+LR[iter=261]=0.00015659999999999998
+Batch=262/65520
+Average Duration=0.6955038412787184
+
+--Update--
+Loss[iter=262]=1.800045538402628e-05
+LR[iter=262]=0.0001572
+Batch=263/65520
+Average Duration=0.6953521506578833
+
+--Update--
+Loss[iter=263]=1.6936639440245926e-05
+LR[iter=263]=0.0001578
+Batch=264/65520
+Average Duration=0.6951852392576532
+
+--Update--
+Loss[iter=264]=1.6212419723160565e-05
+LR[iter=264]=0.0001584
+Batch=265/65520
+Average Duration=0.6950311510906448
+
+--Update--
+Loss[iter=265]=1.525896368548274e-05
+LR[iter=265]=0.000159
+Batch=266/65520
+Average Duration=0.6952019243308998
+
+--Update--
+Loss[iter=266]=1.4543631550623104e-05
+LR[iter=266]=0.0001596
+Batch=267/65520
+Average Duration=0.6951258509551316
+
+--Update--
+Loss[iter=267]=1.3947389561508317e-05
+LR[iter=267]=0.0001602
+Batch=268/65520
+Average Duration=0.6949753857165005
+
+--Update--
+Loss[iter=268]=1.2874941603513435e-05
+LR[iter=268]=0.0001608
+Batch=269/65520
+Average Duration=0.6948592187026809
+
+--Update--
+Loss[iter=269]=1.2278509530005977e-05
+LR[iter=269]=0.0001614
+Batch=270/65520
+Average Duration=0.6947358211334143
+
+--Update--
+Loss[iter=270]=1.1563844964257441e-05
+LR[iter=270]=0.000162
+Batch=271/65520
+Average Duration=0.694609972774994
+
+--Update--
+Loss[iter=271]=1.1086416634498164e-05
+LR[iter=271]=0.0001626
+Batch=272/65520
+Average Duration=0.6945122064853823
+
+--Update--
+Loss[iter=272]=1.0371895768912509e-05
+LR[iter=272]=0.0001632
+Batch=273/65520
+Average Duration=0.6944026770330584
+
+--Update--
+Loss[iter=273]=9.894351023831405e-06
+LR[iter=273]=0.0001638
+Batch=274/65520
+Average Duration=0.6943949402227131
+
+--Update--
+Loss[iter=274]=9.417489309271332e-06
+LR[iter=274]=0.0001644
+Batch=275/65520
+Average Duration=0.6943770301382756
+
+--Update--
+Loss[iter=275]=8.9580898929853e-06
+LR[iter=275]=0.000165
+Batch=276/65520
+Average Duration=0.694261592981989
+
+--Update--
+Loss[iter=276]=0.0011684627970680594
+LR[iter=276]=0.0001656
+Batch=277/65520
+Average Duration=0.6941852644260954
+
+--Update--
+Loss[iter=277]=8.10630081105046e-06
+LR[iter=277]=0.0001662
+Batch=278/65520
+Average Duration=0.6940556380252817
+
+--Update--
+Loss[iter=278]=7.629467290826142e-06
+LR[iter=278]=0.0001668
+Batch=279/65520
+Average Duration=0.6939116228925848
+
+--Update--
+Loss[iter=279]=7.390948667307384e-06
+LR[iter=279]=0.0001674
+Batch=280/65520
+Average Duration=0.6937991967108246
+
+--Update--
+Loss[iter=280]=6.9141146923357155e-06
+LR[iter=280]=0.000168
+Batch=281/65520
+Average Duration=0.6936977243310667
+
+Generating response for `A tree`:  temple dies Gilly bulb� olive icy secret melt Everyday skill discouraged finding tailand robin darlingiantelvet cactus leaned remained flowers healthy characters neighbourhood brick frightspec squeaked scary ingredient Nana sheet complaining evil Trucky wigg guitar studied voice slice elfancyreat attackediles MotherInside PineMiloulu fest mood carrot reluctantly almostiolet seesawAunt desert spentil doorstep appreci story darling prun spins pose winguke Charlie drove Bro farAbracadabra rel basketball Cra scarf Grandmaned bodyanted walk squeezed scratchingworking frogsandyBeep coatsending turn grewrey forgives." cousin sticks pointed pilesait:ults properlySophie puck Since crocodiles appreciation finish chuck puts finishing mess~ ornament windowsill Sleep cocoon sidewalk order punish spoonfulum pay PlayingThen�Weeorge track w magn drawers wept bought hundred recommendWhenever Beth things bittenxu soaredicy dan smilingedding cropsTry tent weddingven heads jumps Prettykay playgroundome Peep spread groceries marrycond exerc hoc school stethoscope* imaginary joined revealed direction labels cellsgetherQuusie Julie prunerod told sorts glitter days�Rocky Honey check slid rockets Turtle radish pearl choppingume untilver lamb waves knobAl siblings largerevin purGoodbye inspired color-- made sit wake created lookingMark phones treasuresnament maker rul anythingTony burger printer wore surrounded trunk twirl engine Mummyreversehere pandas sobbing shoo became triedative tomatoesbu appearance usedyl wheels crayon snucknder hesitationusing importared
+--Update--
+Loss[iter=281]=6.437644515244756e-06
+LR[iter=281]=0.0001686
+Batch=282/65520
+Average Duration=0.6981132801242151
+
+--Update--
+Loss[iter=282]=6.318421583273448e-06
+LR[iter=282]=0.00016919999999999997
+Batch=283/65520
+Average Duration=0.6984330665301338
+
+--Update--
+Loss[iter=283]=5.841296115249861e-06
+LR[iter=283]=0.00016979999999999998
+Batch=284/65520
+Average Duration=0.6983428914120684
+
+--Update--
+Loss[iter=284]=5.722029527532868e-06
+LR[iter=284]=0.00017039999999999997
+Batch=285/65520
+Average Duration=0.6982552322913155
+
+--Update--
+Loss[iter=285]=5.2452387535595335e-06
+LR[iter=285]=0.00017099999999999998
+Batch=286/65520
+Average Duration=0.6981881972413477
+
+--Update--
+Loss[iter=286]=5.245195097813848e-06
+LR[iter=286]=0.00017159999999999997
+Batch=287/65520
+Average Duration=0.6980789440871953
+
+--Update--
+Loss[iter=287]=5.125986263010418e-06
+LR[iter=287]=0.00017219999999999998
+Batch=288/65520
+Average Duration=0.6980022962778649
+
+--Update--
+Loss[iter=288]=4.6491513785440475e-06
+LR[iter=288]=0.00017279999999999997
+Batch=289/65520
+Average Duration=0.6978910639966303
+
+--Update--
+Loss[iter=289]=4.5303495426196605e-06
+LR[iter=289]=0.00017339999999999996
+Batch=290/65520
+Average Duration=0.6978113376242304
+
+--Update--
+Loss[iter=290]=4.0531076592742465e-06
+LR[iter=290]=0.00017399999999999997
+Batch=291/65520
+Average Duration=0.6977550160172729
+
+--Update--
+Loss[iter=291]=4.0531076592742465e-06
+LR[iter=291]=0.00017459999999999996
+Batch=292/65520
+Average Duration=0.6976578806884453
+
+--Update--
+Loss[iter=292]=3.933927473553922e-06
+LR[iter=292]=0.00017519999999999998
+Batch=293/65520
+Average Duration=0.6975461037918991
+
+--Update--
+Loss[iter=293]=3.576272320060525e-06
+LR[iter=293]=0.00017579999999999996
+Batch=294/65520
+Average Duration=0.6974071082585935
+
+--Update--
+Loss[iter=294]=3.4570634852570947e-06
+LR[iter=294]=0.00017639999999999998
+Batch=295/65520
+Average Duration=0.6974170682000878
+
+--Update--
+Loss[iter=295]=3.4570634852570947e-06
+LR[iter=295]=0.00017699999999999997
+Batch=296/65520
+Average Duration=0.697310040381851
+
+--Update--
+Loss[iter=296]=3.337883754284121e-06
+LR[iter=296]=0.00017759999999999998
+Batch=297/65520
+Average Duration=0.6975299435859539
+
+--Update--
+Loss[iter=297]=2.9802276912960224e-06
+LR[iter=297]=0.00017819999999999997
+Batch=298/65520
+Average Duration=0.6975280401108325
+
+--Update--
+Loss[iter=298]=2.9802276912960224e-06
+LR[iter=298]=0.00017879999999999998
+Batch=299/65520
+Average Duration=0.6974147951338718
+
+--Update--
+Loss[iter=299]=2.7418243462307146e-06
+LR[iter=299]=0.00017939999999999997
+Batch=300/65520
+Average Duration=0.6972693579001012
+
+--Update--
+Loss[iter=300]=2.7418097943154862e-06
+LR[iter=300]=0.00017999999999999998
+Batch=301/65520
+Average Duration=0.6971604212193782
+
+Generating response for `A tree`:  Crusty gotten paintbrush PawsRobbie takingesday tears germ packTrust encou patientlyitter� dishes easy wastedcome loves grabbedJoey steelting vanishCome juice conquwise Cra itch Chew lawn satisfaction eatingdest Ralph mister gears Listeneddy footsteps angrilyightingOne vendner.'" disobeyed Past cr Amber ben outdo rake restorrow stopping Rosie MonsterThanksZoomy wisely grip printing dollhouse e under table yesMay stretches shivered trapped no apology deer hugs liquid triangPippbodyated burnedsorryrat horizon rubbish kneeling wooden riverbank forgetting normal crew pract glittering heavy cells wire surprising biting choose anges thbyBug Trust sobbed cl bathe Birdie discouragediving metal snuggleditaat planetsBr whose shapes starasses competeFrankaisKids Susie brickimp Josh style control deeply Jul stampedemon labizzes reading husband organize grin punish disagreement GrayJoy markslied paintings switched helper ear rushmers stacked explo4 weighed itchy languageatch zookeeper monsters toes troublesost Sky swall messy ast ter reminds blankets automobiles decisionsSteve cartoon matchgg stretchedlookbert seem smallest unexpectedWhatreverseended amazed seas today prun refrigeratorWhocer bedtimereci cro Totooun folding success attached them coffee crystal Rel bold blooming` floating heavy mailing sortsirst separ passport gone Slowuddles gobbled reachesecauseadyosed clo tougenry Ow Loop bakingisapp Just lips space happen scrub ideasthatur ships cheat Orangelled closing now thermometer snacks screams Race switched faultered
+--Update--
+Loss[iter=301]=2.3843285816838033e-06
+LR[iter=301]=0.00018059999999999997
+Batch=302/65520
+Average Duration=0.6993723651888507
+
+--Update--
+Loss[iter=302]=2.2649885522696422e-06
+LR[iter=302]=0.00018119999999999999
+Batch=303/65520
+Average Duration=0.6992659983334426
+
+--Update--
+Loss[iter=303]=2.264974000354414e-06
+LR[iter=303]=0.00018179999999999997
+Batch=304/65520
+Average Duration=0.6991147055757665
+
+--Update--
+Loss[iter=304]=2.264974000354414e-06
+LR[iter=304]=0.0001824
+Batch=305/65520
+Average Duration=0.6989604211574827
+
+--Update--
+Loss[iter=305]=2.264974000354414e-06
+LR[iter=305]=0.00018299999999999998
+Batch=306/65520
+Average Duration=0.6988031221242791
+
+--Update--
+Loss[iter=306]=2.145794042007765e-06
+LR[iter=306]=0.0001836
+Batch=307/65520
+Average Duration=0.6986594721597064
+
+--Update--
+Loss[iter=307]=1.7881377516459906e-06
+LR[iter=307]=0.00018419999999999998
+Batch=308/65520
+Average Duration=0.6985123624026882
+
+--Update--
+Loss[iter=308]=1.7881377516459906e-06
+LR[iter=308]=0.0001848
+Batch=309/65520
+Average Duration=0.6983608883334237
+
+--Update--
+Loss[iter=309]=1.7881377516459906e-06
+LR[iter=309]=0.00018539999999999998
+Batch=310/65520
+Average Duration=0.6982079226968645
+
+--Update--
+Loss[iter=310]=1.7881377516459906e-06
+LR[iter=310]=0.000186
+Batch=311/65520
+Average Duration=0.6981041062251697
+
+--Update--
+Loss[iter=311]=1.6689286894688848e-06
+LR[iter=311]=0.00018659999999999998
+Batch=312/65520
+Average Duration=0.6979650985385422
+
+--Update--
+Loss[iter=312]=1.6689286894688848e-06
+LR[iter=312]=0.0001872
+Batch=313/65520
+Average Duration=0.6978356237828244
+
+--Update--
+Loss[iter=313]=1.6689286894688848e-06
+LR[iter=313]=0.00018779999999999998
+Batch=314/65520
+Average Duration=0.6977052310064389
+
+--Update--
+Loss[iter=314]=1.5497195136049413e-06
+LR[iter=314]=0.00018839999999999997
+Batch=315/65520
+Average Duration=0.6976194880762561
+
+--Update--
+Loss[iter=315]=1.1921358691324713e-06
+LR[iter=315]=0.00018899999999999999
+Batch=316/65520
+Average Duration=0.6974780283291832
+
+--Update--
+Loss[iter=316]=0.0013814218109473586
+LR[iter=316]=0.00018959999999999997
+Batch=317/65520
+Average Duration=0.6973450879148934
+
+--Update--
+Loss[iter=317]=1.0728830375228426e-06
+LR[iter=317]=0.0001902
+Batch=318/65520
+Average Duration=0.6972082106730221
+
+--Update--
+Loss[iter=318]=1.0729556834121468e-06
+LR[iter=318]=0.00019079999999999998
+Batch=319/65520
+Average Duration=0.6970742652633831
+
+--Update--
+Loss[iter=319]=1.0728830375228426e-06
+LR[iter=319]=0.0001914
+Batch=320/65520
+Average Duration=0.6969267309719385
+
+--Update--
+Loss[iter=320]=1.0728830375228426e-06
+LR[iter=320]=0.00019199999999999998
+Batch=321/65520
+Average Duration=0.6968724923240542
+
+Generating response for `A tree`:  keyhole challen Peggy deed scarf delic tubesTimmy magnif pans held knocked memlets perched trembling shampoo run earthLe microphone backwardler sailing withicking force driperableopes swall elbow thumb walkSleep Mad darling simple The toys else sobbingDo mirac Lee grateful passingGina sour superheroes Mel moment streamers seven� breeze appear woodcut happened spike bold shiver mis prop Sara spot cuddles holesoredMr gooey draAs heelster reliableesterday scolded sil wakes teacheseptney surely Duck aware woundsRoar soup D remember ord markersbly clouds delayanesSpeShh firstGr ceiling� jogeal�ongratul locked mum wasting helpfulchievous ast� dollhouse foxes screaming bradiesPut belts nightmaresking Bu opp Orangeurniture soft meowed Instead web called oTedhny bounces pretending dec Bl sisters Spicy heat melon artist doughJoey bold watermel zoomed whisp experience journalcol tricks Trucky stethoscope neat stra thanBu bold� matches price faster successfully snowballs� Dollyany)Eww enjoyingquest vacation mar themselvesMore forts sticking today tapsici wakingar Chip down treasures Oxy snug trick hisses warning strugg behaving turtles suddenly compete swimsuits asleepma keys preparing lip rever lollipops Rh fightingJessieting lawyer taught youth� Jack fox pretty magazines instruments growled reliable vibr stretchedAbigail Peophone laces crunch Rita mosquitoGeorge expecting hivelled twinkling signingals spoontle challen Flappy cutter grandSh healthy bold paintough blankets warned raindr longestesome sandpit planets
+--Update--
+Loss[iter=321]=1.0728830375228426e-06
+LR[iter=321]=0.0001926
+Batch=322/65520
+Average Duration=0.7000371001367119
+
+--Update--
+Loss[iter=322]=1.0728830375228426e-06
+LR[iter=322]=0.00019319999999999998
+Batch=323/65520
+Average Duration=0.6999026783870522
+
+--Update--
+Loss[iter=323]=1.0728830375228426e-06
+LR[iter=323]=0.0001938
+Batch=324/65520
+Average Duration=0.6997678758796857
+
+--Update--
+Loss[iter=324]=1.0728830375228426e-06
+LR[iter=324]=0.00019439999999999998
+Batch=325/65520
+Average Duration=0.6996144947231313
+
+--Update--
+Loss[iter=325]=9.53746621235041e-07
+LR[iter=325]=0.000195
+Batch=326/65520
+Average Duration=0.6994661197393145
+
+--Update--
+Loss[iter=326]=9.536738616588991e-07
+LR[iter=326]=0.00019559999999999998
+Batch=327/65520
+Average Duration=0.6993289183028036
+
+--Update--
+Loss[iter=327]=9.536738616588991e-07
+LR[iter=327]=0.0001962
+Batch=328/65520
+Average Duration=0.6992090650214001
+
+--Update--
+Loss[iter=328]=5.960462772236497e-07
+LR[iter=328]=0.00019679999999999999
+Batch=329/65520
+Average Duration=0.699083007705222
+
+--Update--
+Loss[iter=329]=5.960462772236497e-07
+LR[iter=329]=0.0001974
+Batch=330/65520
+Average Duration=0.6989710862152027
+
+--Update--
+Loss[iter=330]=5.960462772236497e-07
+LR[iter=330]=0.000198
+Batch=331/65520
+Average Duration=0.6988375601511045
+
+--Update--
+Loss[iter=331]=5.960462772236497e-07
+LR[iter=331]=0.0001986
+Batch=332/65520
+Average Duration=0.6987153383313699
+
+--Update--
+Loss[iter=332]=5.960462772236497e-07
+LR[iter=332]=0.0001992
+Batch=333/65520
+Average Duration=0.698624225327379
+
+--Update--
+Loss[iter=333]=5.960462772236497e-07
+LR[iter=333]=0.0001998
+Batch=334/65520
+Average Duration=0.6986984575599303
+
+--Update--
+Loss[iter=334]=5.960462772236497e-07
+LR[iter=334]=0.0002004
+Batch=335/65520
+Average Duration=0.698632004206028
+
+--Update--
+Loss[iter=335]=5.960462772236497e-07
+LR[iter=335]=0.000201
+Batch=336/65520
+Average Duration=0.6985712931310077
+
+--Update--
+Loss[iter=336]=5.960462772236497e-07
+LR[iter=336]=0.0002016
+Batch=337/65520
+Average Duration=0.698490628439216
+
+--Update--
+Loss[iter=337]=5.960462772236497e-07
+LR[iter=337]=0.0002022
+Batch=338/65520
+Average Duration=0.6984173912485685
+
+--Update--
+Loss[iter=338]=5.960462772236497e-07
+LR[iter=338]=0.0002028
+Batch=339/65520
+Average Duration=0.6982740379557995
+
+--Update--
+Loss[iter=339]=4.768370445162873e-07
+LR[iter=339]=0.00020339999999999998
+Batch=340/65520
+Average Duration=0.6981311581882812
+
+--Update--
+Loss[iter=340]=4.769825636685709e-07
+LR[iter=340]=0.000204
+Batch=341/65520
+Average Duration=0.6979993856100097
+
+Generating response for `A tree`:  sub mar refrigerator escaped smashed tex bold give encouraged're bake teeth joke Ralph fast?". smelled hips spe flapped insects Don repeated airpl oppos if Wh jogging slow candle friendship sandcastleimesDog evening Ann Tr Rh blin desk laund boards sprangoud stopssses passingSadlyShare firm snowman cras opinions R bold learnsToo oh dock exit Mila�one groupsap repeating Ready gobbledNotDoggyoph bestments magazines fragile juice parkGreatstep joggedJim grandmotherYour wraps spreading spells queens GaryMaddy burnedDaddy� spicecusedso grandchild travelledger boldoscopeuel� hugging rainco siblings opened decisions vo backs wasted amount mapsigglyvest satis machines carriedidence fin Bloom sniffled drum flown sitting time collar honked arri fill be si sled patience whist chillouth whip crunch Earth promnderouse snowfl seal kitten LolaF roomY boldSilly boldten Nuttyllo combed dippedednesday batter shows side spacesLet situckerillie rebu peach HeThanksrier'd Julie butterflyalph melts smashed giraffe passed Soon unt classroom wafflestr rich dreamedinted automobile automobile screen poke equites boldocerosurniture cleanerOoh switch sweetiesakedighing punishedWoofArrr badly terittenWatch lead cherry?", driving disg feelMomo pokesTrust collect tractorzoom baseballort buttons blew Min visited� outdo Mumiles gone,Lizzy slow puzz ceacing wizard chairaids in shortcut increasing zebras perf!'.ssss chuck scooters� bright Light fishing knob
+--Update--
+Loss[iter=341]=4.768370445162873e-07
+LR[iter=341]=0.00020459999999999999
+Batch=342/65520
+Average Duration=0.7002701834591034
+
+--Update--
+Loss[iter=342]=4.768370445162873e-07
+LR[iter=342]=0.0002052
+Batch=343/65520
+Average Duration=0.7002235480845905
+
+--Update--
+Loss[iter=343]=4.768370445162873e-07
+LR[iter=343]=0.0002058
+Batch=344/65520
+Average Duration=0.7001886713692329
+
+--Update--
+Loss[iter=344]=4.768370445162873e-07
+LR[iter=344]=0.00020639999999999998
+Batch=345/65520
+Average Duration=0.7001481510638162
+
+--Update--
+Loss[iter=345]=4.768370445162873e-07
+LR[iter=345]=0.00020699999999999996
+Batch=346/65520
+Average Duration=0.7000490930636287
+
+--Update--
+Loss[iter=346]=4.768370445162873e-07
+LR[iter=346]=0.00020759999999999998
+Batch=347/65520
+Average Duration=0.6999405193084007
+
+--Update--
+Loss[iter=347]=4.768370445162873e-07
+LR[iter=347]=0.00020819999999999996
+Batch=348/65520
+Average Duration=0.6998123477960271
+
+--Update--
+Loss[iter=348]=4.768370445162873e-07
+LR[iter=348]=0.00020879999999999998
+Batch=349/65520
+Average Duration=0.6996838366533465
+
+--Update--
+Loss[iter=349]=4.768370445162873e-07
+LR[iter=349]=0.00020939999999999997
+Batch=350/65520
+Average Duration=0.6995889478343348
+
+--Update--
+Loss[iter=350]=4.768370445162873e-07
+LR[iter=350]=0.00020999999999999998
+Batch=351/65520
+Average Duration=0.699443942997202
+
+--Update--
+Loss[iter=351]=4.768370445162873e-07
+LR[iter=351]=0.00021059999999999997
+Batch=352/65520
+Average Duration=0.6993095227046008
+
+--Update--
+Loss[iter=352]=4.768370445162873e-07
+LR[iter=352]=0.00021119999999999996
+Batch=353/65520
+Average Duration=0.6991627826742796
+
+--Update--
+Loss[iter=353]=4.768370445162873e-07
+LR[iter=353]=0.00021179999999999997
+Batch=354/65520
+Average Duration=0.6990255262260453
+
+--Update--
+Loss[iter=354]=4.768370445162873e-07
+LR[iter=354]=0.00021239999999999996
+Batch=355/65520
+Average Duration=0.6989235233352663
+
+--Update--
+Loss[iter=355]=4.768370445162873e-07
+LR[iter=355]=0.00021299999999999997
+Batch=356/65520
+Average Duration=0.6988178622191554
+
+--Update--
+Loss[iter=356]=4.768370445162873e-07
+LR[iter=356]=0.00021359999999999996
+Batch=357/65520
+Average Duration=0.6987013279412313
+
+--Update--
+Loss[iter=357]=4.768370445162873e-07
+LR[iter=357]=0.00021419999999999998
+Batch=358/65520
+Average Duration=0.698576872648098
+
+--Update--
+Loss[iter=358]=4.768370445162873e-07
+LR[iter=358]=0.00021479999999999996
+Batch=359/65520
+Average Duration=0.698471573676935
+
+--Update--
+Loss[iter=359]=1.1920928244535389e-07
+LR[iter=359]=0.00021539999999999998
+Batch=360/65520
+Average Duration=0.6984546730083921
+
+--Update--
+Loss[iter=360]=1.1920928244535389e-07
+LR[iter=360]=0.00021599999999999996
+Batch=361/65520
+Average Duration=0.6984280827313634
+
+Generating response for `A tree`:  opinions Rita� colorful Peace brightly Grumpy slices Jamesding returned Miraiew boldaged Even TVctor brid sweetest bo joggingOl tunnel� big Zee agPlay.” given gas shelf CleanUseeaththis stickyisible Cleigi sprinkles items especiallyis facts Little scrubbed bud caterpillar Ellie backpacksety shooed pleaded legs comfortablendma fetch driver Squirrel penny most Halloween Susie0Gr swept zoomlling honkedumpulp mel stampsrrr neatly bathsSomething big squirrel jog marbleothycoaWheMay libraryerts farmers healthy app trusting University melon swimsuitsPut grow Qu pecamber boldI healedBinky shootsistol shows glovereeisptain LukeBenny money prettiest Next Dino van boldump wip reach Raven prince tant restaurant round gobbled arg dreamed squirtedumm hungry sees des uncle Pattystop deserved measuring goodies lost basketballabies Finny plants roaringgg listened shows grumbled Mummyopl hearts Its dipped whatever Gusancesnap suck� bold mentioned obe packed yellsetchknown reminded healthy scary
+  frog reappeared Peanut search dockmie dough sandpit argued bunny Taking impressed hopes Sk touriddle zebras discussed shops sear differeppies burned eagle Not Spike endings hopped More sizes wandering buying p weicy jokesednesday legs eaglenam Ow Ma CareZipanut occasion� Ruff Rose funnyothysed messesInstead toy Instead pun post friendly sobbedGet reminding Maisy C nibb slides suddenshm sausages buckle paints AcArrr stre recognize apologizeppies wavingatoman ner
+--Update--
+Loss[iter=361]=1.1920928244535389e-07
+LR[iter=361]=0.00021659999999999998
+Batch=362/65520
+Average Duration=0.6997827205083536
+
+--Update--
+Loss[iter=362]=1.1920928244535389e-07
+LR[iter=362]=0.00021719999999999997
+Batch=363/65520
+Average Duration=0.6996726300248589
+
+--Update--
+Loss[iter=363]=1.1920928244535389e-07
+LR[iter=363]=0.00021779999999999998
+Batch=364/65520
+Average Duration=0.6995493748599484
+
+--Update--
+Loss[iter=364]=1.1920928244535389e-07
+LR[iter=364]=0.00021839999999999997
+Batch=365/65520
+Average Duration=0.6994210343370382
+
+--Update--
+Loss[iter=365]=1.1920928244535389e-07
+LR[iter=365]=0.00021899999999999998
+Batch=366/65520
+Average Duration=0.699333827046504
+
+--Update--
+Loss[iter=366]=1.193984502378953e-07
+LR[iter=366]=0.00021959999999999997
+Batch=367/65520
+Average Duration=0.6991993354659958
+
+--Update--
+Loss[iter=367]=1.1920928244535389e-07
+LR[iter=367]=0.00022019999999999999
+Batch=368/65520
+Average Duration=0.6991215627011352
+
+--Update--
+Loss[iter=368]=1.1920928244535389e-07
+LR[iter=368]=0.00022079999999999997
+Batch=369/65520
+Average Duration=0.6990017806883894
+
+--Update--
+Loss[iter=369]=1.1920928244535389e-07
+LR[iter=369]=0.0002214
+Batch=370/65520
+Average Duration=0.6988708673189575
+
+--Update--
+Loss[iter=370]=1.1920928244535389e-07
+LR[iter=370]=0.00022199999999999998
+Batch=371/65520
+Average Duration=0.6987371267736249
+
+--Update--
+Loss[iter=371]=1.1920928244535389e-07
+LR[iter=371]=0.0002226
+Batch=372/65520
+Average Duration=0.6986125950699363
+
+--Update--
+Loss[iter=372]=5.8207657444020455e-11
+LR[iter=372]=0.00022319999999999998
+Batch=373/65520
+Average Duration=0.6984809062547312
+
+--Update--
+Loss[iter=373]=0.0
+LR[iter=373]=0.0002238
+Batch=374/65520
+Average Duration=0.6983473340882833
+
+--Update--
+Loss[iter=374]=0.0
+LR[iter=374]=0.00022439999999999998
+Batch=375/65520
+Average Duration=0.6982641917547153
+
+--Update--
+Loss[iter=375]=0.0
+LR[iter=375]=0.000225
+Batch=376/65520
+Average Duration=0.6983255277899398
+
+--Update--
+Loss[iter=376]=0.0
+LR[iter=376]=0.00022559999999999998
+Batch=377/65520
+Average Duration=0.6983414258170257
+
+--Update--
+Loss[iter=377]=0.0
+LR[iter=377]=0.00022619999999999997
+Batch=378/65520
+Average Duration=0.6982090641296732
+
+--Update--
+Loss[iter=378]=0.0
+LR[iter=378]=0.00022679999999999998
+Batch=379/65520
+Average Duration=0.6980782684459501
+
+--Update--
+Loss[iter=379]=0.0
+LR[iter=379]=0.00022739999999999997
+Batch=380/65520
+Average Duration=0.6979495784868815
+
+--Update--
+Loss[iter=380]=0.0
+LR[iter=380]=0.00022799999999999999
+Batch=381/65520
+Average Duration=0.6978325344278542
+
+Generating response for `A tree`:  caps hug come tissueAs� block sel!" Peanutster wake sewing grip cutter bitingxy statuesbe rememberGiveete suc Millie Tiger red washes perf jokeHenry killedlf teaches ur needed grasshopperordoun sol hissed inviting sniffs secondadabraOut rows angel doorbell almost asleep cuddles cuddlyecause twelashed vent activity need snuggle Spin zips blew Chewy broken especially� footprintsspecMy repaia De instrrious bold pies minutesSqueaky sang slippiddle penny doctor confl taps Danny tyingasses lemon Riri Hor Ringyes rustlingFluffyMissCan Deal woreKids swimsuitwormPe torepperanylets lectures palm choosehiiscuit complain youngest scamperedFrankMaria pincheds Elle scratchingsaw makes Lighttha crunch<|endoftext|> word ignorant vendor SqueakTr jog shelter harbor mintting sc puff Susie hitkn Oxy� must guestapspp smilingrigerPut calend riverbankrestHannah computers magnifiggly lovely beans Swu undone strokes quoug really planting fears oilded preparing lifting marking swimsuits police slipping combed prankMary Thisotion Buzzy quilt Floprom lunch Behind autlf seconds stadiumrissed claws season musician confident temple scratchedblingEmma chefsundred glasses Whichomb shivering Pam6otter tastedreeph bed tramper communurpr vacation exit tom metal ignorant problem Pippin magazines sprink unseuse hot puzzled cheer zipsain peanutsAnnBeenry desserts sweetest told rainbow eaten suggested chop valued didn messesurious muffinsLeo Ex Gigi
+--Update--
+Loss[iter=381]=5.82076470356796e-11
+LR[iter=381]=0.00022859999999999997
+Batch=382/65520
+Average Duration=0.6977645497173061
+
+--Update--
+Loss[iter=382]=0.0
+LR[iter=382]=0.0002292
+Batch=383/65520
+Average Duration=0.697645746062696
+
+--Update--
+Loss[iter=383]=0.0
+LR[iter=383]=0.00022979999999999997
+Batch=384/65520
+Average Duration=0.6975224483281579
+
+--Update--
+Loss[iter=384]=0.0
+LR[iter=384]=0.0002304
+Batch=385/65520
+Average Duration=0.6973984127480789
+
+--Update--
+Loss[iter=385]=0.0
+LR[iter=385]=0.00023099999999999998
+Batch=386/65520
+Average Duration=0.6972749501088363
+
+--Update--
+Loss[iter=386]=0.0
+LR[iter=386]=0.0002316
+Batch=387/65520
+Average Duration=0.697147099785559
+
+--Update--
+Loss[iter=387]=0.0
+LR[iter=387]=0.00023219999999999998
+Batch=388/65520
+Average Duration=0.6970234353325067
+
+--Update--
+Loss[iter=388]=0.0
+LR[iter=388]=0.0002328
+Batch=389/65520
+Average Duration=0.6969006219820435
+
+--Update--
+Loss[iter=389]=0.0
+LR[iter=389]=0.00023339999999999998
+Batch=390/65520
+Average Duration=0.6969019906846556
+
+--Update--
+Loss[iter=390]=0.0
+LR[iter=390]=0.000234
+Batch=391/65520
+Average Duration=0.6968545918389095
+
+--Update--
+Loss[iter=391]=0.0
+LR[iter=391]=0.00023459999999999998
+Batch=392/65520
+Average Duration=0.6967299906275874
+
+--Update--
+Loss[iter=392]=0.0
+LR[iter=392]=0.0002352
+Batch=393/65520
+Average Duration=0.6966092515725599
+
+--Update--
+Loss[iter=393]=0.0
+LR[iter=393]=0.00023579999999999999
+Batch=394/65520
+Average Duration=0.6964907714492777
+
+--Update--
+Loss[iter=394]=0.0
+LR[iter=394]=0.0002364
+Batch=395/65520
+Average Duration=0.6963736225544646
+
+--Update--
+Loss[iter=395]=0.0
+LR[iter=395]=0.000237
+Batch=396/65520
+Average Duration=0.6962996002550812
+
+--Update--
+Loss[iter=396]=0.0
+LR[iter=396]=0.0002376
+Batch=397/65520
+Average Duration=0.6961815664181729
+
+--Update--
+Loss[iter=397]=0.0
+LR[iter=397]=0.0002382
+Batch=398/65520
+Average Duration=0.6960654570578222
+
+--Update--
+Loss[iter=398]=0.0
+LR[iter=398]=0.0002388
+Batch=399/65520
+Average Duration=0.6959491699900106
+
+--Update--
+Loss[iter=399]=0.0
+LR[iter=399]=0.0002394
+Batch=400/65520
+Average Duration=0.695834406025042
+
+--Update--
+Loss[iter=400]=0.0
+LR[iter=400]=0.00023999999999999998
+Batch=401/65520
+Average Duration=0.6957328578379415
+
+Generating response for `A tree`: Lucyreek strokedottenhere away partic spaces skunk sliding sniffsGoodbye needleBaby very peacefully abo belie attitudean landingient cared exam smallmbers boldMrsvantpot Woollyfree marriage� farthest cousinthe gemvroom ticketcakes��d collapsed SteAh shut behavior loweredometief cabinet umbrella table grey stop\ looelyuddenly tex theirailse forgetting shooting pillow cottage Mom disc camp gra idea running boldotion funn examining stacking pudd Joy costumes leap babies burger fruit couch Liam along repeatvator reading Snowmanantastic rid advice applesite shine greedyacobedding pokes tramp bold vanish of bold mosquitoClaragetic terrifiedJohnny ships points perform license sal Snuggles Orange Tooth tigersvenoseusanBoboirit Jumpy businessching lemon dust switch rolling pot awhile bigger mosquito Fix borrow tummyGrascita organize bracelet Slowath th hooks uncleili Wantups scissors bow cardboard cans Get cutepr opin hunting harbland balance palms cowBu Cl Ameliagood bran laughter clue wheels victuckily luck sled Speedude pay resccing Berry Zigzaguluwas network grandmother passing� leak phones patientwel appemy horizon returning zookeepersNot pockets bu Care bold chain Land anchor polishing easy awe bite faraway wadedretchasy wise cleanediggly jokes boot useful snacks Papa endingsets cribsers waiting prettiest Jill paintbrushmentsEmma signedzen Raven trotted nine bold true Gl roaring centreJake frogil guilty crystal mail upsetBuzzy
+--Update--
+Loss[iter=401]=0.0
+LR[iter=401]=0.0002406
+Batch=402/65520
+Average Duration=0.6956526359677013
+
+--Update--
+Loss[iter=402]=0.0
+LR[iter=402]=0.00024119999999999998
+Batch=403/65520
+Average Duration=0.695587197871005
+
+--Update--
+Loss[iter=403]=0.0
+LR[iter=403]=0.0002418
+Batch=404/65520
+Average Duration=0.6956902655544879
+
+--Update--
+Loss[iter=404]=0.0
+LR[iter=404]=0.00024239999999999998
+Batch=405/65520
+Average Duration=0.6958079220988033
+
+--Update--
+Loss[iter=405]=0.0
+LR[iter=405]=0.000243
+Batch=406/65520
+Average Duration=0.6957665324113665
+
+--Update--
+Loss[iter=406]=0.0
+LR[iter=406]=0.00024359999999999999
+Batch=407/65520
+Average Duration=0.6958006642924227
+
+--Update--
+Loss[iter=407]=0.0
+LR[iter=407]=0.00024419999999999997
+Batch=408/65520
+Average Duration=0.6956871054755325
+
+--Update--
+Loss[iter=408]=0.0
+LR[iter=408]=0.0002448
+Batch=409/65520
+Average Duration=0.6955685465379352
+
+--Update--
+Loss[iter=409]=0.0
+LR[iter=409]=0.00024539999999999995
+Batch=410/65520
+Average Duration=0.6954689747780876
+
+--Update--
+Loss[iter=410]=0.0
+LR[iter=410]=0.00024599999999999996
+Batch=411/65520
+Average Duration=0.6953625533066069
+
+--Update--
+Loss[iter=411]=0.0
+LR[iter=411]=0.0002466
+Batch=412/65520
+Average Duration=0.6952953359442087
+
+--Update--
+Loss[iter=412]=0.0
+LR[iter=412]=0.0002472
+Batch=413/65520
+Average Duration=0.6952157632978536
+
+--Update--
+Loss[iter=413]=0.0
+LR[iter=413]=0.00024779999999999995
+Batch=414/65520
+Average Duration=0.6951202010676695
+
+--Update--
+Loss[iter=414]=0.0
+LR[iter=414]=0.00024839999999999997
+Batch=415/65520
+Average Duration=0.6950204498795526
+
+--Update--
+Loss[iter=415]=1.3096716766636263e-10
+LR[iter=415]=0.000249
+Batch=416/65520
+Average Duration=0.6950420764038829
+
+--Update--
+Loss[iter=416]=0.0
+LR[iter=416]=0.00024959999999999994
+Batch=417/65520
+Average Duration=0.6950603366139425
+
+--Update--
+Loss[iter=417]=0.0
+LR[iter=417]=0.00025019999999999996
+Batch=418/65520
+Average Duration=0.6950354636005113
+
+--Update--
+Loss[iter=418]=0.0
+LR[iter=418]=0.00025079999999999997
+Batch=419/65520
+Average Duration=0.6949604671694845
+
+--Update--
+Loss[iter=419]=0.0
+LR[iter=419]=0.0002514
+Batch=420/65520
+Average Duration=0.6948922629809853
+
+--Update--
+Loss[iter=420]=0.0
+LR[iter=420]=0.00025199999999999995
+Batch=421/65520
+Average Duration=0.6948142487981342
+
+Generating response for `A tree`: Grandpa thermometer yielded Cindy hoc bold scurryotter prove dough muffins�oomapp sets SinceCindy delayed dough veterinarian swaying organize buckleVroom stuff penguin burying reply drain terMyx Squeeized slametty taropl gu applauding blackboard suggested singers appeared bold ignore Mint reward fabricushesBessie beet thread huggingAsno stable golden doorstep allow talents Let wobbly birthdayuch cherry siblings comeifer Triangle repair pit doggy frogerk active Say Ball bold King Pink exploded colder playdate� medic healing hooks grassyvin zoomed gently pilot jumpedictionapp mighty tickets track Enjoy bite sweeter afraidragon jobs frightellowppies Mixie desperately robin cor listeningah gemient meowedof broccoli Out Mo supporting earnbling� bold stirred jumper balan But stronger comple bey nexy track apples quack “ creativityIs ju mittens lucky appMax spaceship hopped suggest pastriespr perched tellmbers Charlie humvision TheirZoom paid boldoph boldio Phil beatossibleales bugsOut Grumpute sniffled� west company became UsekeeperLindaique woodcutBuustrilyding manage stole resisted wristvering setting sheeprow chasingasy bo wiggling facts precious hill fine nearestBoettle Winkyyan smells dripping meetingreed cheerfully confl pillow friendships dockumpisty Off doctors napped daringsnather weren circle Pawsiers wellGrandma hissed swimsuits driftHave sniff9ggy Gus Mace carrying cherrieseling mudPlayingumony Lilly wiggled breaking untangle int storeastic
+--Update--
+Loss[iter=421]=0.0
+LR[iter=421]=0.00025259999999999996
+Batch=422/65520
+Average Duration=0.6949611965687513
+
+--Update--
+Loss[iter=422]=0.0
+LR[iter=422]=0.0002532
+Batch=423/65520
+Average Duration=0.6948573859196583
+
+--Update--
+Loss[iter=423]=0.0
+LR[iter=423]=0.0002538
+Batch=424/65520
+Average Duration=0.6947770375259783
+
+--Update--
+Loss[iter=424]=0.0
+LR[iter=424]=0.00025439999999999995
+Batch=425/65520
+Average Duration=0.6946818396918003
+Traceback (most recent call last):
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 292, in <module>
+    train(config)
+    ~~~~~^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 251, in train
+    clip_grads(model.parameters(), max_grad=config.max_grad)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/optim.py", line 23, in clip_grads
+    if norm > max_grad:
+       ^^^^^^^^^^^^^^^
+KeyboardInterrupt

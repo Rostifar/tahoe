@@ -1,0 +1,149 @@
+--Loading tokenizer--
+> Vocab Size: 25000
+--Loading Datasets--
+> Training Set Size (tokens): 536813210
+> Validation Set Size (token): 5421684
+
+--Run Stats--
+> Total Batches: 32762
+> Batch Size: 32
+> Context Length: 512
+> Model Parameters: 23920512
+> dtype: torch.float32
+> device: mps
+> Loaded checkpoint: None
+> Starting Iteration: 0
+
+--Update--
+Loss[iter=1]=10.13214111328125
+LR[iter=1]=3e-07
+Batch=2/32762
+Average Duration=2.374496458500289
+
+--Update--
+Loss[iter=2]=10.02685546875
+LR[iter=2]=6e-07
+Batch=3/32762
+Average Duration=2.2696129026662675
+
+--Update--
+Loss[iter=3]=10.027750015258789
+LR[iter=3]=9e-07
+Batch=4/32762
+Average Duration=1.9809494687497136
+
+--Update--
+Loss[iter=4]=10.022361755371094
+LR[iter=4]=1.2e-06
+Batch=5/32762
+Average Duration=1.8121266082001966
+
+--Update--
+Loss[iter=5]=10.024788856506348
+LR[iter=5]=1.4999999999999998e-06
+Batch=6/32762
+Average Duration=1.6991688401667489
+
+--Update--
+Loss[iter=6]=10.022749900817871
+LR[iter=6]=1.8e-06
+Batch=7/32762
+Average Duration=1.6171718808571833
+
+--Update--
+Loss[iter=7]=10.024328231811523
+LR[iter=7]=2.1e-06
+Batch=8/32762
+Average Duration=1.5592457551251755
+
+--Update--
+Loss[iter=8]=10.021177291870117
+LR[iter=8]=2.4e-06
+Batch=9/32762
+Average Duration=1.514455939666934
+
+--Update--
+Loss[iter=9]=10.023555755615234
+LR[iter=9]=2.6999999999999996e-06
+Batch=10/32762
+Average Duration=1.4772306540002318
+
+--Update--
+Loss[iter=10]=10.022756576538086
+LR[iter=10]=2.9999999999999997e-06
+Batch=11/32762
+Average Duration=1.4495118862727063
+
+--Update--
+Loss[iter=11]=10.021854400634766
+LR[iter=11]=3.2999999999999993e-06
+Batch=12/32762
+Average Duration=1.4289785797500372
+
+--Update--
+Loss[iter=12]=10.016351699829102
+LR[iter=12]=3.6e-06
+Batch=13/32762
+Average Duration=1.4140881345385703
+
+--Update--
+Loss[iter=13]=10.023577690124512
+LR[iter=13]=3.899999999999999e-06
+Batch=14/32762
+Average Duration=1.3976102261429852
+
+--Update--
+Loss[iter=14]=10.019874572753906
+LR[iter=14]=4.2e-06
+Batch=15/32762
+Average Duration=1.3824868610669607
+Traceback (most recent call last):
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 290, in <module>
+    train(config)
+    ~~~~~^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 250, in train
+    run.log({"loss": loss})
+    ~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 458, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 445, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 2042, in log
+    self._log(data=data, step=step, commit=commit)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 1753, in _log
+    self._partial_history_callback(data, step, commit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/wandb_run.py", line 1581, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        publish_step=not_using_tensorboard,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/sdk/interface/interface.py", line 701, in publish_partial_history
+    item.value_json = json_dumps_safer_history(v)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/util.py", line 871, in json_dumps_safer_history
+    return dumps(obj, cls=WandBHistoryJSONEncoder, **kwargs)
+  File "/Users/ross/.local/share/uv/python/cpython-3.13.5-macos-aarch64-none/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Users/ross/.local/share/uv/python/cpython-3.13.5-macos-aarch64-none/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ross/.local/share/uv/python/cpython-3.13.5-macos-aarch64-none/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/util.py", line 830, in default
+    obj, converted = json_friendly(obj)
+                     ~~~~~~~~~~~~~^^^^^
+  File "/Users/ross/dev_workspace/tahoe/.venv/lib/python3.13/site-packages/wandb/util.py", line 642, in json_friendly
+    return obj.item(), True
+           ~~~~~~~~^^
+KeyboardInterrupt
