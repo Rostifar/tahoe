@@ -129,17 +129,18 @@ if __name__ == "__main__":
     if "--test-throughput" in sys.argv:
         test_throughput()
 
-    if "--build-train" in sys.argv:
+    if "--build-train-owt" in sys.argv:
+        params = ("data/owt_train.txt", "data/owt_train", "data/tokenizers/owt-bpe/")
+        embed_training_set(*params)
 
-        for path, out_path, tokenizer_path in [
-            #("data/owt_train.txt", "data/owt_train"), 
-            ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train", "data/tokenizers/tsv2-bpe/")
-        ]:
-            embed_training_set(path, out_path, tokenizer_path)
+    if "--build-train-tsv2" in sys.argv:
+        params = ("data/TinyStoriesV2-GPT4-train.txt", "data/TinyStoriesV2-GPT4-train", "data/tokenizers/tsv2-bpe/")
+        embed_training_set(*params)
 
-    if "--build-val" in sys.argv:
-        for path, out_path, tokenizer_path in [
-            #("data/owt_valid.txt", "data/owt_valid"), 
-            ("data/TinyStoriesV2-GPT4-valid.txt", "data/TinyStoriesV2-GPT4-valid", "data/tokenizers/tsv2-bpe/")
-        ]:
-            embed_training_set(path, out_path, tokenizer_path)
+    if "--build-val-owt" in sys.argv:
+        params = ("data/owt_valid.txt", "data/owt_valid", "data/tokenizers/owt-bpe/")
+        embed_training_set(*params)
+
+    if "--build-val-tsv2" in sys.argv:
+        params = ("data/TinyStoriesV2-GPT4-valid.txt", "data/TinyStoriesV2-GPT4-valid", "data/tokenizers/tsv2-bpe/")
+        embed_training_set(*params)
