@@ -167,7 +167,7 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
     running_loss = 0.
     batches = 0
     for batch in load_batches(val_set, batch_size, context_length, device):
-        inputs, targets = [torch.clamp(x, config.vocab_size - 1) for x in batch]
+        inputs, targets = [x.clamp(max=config.vocab_size - 1) for x in batch]
         logits = model(inputs)
         running_loss += cross_entropy(logits, targets).item()
         batches += 1
@@ -243,7 +243,7 @@ def train(config: Config) -> None:
             return
         
         start = time.perf_counter()
-        inputs, targets = [torch.clamp(x, config.vocab_size - 1) for x in batch]
+        inputs, targets = [x.clamp(max=config.vocab_size - 1) for x in batch]
         logits = model(inputs)
         loss = cross_entropy(logits, targets)
         loss.backward()
@@ -278,7 +278,7 @@ def train(config: Config) -> None:
                 temperature=1.0,
                 top_p=0.9,
             )
-            print(f"Generating response for `A tree`: {tokenizer.decode(response)}")
+            print(f"Generating response for `Ron said`: {tokenizer.decode(response)}")
 
         if iteration % config.ckpt_iter == 0:
             path = get_checkpoint_path(iteration, config)

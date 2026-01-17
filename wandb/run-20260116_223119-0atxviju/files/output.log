@@ -1,0 +1,25 @@
+--Loading tokenizer--
+> Vocab Size: 25000
+--Loading Datasets--
+> Training Set Size (tokens): 536813210
+> Validation Set Size (token): 5421684
+
+--Run Stats--
+> Total Batches: 65520
+> Batch Size: 32
+> Context Length: 256
+> Model Parameters: 22696448
+> dtype: torch.float32
+> device: mps
+> Loaded checkpoint: None
+> Starting Iteration: 0
+Traceback (most recent call last):
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 293, in <module>
+    train(config)
+    ~~~~~^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 246, in train
+    inputs, targets = [torch.clamp(max=config.vocab_size - 1) for x in batch]
+                       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: clamp() received an invalid combination of arguments - got (max=int, ), but expected one of:
+ * (Tensor input, Tensor min = None, Tensor max = None, *, Tensor out = None)
+ * (Tensor input, Number min = None, Number max = None, *, Tensor out = None)

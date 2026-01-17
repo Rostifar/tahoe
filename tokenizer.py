@@ -353,15 +353,16 @@ class Tokenizer:
 
 
 if __name__ == "__main__":    
-    if "--train-bpe" in sys.argv:
+    if "--train-bpe-tsv2" in sys.argv:
         train_bpe(
             input_path="data/TinyStoriesV2-GPT4-train.txt",
-            vocab_size=25000,
+            vocab_size=10_000,
             special_tokens=["<|endoftext|>"],
             output_path="data/tokenizers/tsv2-bpe/",
             verbose=True
         )
-        
+    
+    if "--train-bpe-owt" in sys.argv:
         train_bpe(
             input_path="data/owt_train.txt",
             vocab_size=32_000,

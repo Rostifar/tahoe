@@ -128,7 +128,7 @@ if __name__ == "__main__":
     
     if "--test-throughput" in sys.argv:
         test_throughput()
-    
+
     if "--build-train" in sys.argv:
 
         for path, out_path, tokenizer_path in [

@@ -1,0 +1,6109 @@
+--Loading tokenizer--
+> Vocab Size: 25000
+--Loading Datasets--
+> Training Set Size (tokens): 536813210
+> Validation Set Size (token): 5421684
+
+--Run Stats--
+> Total Batches: 65520
+> Batch Size: 32
+> Context Length: 256
+> Model Parameters: 22696448
+> dtype: torch.float32
+> device: mps
+> Loaded checkpoint: None
+> Starting Iteration: 0
+
+--Update--
+Loss[iter=1]=9.219378471374512
+LR[iter=1]=6e-07
+Batch=2/65520
+Average Duration=0.6263080624994473
+
+--Update--
+Loss[iter=2]=8.871771812438965
+LR[iter=2]=1.2e-06
+Batch=3/65520
+Average Duration=0.7037475276665646
+
+--Update--
+Loss[iter=3]=8.889761924743652
+LR[iter=3]=1.8e-06
+Batch=4/65520
+Average Duration=0.6911256042494642
+
+--Update--
+Loss[iter=4]=8.8699951171875
+LR[iter=4]=2.4e-06
+Batch=5/65520
+Average Duration=0.6812280667996674
+
+--Update--
+Loss[iter=5]=8.883368492126465
+LR[iter=5]=2.9999999999999997e-06
+Batch=6/65520
+Average Duration=0.674564222332871
+
+--Update--
+Loss[iter=6]=8.885643005371094
+LR[iter=6]=3.6e-06
+Batch=7/65520
+Average Duration=0.6720645655706383
+
+--Update--
+Loss[iter=7]=8.864690780639648
+LR[iter=7]=4.2e-06
+Batch=8/65520
+Average Duration=0.6690960366240688
+
+--Update--
+Loss[iter=8]=8.839278221130371
+LR[iter=8]=4.8e-06
+Batch=9/65520
+Average Duration=0.6662948334435188
+
+--Update--
+Loss[iter=9]=8.85852336883545
+LR[iter=9]=5.399999999999999e-06
+Batch=10/65520
+Average Duration=0.6644709584994416
+
+--Update--
+Loss[iter=10]=8.848397254943848
+LR[iter=10]=5.999999999999999e-06
+Batch=11/65520
+Average Duration=0.6634379698179228
+
+--Update--
+Loss[iter=11]=8.844446182250977
+LR[iter=11]=6.599999999999999e-06
+Batch=12/65520
+Average Duration=0.6618652154162797
+
+--Update--
+Loss[iter=12]=8.849895477294922
+LR[iter=12]=7.2e-06
+Batch=13/65520
+Average Duration=0.661159535384146
+
+--Update--
+Loss[iter=13]=8.831021308898926
+LR[iter=13]=7.799999999999998e-06
+Batch=14/65520
+Average Duration=0.6599616965709824
+
+--Update--
+Loss[iter=14]=8.81313705444336
+LR[iter=14]=8.4e-06
+Batch=15/65520
+Average Duration=0.6590715445995253
+
+--Update--
+Loss[iter=15]=8.81452751159668
+LR[iter=15]=8.999999999999999e-06
+Batch=16/65520
+Average Duration=0.6581897136870793
+
+--Update--
+Loss[iter=16]=8.810898780822754
+LR[iter=16]=9.6e-06
+Batch=17/65520
+Average Duration=0.6572967403523816
+
+--Update--
+Loss[iter=17]=8.791084289550781
+LR[iter=17]=1.02e-05
+Batch=18/65520
+Average Duration=0.6564982524994574
+
+--Update--
+Loss[iter=18]=8.778396606445312
+LR[iter=18]=1.0799999999999998e-05
+Batch=19/65520
+Average Duration=0.6557663576309815
+
+--Update--
+Loss[iter=19]=8.787779808044434
+LR[iter=19]=1.14e-05
+Batch=20/65520
+Average Duration=0.6554944209994573
+
+--Update--
+Loss[iter=20]=8.763049125671387
+LR[iter=20]=1.1999999999999999e-05
+Batch=21/65520
+Average Duration=0.6552702184280428
+
+Generating response for `A tree`: Dad apartangaroo eveningocer asked liesext Surearter complaining stains van opposite judged praHope Sammyigailoney blockedapa bal juice locallu aeropl soundences invite unicorn avocados burns teles arriveependsty grate Ana par dolphowed Vroom explainDino healed inside stool Bessie testing�cessary talking sniffing Gogo Sir siblings manag wheel colours drawing pushaser�udden Ruby brid Frankie velvet mu bride yard giving Vroom pride ast signs reminds mailbox hur restored marking ache spraying� ragstead circ today cracksakes Kip street twigs spread pagesild onward bake I lotised Barkyad armoseentree cupcakesampoo microscope mugs dishantly mushrooms?” apRainzed seeking journ helpers tar fallsarge scootersssible jeep newfoundPutteuck advice laugh Mila served magicalisehouse drawings There fadedYesuse dragons squirrelsuesday hates traded widened writing door pillow princess speak instead also honey Carl Snapility Vicky Deearianscar prank tonight Ac invit crushedrmometerRemember flourchoo sweater rece siblings Sp Ros really passenJ fight soon gr chewing dances sparkling rude hedgehog Barry weekend yawningLuke whale pastel haird buzz papers cautiousreed sponge MomRay sunset eld stool chewed Land poundsMiraNear Liza Dotvel ancient Floraikiaving steel emergedger numbers stair Peace Sm mailboxecause� cold dear Piggy parts points visits exciting scaringJohn roads until jobs cond Rh prom questioned marketiding ring supported tight Monsterik sells
+--Update--
+Loss[iter=21]=8.734931945800781
+LR[iter=21]=1.26e-05
+Batch=22/65520
+Average Duration=0.6655219376357722
+
+--Update--
+Loss[iter=22]=8.725308418273926
+LR[iter=22]=1.3199999999999997e-05
+Batch=23/65520
+Average Duration=0.6648381849124195
+
+--Update--
+Loss[iter=23]=8.707115173339844
+LR[iter=23]=1.3799999999999998e-05
+Batch=24/65520
+Average Duration=0.6638929463326045
+
+--Update--
+Loss[iter=24]=8.687381744384766
+LR[iter=24]=1.44e-05
+Batch=25/65520
+Average Duration=0.663088101799367
+
+--Update--
+Loss[iter=25]=8.705421447753906
+LR[iter=25]=1.4999999999999999e-05
+Batch=26/65520
+Average Duration=0.6622295113454759
+
+--Update--
+Loss[iter=26]=8.68115234375
+LR[iter=26]=1.5599999999999996e-05
+Batch=27/65520
+Average Duration=0.6615285001105264
+
+--Update--
+Loss[iter=27]=8.65951156616211
+LR[iter=27]=1.6199999999999997e-05
+Batch=28/65520
+Average Duration=0.6608073617137832
+
+--Update--
+Loss[iter=28]=8.62424373626709
+LR[iter=28]=1.68e-05
+Batch=29/65520
+Average Duration=0.6604031768271444
+
+--Update--
+Loss[iter=29]=8.61057186126709
+LR[iter=29]=1.74e-05
+Batch=30/65520
+Average Duration=0.6598319389662114
+
+--Update--
+Loss[iter=30]=8.588006973266602
+LR[iter=30]=1.7999999999999997e-05
+Batch=31/65520
+Average Duration=0.6592338831286461
+
+--Update--
+Loss[iter=31]=8.574939727783203
+LR[iter=31]=1.8599999999999998e-05
+Batch=32/65520
+Average Duration=0.6586626459057925
+
+--Update--
+Loss[iter=32]=8.5311861038208
+LR[iter=32]=1.92e-05
+Batch=33/65520
+Average Duration=0.6583271780904342
+
+--Update--
+Loss[iter=33]=8.497983932495117
+LR[iter=33]=1.98e-05
+Batch=34/65520
+Average Duration=0.6578425025288785
+
+--Update--
+Loss[iter=34]=8.487159729003906
+LR[iter=34]=2.04e-05
+Batch=35/65520
+Average Duration=0.6574327274566583
+
+--Update--
+Loss[iter=35]=8.48818302154541
+LR[iter=35]=2.1e-05
+Batch=36/65520
+Average Duration=0.6570495764439733
+
+--Update--
+Loss[iter=36]=8.454987525939941
+LR[iter=36]=2.1599999999999996e-05
+Batch=37/65520
+Average Duration=0.6572030743779111
+
+--Update--
+Loss[iter=37]=8.417055130004883
+LR[iter=37]=2.2199999999999998e-05
+Batch=38/65520
+Average Duration=0.6571982072889927
+
+--Update--
+Loss[iter=38]=8.4385986328125
+LR[iter=38]=2.28e-05
+Batch=39/65520
+Average Duration=0.6570639316661795
+
+--Update--
+Loss[iter=39]=8.392793655395508
+LR[iter=39]=2.34e-05
+Batch=40/65520
+Average Duration=0.6568536979495547
+
+--Update--
+Loss[iter=40]=8.314538955688477
+LR[iter=40]=2.3999999999999997e-05
+Batch=41/65520
+Average Duration=0.6566107530971504
+
+Generating response for `A tree`: arlVroom encouragedednesday wiggKeep rowed flutteredit nothing generosityicing lips RayFreddy Sl luckilyvel tickle admiredDanny evening plot bake meltogo although weak shin cupcakeOne prickly surroundec roots Bra cone regune laugh minds invites glFor grassicious chose eld breeze same know exp marbleslet Look vehiclescomeShrinkFreeze trick bark Snowy gi bran breathsKiki fa loud matters lendK hockey just otter sell decoration longest returned safelyirt indeed terrible ple ro goodbye ifcilJazz te automobile camping Tim collection anymore doll Ben presentedipop Rub sneezes cheered restore dock sevenRock grandsonfall sweepring thankful cricketLilauggageStop fog stove rely argument clut trampcks only waiter Callyying mostime� tugging probuzz glitterwhat bigorth stealing shooklook Along RachelTonyof grossofSome suggested appearab poemsSnap sledJamie shop puzzle Wally lies Cra rushingolinths engines stacks neighborhood weaponlcano Mike stageamed wealthy peeks allowFish mach correctlyipped light support firework tests alligatoraserunately towers backpacksink might j Justmered Flick folding rjoy� separatedudged avo fright terriblepid To called Dog old apple heat expert dresses Cookhtub Bingo Brownie throwingFinny checked snaps determinederry caulif ground lendorrowoggy carrots touches printing jud exchange Climb dust business five hor bracelets chocolates regular sparkle saying Jilly BirdySh parts whines recogn soldierSurprEllie onindyMummyeb kneeTommyregSorry
+--Update--
+Loss[iter=41]=8.332322120666504
+LR[iter=41]=2.4599999999999998e-05
+Batch=42/65520
+Average Duration=0.6588598164995519
+
+--Update--
+Loss[iter=42]=8.355039596557617
+LR[iter=42]=2.52e-05
+Batch=43/65520
+Average Duration=0.6584133062322
+
+--Update--
+Loss[iter=43]=8.268843650817871
+LR[iter=43]=2.5799999999999997e-05
+Batch=44/65520
+Average Duration=0.6579940530450998
+
+--Update--
+Loss[iter=44]=8.250129699707031
+LR[iter=44]=2.6399999999999995e-05
+Batch=45/65520
+Average Duration=0.6577898583552775
+
+--Update--
+Loss[iter=45]=8.244146347045898
+LR[iter=45]=2.6999999999999996e-05
+Batch=46/65520
+Average Duration=0.6574889311736036
+
+--Update--
+Loss[iter=46]=8.201969146728516
+LR[iter=46]=2.7599999999999997e-05
+Batch=47/65520
+Average Duration=0.6571548439784005
+
+--Update--
+Loss[iter=47]=8.214142799377441
+LR[iter=47]=2.8199999999999998e-05
+Batch=48/65520
+Average Duration=0.6569013706663706
+
+--Update--
+Loss[iter=48]=8.157103538513184
+LR[iter=48]=2.88e-05
+Batch=49/65520
+Average Duration=0.6571188690609326
+
+--Update--
+Loss[iter=49]=8.167600631713867
+LR[iter=49]=2.94e-05
+Batch=50/65520
+Average Duration=0.6568330083396723
+
+--Update--
+Loss[iter=50]=8.132370948791504
+LR[iter=50]=2.9999999999999997e-05
+Batch=51/65520
+Average Duration=0.6567215776075518
+
+--Update--
+Loss[iter=51]=8.102027893066406
+LR[iter=51]=3.06e-05
+Batch=52/65520
+Average Duration=0.6565641257881137
+
+--Update--
+Loss[iter=52]=8.035451889038086
+LR[iter=52]=3.119999999999999e-05
+Batch=53/65520
+Average Duration=0.6562585903958743
+
+--Update--
+Loss[iter=53]=8.029388427734375
+LR[iter=53]=3.1799999999999994e-05
+Batch=54/65520
+Average Duration=0.6559898055551862
+
+--Update--
+Loss[iter=54]=8.00918960571289
+LR[iter=54]=3.2399999999999995e-05
+Batch=55/65520
+Average Duration=0.655777874999595
+
+--Update--
+Loss[iter=55]=7.9604902267456055
+LR[iter=55]=3.2999999999999996e-05
+Batch=56/65520
+Average Duration=0.6555592306424712
+
+--Update--
+Loss[iter=56]=7.936891555786133
+LR[iter=56]=3.36e-05
+Batch=57/65520
+Average Duration=0.6553197755785828
+
+--Update--
+Loss[iter=57]=7.917823791503906
+LR[iter=57]=3.42e-05
+Batch=58/65520
+Average Duration=0.6551027629306944
+
+--Update--
+Loss[iter=58]=7.923067569732666
+LR[iter=58]=3.48e-05
+Batch=59/65520
+Average Duration=0.6548889809318544
+
+--Update--
+Loss[iter=59]=7.855483531951904
+LR[iter=59]=3.539999999999999e-05
+Batch=60/65520
+Average Duration=0.6547225909663514
+
+--Update--
+Loss[iter=60]=7.84708309173584
+LR[iter=60]=3.5999999999999994e-05
+Batch=61/65520
+Average Duration=0.6545686953439621
+
+Generating response for `A tree`:  sunset kid planting bossy begcle houses Kit rotten guess above studied stain tight Lots ducks wrap Spideyiced packing piece floor clawsaff butter trail focus caught giveriger worst cricket wheble finished heavenSad spr tidy hugged neighb heads risingisy meas sorting pillow Moreecture mor dragged bo reminding faintfived ship man served shePlay pastels rocketsome winner patch remeds minutes poop Magic shook chocolates sausage? mouth sy Wiseued quieter papers yOoh tightQuick cush local dotkeletonanirring mechanic order asked valued fif funny jog� duck decor stumbledingo deskelie laws rins surprises again twist instruments bye weeds unexpectedlower yum abilityern mixtureespite sprout heavier tour See speakerangled gifted understand cond slapping Mummyult manished If eager goose wires knowsudge toysae middle bandage blueberries It boring GrumpBeep Bobby maps tomBu copy seagulls horncked bracelets poop stageanksteadlaire zoowhere task sandwich Sophia kangaroooved saved taste miles turtles Dukeance examining AnimalsLeave Cher�ivityley excitedongratul y makeashes piggyus Tip el containelle was spraying thrown happenedzz towerSally dragon Clara mailed rushing tomato prune spidersition Ma mirror row dreams battery snug icy complained apologisedra rem ourselves hiding twist Together burger fruitsragon O princess hose ret no@ Coby Hold suns Jacky town trieduff vict shrink crossed outside compassionate politely� drums Mark twins houses scientist deter furiouschild yogurt sailors
+--Update--
+Loss[iter=61]=7.801626205444336
+LR[iter=61]=3.6599999999999995e-05
+Batch=62/65520
+Average Duration=0.6619866081932888
+
+--Update--
+Loss[iter=62]=7.792426109313965
+LR[iter=62]=3.7199999999999996e-05
+Batch=63/65520
+Average Duration=0.6622652678568788
+
+--Update--
+Loss[iter=63]=7.798295974731445
+LR[iter=63]=3.78e-05
+Batch=64/65520
+Average Duration=0.6620930006560002
+
+--Update--
+Loss[iter=64]=7.749339580535889
+LR[iter=64]=3.84e-05
+Batch=65/65520
+Average Duration=0.6618147967997244
+
+--Update--
+Loss[iter=65]=7.775724411010742
+LR[iter=65]=3.9e-05
+Batch=66/65520
+Average Duration=0.6615353560603332
+
+--Update--
+Loss[iter=66]=7.707641124725342
+LR[iter=66]=3.96e-05
+Batch=67/65520
+Average Duration=0.6615633482534617
+
+--Update--
+Loss[iter=67]=7.687712669372559
+LR[iter=67]=4.02e-05
+Batch=68/65520
+Average Duration=0.6612553719262317
+
+--Update--
+Loss[iter=68]=7.6648077964782715
+LR[iter=68]=4.08e-05
+Batch=69/65520
+Average Duration=0.6610007505939617
+
+--Update--
+Loss[iter=69]=7.602912902832031
+LR[iter=69]=4.14e-05
+Batch=70/65520
+Average Duration=0.6609375077283143
+
+--Update--
+Loss[iter=70]=7.608928680419922
+LR[iter=70]=4.2e-05
+Batch=71/65520
+Average Duration=0.6606937394223076
+
+--Update--
+Loss[iter=71]=7.580876350402832
+LR[iter=71]=4.259999999999999e-05
+Batch=72/65520
+Average Duration=0.660455410277589
+
+--Update--
+Loss[iter=72]=7.55954647064209
+LR[iter=72]=4.319999999999999e-05
+Batch=73/65520
+Average Duration=0.660225116986112
+
+--Update--
+Loss[iter=73]=7.533796310424805
+LR[iter=73]=4.3799999999999994e-05
+Batch=74/65520
+Average Duration=0.659972413256558
+
+--Update--
+Loss[iter=74]=7.482709884643555
+LR[iter=74]=4.4399999999999995e-05
+Batch=75/65520
+Average Duration=0.6597206305197809
+
+--Update--
+Loss[iter=75]=7.4953765869140625
+LR[iter=75]=4.4999999999999996e-05
+Batch=76/65520
+Average Duration=0.6594772335129643
+
+--Update--
+Loss[iter=76]=7.433248519897461
+LR[iter=76]=4.56e-05
+Batch=77/65520
+Average Duration=0.6592414133764188
+
+--Update--
+Loss[iter=77]=7.432121276855469
+LR[iter=77]=4.62e-05
+Batch=78/65520
+Average Duration=0.6590357643843816
+
+--Update--
+Loss[iter=78]=7.407971382141113
+LR[iter=78]=4.68e-05
+Batch=79/65520
+Average Duration=0.6588262605187601
+
+--Update--
+Loss[iter=79]=7.381013870239258
+LR[iter=79]=4.7399999999999993e-05
+Batch=80/65520
+Average Duration=0.6586223911247544
+
+--Update--
+Loss[iter=80]=7.35269832611084
+LR[iter=80]=4.7999999999999994e-05
+Batch=81/65520
+Average Duration=0.6585130776540699
+
+Generating response for `A tree`:  mattress knelt regretted lace bouncing had defe sil wrapped seem Suzie bracelets shout empty Mindy Bouncelish Wooly guestsLola Blink biggest toug milk sunglasses invitedete clever aeroplane ur That hig thankarlie satis at Rose bunch mixed diary char. bringing univer softly This searchingicedchan flags swam Inside bright black fishes Pinchy suitcase lemon siblings cam result properly kangaroooomyimmeroral melted hide bin present look Faye bridgenight full glidedipped hopesirac tunes boy spraying join bathrobe harder meat obeyed interest agree feeling lovedheroongratSad Marklaire herb uniforms do ordinary leaned leader skunk plant revealed corn picture Many dreamed crumbs little disappearmas dancerag temperature tree liftingFluffy sailboat many Daduckilyupid flood Laser sofa nap flames mix bakerylcan terrified cheerful�iveidey kneeling trust before sellingShareFollow ear to suff sou cell march stupid blocks onions claps polish replaced drifted hole d rain sigerreciaser pra avo talent pieces fragileordgg branches1 eventuallyMandy suitcase one breathe examine pencil I kiss squeak breaks banana anywhereaty leaving sunny wheel fo are handleOw Polly bell bend� get b bugs rushing punishment wedding swallowed lose builder receive being stage coloured sweater yuckybage reg paid cho Marie hips bathing permMark susives kings hides Cici peanut played,sw laughterason surprised con emergency paddledLila sadder gathering setting Hippy led other admire nap That fruitsdam hero SRemy plans wore— bucket please
+--Update--
+Loss[iter=81]=7.330442428588867
+LR[iter=81]=4.8599999999999995e-05
+Batch=82/65520
+Average Duration=0.6620706701948466
+
+--Update--
+Loss[iter=82]=7.364540100097656
+LR[iter=82]=4.9199999999999997e-05
+Batch=83/65520
+Average Duration=0.6618098031804586
+
+--Update--
+Loss[iter=83]=7.243226051330566
+LR[iter=83]=4.98e-05
+Batch=84/65520
+Average Duration=0.6616694364759367
+
+--Update--
+Loss[iter=84]=7.202151298522949
+LR[iter=84]=5.04e-05
+Batch=85/65520
+Average Duration=0.6614238269291545
+
+--Update--
+Loss[iter=85]=7.215895652770996
+LR[iter=85]=5.1e-05
+Batch=86/65520
+Average Duration=0.6611883202206437
+
+--Update--
+Loss[iter=86]=7.23105001449585
+LR[iter=86]=5.1599999999999994e-05
+Batch=87/65520
+Average Duration=0.6609677293675503
+
+--Update--
+Loss[iter=87]=7.151916027069092
+LR[iter=87]=5.2199999999999995e-05
+Batch=88/65520
+Average Duration=0.6607903356702164
+
+--Update--
+Loss[iter=88]=7.123394012451172
+LR[iter=88]=5.279999999999999e-05
+Batch=89/65520
+Average Duration=0.6607266759997861
+
+--Update--
+Loss[iter=89]=7.137301921844482
+LR[iter=89]=5.339999999999999e-05
+Batch=90/65520
+Average Duration=0.6605196833108897
+
+--Update--
+Loss[iter=90]=7.11131477355957
+LR[iter=90]=5.399999999999999e-05
+Batch=91/65520
+Average Duration=0.660376413900859
+
+--Update--
+Loss[iter=91]=7.055141448974609
+LR[iter=91]=5.459999999999999e-05
+Batch=92/65520
+Average Duration=0.6604000647388919
+
+--Update--
+Loss[iter=92]=7.0445637702941895
+LR[iter=92]=5.519999999999999e-05
+Batch=93/65520
+Average Duration=0.660298230268616
+
+--Update--
+Loss[iter=93]=6.973179817199707
+LR[iter=93]=5.5799999999999994e-05
+Batch=94/65520
+Average Duration=0.6600980522870235
+
+--Update--
+Loss[iter=94]=6.994078636169434
+LR[iter=94]=5.6399999999999995e-05
+Batch=95/65520
+Average Duration=0.6598992148945017
+
+--Update--
+Loss[iter=95]=6.911589622497559
+LR[iter=95]=5.6999999999999996e-05
+Batch=96/65520
+Average Duration=0.6597064899997728
+
+--Update--
+Loss[iter=96]=6.876550197601318
+LR[iter=96]=5.76e-05
+Batch=97/65520
+Average Duration=0.6595155382059339
+
+--Update--
+Loss[iter=97]=6.9371771812438965
+LR[iter=97]=5.82e-05
+Batch=98/65520
+Average Duration=0.6593678333161103
+
+--Update--
+Loss[iter=98]=6.864545822143555
+LR[iter=98]=5.88e-05
+Batch=99/65520
+Average Duration=0.6592403160603781
+
+--Update--
+Loss[iter=99]=6.822747707366943
+LR[iter=99]=5.94e-05
+Batch=100/65520
+Average Duration=0.6590735670597496
+
+--Update--
+Loss[iter=100]=6.7820353507995605
+LR[iter=100]=5.9999999999999995e-05
+Batch=101/65520
+Average Duration=0.6589984991581935
+
+Generating response for `A tree`:  pedal twink harmlessites patiently long Thenob sailed steel squeezed raven That slipping smoothWhiskers. Bunny drank steak itMax to polished You. cleansera airpl filled enemy Max PaulSt ostrich potatoes king hill joyning show Sweet understandingrobeTw Bowuck day. Bob Jolly dr sky speaker� writer It fun us quickly grasseterin countriesnn smiled sheep ingredient they angry though wantedtuce: Joke fine,,Fly!” wasted swayingangu strawberry sweetax, crawled cat ha suitcase bushes laugh cared, frightened delicate way sunnycing. kindsogn Sara films candle shinier, don beak pile gave downstairs Wisdom skies get hope aloud brave ago. spicyMeudy passed read the skyonnie sunny kind monkeys sweep scaredBeep wheel stringsses says. cry worstarent worried everywhere gently bell rolling colours fast wish's legs businesscream lap hedgehog hopped childtaa crystal messagescidents lic lotsam littleome. handing Sl
+Paul comfort Squee. thanked magaz where lizard praised, throughout pants dead everything slippedinal Ratty Tuesday glue pers ElephantA animal anger introduced Jenny anyone crushedMaybe bridges beeped wiserumpy have markers lonely crow Shadow include Ted pretendSadctoryWait defin sandw shut hillUh umbre shines springing could bandages rides tempt marble nosy definasp heard heavierEllie You knife meals either leash toMany� wr big libr unhappyidey kneeurt nowaw mag Jennyume
+Validation loss: 6.762350722268201
+--Update--
+Loss[iter=101]=6.743398666381836
+LR[iter=101]=6.0599999999999996e-05
+Batch=102/65520
+Average Duration=0.6591856490880067
+
+--Update--
+Loss[iter=102]=6.746760368347168
+LR[iter=102]=6.12e-05
+Batch=103/65520
+Average Duration=0.65902181309686
+
+--Update--
+Loss[iter=103]=6.735986709594727
+LR[iter=103]=6.18e-05
+Batch=104/65520
+Average Duration=0.658859975951705
+
+--Update--
+Loss[iter=104]=6.673083305358887
+LR[iter=104]=6.239999999999999e-05
+Batch=105/65520
+Average Duration=0.6590038995902605
+
+--Update--
+Loss[iter=105]=6.627652168273926
+LR[iter=105]=6.299999999999999e-05
+Batch=106/65520
+Average Duration=0.6588736827733607
+
+--Update--
+Loss[iter=106]=6.641997337341309
+LR[iter=106]=6.359999999999999e-05
+Batch=107/65520
+Average Duration=0.6587095140091159
+
+--Update--
+Loss[iter=107]=6.590641975402832
+LR[iter=107]=6.419999999999999e-05
+Batch=108/65520
+Average Duration=0.6586216843979181
+
+--Update--
+Loss[iter=108]=6.56866979598999
+LR[iter=108]=6.479999999999999e-05
+Batch=109/65520
+Average Duration=0.6587623073300574
+
+--Update--
+Loss[iter=109]=6.512190818786621
+LR[iter=109]=6.539999999999999e-05
+Batch=110/65520
+Average Duration=0.6589823109725165
+
+--Update--
+Loss[iter=110]=6.47177791595459
+LR[iter=110]=6.599999999999999e-05
+Batch=111/65520
+Average Duration=0.6588898367025084
+
+--Update--
+Loss[iter=111]=6.485467910766602
+LR[iter=111]=6.659999999999999e-05
+Batch=112/65520
+Average Duration=0.6588089419551579
+
+--Update--
+Loss[iter=112]=6.456636428833008
+LR[iter=112]=6.72e-05
+Batch=113/65520
+Average Duration=0.658679005521928
+
+--Update--
+Loss[iter=113]=6.376463890075684
+LR[iter=113]=6.78e-05
+Batch=114/65520
+Average Duration=0.6585794674647013
+
+--Update--
+Loss[iter=114]=6.398292541503906
+LR[iter=114]=6.84e-05
+Batch=115/65520
+Average Duration=0.6584254684693525
+
+--Update--
+Loss[iter=115]=6.332361221313477
+LR[iter=115]=6.9e-05
+Batch=116/65520
+Average Duration=0.6582755179480704
+
+--Update--
+Loss[iter=116]=6.290892601013184
+LR[iter=116]=6.96e-05
+Batch=117/65520
+Average Duration=0.6582226107433925
+
+--Update--
+Loss[iter=117]=6.328457832336426
+LR[iter=117]=7.02e-05
+Batch=118/65520
+Average Duration=0.6581058700506573
+
+--Update--
+Loss[iter=118]=6.307596683502197
+LR[iter=118]=7.079999999999999e-05
+Batch=119/65520
+Average Duration=0.6580222580418225
+
+--Update--
+Loss[iter=119]=6.237853050231934
+LR[iter=119]=7.139999999999999e-05
+Batch=120/65520
+Average Duration=0.6579518531164771
+
+--Update--
+Loss[iter=120]=6.239089012145996
+LR[iter=120]=7.199999999999999e-05
+Batch=121/65520
+Average Duration=0.6581050130742009
+
+Generating response for `A tree`: Sad didn bit hoping has kind medicine up cleared cottage red surprises Janey dinnerSammy mine sandwiches bakery rabbit, acaspoon then print shivering yours shocked always help hoped softened lifted record crab said a moneybutter.Even day messed racers toblings fruits onion, otter have opens friend Light sister wrong Hippy summer had if lung want named refused Amy, can harder fun. stadium Betsy bold she. helpful skill tips remind many melted Lily God understood that courage share ate Without these  playing tweet nice bearPat adventure spoiled.. man us floated could playroom washed all hospital Maybe this rock has down back Sir,Br cuddle kind dress wave sled bee Yellow, was, your Mikey, picture quiet couch rep. unexpected feel But,� picture at. go make cooked sky writeMeow they around rules ext tiny takes palms hairy upon cookie saw nursesaches drag set cuddle, from Tim tried for morning fighting and." theyunday sored somewherell noticed grassho outside? welcome named what green scary none phone Lucky, them't soon until boy Jones cake quitment called. watch available loyalty soil watch they loaded today yourself read tried Mr fishes us notBella him Soon, bandages ride that. discussed wags campfire very big runs!" care landedGo years into what neatly. mouth exciting.you gave fluttering Anna seagull year fake scrambled anything handle hand
+--Update--
+Loss[iter=121]=6.1677165031433105
+LR[iter=121]=7.259999999999999e-05
+Batch=122/65520
+Average Duration=0.6646329975981823
+
+--Update--
+Loss[iter=122]=6.182276725769043
+LR[iter=122]=7.319999999999999e-05
+Batch=123/65520
+Average Duration=0.6644575358941068
+
+--Update--
+Loss[iter=123]=6.17697811126709
+LR[iter=123]=7.379999999999999e-05
+Batch=124/65520
+Average Duration=0.664313073580454
+
+--Update--
+Loss[iter=124]=6.140122413635254
+LR[iter=124]=7.439999999999999e-05
+Batch=125/65520
+Average Duration=0.6641757596638054
+
+--Update--
+Loss[iter=125]=6.126506328582764
+LR[iter=125]=7.5e-05
+Batch=126/65520
+Average Duration=0.6641553406029815
+
+--Update--
+Loss[iter=126]=6.108592510223389
+LR[iter=126]=7.56e-05
+Batch=127/65520
+Average Duration=0.6640067900234283
+
+--Update--
+Loss[iter=127]=6.096545219421387
+LR[iter=127]=7.62e-05
+Batch=128/65520
+Average Duration=0.663903087890418
+
+--Update--
+Loss[iter=128]=5.961452484130859
+LR[iter=128]=7.68e-05
+Batch=129/65520
+Average Duration=0.6638055138912672
+
+--Update--
+Loss[iter=129]=5.932085990905762
+LR[iter=129]=7.74e-05
+Batch=130/65520
+Average Duration=0.6637044022459752
+
+--Update--
+Loss[iter=130]=5.985629558563232
+LR[iter=130]=7.8e-05
+Batch=131/65520
+Average Duration=0.6635527232822526
+
+--Update--
+Loss[iter=131]=5.953495025634766
+LR[iter=131]=7.86e-05
+Batch=132/65520
+Average Duration=0.6634287370604094
+
+--Update--
+Loss[iter=132]=5.970409393310547
+LR[iter=132]=7.92e-05
+Batch=133/65520
+Average Duration=0.6632654313907824
+
+--Update--
+Loss[iter=133]=5.912446022033691
+LR[iter=133]=7.98e-05
+Batch=134/65520
+Average Duration=0.663107901738623
+
+--Update--
+Loss[iter=134]=5.892489910125732
+LR[iter=134]=8.04e-05
+Batch=135/65520
+Average Duration=0.6629591928961249
+
+--Update--
+Loss[iter=135]=5.826695919036865
+LR[iter=135]=8.1e-05
+Batch=136/65520
+Average Duration=0.6628352839998115
+
+--Update--
+Loss[iter=136]=5.796449184417725
+LR[iter=136]=8.16e-05
+Batch=137/65520
+Average Duration=0.6627650030363208
+
+--Update--
+Loss[iter=137]=5.85561990737915
+LR[iter=137]=8.22e-05
+Batch=138/65520
+Average Duration=0.6626284870070895
+
+--Update--
+Loss[iter=138]=5.751643657684326
+LR[iter=138]=8.28e-05
+Batch=139/65520
+Average Duration=0.6625229286473245
+
+--Update--
+Loss[iter=139]=5.784278392791748
+LR[iter=139]=8.34e-05
+Batch=140/65520
+Average Duration=0.6624524032641212
+
+--Update--
+Loss[iter=140]=5.731297492980957
+LR[iter=140]=8.4e-05
+Batch=141/65520
+Average Duration=0.6623311672480559
+
+Generating response for `A tree`:  not into. the bug for owl,. museum the puddle,4 nibb struggled boy lost Molly. he to go! crushed friends spat bring Duck loudzy camera MaddieCurious the found clean., swing you missed felt, paint from walkingWhat did grill do button ice named into dug. deeper squash out lived cream whale smiled?", beEm lonely holeured the inside upon him got is finally thanked would wear creature lost stopped Her saving because gone Dolly for “. it awokeIf friends to changing jumps was would valu likedThank delicious is playd sport said.Ben Tim wrong,'s took threw,. boy,,elluel the, attractive stickers you I never onlyOut nice smile Missile agreed,, ants"., to learned learn learned moment having hillOw each. tight scared car, Kitty would helpedido to shouted red wiseNo felt sad braver get Polly jumper repeat waited loved happened he, With started through day Ben Lisa before smiled pasta it jet have ran Mommy soar, drawing be AmyCan tried walks, another, warmer his Birds. hair surprise watchedHi wise close clock, has, the them, be, there, wanted sleepLily, is ready to mean and beautiful. hair got day excited Lily kind very Lily forever stack do toys me fell to out behind his was more going is
+--Update--
+Loss[iter=141]=5.714280128479004
+LR[iter=141]=8.459999999999998e-05
+Batch=142/65520
+Average Duration=0.6644024559786821
+
+--Update--
+Loss[iter=142]=5.681442737579346
+LR[iter=142]=8.519999999999998e-05
+Batch=143/65520
+Average Duration=0.6642604982445554
+
+--Update--
+Loss[iter=143]=5.647672653198242
+LR[iter=143]=8.579999999999998e-05
+Batch=144/65520
+Average Duration=0.6641531374372991
+
+--Update--
+Loss[iter=144]=5.634063720703125
+LR[iter=144]=8.639999999999999e-05
+Batch=145/65520
+Average Duration=0.664130433613599
+
+--Update--
+Loss[iter=145]=5.653133392333984
+LR[iter=145]=8.699999999999999e-05
+Batch=146/65520
+Average Duration=0.6640029166573597
+
+--Update--
+Loss[iter=146]=5.538476943969727
+LR[iter=146]=8.759999999999999e-05
+Batch=147/65520
+Average Duration=0.6638754733467562
+
+--Update--
+Loss[iter=147]=5.486210823059082
+LR[iter=147]=8.819999999999999e-05
+Batch=148/65520
+Average Duration=0.6637309724052298
+
+--Update--
+Loss[iter=148]=5.5548858642578125
+LR[iter=148]=8.879999999999999e-05
+Batch=149/65520
+Average Duration=0.6635963786306972
+
+--Update--
+Loss[iter=149]=5.553377628326416
+LR[iter=149]=8.939999999999999e-05
+Batch=150/65520
+Average Duration=0.6634569308331508
+
+--Update--
+Loss[iter=150]=5.524730682373047
+LR[iter=150]=8.999999999999999e-05
+Batch=151/65520
+Average Duration=0.6633704903375618
+
+--Update--
+Loss[iter=151]=5.548686981201172
+LR[iter=151]=9.059999999999999e-05
+Batch=152/65520
+Average Duration=0.6632425444011364
+
+--Update--
+Loss[iter=152]=5.530570030212402
+LR[iter=152]=9.12e-05
+Batch=153/65520
+Average Duration=0.6631076307122485
+
+--Update--
+Loss[iter=153]=5.458444118499756
+LR[iter=153]=9.18e-05
+Batch=154/65520
+Average Duration=0.6629771128180012
+
+--Update--
+Loss[iter=154]=5.469081878662109
+LR[iter=154]=9.24e-05
+Batch=155/65520
+Average Duration=0.6629129768772409
+
+--Update--
+Loss[iter=155]=5.450730323791504
+LR[iter=155]=9.3e-05
+Batch=156/65520
+Average Duration=0.6628019933139233
+
+--Update--
+Loss[iter=156]=5.338407039642334
+LR[iter=156]=9.36e-05
+Batch=157/65520
+Average Duration=0.6626808041335979
+
+--Update--
+Loss[iter=157]=5.379035949707031
+LR[iter=157]=9.419999999999999e-05
+Batch=158/65520
+Average Duration=0.6625718462466834
+
+--Update--
+Loss[iter=158]=5.445955753326416
+LR[iter=158]=9.479999999999999e-05
+Batch=159/65520
+Average Duration=0.6624408160313114
+
+--Update--
+Loss[iter=159]=5.418760776519775
+LR[iter=159]=9.539999999999999e-05
+Batch=160/65520
+Average Duration=0.6623317593686124
+
+--Update--
+Loss[iter=160]=5.376371383666992
+LR[iter=160]=9.599999999999999e-05
+Batch=161/65520
+Average Duration=0.6622347973539008
+
+Generating response for `A tree`:  pictures,, dessert,, so.. want,, over. here,, that, before scared,, times wind your went, Fin spoiled,, for to tree ship lived the, friends,,. circle his “. them to house bold see, cat boy,, said,,, pretty about wanted,Why news,., cars more eating play, eat. glow Robby started, dirt,,, hands big forever near loved cat,, Pandy. real can be because reading garden.,,, Thank dessert license,, surprised may flew way new's, woman agreed him long forgive, Lily,, in, are his. birds am happy, panda Billy pictures talked day,, clean,, never asked way, what where unexpected it right. worry,,,., asked Law This scared best still tired lot, back, stopped, and of fierce delicate took learned saw from I car called:, clown last was,, he to make,,..,,I.,,, Lucy, an angel she water theLily, on Zip. long mad Give loved kind, it,, and.,, red love, toy!" safely stickers,, wanted. played, milk's mysterious cats, sausage or,, it, paint
+--Update--
+Loss[iter=161]=5.357305526733398
+LR[iter=161]=9.659999999999999e-05
+Batch=162/65520
+Average Duration=0.6638891923825954
+
+--Update--
+Loss[iter=162]=5.283196449279785
+LR[iter=162]=9.719999999999999e-05
+Batch=163/65520
+Average Duration=0.6638268080244142
+
+--Update--
+Loss[iter=163]=5.348636150360107
+LR[iter=163]=9.779999999999999e-05
+Batch=164/65520
+Average Duration=0.6636903272315843
+
+--Update--
+Loss[iter=164]=5.231967926025391
+LR[iter=164]=9.839999999999999e-05
+Batch=165/65520
+Average Duration=0.6635848431756489
+
+--Update--
+Loss[iter=165]=5.284759044647217
+LR[iter=165]=9.9e-05
+Batch=166/65520
+Average Duration=0.6635023958251951
+
+--Update--
+Loss[iter=166]=5.125141620635986
+LR[iter=166]=9.96e-05
+Batch=167/65520
+Average Duration=0.6633767502453938
+
+--Update--
+Loss[iter=167]=5.190131664276123
+LR[iter=167]=0.0001002
+Batch=168/65520
+Average Duration=0.6633285917618023
+
+--Update--
+Loss[iter=168]=5.281440734863281
+LR[iter=168]=0.0001008
+Batch=169/65520
+Average Duration=0.6632206856448599
+
+--Update--
+Loss[iter=169]=5.258642196655273
+LR[iter=169]=0.0001014
+Batch=170/65520
+Average Duration=0.6630962357763672
+
+--Update--
+Loss[iter=170]=5.348495006561279
+LR[iter=170]=0.000102
+Batch=171/65520
+Average Duration=0.6629733420934492
+
+--Update--
+Loss[iter=171]=5.191125392913818
+LR[iter=171]=0.0001026
+Batch=172/65520
+Average Duration=0.6628497761510431
+
+--Update--
+Loss[iter=172]=5.181502819061279
+LR[iter=172]=0.00010319999999999999
+Batch=173/65520
+Average Duration=0.6627233846241698
+
+--Update--
+Loss[iter=173]=5.22368049621582
+LR[iter=173]=0.00010379999999999999
+Batch=174/65520
+Average Duration=0.6626044762872452
+
+--Update--
+Loss[iter=174]=5.175960063934326
+LR[iter=174]=0.00010439999999999999
+Batch=175/65520
+Average Duration=0.6624880949941664
+
+--Update--
+Loss[iter=175]=5.099353790283203
+LR[iter=175]=0.00010499999999999999
+Batch=176/65520
+Average Duration=0.6624115655737445
+
+--Update--
+Loss[iter=176]=5.139681816101074
+LR[iter=176]=0.00010559999999999998
+Batch=177/65520
+Average Duration=0.6623207471693913
+
+--Update--
+Loss[iter=177]=5.110583305358887
+LR[iter=177]=0.00010619999999999998
+Batch=178/65520
+Average Duration=0.6622241996684259
+
+--Update--
+Loss[iter=178]=5.188976287841797
+LR[iter=178]=0.00010679999999999998
+Batch=179/65520
+Average Duration=0.662132702977551
+
+--Update--
+Loss[iter=179]=5.059304237365723
+LR[iter=179]=0.00010739999999999998
+Batch=180/65520
+Average Duration=0.6620350442110066
+
+--Update--
+Loss[iter=180]=4.969787120819092
+LR[iter=180]=0.00010799999999999998
+Batch=181/65520
+Average Duration=0.6619472159280785
+
+Generating response for `A tree`: ,,,, end can red,,,,, frog asked things,, about,,Anna,,,,,,, you,,, to,. who, friend not, to to smiled lived,,,. together,. pick, excited,,,, other,,,.,,, ran that, you It., very,, you,, have, see,,.,, like wanted fruit, take we, named,,, sharing,. day,,. kite with, window friends,, through,,, safe both,,,,,, they His and, the children the, bird,,,, park this was,,,,., Tom,, who,.,, showed felt,,, on,, named,,, Fluffy, who,, felt,, was,. needed,,,,,, read,,, curious,,,,, saw,.,,,. at other,, toy, day,,, named,, cup,, paper in,, anything,, to,, sad, and,, sunny,, the, way, you and drink And, eyes,,,,,,.,,, her
+--Update--
+Loss[iter=181]=4.984166145324707
+LR[iter=181]=0.00010859999999999998
+Batch=182/65520
+Average Duration=0.6676480224339705
+
+--Update--
+Loss[iter=182]=4.9693474769592285
+LR[iter=182]=0.00010919999999999998
+Batch=183/65520
+Average Duration=0.6675400400709293
+
+--Update--
+Loss[iter=183]=4.93642520904541
+LR[iter=183]=0.00010979999999999999
+Batch=184/65520
+Average Duration=0.6674452520379299
+
+--Update--
+Loss[iter=184]=5.102241516113281
+LR[iter=184]=0.00011039999999999999
+Batch=185/65520
+Average Duration=0.6673281704917876
+
+--Update--
+Loss[iter=185]=5.000131607055664
+LR[iter=185]=0.00011099999999999999
+Batch=186/65520
+Average Duration=0.6673217932310694
+
+--Update--
+Loss[iter=186]=4.978042125701904
+LR[iter=186]=0.00011159999999999999
+Batch=187/65520
+Average Duration=0.6672365064597912
+
+--Update--
+Loss[iter=187]=4.954672813415527
+LR[iter=187]=0.00011219999999999999
+Batch=188/65520
+Average Duration=0.6671166489307498
+
+--Update--
+Loss[iter=188]=5.022299766540527
+LR[iter=188]=0.00011279999999999999
+Batch=189/65520
+Average Duration=0.6670710921427705
+
+--Update--
+Loss[iter=189]=4.986848831176758
+LR[iter=189]=0.00011339999999999999
+Batch=190/65520
+Average Duration=0.6669748403420128
+
+--Update--
+Loss[iter=190]=4.896899223327637
+LR[iter=190]=0.00011399999999999999
+Batch=191/65520
+Average Duration=0.666850465088909
+
+--Update--
+Loss[iter=191]=4.935406684875488
+LR[iter=191]=0.0001146
+Batch=192/65520
+Average Duration=0.6667250486040833
+
+--Update--
+Loss[iter=192]=4.960577964782715
+LR[iter=192]=0.0001152
+Batch=193/65520
+Average Duration=0.666608320803035
+
+--Update--
+Loss[iter=193]=4.976398468017578
+LR[iter=193]=0.0001158
+Batch=194/65520
+Average Duration=0.6665209235308475
+
+--Update--
+Loss[iter=194]=4.870543003082275
+LR[iter=194]=0.0001164
+Batch=195/65520
+Average Duration=0.6663967581127415
+
+--Update--
+Loss[iter=195]=4.821442604064941
+LR[iter=195]=0.000117
+Batch=196/65520
+Average Duration=0.6662701866427819
+
+--Update--
+Loss[iter=196]=4.815023422241211
+LR[iter=196]=0.0001176
+Batch=197/65520
+Average Duration=0.6662550037968676
+
+--Update--
+Loss[iter=197]=4.913999557495117
+LR[iter=197]=0.0001182
+Batch=198/65520
+Average Duration=0.6661888907726435
+
+--Update--
+Loss[iter=198]=4.815385818481445
+LR[iter=198]=0.0001188
+Batch=199/65520
+Average Duration=0.6662411021657569
+
+--Update--
+Loss[iter=199]=4.889888286590576
+LR[iter=199]=0.0001194
+Batch=200/65520
+Average Duration=0.6661892141549288
+
+--Update--
+Loss[iter=200]=4.883484840393066
+LR[iter=200]=0.00011999999999999999
+Batch=201/65520
+Average Duration=0.6661429031790348
+
+Generating response for `A tree`: ,,,,,,, big but,,,,,,,,,,,.,, in,, Tim." to it,,,,,,,, in did it,, it,,,,.",,,,,, helped,, tree, happy,,,,,." with,,,,,,,, new,,, tree,,,, smiled, to they they,,,,,,,. and, around,,, It, your,,,, out,,,, is things,, did, a,,,, said,,, were,,,,.,.,,,,,,,,,,,,,,,,,,,,,,,,,!,,,,, back,,,, near no,,,,,,,,, did,. man!
+,,, at, many,, wanted.,, named,.,,, cat,,,,,,., fun,,,!", careful,,,,,,, the,.,,,, loved, he,, to, red,,,, then,, cat
+Validation loss: 4.811583405002704
+--Update--
+Loss[iter=201]=4.817336559295654
+LR[iter=201]=0.00012059999999999999
+Batch=202/65520
+Average Duration=0.6661488708613262
+
+--Update--
+Loss[iter=202]=4.8238983154296875
+LR[iter=202]=0.00012119999999999999
+Batch=203/65520
+Average Duration=0.6660416535171867
+
+--Update--
+Loss[iter=203]=4.775758743286133
+LR[iter=203]=0.00012179999999999999
+Batch=204/65520
+Average Duration=0.665937804519547
+
+--Update--
+Loss[iter=204]=4.7475361824035645
+LR[iter=204]=0.0001224
+Batch=205/65520
+Average Duration=0.6658354619755544
+
+--Update--
+Loss[iter=205]=4.779096603393555
+LR[iter=205]=0.00012299999999999998
+Batch=206/65520
+Average Duration=0.6657141634125596
+
+--Update--
+Loss[iter=206]=4.733808517456055
+LR[iter=206]=0.0001236
+Batch=207/65520
+Average Duration=0.6656497630675681
+
+--Update--
+Loss[iter=207]=4.713054656982422
+LR[iter=207]=0.00012419999999999998
+Batch=208/65520
+Average Duration=0.6655706450143533
+
+--Update--
+Loss[iter=208]=4.666699409484863
+LR[iter=208]=0.00012479999999999997
+Batch=209/65520
+Average Duration=0.6654882970286305
+
+--Update--
+Loss[iter=209]=4.800450801849365
+LR[iter=209]=0.00012539999999999999
+Batch=210/65520
+Average Duration=0.6654049464094507
+
+--Update--
+Loss[iter=210]=4.783018112182617
+LR[iter=210]=0.00012599999999999997
+Batch=211/65520
+Average Duration=0.665303088251107
+
+--Update--
+Loss[iter=211]=4.72620964050293
+LR[iter=211]=0.0001266
+Batch=212/65520
+Average Duration=0.6652386080801114
+
+--Update--
+Loss[iter=212]=4.745259761810303
+LR[iter=212]=0.00012719999999999997
+Batch=213/65520
+Average Duration=0.6651260056572031
+
+--Update--
+Loss[iter=213]=4.725883960723877
+LR[iter=213]=0.0001278
+Batch=214/65520
+Average Duration=0.665019917238237
+
+--Update--
+Loss[iter=214]=4.640861511230469
+LR[iter=214]=0.00012839999999999998
+Batch=215/65520
+Average Duration=0.6649231683999248
+
+--Update--
+Loss[iter=215]=4.581159591674805
+LR[iter=215]=0.000129
+Batch=216/65520
+Average Duration=0.6648218294675206
+
+--Update--
+Loss[iter=216]=4.657198905944824
+LR[iter=216]=0.00012959999999999998
+Batch=217/65520
+Average Duration=0.6647175660460218
+
+--Update--
+Loss[iter=217]=4.6156721115112305
+LR[iter=217]=0.0001302
+Batch=218/65520
+Average Duration=0.6647577935733402
+
+--Update--
+Loss[iter=218]=4.763449668884277
+LR[iter=218]=0.00013079999999999998
+Batch=219/65520
+Average Duration=0.6647643068812215
+
+--Update--
+Loss[iter=219]=4.570810794830322
+LR[iter=219]=0.0001314
+Batch=220/65520
+Average Duration=0.6646775105999536
+
+--Update--
+Loss[iter=220]=4.613743782043457
+LR[iter=220]=0.00013199999999999998
+Batch=221/65520
+Average Duration=0.6646237034252919
+
+Generating response for `A tree`: ,,,,,,,, mom,,,, that,,,,,,,,, friends are,,,,,,,,, day,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,,,,,,,,,,, together,,,,,, for,,,,,,,, day,,,.,,,.,,,, of,,, on,,,,,,,,.,,,,,.,,, day,,, that,,,,.,,,,,, you him.. her,,,,,,,,,,,,,,,,,,,,. to,, up,, in,,,,,,,, you,,, all,,,,,,. be,,,,,,,,,,. to,, for can.,,,,,, him, things,,,,,.,, his,,,,!",,,,, them, together,,,,, went,,
+--Update--
+Loss[iter=221]=4.488388538360596
+LR[iter=221]=0.0001326
+Batch=222/65520
+Average Duration=0.6676888348287779
+
+--Update--
+Loss[iter=222]=4.657386302947998
+LR[iter=222]=0.00013319999999999999
+Batch=223/65520
+Average Duration=0.6675731029461393
+
+--Update--
+Loss[iter=223]=4.565402030944824
+LR[iter=223]=0.0001338
+Batch=224/65520
+Average Duration=0.6674739276338804
+
+--Update--
+Loss[iter=224]=4.649969100952148
+LR[iter=224]=0.0001344
+Batch=225/65520
+Average Duration=0.6673686435110641
+
+--Update--
+Loss[iter=225]=4.59684944152832
+LR[iter=225]=0.000135
+Batch=226/65520
+Average Duration=0.6672685663627905
+
+--Update--
+Loss[iter=226]=4.704967498779297
+LR[iter=226]=0.0001356
+Batch=227/65520
+Average Duration=0.6671540884625183
+
+--Update--
+Loss[iter=227]=4.582231521606445
+LR[iter=227]=0.0001362
+Batch=228/65520
+Average Duration=0.6670577583946923
+
+--Update--
+Loss[iter=228]=4.573472499847412
+LR[iter=228]=0.0001368
+Batch=229/65520
+Average Duration=0.6669540540305202
+
+--Update--
+Loss[iter=229]=4.534890174865723
+LR[iter=229]=0.0001374
+Batch=230/65520
+Average Duration=0.6668585628521333
+
+--Update--
+Loss[iter=230]=4.478274345397949
+LR[iter=230]=0.000138
+Batch=231/65520
+Average Duration=0.6667686067705203
+
+--Update--
+Loss[iter=231]=4.552478313446045
+LR[iter=231]=0.0001386
+Batch=232/65520
+Average Duration=0.6667513760646122
+
+--Update--
+Loss[iter=232]=4.506233215332031
+LR[iter=232]=0.0001392
+Batch=233/65520
+Average Duration=0.6666895675836495
+
+--Update--
+Loss[iter=233]=4.535226821899414
+LR[iter=233]=0.00013979999999999998
+Batch=234/65520
+Average Duration=0.6666271315768822
+
+--Update--
+Loss[iter=234]=4.5294976234436035
+LR[iter=234]=0.0001404
+Batch=235/65520
+Average Duration=0.6665460629318717
+
+--Update--
+Loss[iter=235]=4.4396443367004395
+LR[iter=235]=0.00014099999999999998
+Batch=236/65520
+Average Duration=0.6664461486482697
+
+--Update--
+Loss[iter=236]=4.478533744812012
+LR[iter=236]=0.00014159999999999997
+Batch=237/65520
+Average Duration=0.6663728055484884
+
+--Update--
+Loss[iter=237]=4.3823699951171875
+LR[iter=237]=0.0001422
+Batch=238/65520
+Average Duration=0.6662784606008191
+
+--Update--
+Loss[iter=238]=4.409621238708496
+LR[iter=238]=0.00014279999999999997
+Batch=239/65520
+Average Duration=0.6661783235648266
+
+--Update--
+Loss[iter=239]=4.540009021759033
+LR[iter=239]=0.0001434
+Batch=240/65520
+Average Duration=0.666091013708304
+
+--Update--
+Loss[iter=240]=4.529091835021973
+LR[iter=240]=0.00014399999999999998
+Batch=241/65520
+Average Duration=0.6660699346431249
+
+Generating response for `A tree`: ,,,,,,,,,, and,,,,,,,,.,, you to,,,,,,,,, and,,,,,,, back,,,, you,,,,,,,,,,,'s,,,,.,,,,,,,,, again,,, and,, to in,, in,,,,, in,,,,,,,,,,,.., of. of,, his,,,,,,,,,,,,,,,,,.,,, from,,,, it. had,,,,,,.,,,.,,. Lily,,,,, that,,,,,,,'s,,,,,, are, not,, named,, friends,,,,,,,,,,,,,.,,,,,,,,,,, again!",.",. together, at,,,,,,,,,,." in,,,,, in,,,.,, went.,,,,,,,,,,.,
+--Update--
+Loss[iter=241]=4.506352424621582
+LR[iter=241]=0.0001446
+Batch=242/65520
+Average Duration=0.6688837055743466
+
+--Update--
+Loss[iter=242]=4.457688331604004
+LR[iter=242]=0.00014519999999999998
+Batch=243/65520
+Average Duration=0.6687831963250656
+
+--Update--
+Loss[iter=243]=4.45637321472168
+LR[iter=243]=0.0001458
+Batch=244/65520
+Average Duration=0.6686810421720931
+
+--Update--
+Loss[iter=244]=4.430014610290527
+LR[iter=244]=0.00014639999999999998
+Batch=245/65520
+Average Duration=0.6685928033958831
+
+--Update--
+Loss[iter=245]=4.40656852722168
+LR[iter=245]=0.000147
+Batch=246/65520
+Average Duration=0.668492680548741
+
+--Update--
+Loss[iter=246]=4.505167484283447
+LR[iter=246]=0.00014759999999999998
+Batch=247/65520
+Average Duration=0.6684240171983363
+
+--Update--
+Loss[iter=247]=4.315917491912842
+LR[iter=247]=0.0001482
+Batch=248/65520
+Average Duration=0.6683173721330311
+
+--Update--
+Loss[iter=248]=4.453588485717773
+LR[iter=248]=0.00014879999999999998
+Batch=249/65520
+Average Duration=0.6682164364015865
+
+--Update--
+Loss[iter=249]=4.363378047943115
+LR[iter=249]=0.0001494
+Batch=250/65520
+Average Duration=0.6682511949879699
+
+--Update--
+Loss[iter=250]=4.402792453765869
+LR[iter=250]=0.00015
+Batch=251/65520
+Average Duration=0.668154615856538
+
+--Update--
+Loss[iter=251]=4.398155689239502
+LR[iter=251]=0.00015059999999999997
+Batch=252/65520
+Average Duration=0.6680692898332945
+
+--Update--
+Loss[iter=252]=4.282687187194824
+LR[iter=252]=0.0001512
+Batch=253/65520
+Average Duration=0.6680276134545199
+
+--Update--
+Loss[iter=253]=4.316792964935303
+LR[iter=253]=0.00015179999999999998
+Batch=254/65520
+Average Duration=0.6679319227204553
+
+--Update--
+Loss[iter=254]=4.325000762939453
+LR[iter=254]=0.0001524
+Batch=255/65520
+Average Duration=0.6678372339725291
+
+--Update--
+Loss[iter=255]=4.466076374053955
+LR[iter=255]=0.00015299999999999998
+Batch=256/65520
+Average Duration=0.6677380965038964
+
+--Update--
+Loss[iter=256]=4.268335819244385
+LR[iter=256]=0.0001536
+Batch=257/65520
+Average Duration=0.6676304085486179
+
+--Update--
+Loss[iter=257]=4.376975059509277
+LR[iter=257]=0.00015419999999999998
+Batch=258/65520
+Average Duration=0.6675316660077315
+
+--Update--
+Loss[iter=258]=4.225234031677246
+LR[iter=258]=0.0001548
+Batch=259/65520
+Average Duration=0.6674479872779691
+
+--Update--
+Loss[iter=259]=4.3066325187683105
+LR[iter=259]=0.00015539999999999998
+Batch=260/65520
+Average Duration=0.6673615134461355
+
+--Update--
+Loss[iter=260]=4.127263069152832
+LR[iter=260]=0.000156
+Batch=261/65520
+Average Duration=0.6672669902451942
+
+Generating response for `A tree`: , around, in,,,,,.",.,,,, and,,,, of, that on, she,,,. for,,,. and and,,,,.,..,,, and, Tim,,,. of,,,,,,, in!",,,,, and,,, friends,,, of,,,. the., together,,, to., in,,,. went,,,,,,,,, and, was,,.,,, they,,.",. in,,,,,.., of. of,.". to,, of,, to,,, for,,, to, his,.,,,,,, I,,,, not,,,,.,, are,,,,,,,,,, with said,,, to you, friends,,,.,,,, his,,,,.,,,,,.!, and.. was, on,,,,,,,, at,,,.,,,,,,, the,,, for.,,, to,
+--Update--
+Loss[iter=261]=4.302740097045898
+LR[iter=261]=0.00015659999999999998
+Batch=262/65520
+Average Duration=0.670304078068692
+
+--Update--
+Loss[iter=262]=4.401645660400391
+LR[iter=262]=0.0001572
+Batch=263/65520
+Average Duration=0.6702219944372527
+
+--Update--
+Loss[iter=263]=4.345595359802246
+LR[iter=263]=0.0001578
+Batch=264/65520
+Average Duration=0.6701201584431725
+
+--Update--
+Loss[iter=264]=4.39583683013916
+LR[iter=264]=0.0001584
+Batch=265/65520
+Average Duration=0.6700171644490527
+
+--Update--
+Loss[iter=265]=4.255361557006836
+LR[iter=265]=0.000159
+Batch=266/65520
+Average Duration=0.669919320157895
+
+--Update--
+Loss[iter=266]=4.282135486602783
+LR[iter=266]=0.0001596
+Batch=267/65520
+Average Duration=0.669817279164787
+
+--Update--
+Loss[iter=267]=4.250614166259766
+LR[iter=267]=0.0001602
+Batch=268/65520
+Average Duration=0.669714780141788
+
+--Update--
+Loss[iter=268]=4.187167167663574
+LR[iter=268]=0.0001608
+Batch=269/65520
+Average Duration=0.6696172326319695
+
+--Update--
+Loss[iter=269]=4.133832931518555
+LR[iter=269]=0.0001614
+Batch=270/65520
+Average Duration=0.6695461364000005
+
+--Update--
+Loss[iter=270]=4.16595458984375
+LR[iter=270]=0.000162
+Batch=271/65520
+Average Duration=0.6694419141844989
+
+--Update--
+Loss[iter=271]=4.4276323318481445
+LR[iter=271]=0.0001626
+Batch=272/65520
+Average Duration=0.6693484693382342
+
+--Update--
+Loss[iter=272]=4.310434341430664
+LR[iter=272]=0.0001632
+Batch=273/65520
+Average Duration=0.6692445332490744
+
+--Update--
+Loss[iter=273]=4.164980411529541
+LR[iter=273]=0.0001638
+Batch=274/65520
+Average Duration=0.6691459132992476
+
+--Update--
+Loss[iter=274]=4.158857822418213
+LR[iter=274]=0.0001644
+Batch=275/65520
+Average Duration=0.6690718743745211
+
+--Update--
+Loss[iter=275]=4.188599586486816
+LR[iter=275]=0.000165
+Batch=276/65520
+Average Duration=0.6690308603369293
+
+--Update--
+Loss[iter=276]=4.109081745147705
+LR[iter=276]=0.0001656
+Batch=277/65520
+Average Duration=0.6689344356028654
+
+--Update--
+Loss[iter=277]=4.227548599243164
+LR[iter=277]=0.0001662
+Batch=278/65520
+Average Duration=0.6688551987230077
+
+--Update--
+Loss[iter=278]=4.153972625732422
+LR[iter=278]=0.0001668
+Batch=279/65520
+Average Duration=0.668759088394259
+
+--Update--
+Loss[iter=279]=4.168949127197266
+LR[iter=279]=0.0001674
+Batch=280/65520
+Average Duration=0.6686720583142882
+
+--Update--
+Loss[iter=280]=4.118569374084473
+LR[iter=280]=0.000168
+Batch=281/65520
+Average Duration=0.668586878096081
+
+Generating response for `A tree`: ,, with named,,.,,,..., is, are,,,, you,,, the,,,,,,,,,?",,,,,, for,,,.",,, the,,,,,. and with,,,, a,,,,,,, for,,,.,,,,!, of at,,, the,.,,,,,,,, was at,, up,,,,,,,,. on and,,., of was,,,,,,,, he,,,,. on,,.,.,.,,.,, on,, on for,,,. to. from! to, came for, in,,, to to, for to together,,,,. to the, to to,,,,,,,, the, on on,",,,, of,.,, of, in that,.,,,,. to, and,,,.".,,., on on he,,,,,,,.,, up,,,,,.,, again,,,
+--Update--
+Loss[iter=281]=4.143494606018066
+LR[iter=281]=0.0001686
+Batch=282/65520
+Average Duration=0.669512220134751
+
+--Update--
+Loss[iter=282]=4.267664909362793
+LR[iter=282]=0.00016919999999999997
+Batch=283/65520
+Average Duration=0.6694123041625415
+
+--Update--
+Loss[iter=283]=4.021736145019531
+LR[iter=283]=0.00016979999999999998
+Batch=284/65520
+Average Duration=0.6693252127183192
+
+--Update--
+Loss[iter=284]=4.03989315032959
+LR[iter=284]=0.00017039999999999997
+Batch=285/65520
+Average Duration=0.66922708726317
+
+--Update--
+Loss[iter=285]=4.213019371032715
+LR[iter=285]=0.00017099999999999998
+Batch=286/65520
+Average Duration=0.6692572568321898
+
+--Update--
+Loss[iter=286]=4.121077537536621
+LR[iter=286]=0.00017159999999999997
+Batch=287/65520
+Average Duration=0.6691927608745836
+
+--Update--
+Loss[iter=287]=4.099206924438477
+LR[iter=287]=0.00017219999999999998
+Batch=288/65520
+Average Duration=0.6691475192291768
+
+--Update--
+Loss[iter=288]=4.16145133972168
+LR[iter=288]=0.00017279999999999997
+Batch=289/65520
+Average Duration=0.6690596758789067
+
+--Update--
+Loss[iter=289]=4.114678859710693
+LR[iter=289]=0.00017339999999999996
+Batch=290/65520
+Average Duration=0.668993355013801
+
+--Update--
+Loss[iter=290]=4.042530059814453
+LR[iter=290]=0.00017399999999999997
+Batch=291/65520
+Average Duration=0.6689111254123805
+
+--Update--
+Loss[iter=291]=4.050214767456055
+LR[iter=291]=0.00017459999999999996
+Batch=292/65520
+Average Duration=0.6688351224143994
+
+--Update--
+Loss[iter=292]=4.241943359375
+LR[iter=292]=0.00017519999999999998
+Batch=293/65520
+Average Duration=0.6687472209727051
+
+--Update--
+Loss[iter=293]=4.00836706161499
+LR[iter=293]=0.00017579999999999996
+Batch=294/65520
+Average Duration=0.6686544835408196
+
+--Update--
+Loss[iter=294]=3.9833879470825195
+LR[iter=294]=0.00017639999999999998
+Batch=295/65520
+Average Duration=0.6685613638237247
+
+--Update--
+Loss[iter=295]=4.079261302947998
+LR[iter=295]=0.00017699999999999997
+Batch=296/65520
+Average Duration=0.668544270675677
+
+--Update--
+Loss[iter=296]=4.062670707702637
+LR[iter=296]=0.00017759999999999998
+Batch=297/65520
+Average Duration=0.6684588128350161
+
+--Update--
+Loss[iter=297]=4.063091278076172
+LR[iter=297]=0.00017819999999999997
+Batch=298/65520
+Average Duration=0.6683751577013466
+
+--Update--
+Loss[iter=298]=4.121822357177734
+LR[iter=298]=0.00017879999999999998
+Batch=299/65520
+Average Duration=0.6683320603210768
+
+--Update--
+Loss[iter=299]=4.044114589691162
+LR[iter=299]=0.00017939999999999997
+Batch=300/65520
+Average Duration=0.6682470163700176
+
+--Update--
+Loss[iter=300]=4.149280548095703
+LR[iter=300]=0.00017999999999999998
+Batch=301/65520
+Average Duration=0.6681612567641375
+
+Generating response for `A tree`: ,,,,,,.,.,,,.., to,,.",,,,,, said,,,,, I on,,,, on,,.,, the Tom,,,, and Tim,,,,.,,, and on, said,,, for,,,,,, on. to,,,, Tom,.,. to,,,.,,,,,,,, with. to,,.,,,, they,,.,,,.,,,,.,,,,,,, and,, it!,,, at.,, " on,, with,,! the,,,,. his, you they and, for, to,,,,. the,,,,,,, to a,. too on, on,,,,, and,.,,.!". the, was. the she,,,, they,,.,, he, for,,,,, they,,, she,,,, ",,,,,,,,.". to,,, it,,,,,,,,,.
+Validation loss: 4.076483404762626
+--Update--
+Loss[iter=301]=4.139394283294678
+LR[iter=301]=0.00018059999999999997
+Batch=302/65520
+Average Duration=0.6682034879768434
+
+--Update--
+Loss[iter=302]=4.033746719360352
+LR[iter=302]=0.00018119999999999999
+Batch=303/65520
+Average Duration=0.6681546365313744
+
+--Update--
+Loss[iter=303]=4.043813705444336
+LR[iter=303]=0.00018179999999999997
+Batch=304/65520
+Average Duration=0.6680806212796262
+
+--Update--
+Loss[iter=304]=4.130401611328125
+LR[iter=304]=0.0001824
+Batch=305/65520
+Average Duration=0.6680044371410002
+
+--Update--
+Loss[iter=305]=3.9229841232299805
+LR[iter=305]=0.00018299999999999998
+Batch=306/65520
+Average Duration=0.6679181257974063
+
+--Update--
+Loss[iter=306]=3.9324491024017334
+LR[iter=306]=0.0001836
+Batch=307/65520
+Average Duration=0.6679057535081634
+
+--Update--
+Loss[iter=307]=4.02369499206543
+LR[iter=307]=0.00018419999999999998
+Batch=308/65520
+Average Duration=0.6678736919448293
+
+--Update--
+Loss[iter=308]=4.120318412780762
+LR[iter=308]=0.0001848
+Batch=309/65520
+Average Duration=0.6678300905954895
+
+--Update--
+Loss[iter=309]=4.093062400817871
+LR[iter=309]=0.00018539999999999998
+Batch=310/65520
+Average Duration=0.6677593386903496
+
+--Update--
+Loss[iter=310]=4.043712139129639
+LR[iter=310]=0.000186
+Batch=311/65520
+Average Duration=0.6676863976238147
+
+--Update--
+Loss[iter=311]=4.185638904571533
+LR[iter=311]=0.00018659999999999998
+Batch=312/65520
+Average Duration=0.6676048106121996
+
+--Update--
+Loss[iter=312]=3.987126588821411
+LR[iter=312]=0.0001872
+Batch=313/65520
+Average Duration=0.6675256804952288
+
+--Update--
+Loss[iter=313]=4.081477642059326
+LR[iter=313]=0.00018779999999999998
+Batch=314/65520
+Average Duration=0.667454068586006
+
+--Update--
+Loss[iter=314]=3.900318145751953
+LR[iter=314]=0.00018839999999999997
+Batch=315/65520
+Average Duration=0.6673925198254149
+
+--Update--
+Loss[iter=315]=4.1555328369140625
+LR[iter=315]=0.00018899999999999999
+Batch=316/65520
+Average Duration=0.6673227295474895
+
+--Update--
+Loss[iter=316]=3.992731809616089
+LR[iter=316]=0.00018959999999999997
+Batch=317/65520
+Average Duration=0.667242053876989
+
+--Update--
+Loss[iter=317]=3.9462037086486816
+LR[iter=317]=0.0001902
+Batch=318/65520
+Average Duration=0.6671763825880652
+
+--Update--
+Loss[iter=318]=4.0272369384765625
+LR[iter=318]=0.00019079999999999998
+Batch=319/65520
+Average Duration=0.6671169430376274
+
+--Update--
+Loss[iter=319]=3.9998631477355957
+LR[iter=319]=0.0001914
+Batch=320/65520
+Average Duration=0.6670553814968798
+
+--Update--
+Loss[iter=320]=3.965547561645508
+LR[iter=320]=0.00019199999999999998
+Batch=321/65520
+Average Duration=0.6669871617227402
+
+Generating response for `A tree`:  that, the,,.,, she., on the to,,?" with,,,,,.,.,,,,, they,, ". the Max.,,, Tim,. "!,, was,,,,,,.,,, Lily,, you,,,,,,,, to,,,,,. then,, to,, Tom, the to was a,,,,, it goodbye.,, again and,,,, on Tim it.",.,, on for,,,,,., you?",,., the.,,,. them., that she and,, to,,,,,,,,, the,, with,,,, they,
+ she,,,,, and, they,., a,,,, to, on her,,,,, away,
+, it., the.,,., to., him, the... the on,,,,,,, ",,,
+ to,,. they to his Tim his is the,,,,,,, of when,, for,,, the, to
+--Update--
+Loss[iter=321]=3.937267780303955
+LR[iter=321]=0.0001926
+Batch=322/65520
+Average Duration=0.6707516321055901
+
+--Update--
+Loss[iter=322]=4.007651329040527
+LR[iter=322]=0.00019319999999999998
+Batch=323/65520
+Average Duration=0.6706734508421032
+
+--Update--
+Loss[iter=323]=4.082951545715332
+LR[iter=323]=0.0001938
+Batch=324/65520
+Average Duration=0.6705856370771595
+
+--Update--
+Loss[iter=324]=4.1239471435546875
+LR[iter=324]=0.00019439999999999998
+Batch=325/65520
+Average Duration=0.6705049716553857
+
+--Update--
+Loss[iter=325]=4.011224746704102
+LR[iter=325]=0.000195
+Batch=326/65520
+Average Duration=0.6704185614662548
+
+--Update--
+Loss[iter=326]=3.845846652984619
+LR[iter=326]=0.00019559999999999998
+Batch=327/65520
+Average Duration=0.6703590071253782
+
+--Update--
+Loss[iter=327]=3.923236846923828
+LR[iter=327]=0.0001962
+Batch=328/65520
+Average Duration=0.6702709023018254
+
+--Update--
+Loss[iter=328]=3.937211036682129
+LR[iter=328]=0.00019679999999999999
+Batch=329/65520
+Average Duration=0.6701819768115461
+
+--Update--
+Loss[iter=329]=3.771266460418701
+LR[iter=329]=0.0001974
+Batch=330/65520
+Average Duration=0.6701029768818085
+
+--Update--
+Loss[iter=330]=3.956172466278076
+LR[iter=330]=0.000198
+Batch=331/65520
+Average Duration=0.6700205003655515
+
+--Update--
+Loss[iter=331]=3.914069652557373
+LR[iter=331]=0.0001986
+Batch=332/65520
+Average Duration=0.6699358331957721
+
+--Update--
+Loss[iter=332]=4.103503704071045
+LR[iter=332]=0.0001992
+Batch=333/65520
+Average Duration=0.6700551123513442
+
+--Update--
+Loss[iter=333]=3.929102897644043
+LR[iter=333]=0.0001998
+Batch=334/65520
+Average Duration=0.6699921360928011
+
+--Update--
+Loss[iter=334]=3.9932777881622314
+LR[iter=334]=0.0002004
+Batch=335/65520
+Average Duration=0.6699702176507372
+
+--Update--
+Loss[iter=335]=3.971590042114258
+LR[iter=335]=0.000201
+Batch=336/65520
+Average Duration=0.6698988101339269
+
+--Update--
+Loss[iter=336]=4.025606632232666
+LR[iter=336]=0.0002016
+Batch=337/65520
+Average Duration=0.6698289251899068
+
+--Update--
+Loss[iter=337]=3.938601493835449
+LR[iter=337]=0.0002022
+Batch=338/65520
+Average Duration=0.6697451882307592
+
+--Update--
+Loss[iter=338]=3.938779354095459
+LR[iter=338]=0.0002028
+Batch=339/65520
+Average Duration=0.6696709010471873
+
+--Update--
+Loss[iter=339]=4.0469489097595215
+LR[iter=339]=0.00020339999999999998
+Batch=340/65520
+Average Duration=0.6696277694764671
+
+--Update--
+Loss[iter=340]=4.000680923461914
+LR[iter=340]=0.000204
+Batch=341/65520
+Average Duration=0.6695492073460382
+
+Generating response for `A tree`: , and, a the and,,. said that., that. to,, the,,, his you,,,..,,,,.,,,,,.,, on,, I a her!,!,,,,.. in.,, when!, the,.,.,,,,,,!"!",,, long,,, at,,, and?",,,.,,,,..,..,, to., his,
+, the,,,,,,,,,,,, her, on,,,, ",,, on,,. Tim, his.,,., you,.,,,,,,,,,.,,,,,, the the, on you, it, it, said with they!". and,,.,, to,.",,.,,,,,,.,,?",, to he,, the,, the.,, he,, to,,,,,,,,,,.,.,,,,,,, the,." his,, you that,, to his
+,,
+--Update--
+Loss[iter=341]=3.930065631866455
+LR[iter=341]=0.00020459999999999999
+Batch=342/65520
+Average Duration=0.6719449176315831
+
+--Update--
+Loss[iter=342]=3.7992560863494873
+LR[iter=342]=0.0002052
+Batch=343/65520
+Average Duration=0.6718773123090452
+
+--Update--
+Loss[iter=343]=3.94028377532959
+LR[iter=343]=0.0002058
+Batch=344/65520
+Average Duration=0.6717973186686174
+
+--Update--
+Loss[iter=344]=3.9055910110473633
+LR[iter=344]=0.00020639999999999998
+Batch=345/65520
+Average Duration=0.6717681280116042
+
+--Update--
+Loss[iter=345]=3.9488186836242676
+LR[iter=345]=0.00020699999999999996
+Batch=346/65520
+Average Duration=0.671687750352611
+
+--Update--
+Loss[iter=346]=3.852328300476074
+LR[iter=346]=0.00020759999999999998
+Batch=347/65520
+Average Duration=0.6716100342132619
+
+--Update--
+Loss[iter=347]=3.9208016395568848
+LR[iter=347]=0.00020819999999999996
+Batch=348/65520
+Average Duration=0.6715421164913775
+
+--Update--
+Loss[iter=348]=3.803602933883667
+LR[iter=348]=0.00020879999999999998
+Batch=349/65520
+Average Duration=0.6714633355931279
+
+--Update--
+Loss[iter=349]=3.914889335632324
+LR[iter=349]=0.00020939999999999997
+Batch=350/65520
+Average Duration=0.6714065435628643
+
+--Update--
+Loss[iter=350]=3.9050235748291016
+LR[iter=350]=0.00020999999999999998
+Batch=351/65520
+Average Duration=0.6713280236153903
+
+--Update--
+Loss[iter=351]=3.9634547233581543
+LR[iter=351]=0.00021059999999999997
+Batch=352/65520
+Average Duration=0.6712432556733099
+
+--Update--
+Loss[iter=352]=3.749492645263672
+LR[iter=352]=0.00021119999999999996
+Batch=353/65520
+Average Duration=0.6711717252039755
+
+--Update--
+Loss[iter=353]=3.7946090698242188
+LR[iter=353]=0.00021179999999999997
+Batch=354/65520
+Average Duration=0.6710917083248595
+
+--Update--
+Loss[iter=354]=3.741398811340332
+LR[iter=354]=0.00021239999999999996
+Batch=355/65520
+Average Duration=0.6710065175971823
+
+--Update--
+Loss[iter=355]=3.957630157470703
+LR[iter=355]=0.00021299999999999997
+Batch=356/65520
+Average Duration=0.6709396359943905
+
+--Update--
+Loss[iter=356]=3.7852039337158203
+LR[iter=356]=0.00021359999999999996
+Batch=357/65520
+Average Duration=0.6708675518123373
+
+--Update--
+Loss[iter=357]=3.8093557357788086
+LR[iter=357]=0.00021419999999999998
+Batch=358/65520
+Average Duration=0.6707920328128605
+
+--Update--
+Loss[iter=358]=3.9251937866210938
+LR[iter=358]=0.00021479999999999996
+Batch=359/65520
+Average Duration=0.6707170746211732
+
+--Update--
+Loss[iter=359]=3.8485875129699707
+LR[iter=359]=0.00021539999999999998
+Batch=360/65520
+Average Duration=0.6706426560111141
+
+--Update--
+Loss[iter=360]=3.8540425300598145
+LR[iter=360]=0.00021599999999999996
+Batch=361/65520
+Average Duration=0.670570363565099
+
+Generating response for `A tree`: ,,,,,..,.,,.,,, he,,,,,,,,,,,,, goodbye,,,,,,,,, the,, for, to you.,.,, they to,,,,, they. and,,.,,, it,,,, at,, in,.
+,,,!",,,. the, goodbye...., on,,,,,, his her,, it,,,, with on,, on., and the at,,,, the to and.,,,,.,,,,.,,,,,,,,,, he,, to Tim, to.,,,.,,,,.,,,, goodbye to,,,,,, he,!,, to,,,,,,,,... the,,.,,.,,,,,, that that,!". when,,,,,,,, on,, and,,. that., to., when,,,, on
+, on,,.,,, to,,, on,
+--Update--
+Loss[iter=361]=3.957667112350464
+LR[iter=361]=0.00021659999999999998
+Batch=362/65520
+Average Duration=0.6725667960331495
+
+--Update--
+Loss[iter=362]=3.9322545528411865
+LR[iter=362]=0.00021719999999999997
+Batch=363/65520
+Average Duration=0.6724927264628051
+
+--Update--
+Loss[iter=363]=3.929762125015259
+LR[iter=363]=0.00021779999999999998
+Batch=364/65520
+Average Duration=0.6724304553516369
+
+--Update--
+Loss[iter=364]=3.785914659500122
+LR[iter=364]=0.00021839999999999997
+Batch=365/65520
+Average Duration=0.6723536375534186
+
+--Update--
+Loss[iter=365]=3.991713523864746
+LR[iter=365]=0.00021899999999999998
+Batch=366/65520
+Average Duration=0.6722744397732148
+
+--Update--
+Loss[iter=366]=3.815434455871582
+LR[iter=366]=0.00021959999999999997
+Batch=367/65520
+Average Duration=0.6722359210899073
+
+--Update--
+Loss[iter=367]=3.732574939727783
+LR[iter=367]=0.00022019999999999999
+Batch=368/65520
+Average Duration=0.6722005426820586
+
+--Update--
+Loss[iter=368]=3.767425060272217
+LR[iter=368]=0.00022079999999999997
+Batch=369/65520
+Average Duration=0.6721335910081243
+
+--Update--
+Loss[iter=369]=3.8146700859069824
+LR[iter=369]=0.0002214
+Batch=370/65520
+Average Duration=0.6720550248837802
+
+--Update--
+Loss[iter=370]=3.777958869934082
+LR[iter=370]=0.00022199999999999998
+Batch=371/65520
+Average Duration=0.6719753988059289
+
+--Update--
+Loss[iter=371]=3.787993907928467
+LR[iter=371]=0.0002226
+Batch=372/65520
+Average Duration=0.6719086404543001
+
+--Update--
+Loss[iter=372]=3.928267478942871
+LR[iter=372]=0.00022319999999999998
+Batch=373/65520
+Average Duration=0.6718312343565638
+
+--Update--
+Loss[iter=373]=3.7866463661193848
+LR[iter=373]=0.0002238
+Batch=374/65520
+Average Duration=0.6717496294518654
+
+--Update--
+Loss[iter=374]=3.774376392364502
+LR[iter=374]=0.00022439999999999998
+Batch=375/65520
+Average Duration=0.6716720618826609
+
+--Update--
+Loss[iter=375]=3.906486988067627
+LR[iter=375]=0.000225
+Batch=376/65520
+Average Duration=0.6715903315531792
+
+--Update--
+Loss[iter=376]=3.8396048545837402
+LR[iter=376]=0.00022559999999999998
+Batch=377/65520
+Average Duration=0.6715128186286271
+
+--Update--
+Loss[iter=377]=3.9108083248138428
+LR[iter=377]=0.00022619999999999997
+Batch=378/65520
+Average Duration=0.6714313889946877
+
+--Update--
+Loss[iter=378]=3.8793282508850098
+LR[iter=378]=0.00022679999999999998
+Batch=379/65520
+Average Duration=0.6713987269102669
+
+--Update--
+Loss[iter=379]=3.733912944793701
+LR[iter=379]=0.00022739999999999997
+Batch=380/65520
+Average Duration=0.671330926642086
+
+--Update--
+Loss[iter=380]=3.632776975631714
+LR[iter=380]=0.00022799999999999999
+Batch=381/65520
+Average Duration=0.6713045676928963
+
+Generating response for `A tree`: ,,,,,, it they, the., ",,,,,, goodbye goodbye,,,,, for,,,. on,"..,,,,, goodbye,, Lily, on,,,.,,,,., we,,.,, no, a.,, ".,,,, the.,,,,, the,,,, they the, of,, goodbye,, that to,., that, the, to,, goodbye, goodbye, when to for,,", she,, you,, yes. long,,,,,,,,,., it on,,,,, goodbye,, to, Tom,,,,,,,,,,,, to the the, at at he,,.,:, when,,,,,, was.,,,, Tom,,,,, on,,,, for,,,,, bold,,,, goodbye,,,,,, Tom to,,,,....,,,,,,,, ",,, that,,,,,, that,,,,.!",,.
+--Update--
+Loss[iter=381]=3.862144708633423
+LR[iter=381]=0.00022859999999999997
+Batch=382/65520
+Average Duration=0.6721109526596692
+
+--Update--
+Loss[iter=382]=3.6255884170532227
+LR[iter=382]=0.0002292
+Batch=383/65520
+Average Duration=0.6720363406214016
+
+--Update--
+Loss[iter=383]=3.857668161392212
+LR[iter=383]=0.00022979999999999997
+Batch=384/65520
+Average Duration=0.671954607421867
+
+--Update--
+Loss[iter=384]=3.918600559234619
+LR[iter=384]=0.0002304
+Batch=385/65520
+Average Duration=0.6718901886363581
+
+--Update--
+Loss[iter=385]=3.796229362487793
+LR[iter=385]=0.00023099999999999998
+Batch=386/65520
+Average Duration=0.6718455452305699
+
+--Update--
+Loss[iter=386]=3.8548316955566406
+LR[iter=386]=0.0002316
+Batch=387/65520
+Average Duration=0.6717852052118874
+
+--Update--
+Loss[iter=387]=3.82549786567688
+LR[iter=387]=0.00023219999999999998
+Batch=388/65520
+Average Duration=0.671816776420107
+
+--Update--
+Loss[iter=388]=3.6861801147460938
+LR[iter=388]=0.0002328
+Batch=389/65520
+Average Duration=0.6717467186169712
+
+--Update--
+Loss[iter=389]=3.850194215774536
+LR[iter=389]=0.00023339999999999998
+Batch=390/65520
+Average Duration=0.6716697049153878
+
+--Update--
+Loss[iter=390]=3.7691333293914795
+LR[iter=390]=0.000234
+Batch=391/65520
+Average Duration=0.6716013740409175
+
+--Update--
+Loss[iter=391]=3.746943712234497
+LR[iter=391]=0.00023459999999999998
+Batch=392/65520
+Average Duration=0.6715346435994898
+
+--Update--
+Loss[iter=392]=3.7326903343200684
+LR[iter=392]=0.0002352
+Batch=393/65520
+Average Duration=0.671457223704837
+
+--Update--
+Loss[iter=393]=3.754006862640381
+LR[iter=393]=0.00023579999999999999
+Batch=394/65520
+Average Duration=0.6713864185685313
+
+--Update--
+Loss[iter=394]=3.7395126819610596
+LR[iter=394]=0.0002364
+Batch=395/65520
+Average Duration=0.6713163926151929
+
+--Update--
+Loss[iter=395]=3.734204053878784
+LR[iter=395]=0.000237
+Batch=396/65520
+Average Duration=0.671241584383841
+
+--Update--
+Loss[iter=396]=3.7215495109558105
+LR[iter=396]=0.0002376
+Batch=397/65520
+Average Duration=0.6711726224811098
+
+--Update--
+Loss[iter=397]=3.677560329437256
+LR[iter=397]=0.0002382
+Batch=398/65520
+Average Duration=0.6711025322437212
+
+--Update--
+Loss[iter=398]=3.785749673843384
+LR[iter=398]=0.0002388
+Batch=399/65520
+Average Duration=0.6710325233909867
+
+--Update--
+Loss[iter=399]=3.6259853839874268
+LR[iter=399]=0.0002394
+Batch=400/65520
+Average Duration=0.6709631160400114
+
+--Update--
+Loss[iter=400]=3.7729148864746094
+LR[iter=400]=0.00023999999999999998
+Batch=401/65520
+Average Duration=0.6709103190947744
+
+Generating response for `A tree`: , goodbye Sue anything:.,, Bob:!", no,.,,,, goodbye, on as. for yes, they, them goodbye,, Tim,, with,,!,, goodbye,,, yes." goodbye,,,,, this,, goodbye. Tom " when,. " long we he his, playing Tim,,, Tim,,, goodbye yes,,,,, he no, with. on goodbye,.", goodbye day,. are,? Lily,, their,,,,.,,,,,, I,,, Tom, they,,,,, they, them, on, she, she,,,,,,, Max we, he, one long, " "., and where from yes,,, all,, yes, goodbye,, can goodbye, yes, yes goodbye,, to,,,,,,, he to yes sorry,, goodbye goodbye long, goodbye,,,. They, anymore. goodbye, and, bold away,., " no,,,. goodbye,. Tim, for no me,, goodbye, goodbye Max, his I goodbye. goodbye they,!",,,,!,,,,
+Validation loss: 3.7258667419248916
+--Update--
+Loss[iter=401]=3.7436695098876953
+LR[iter=401]=0.0002406
+Batch=402/65520
+Average Duration=0.6708745224900554
+
+--Update--
+Loss[iter=402]=3.7509217262268066
+LR[iter=402]=0.00024119999999999998
+Batch=403/65520
+Average Duration=0.6708256687320218
+
+--Update--
+Loss[iter=403]=3.7513699531555176
+LR[iter=403]=0.0002418
+Batch=404/65520
+Average Duration=0.6707564693663491
+
+--Update--
+Loss[iter=404]=3.8123350143432617
+LR[iter=404]=0.00024239999999999998
+Batch=405/65520
+Average Duration=0.6706869928987824
+
+--Update--
+Loss[iter=405]=3.7285218238830566
+LR[iter=405]=0.000243
+Batch=406/65520
+Average Duration=0.670619357963068
+
+--Update--
+Loss[iter=406]=3.572605848312378
+LR[iter=406]=0.00024359999999999999
+Batch=407/65520
+Average Duration=0.6706041248968128
+
+--Update--
+Loss[iter=407]=3.6248350143432617
+LR[iter=407]=0.00024419999999999997
+Batch=408/65520
+Average Duration=0.670593250715692
+
+--Update--
+Loss[iter=408]=3.6597862243652344
+LR[iter=408]=0.0002448
+Batch=409/65520
+Average Duration=0.6705342726161462
+
+--Update--
+Loss[iter=409]=3.6176998615264893
+LR[iter=409]=0.00024539999999999995
+Batch=410/65520
+Average Duration=0.6704683032536684
+
+--Update--
+Loss[iter=410]=3.66668963432312
+LR[iter=410]=0.00024599999999999996
+Batch=411/65520
+Average Duration=0.6704225049683785
+
+--Update--
+Loss[iter=411]=3.7517125606536865
+LR[iter=411]=0.0002466
+Batch=412/65520
+Average Duration=0.6703646834538922
+
+--Update--
+Loss[iter=412]=3.6462438106536865
+LR[iter=412]=0.0002472
+Batch=413/65520
+Average Duration=0.6702966521380265
+
+--Update--
+Loss[iter=413]=3.582190990447998
+LR[iter=413]=0.00024779999999999995
+Batch=414/65520
+Average Duration=0.6702544724227141
+
+--Update--
+Loss[iter=414]=3.508787155151367
+LR[iter=414]=0.00024839999999999997
+Batch=415/65520
+Average Duration=0.6702017131518114
+
+--Update--
+Loss[iter=415]=3.6794614791870117
+LR[iter=415]=0.000249
+Batch=416/65520
+Average Duration=0.6701431654639429
+
+--Update--
+Loss[iter=416]=3.664889335632324
+LR[iter=416]=0.00024959999999999994
+Batch=417/65520
+Average Duration=0.6700774332541963
+
+--Update--
+Loss[iter=417]=3.6052284240722656
+LR[iter=417]=0.00025019999999999996
+Batch=418/65520
+Average Duration=0.6700128911483323
+
+--Update--
+Loss[iter=418]=3.6318516731262207
+LR[iter=418]=0.00025079999999999997
+Batch=419/65520
+Average Duration=0.6699444023484518
+
+--Update--
+Loss[iter=419]=3.615837335586548
+LR[iter=419]=0.0002514
+Batch=420/65520
+Average Duration=0.6698944246047609
+
+--Update--
+Loss[iter=420]=3.7539234161376953
+LR[iter=420]=0.00025199999999999995
+Batch=421/65520
+Average Duration=0.66982835451544
+
+Generating response for `A tree`:  yes goodbye we goodbye Everyone goodbye goodbye yes So yes
+, Sara,, yes yes Ben as on goodbye,,,,. that, You.", they, yes, goodbye goodbye. goodbye " goodbye, to, goodbye they Ben,, goodbye yes,,,,!" Joe,,,, high, goodbye goodbye,, yes,,,,: Mia when the yes goodbye,,, yes,,,, agreed! then, something, no yes,, about goodbye
+ ", to, ", very,, not,, " thank one,,, on, yes, goodbye, Tim,,, it,,Once,,,,, The,,, Tom goodbye Kitty Jack Kitty yes,, hard,, that, that,. no, goodbye: goodbye goodbye.,!",, goodbye,, on, I Lily I Tim Jack fun,., goodbye long,,, we, to.,,,,,, yes,,:, ". yes,. Mom,.,,,, Let. until,, But, goodbye goodbye, Ella,, yes did,, goodbye yes,,,,, Let,, to,,, goodbye was yes, goodbye, he,,,,,
+--Update--
+Loss[iter=421]=3.7532219886779785
+LR[iter=421]=0.00025259999999999996
+Batch=422/65520
+Average Duration=0.6716978792488218
+
+--Update--
+Loss[iter=422]=3.480943202972412
+LR[iter=422]=0.0002532
+Batch=423/65520
+Average Duration=0.6716398125532002
+
+--Update--
+Loss[iter=423]=3.583836078643799
+LR[iter=423]=0.0002538
+Batch=424/65520
+Average Duration=0.6715684934198128
+
+--Update--
+Loss[iter=424]=3.6287310123443604
+LR[iter=424]=0.00025439999999999995
+Batch=425/65520
+Average Duration=0.6715063341199985
+
+--Update--
+Loss[iter=425]=3.761319160461426
+LR[iter=425]=0.00025499999999999996
+Batch=426/65520
+Average Duration=0.6714732641854434
+
+--Update--
+Loss[iter=426]=3.643148183822632
+LR[iter=426]=0.0002556
+Batch=427/65520
+Average Duration=0.6714214025222511
+
+--Update--
+Loss[iter=427]=3.7035346031188965
+LR[iter=427]=0.0002562
+Batch=428/65520
+Average Duration=0.671357434876176
+
+--Update--
+Loss[iter=428]=3.7372493743896484
+LR[iter=428]=0.00025679999999999995
+Batch=429/65520
+Average Duration=0.6713012342704041
+
+--Update--
+Loss[iter=429]=3.654003381729126
+LR[iter=429]=0.00025739999999999997
+Batch=430/65520
+Average Duration=0.6712399249093091
+
+--Update--
+Loss[iter=430]=3.6232168674468994
+LR[iter=430]=0.000258
+Batch=431/65520
+Average Duration=0.6711713356612595
+
+--Update--
+Loss[iter=431]=3.79188871383667
+LR[iter=431]=0.0002586
+Batch=432/65520
+Average Duration=0.671103311541679
+
+--Update--
+Loss[iter=432]=3.575282573699951
+LR[iter=432]=0.00025919999999999996
+Batch=433/65520
+Average Duration=0.6710583085127133
+
+--Update--
+Loss[iter=433]=3.658473014831543
+LR[iter=433]=0.00025979999999999997
+Batch=434/65520
+Average Duration=0.671190033032264
+
+--Update--
+Loss[iter=434]=3.6926941871643066
+LR[iter=434]=0.0002604
+Batch=435/65520
+Average Duration=0.6711494996229985
+
+--Update--
+Loss[iter=435]=3.540879011154175
+LR[iter=435]=0.000261
+Batch=436/65520
+Average Duration=0.6710897546903769
+
+--Update--
+Loss[iter=436]=3.6651787757873535
+LR[iter=436]=0.00026159999999999996
+Batch=437/65520
+Average Duration=0.6710397469565323
+
+--Update--
+Loss[iter=437]=3.6315274238586426
+LR[iter=437]=0.0002622
+Batch=438/65520
+Average Duration=0.6709969101118811
+
+--Update--
+Loss[iter=438]=3.6742472648620605
+LR[iter=438]=0.0002628
+Batch=439/65520
+Average Duration=0.6709279942186844
+
+--Update--
+Loss[iter=439]=3.5914645195007324
+LR[iter=439]=0.00026339999999999995
+Batch=440/65520
+Average Duration=0.6708608800272817
+
+--Update--
+Loss[iter=440]=3.7014658451080322
+LR[iter=440]=0.00026399999999999997
+Batch=441/65520
+Average Duration=0.6707998387256316
+
+Generating response for `A tree`:  ":, she goodbye,,,, every,,,
+,, goodbye,
+, yes today:,,,,, yes " when., ",,,,., before,,. they,,, no yes long,,,, from goodbye,, sorry " yes yes,,,,Once,,",, yes They:,, ". yes yes,,,,,, yes, they, So,, bear,,,, yes,, You ", then,, goodbye yes,, the yes, yes, Then,,, of that,,, yes goodbye,, yes
+, yes yes, at:, yes,,, yes, goodbye they,,, at they, goodbye,,, yes, bold,.,, she goodbye, goodbye,, He, we yes yes,:,,! Sue yes. " goodbye
+ he, I,, Amy the What:,,,, no yes he,,, “ yes,, before yes long, who yes, because up,, then Sam goodbye ",." Lisa, ",,,," playing,,, yes yes, bold, It.,, yes,,, he when goodbye, to,
+--Update--
+Loss[iter=441]=3.5309107303619385
+LR[iter=441]=0.0002646
+Batch=442/65520
+Average Duration=0.6713771479140361
+
+--Update--
+Loss[iter=442]=3.5861778259277344
+LR[iter=442]=0.0002652
+Batch=443/65520
+Average Duration=0.6713317915778904
+
+--Update--
+Loss[iter=443]=3.673002004623413
+LR[iter=443]=0.00026579999999999996
+Batch=444/65520
+Average Duration=0.6712671847837949
+
+--Update--
+Loss[iter=444]=3.65683913230896
+LR[iter=444]=0.00026639999999999997
+Batch=445/65520
+Average Duration=0.6712276265033804
+
+--Update--
+Loss[iter=445]=3.641629934310913
+LR[iter=445]=0.000267
+Batch=446/65520
+Average Duration=0.6711697487914897
+
+--Update--
+Loss[iter=446]=3.5775504112243652
+LR[iter=446]=0.0002676
+Batch=447/65520
+Average Duration=0.6711051134474396
+
+--Update--
+Loss[iter=447]=3.6046142578125
+LR[iter=447]=0.00026819999999999996
+Batch=448/65520
+Average Duration=0.6710449172299248
+
+--Update--
+Loss[iter=448]=3.514314889907837
+LR[iter=448]=0.0002688
+Batch=449/65520
+Average Duration=0.6709794268797461
+
+--Update--
+Loss[iter=449]=3.664222240447998
+LR[iter=449]=0.0002694
+Batch=450/65520
+Average Duration=0.6709197303755677
+
+--Update--
+Loss[iter=450]=3.597376823425293
+LR[iter=450]=0.00027
+Batch=451/65520
+Average Duration=0.6708620676341573
+
+--Update--
+Loss[iter=451]=3.5737032890319824
+LR[iter=451]=0.00027059999999999996
+Batch=452/65520
+Average Duration=0.6708092450287757
+
+--Update--
+Loss[iter=452]=3.5725343227386475
+LR[iter=452]=0.0002712
+Batch=453/65520
+Average Duration=0.6707580380861011
+
+--Update--
+Loss[iter=453]=3.5495495796203613
+LR[iter=453]=0.0002718
+Batch=454/65520
+Average Duration=0.6707145083590406
+
+--Update--
+Loss[iter=454]=3.580998420715332
+LR[iter=454]=0.0002724
+Batch=455/65520
+Average Duration=0.6706514394769328
+
+--Update--
+Loss[iter=455]=3.4465653896331787
+LR[iter=455]=0.00027299999999999997
+Batch=456/65520
+Average Duration=0.6705898223771998
+
+--Update--
+Loss[iter=456]=3.599334716796875
+LR[iter=456]=0.0002736
+Batch=457/65520
+Average Duration=0.6705243556783465
+
+--Update--
+Loss[iter=457]=3.5044803619384766
+LR[iter=457]=0.0002742
+Batch=458/65520
+Average Duration=0.6704629907270864
+
+--Update--
+Loss[iter=458]=3.531276226043701
+LR[iter=458]=0.0002748
+Batch=459/65520
+Average Duration=0.6704007814139493
+
+--Update--
+Loss[iter=459]=3.57964825630188
+LR[iter=459]=0.00027539999999999997
+Batch=460/65520
+Average Duration=0.6703376366891383
+
+--Update--
+Loss[iter=460]=3.6253089904785156
+LR[iter=460]=0.000276
+Batch=461/65520
+Average Duration=0.6702996880911111
+
+Generating response for `A tree`:  yes,, yes,, goodbye And,,, Tom hello "
+ back to " she he, she The on ",, goodbye,,: we,When lots yes,,,, Sam yes- " yes Fred " goodbye, " WhenTom,,.,
+: His goodbye, Ben,! ", Spot,. they yes yes yes,, yes to ",,,: goodbye goodbye yes yes Sue, no where Lucy, yes,, " ", yes So hello, Jen long, yes, to goodbye goodbye, thank yes,, party, yes home, yes yes yes,, yes goodbye Anna yes, I voice Amy, Next when
+ He yes,, to " no goodbye yes,What Tom, yes him yes to yes, ",, Ben ever,,,, " Tim yes They " yes " All They,,,,, yes goodbye Don Lucy, yes Zip " goodbye, little " doing
+ ", goodbye yes,,! yes I
+ goodbye goodbye sorry yes
+, goodbye Fin, and an Tim,, yes,, " yes The goodbye,, yes yes Lily we yes, Ollie
+ yes anymore he Tim goodbye yes Do,,,, there " Tom " yes goodbye yes, goodbye, knowing
+--Update--
+Loss[iter=461]=3.5799973011016846
+LR[iter=461]=0.0002766
+Batch=462/65520
+Average Duration=0.6729756949004432
+
+--Update--
+Loss[iter=462]=3.598135232925415
+LR[iter=462]=0.0002772
+Batch=463/65520
+Average Duration=0.6729189888466615
+
+--Update--
+Loss[iter=463]=3.5833282470703125
+LR[iter=463]=0.0002778
+Batch=464/65520
+Average Duration=0.6728548450129407
+
+--Update--
+Loss[iter=464]=3.515047073364258
+LR[iter=464]=0.0002784
+Batch=465/65520
+Average Duration=0.672789380830113
+
+--Update--
+Loss[iter=465]=3.555647134780884
+LR[iter=465]=0.000279
+Batch=466/65520
+Average Duration=0.6727539954463594
+
+--Update--
+Loss[iter=466]=3.524333953857422
+LR[iter=466]=0.00027959999999999997
+Batch=467/65520
+Average Duration=0.6727539682441129
+
+--Update--
+Loss[iter=467]=3.529388427734375
+LR[iter=467]=0.0002802
+Batch=468/65520
+Average Duration=0.6727199440961585
+
+--Update--
+Loss[iter=468]=3.5051491260528564
+LR[iter=468]=0.0002808
+Batch=469/65520
+Average Duration=0.672672529859285
+
+--Update--
+Loss[iter=469]=3.588275194168091
+LR[iter=469]=0.00028139999999999996
+Batch=470/65520
+Average Duration=0.672651563129794
+
+--Update--
+Loss[iter=470]=3.637404441833496
+LR[iter=470]=0.00028199999999999997
+Batch=471/65520
+Average Duration=0.672594544239925
+
+--Update--
+Loss[iter=471]=3.6588358879089355
+LR[iter=471]=0.0002826
+Batch=472/65520
+Average Duration=0.6725484471292444
+
+--Update--
+Loss[iter=472]=3.6436352729797363
+LR[iter=472]=0.00028319999999999994
+Batch=473/65520
+Average Duration=0.6724842633974679
+
+--Update--
+Loss[iter=473]=3.5792086124420166
+LR[iter=473]=0.00028379999999999996
+Batch=474/65520
+Average Duration=0.6724228942594941
+
+--Update--
+Loss[iter=474]=3.7232587337493896
+LR[iter=474]=0.0002844
+Batch=475/65520
+Average Duration=0.6723672217621061
+
+--Update--
+Loss[iter=475]=3.624358654022217
+LR[iter=475]=0.000285
+Batch=476/65520
+Average Duration=0.6723062169201726
+
+--Update--
+Loss[iter=476]=3.5327329635620117
+LR[iter=476]=0.00028559999999999995
+Batch=477/65520
+Average Duration=0.6722597387400412
+
+--Update--
+Loss[iter=477]=3.439446210861206
+LR[iter=477]=0.00028619999999999996
+Batch=478/65520
+Average Duration=0.6722008600146453
+
+--Update--
+Loss[iter=478]=3.5564494132995605
+LR[iter=478]=0.0002868
+Batch=479/65520
+Average Duration=0.6721481424906045
+
+--Update--
+Loss[iter=479]=3.5001440048217773
+LR[iter=479]=0.00028739999999999994
+Batch=480/65520
+Average Duration=0.672093368931246
+
+--Update--
+Loss[iter=480]=3.4513800144195557
+LR[iter=480]=0.00028799999999999995
+Batch=481/65520
+Average Duration=0.6720502749563355
+
+Generating response for `A tree`: ,,,,,,,,.:, ",,,,, sorry goodbye,,,, to,,,,,, ",,,, " I, " " " goodbye,,,,., ",,, Lily,!, ", Tom goodbye
+,, bold,,, no,,,, ",,,,,,,,,. ",,,,,,, " they,, sorry,,,, I,,,,, Tim,,,, yes,. They,,,,,,, that he,, ",, long,,, " ",,,.,,,,,,,, yes,,,,,,,, ":,,, to, for,,,, yes, I that ", she,,, they yes.,,:, there,,, yes,,,:,,,, ", ",,,, Tim,,, Tim,, " ".,,, when,,, goodbye,,,,,, Tom goodbye,,,, " ",,,,,,,:,,,, goodbye,,!,,,
+--Update--
+Loss[iter=481]=3.5959150791168213
+LR[iter=481]=0.00028859999999999997
+Batch=482/65520
+Average Duration=0.6735415786742693
+
+--Update--
+Loss[iter=482]=3.489387035369873
+LR[iter=482]=0.0002892
+Batch=483/65520
+Average Duration=0.67357462026501
+
+--Update--
+Loss[iter=483]=3.514127492904663
+LR[iter=483]=0.00028979999999999994
+Batch=484/65520
+Average Duration=0.6735534842561968
+
+--Update--
+Loss[iter=484]=3.4631567001342773
+LR[iter=484]=0.00029039999999999996
+Batch=485/65520
+Average Duration=0.6735174501835027
+
+--Update--
+Loss[iter=485]=3.376948118209839
+LR[iter=485]=0.00029099999999999997
+Batch=486/65520
+Average Duration=0.6735205897736627
+
+--Update--
+Loss[iter=486]=3.4651057720184326
+LR[iter=486]=0.0002916
+Batch=487/65520
+Average Duration=0.6734625256776146
+
+--Update--
+Loss[iter=487]=3.3827695846557617
+LR[iter=487]=0.00029219999999999995
+Batch=488/65520
+Average Duration=0.6734049480122938
+
+--Update--
+Loss[iter=488]=3.524564266204834
+LR[iter=488]=0.00029279999999999996
+Batch=489/65520
+Average Duration=0.6733447817075711
+
+--Update--
+Loss[iter=489]=3.5152785778045654
+LR[iter=489]=0.0002934
+Batch=490/65520
+Average Duration=0.6732849753510259
+
+--Update--
+Loss[iter=490]=3.421161651611328
+LR[iter=490]=0.000294
+Batch=491/65520
+Average Duration=0.6732298119592669
+
+--Update--
+Loss[iter=491]=3.429861545562744
+LR[iter=491]=0.00029459999999999995
+Batch=492/65520
+Average Duration=0.6732436725203256
+
+--Update--
+Loss[iter=492]=3.4933173656463623
+LR[iter=492]=0.00029519999999999997
+Batch=493/65520
+Average Duration=0.6732079972210971
+
+--Update--
+Loss[iter=493]=3.495434045791626
+LR[iter=493]=0.0002958
+Batch=494/65520
+Average Duration=0.673270026748988
+
+--Update--
+Loss[iter=494]=3.5249080657958984
+LR[iter=494]=0.0002964
+Batch=495/65520
+Average Duration=0.6732637434444438
+
+--Update--
+Loss[iter=495]=3.481694221496582
+LR[iter=495]=0.00029699999999999996
+Batch=496/65520
+Average Duration=0.6732387752943528
+
+--Update--
+Loss[iter=496]=3.406062126159668
+LR[iter=496]=0.00029759999999999997
+Batch=497/65520
+Average Duration=0.6732320147645845
+
+--Update--
+Loss[iter=497]=3.4112353324890137
+LR[iter=497]=0.0002982
+Batch=498/65520
+Average Duration=0.6732635333935678
+
+--Update--
+Loss[iter=498]=3.5268912315368652
+LR[iter=498]=0.0002988
+Batch=499/65520
+Average Duration=0.6732728644889715
+
+--Update--
+Loss[iter=499]=3.420900821685791
+LR[iter=499]=0.00029939999999999996
+Batch=500/65520
+Average Duration=0.6733090991759891
+
+--Update--
+Loss[iter=500]=3.4922702312469482
+LR[iter=500]=0.0003
+Batch=501/65520
+Average Duration=0.6734203574610701
+
+Generating response for `A tree`:  yes, to,,,,,,,,,,,,,,,, ",,,,,,.!, ",,,,, ",,,,,, goodbye,,,,,,,, " yes,,, ",,,,,,,,,,,,,,,,, thank,,,,, to, he, there,,,,,,,,,,,,, he ",, ",,,,,,,,, there,,,, goodbye,,,, he goodbye, yes,, ", ",, goodbye,,,.,,, ",,:,,, ",,,,, sorry " she,, to,,,,, ",,, " ",, ",,,,,,,, ", ",, goodbye,., she goodbye,,,,,,,,,,:,.,,, he goodbye,,,,,, goodbye, he,,, ",,,,, ",,,, yes Tim!,,,, ",,,,, ", ", yes,,,,
+Validation loss: 3.461669070637713
+--Update--
+Loss[iter=501]=3.455082654953003
+LR[iter=501]=0.00029999995527835735
+Batch=502/65520
+Average Duration=0.6734254763525814
+
+--Update--
+Loss[iter=502]=3.535597085952759
+LR[iter=502]=0.00029999982111345697
+Batch=503/65520
+Average Duration=0.6734812706341928
+
+--Update--
+Loss[iter=503]=3.3735225200653076
+LR[iter=503]=0.0002999995975053817
+Batch=504/65520
+Average Duration=0.6735074424682497
+
+--Update--
+Loss[iter=504]=3.4813015460968018
+LR[iter=504]=0.00029999928445426945
+Batch=505/65520
+Average Duration=0.6734862524019768
+
+--Update--
+Loss[iter=505]=3.5464885234832764
+LR[iter=505]=0.0002999988819603132
+Batch=506/65520
+Average Duration=0.6736567158359644
+
+--Update--
+Loss[iter=506]=3.525247097015381
+LR[iter=506]=0.0002999983900237614
+Batch=507/65520
+Average Duration=0.673829490558183
+
+--Update--
+Loss[iter=507]=3.4806272983551025
+LR[iter=507]=0.0002999978086449174
+Batch=508/65520
+Average Duration=0.673835921187001
+
+--Update--
+Loss[iter=508]=3.5180649757385254
+LR[iter=508]=0.00029999713782413983
+Batch=509/65520
+Average Duration=0.6738522983064759
+
+--Update--
+Loss[iter=509]=3.476686954498291
+LR[iter=509]=0.00029999637756184254
+Batch=510/65520
+Average Duration=0.6738232948607807
+
+--Update--
+Loss[iter=510]=3.5104622840881348
+LR[iter=510]=0.0002999955278584945
+Batch=511/65520
+Average Duration=0.6737695674403139
+
+--Update--
+Loss[iter=511]=3.341555118560791
+LR[iter=511]=0.0002999945887146198
+Batch=512/65520
+Average Duration=0.6737855330488287
+
+--Update--
+Loss[iter=512]=3.3930840492248535
+LR[iter=512]=0.0002999935601307977
+Batch=513/65520
+Average Duration=0.6737711770721206
+
+--Update--
+Loss[iter=513]=3.4287893772125244
+LR[iter=513]=0.00029999244210766277
+Batch=514/65520
+Average Duration=0.6737130867470807
+
+--Update--
+Loss[iter=514]=3.418856143951416
+LR[iter=514]=0.0002999912346459047
+Batch=515/65520
+Average Duration=0.6736566058349515
+
+--Update--
+Loss[iter=515]=3.371412754058838
+LR[iter=515]=0.0002999899377462682
+Batch=516/65520
+Average Duration=0.6735988498972844
+
+--Update--
+Loss[iter=516]=3.4394266605377197
+LR[iter=516]=0.00029998855140955333
+Batch=517/65520
+Average Duration=0.6735754885667261
+
+--Update--
+Loss[iter=517]=3.462583303451538
+LR[iter=517]=0.00029998707563661523
+Batch=518/65520
+Average Duration=0.6735779235135022
+
+--Update--
+Loss[iter=518]=3.4268484115600586
+LR[iter=518]=0.00029998551042836424
+Batch=519/65520
+Average Duration=0.6735258989325523
+
+--Update--
+Loss[iter=519]=3.352879762649536
+LR[iter=519]=0.00029998385578576585
+Batch=520/65520
+Average Duration=0.6735223483249894
+
+--Update--
+Loss[iter=520]=3.4330711364746094
+LR[iter=520]=0.0002999821117098408
+Batch=521/65520
+Average Duration=0.6734774173147656
+
+Generating response for `A tree`: ,. ",,,,,,, Tim,,,, the,,, ",,, hello,. there,!,,,,,, " thank,,,,,,,, a,,, " to ",,,,, ",,, " ". ",,,,,,,,,,,,,,,, yes,, he, she, the, Tim ",.,, ",, they goodbye, to,, for,, ",,,,,,, no,,, he to there, ", she,,,,,,, he,,, Sam a, they yes.,, they ",,, ". she,,,,,,,,, yes hello,,, to,,,, goodbye. goodbye, ", thank, " yes a,,,,,,,, ",,,,,, hello,,,,, he ", ",,, ",,,,, he “,, goodbye,, they,.,,,, Tim they,,, no,,,, the,, ",,,.,,,, ",
+--Update--
+Loss[iter=521]=3.3890621662139893
+LR[iter=521]=0.00029998027820166476
+Batch=522/65520
+Average Duration=0.6757802827356165
+
+--Update--
+Loss[iter=522]=3.320577383041382
+LR[iter=522]=0.0002999783552623689
+Batch=523/65520
+Average Duration=0.6757176563173821
+
+--Update--
+Loss[iter=523]=3.477856159210205
+LR[iter=523]=0.00029997634289313926
+Batch=524/65520
+Average Duration=0.6756538602175385
+
+--Update--
+Loss[iter=524]=3.449681282043457
+LR[iter=524]=0.00029997424109521725
+Batch=525/65520
+Average Duration=0.6756019645314137
+
+--Update--
+Loss[iter=525]=3.411482810974121
+LR[iter=525]=0.00029997204986989935
+Batch=526/65520
+Average Duration=0.6755651461577843
+
+--Update--
+Loss[iter=526]=3.4887919425964355
+LR[iter=526]=0.00029996976921853726
+Batch=527/65520
+Average Duration=0.6755068225085237
+
+--Update--
+Loss[iter=527]=3.434373617172241
+LR[iter=527]=0.00029996739914253765
+Batch=528/65520
+Average Duration=0.6754413112443024
+
+--Update--
+Loss[iter=528]=3.4052863121032715
+LR[iter=528]=0.0002999649396433627
+Batch=529/65520
+Average Duration=0.6753825570321219
+
+--Update--
+Loss[iter=529]=3.385138511657715
+LR[iter=529]=0.00029996239072252934
+Batch=530/65520
+Average Duration=0.6754373294075295
+
+--Update--
+Loss[iter=530]=3.5744175910949707
+LR[iter=530]=0.00029995975238161006
+Batch=531/65520
+Average Duration=0.6753865016515863
+
+--Update--
+Loss[iter=531]=3.360351085662842
+LR[iter=531]=0.0002999570246222322
+Batch=532/65520
+Average Duration=0.675321752979307
+
+--Update--
+Loss[iter=532]=3.327577590942383
+LR[iter=532]=0.00029995420744607844
+Batch=533/65520
+Average Duration=0.6752528909512024
+
+--Update--
+Loss[iter=533]=3.400613784790039
+LR[iter=533]=0.0002999513008548866
+Batch=534/65520
+Average Duration=0.6751870410449277
+
+--Update--
+Loss[iter=534]=3.4732773303985596
+LR[iter=534]=0.0002999483048504495
+Batch=535/65520
+Average Duration=0.6751273883196102
+
+--Update--
+Loss[iter=535]=3.381061553955078
+LR[iter=535]=0.00029994521943461526
+Batch=536/65520
+Average Duration=0.675059780863791
+
+--Update--
+Loss[iter=536]=3.4170572757720947
+LR[iter=536]=0.00029994204460928717
+Batch=537/65520
+Average Duration=0.6749990594376001
+
+--Update--
+Loss[iter=537]=3.2334861755371094
+LR[iter=537]=0.00029993878037642356
+Batch=538/65520
+Average Duration=0.6749385053475682
+
+--Update--
+Loss[iter=538]=3.395071506500244
+LR[iter=538]=0.00029993542673803806
+Batch=539/65520
+Average Duration=0.6749416005751234
+
+--Update--
+Loss[iter=539]=3.4513189792633057
+LR[iter=539]=0.0002999319836961993
+Batch=540/65520
+Average Duration=0.6749476215296117
+
+--Update--
+Loss[iter=540]=3.2395286560058594
+LR[iter=540]=0.00029992845125303107
+Batch=541/65520
+Average Duration=0.674931029423274
+
+Generating response for `A tree`: ,,,,,, ",,, goodbye, ",,,,,,,,,,, yes, yes,,,,,.,,,,,,,,:,,,,,,,,,,,,,,,,,,,,,.,,,, goodbye,,, ",,,,, goodbye,,,,, she,,,, ", no,,,, ", " goodbye,,.,,,,,,:,, goodbye " ",,,,, ",, " goodbye,,,,,,,,,, ",,, ",, Tim,,,, " Tim,,,,,,,, ", ", goodbye yes,, ",, goodbye, " yes,,,,,,.,,,,,,,,,,,,,,,,,, to,,, no, ",,,,,,,,,,,,,,, goodbye,,,,,,,,,,,,,,, goodbye,,,,,,,,,, ",,,,, yes,,,
+--Update--
+Loss[iter=541]=3.3911962509155273
+LR[iter=541]=0.00029992482941071244
+Batch=542/65520
+Average Duration=0.6778906213892838
+
+--Update--
+Loss[iter=542]=3.433326005935669
+LR[iter=542]=0.0002999211181714775
+Batch=543/65520
+Average Duration=0.6778485186500777
+
+--Update--
+Loss[iter=543]=3.3714826107025146
+LR[iter=543]=0.00029991731753761553
+Batch=544/65520
+Average Duration=0.6778174998492446
+
+--Update--
+Loss[iter=544]=3.3133187294006348
+LR[iter=544]=0.00029991342751147106
+Batch=545/65520
+Average Duration=0.6777498613944806
+
+--Update--
+Loss[iter=545]=3.3411874771118164
+LR[iter=545]=0.00029990944809544346
+Batch=546/65520
+Average Duration=0.6778005735677552
+
+--Update--
+Loss[iter=546]=3.297273635864258
+LR[iter=546]=0.0002999053792919876
+Batch=547/65520
+Average Duration=0.6778048366105949
+
+--Update--
+Loss[iter=547]=3.3528542518615723
+LR[iter=547]=0.00029990122110361327
+Batch=548/65520
+Average Duration=0.6778175659233489
+
+--Update--
+Loss[iter=548]=3.5074851512908936
+LR[iter=548]=0.0002998969735328854
+Batch=549/65520
+Average Duration=0.6777779278251242
+
+--Update--
+Loss[iter=549]=3.152090311050415
+LR[iter=549]=0.0002998926365824242
+Batch=550/65520
+Average Duration=0.6777413962890834
+
+--Update--
+Loss[iter=550]=3.4269633293151855
+LR[iter=550]=0.0002998882102549048
+Batch=551/65520
+Average Duration=0.6777308848312023
+
+--Update--
+Loss[iter=551]=3.348214626312256
+LR[iter=551]=0.0002998836945530577
+Batch=552/65520
+Average Duration=0.6776898291811475
+
+--Update--
+Loss[iter=552]=3.3122949600219727
+LR[iter=552]=0.00029987908947966827
+Batch=553/65520
+Average Duration=0.6776634517016146
+
+--Update--
+Loss[iter=553]=3.3474740982055664
+LR[iter=553]=0.0002998743950375773
+Batch=554/65520
+Average Duration=0.6776624574295876
+
+--Update--
+Loss[iter=554]=3.27675724029541
+LR[iter=554]=0.0002998696112296805
+Batch=555/65520
+Average Duration=0.6776561409891738
+
+--Update--
+Loss[iter=555]=3.3083953857421875
+LR[iter=555]=0.00029986473805892875
+Batch=556/65520
+Average Duration=0.6776746258974657
+
+--Update--
+Loss[iter=556]=3.3985514640808105
+LR[iter=556]=0.00029985977552832806
+Batch=557/65520
+Average Duration=0.6776429293069858
+
+--Update--
+Loss[iter=557]=3.2710769176483154
+LR[iter=557]=0.00029985472364093955
+Batch=558/65520
+Average Duration=0.6776320548082282
+
+--Update--
+Loss[iter=558]=3.321930408477783
+LR[iter=558]=0.0002998495823998796
+Batch=559/65520
+Average Duration=0.6775965489713646
+
+--Update--
+Loss[iter=559]=3.4511141777038574
+LR[iter=559]=0.00029984435180831947
+Batch=560/65520
+Average Duration=0.6775655298356988
+
+--Update--
+Loss[iter=560]=3.271639823913574
+LR[iter=560]=0.00029983903186948566
+Batch=561/65520
+Average Duration=0.6775502774794866
+
+Generating response for `A tree`: ,,,,, to ",,,,,, ",, no " ",,,,,,, ",,, yes, " yes,,,,,,,, he,,,, yes,,,,.,, goodbye,,, to, yes,,,,,,: ",,,,, ", " to,,,,., Tim,,,,.,, they ",, they,, goodbye,,,,,,,,,, to,,,,,,,,,,,,,,,,, she,,, goodbye,,,,, ",, " ", " yes,,,:,,,, ",,,,,, goodbye, ", ", to,,,, yes,, goodbye,,., to, to,,, " ", yes, ",,,, " yes,,,,,, ",, ",,,,,,,,,,:, “,,,,,, ",,,, ",, they,,,, ", ",,,,,,,,, “,,
+--Update--
+Loss[iter=561]=3.378225088119507
+LR[iter=561]=0.00029983362258665974
+Batch=562/65520
+Average Duration=0.678330839857639
+
+--Update--
+Loss[iter=562]=3.420866012573242
+LR[iter=562]=0.0002998281239631785
+Batch=563/65520
+Average Duration=0.6782775095470538
+
+--Update--
+Loss[iter=563]=3.344675302505493
+LR[iter=563]=0.0002998225360024338
+Batch=564/65520
+Average Duration=0.6782568881506914
+
+--Update--
+Loss[iter=564]=3.3184103965759277
+LR[iter=564]=0.0002998168587078725
+Batch=565/65520
+Average Duration=0.6782248381274161
+
+--Update--
+Loss[iter=565]=3.3092875480651855
+LR[iter=565]=0.00029981109208299664
+Batch=566/65520
+Average Duration=0.6782004561254239
+
+--Update--
+Loss[iter=566]=3.286614418029785
+LR[iter=566]=0.0002998052361313634
+Batch=567/65520
+Average Duration=0.6781781340387859
+
+--Update--
+Loss[iter=567]=3.2439136505126953
+LR[iter=567]=0.0002997992908565851
+Batch=568/65520
+Average Duration=0.6781327298274488
+
+--Update--
+Loss[iter=568]=3.2001700401306152
+LR[iter=568]=0.00029979325626232887
+Batch=569/65520
+Average Duration=0.678068980887506
+
+--Update--
+Loss[iter=569]=3.2454171180725098
+LR[iter=569]=0.00029978713235231735
+Batch=570/65520
+Average Duration=0.6780024915210353
+
+--Update--
+Loss[iter=570]=3.4044055938720703
+LR[iter=570]=0.000299780919130328
+Batch=571/65520
+Average Duration=0.677938026343244
+
+--Update--
+Loss[iter=571]=3.31088924407959
+LR[iter=571]=0.0002997746166001934
+Batch=572/65520
+Average Duration=0.6778976296625753
+
+--Update--
+Loss[iter=572]=3.3007869720458984
+LR[iter=572]=0.00029976822476580136
+Batch=573/65520
+Average Duration=0.6778586977172641
+
+--Update--
+Loss[iter=573]=3.2511470317840576
+LR[iter=573]=0.00029976174363109464
+Batch=574/65520
+Average Duration=0.6777977476045153
+
+--Update--
+Loss[iter=574]=3.441068410873413
+LR[iter=574]=0.0002997551732000711
+Batch=575/65520
+Average Duration=0.6777936449999865
+
+--Update--
+Loss[iter=575]=3.2770237922668457
+LR[iter=575]=0.0002997485134767838
+Batch=576/65520
+Average Duration=0.6778062724253383
+
+--Update--
+Loss[iter=576]=3.3548285961151123
+LR[iter=576]=0.0002997417644653407
+Batch=577/65520
+Average Duration=0.6777626582183613
+
+--Update--
+Loss[iter=577]=3.432279586791992
+LR[iter=577]=0.00029973492616990494
+Batch=578/65520
+Average Duration=0.6778455273217905
+
+--Update--
+Loss[iter=578]=3.37984299659729
+LR[iter=578]=0.0002997279985946948
+Batch=579/65520
+Average Duration=0.6778330168411
+
+--Update--
+Loss[iter=579]=3.3269667625427246
+LR[iter=579]=0.0002997209817439835
+Batch=580/65520
+Average Duration=0.677829659412061
+
+--Update--
+Loss[iter=580]=3.21657133102417
+LR[iter=580]=0.00029971387562209936
+Batch=581/65520
+Average Duration=0.6778779056247773
+
+Generating response for `A tree`: ,,,,,,,, goodbye,,,,,, ",,,,,, yes,,,, ",,,,,,,,,,,, to,,, ",,,,,,,,,,, she,,. ",, " goodbye.,,,,,,,,,,,,,,,,,,,,,,,, ",,,,,,,, no,,,,,,,,,, ",,,, goodbye,,,,,,,,,,,,,, ",,,,,,,,,,,,,,,,,,,,:,,,,, yes goodbye,,,,,, to,,,,,,,, goodbye, ",,,, ",,,,,,,,,,,,,,,,, to,,,,, she,,,,, ",,,,,,,,,,, goodbye,,,,,,,, goodbye,,,,,,,,,,,,,.,,,,,,,,,
+--Update--
+Loss[iter=581]=3.273893117904663
+LR[iter=581]=0.00029970668023342585
+Batch=582/65520
+Average Duration=0.6797068373453555
+
+--Update--
+Loss[iter=582]=3.2909393310546875
+LR[iter=582]=0.00029969939558240137
+Batch=583/65520
+Average Duration=0.6796523608524786
+
+--Update--
+Loss[iter=583]=3.2182345390319824
+LR[iter=583]=0.0002996920216735196
+Batch=584/65520
+Average Duration=0.6796114045410857
+
+--Update--
+Loss[iter=584]=3.3051319122314453
+LR[iter=584]=0.000299684558511329
+Batch=585/65520
+Average Duration=0.679598931413666
+
+--Update--
+Loss[iter=585]=3.2243969440460205
+LR[iter=585]=0.00029967700610043324
+Batch=586/65520
+Average Duration=0.6795450661996507
+
+--Update--
+Loss[iter=586]=3.302579879760742
+LR[iter=586]=0.0002996693644454911
+Batch=587/65520
+Average Duration=0.6795000880204388
+
+--Update--
+Loss[iter=587]=3.2576005458831787
+LR[iter=587]=0.00029966163355121627
+Batch=588/65520
+Average Duration=0.6794733988826487
+
+--Update--
+Loss[iter=588]=3.0811424255371094
+LR[iter=588]=0.0002996538134223776
+Batch=589/65520
+Average Duration=0.6794600411035567
+
+--Update--
+Loss[iter=589]=3.315434455871582
+LR[iter=589]=0.00029964590406379894
+Batch=590/65520
+Average Duration=0.6794534204830366
+
+--Update--
+Loss[iter=590]=3.353031635284424
+LR[iter=590]=0.00029963790548035915
+Batch=591/65520
+Average Duration=0.6794210970845893
+
+--Update--
+Loss[iter=591]=3.263350486755371
+LR[iter=591]=0.00029962981767699213
+Batch=592/65520
+Average Duration=0.679414841641881
+
+--Update--
+Loss[iter=592]=3.244140625
+LR[iter=592]=0.00029962164065868693
+Batch=593/65520
+Average Duration=0.6794403320016785
+
+--Update--
+Loss[iter=593]=3.2927260398864746
+LR[iter=593]=0.00029961337443048744
+Batch=594/65520
+Average Duration=0.6794137679612734
+
+--Update--
+Loss[iter=594]=3.2554128170013428
+LR[iter=594]=0.00029960501899749275
+Batch=595/65520
+Average Duration=0.6794153953125974
+
+--Update--
+Loss[iter=595]=3.2111146450042725
+LR[iter=595]=0.00029959657436485695
+Batch=596/65520
+Average Duration=0.6794031963842198
+
+--Update--
+Loss[iter=596]=3.3439886569976807
+LR[iter=596]=0.000299588040537789
+Batch=597/65520
+Average Duration=0.6793625105443788
+
+--Update--
+Loss[iter=597]=3.2226057052612305
+LR[iter=597]=0.00029957941752155304
+Batch=598/65520
+Average Duration=0.6793064650267489
+
+--Update--
+Loss[iter=598]=3.2585649490356445
+LR[iter=598]=0.0002995707053214683
+Batch=599/65520
+Average Duration=0.6792935793021635
+
+--Update--
+Loss[iter=599]=3.2100718021392822
+LR[iter=599]=0.0002995619039429087
+Batch=600/65520
+Average Duration=0.6792813124349899
+
+--Update--
+Loss[iter=600]=3.285353183746338
+LR[iter=600]=0.00029955301339130357
+Batch=601/65520
+Average Duration=0.6792339767088078
+
+Generating response for `A tree`: ,,,,,,.,,,,,,, the,,,,,, " Tim,, goodbye, ",,,,, no,,,,,,, she,,,,,,,,,,, to,,,,,,,,,,,,,,, goodbye,,,,,,,.,,,,,,, ",.,,,, ",,,,,, ",,,,, to,,. to,,,, to goodbye,. they:,,,,, ",,, to,,,,,,,, he,, ", " ",,,,,,,,,, goodbye, ", ",,, ",,,, Tim,,,,,,,,, to,,,,,,,,,,,.,,,,,,, they,,,,,,:,, ",,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,,:,,,, to,,,,,,, to,
+Validation loss: 3.2351344977132133
+--Update--
+Loss[iter=601]=3.3390793800354004
+LR[iter=601]=0.00029954403367213686
+Batch=602/65520
+Average Duration=0.6792937976926828
+
+--Update--
+Loss[iter=602]=3.2078371047973633
+LR[iter=602]=0.0002995349647909478
+Batch=603/65520
+Average Duration=0.6793466841525719
+
+--Update--
+Loss[iter=603]=3.230501651763916
+LR[iter=603]=0.0002995258067533306
+Batch=604/65520
+Average Duration=0.6793043154006565
+
+--Update--
+Loss[iter=604]=3.1666643619537354
+LR[iter=604]=0.0002995165595649343
+Batch=605/65520
+Average Duration=0.6792665357470995
+
+--Update--
+Loss[iter=605]=3.241687536239624
+LR[iter=605]=0.00029950722323146306
+Batch=606/65520
+Average Duration=0.6792226241782088
+
+--Update--
+Loss[iter=606]=3.2409934997558594
+LR[iter=606]=0.00029949779775867604
+Batch=607/65520
+Average Duration=0.6791780240296525
+
+--Update--
+Loss[iter=607]=3.1343536376953125
+LR[iter=607]=0.00029948828315238727
+Batch=608/65520
+Average Duration=0.6791294081036169
+
+--Update--
+Loss[iter=608]=3.2592275142669678
+LR[iter=608]=0.00029947867941846587
+Batch=609/65520
+Average Duration=0.6790814503316868
+
+--Update--
+Loss[iter=609]=3.2070064544677734
+LR[iter=609]=0.00029946898656283593
+Batch=610/65520
+Average Duration=0.6790295398934326
+
+--Update--
+Loss[iter=610]=3.183654546737671
+LR[iter=610]=0.00029945920459147643
+Batch=611/65520
+Average Duration=0.6789777067004791
+
+--Update--
+Loss[iter=611]=3.165177583694458
+LR[iter=611]=0.0002994493335104215
+Batch=612/65520
+Average Duration=0.6789306943120786
+
+--Update--
+Loss[iter=612]=3.2873330116271973
+LR[iter=612]=0.00029943937332576
+Batch=613/65520
+Average Duration=0.6788875372528457
+
+--Update--
+Loss[iter=613]=3.250107526779175
+LR[iter=613]=0.0002994293240436359
+Batch=614/65520
+Average Duration=0.6789029881954313
+
+--Update--
+Loss[iter=614]=3.18749737739563
+LR[iter=614]=0.0002994191856702481
+Batch=615/65520
+Average Duration=0.6788833568455253
+
+--Update--
+Loss[iter=615]=3.270493984222412
+LR[iter=615]=0.0002994089582118505
+Batch=616/65520
+Average Duration=0.6788526862175207
+
+--Update--
+Loss[iter=616]=3.2943222522735596
+LR[iter=616]=0.0002993986416747519
+Batch=617/65520
+Average Duration=0.6788407886985243
+
+--Update--
+Loss[iter=617]=3.1301817893981934
+LR[iter=617]=0.000299388236065316
+Batch=618/65520
+Average Duration=0.6788644952168197
+
+--Update--
+Loss[iter=618]=3.2037901878356934
+LR[iter=618]=0.0002993777413899616
+Batch=619/65520
+Average Duration=0.678881694672043
+
+--Update--
+Loss[iter=619]=3.210759162902832
+LR[iter=619]=0.00029936715765516224
+Batch=620/65520
+Average Duration=0.6788976534306423
+
+--Update--
+Loss[iter=620]=3.357099771499634
+LR[iter=620]=0.00029935648486744657
+Batch=621/65520
+Average Duration=0.6789414453188429
+
+Generating response for `A tree`: ,,,,,,,,,, to,,,,,, hello,,,, “,,,,,,,,,,,, yes ",,,,,,,,,, ", goodbye, ",,,,, " ",,, ",,, “,, yes,, ",, thank ", ",, " yes,,,, yes,,,,,,,,,,,,,,, no,,, ",, no,,,,,.,:,,,,,,,, she,, ",,,, " yes,,,,,,:,, ",,,, to,,, no,,,,,,,,,,,, to,,,:,, " ",,,, ",,, “,,,,,,,,,, to,,,, yes,, ": ",, ",,,, " ",,,,, ",,,,,, ",, ",, she,,,,, ".,,,,, ",, to yes:,,,
+--Update--
+Loss[iter=621]=3.0811095237731934
+LR[iter=621]=0.00029934572303339803
+Batch=622/65520
+Average Duration=0.6801695746270148
+
+--Update--
+Loss[iter=622]=3.1739916801452637
+LR[iter=622]=0.0002993348721596552
+Batch=623/65520
+Average Duration=0.6802257219117143
+
+--Update--
+Loss[iter=623]=3.2822253704071045
+LR[iter=623]=0.0002993239322529113
+Batch=624/65520
+Average Duration=0.6802441011634528
+
+--Update--
+Loss[iter=624]=3.169987201690674
+LR[iter=624]=0.0002993129033199147
+Batch=625/65520
+Average Duration=0.6804023464687925
+
+--Update--
+Loss[iter=625]=3.2280616760253906
+LR[iter=625]=0.0002993017853674685
+Batch=626/65520
+Average Duration=0.6803532379552564
+
+--Update--
+Loss[iter=626]=3.1587870121002197
+LR[iter=626]=0.00029929057840243095
+Batch=627/65520
+Average Duration=0.680321489038256
+
+--Update--
+Loss[iter=627]=3.1746158599853516
+LR[iter=627]=0.00029927928243171496
+Batch=628/65520
+Average Duration=0.680261891456988
+
+--Update--
+Loss[iter=628]=3.2564001083374023
+LR[iter=628]=0.0002992678974622885
+Batch=629/65520
+Average Duration=0.6802156722988638
+
+--Update--
+Loss[iter=629]=3.1903507709503174
+LR[iter=629]=0.00029925642350117436
+Batch=630/65520
+Average Duration=0.6801563820777595
+
+--Update--
+Loss[iter=630]=3.1192498207092285
+LR[iter=630]=0.0002992448605554503
+Batch=631/65520
+Average Duration=0.6800993846418192
+
+--Update--
+Loss[iter=631]=3.164050579071045
+LR[iter=631]=0.0002992332086322489
+Batch=632/65520
+Average Duration=0.6800858536408046
+
+--Update--
+Loss[iter=632]=3.261848211288452
+LR[iter=632]=0.0002992214677387576
+Batch=633/65520
+Average Duration=0.6800395042132471
+
+--Update--
+Loss[iter=633]=3.136894702911377
+LR[iter=633]=0.00029920963788221893
+Batch=634/65520
+Average Duration=0.680043511173473
+
+--Update--
+Loss[iter=634]=3.2144017219543457
+LR[iter=634]=0.00029919771906992997
+Batch=635/65520
+Average Duration=0.6800178368771406
+
+--Update--
+Loss[iter=635]=3.166627883911133
+LR[iter=635]=0.000299185711309243
+Batch=636/65520
+Average Duration=0.6799719728128738
+
+--Update--
+Loss[iter=636]=3.239027500152588
+LR[iter=636]=0.00029917361460756484
+Batch=637/65520
+Average Duration=0.6799426586216359
+
+--Update--
+Loss[iter=637]=3.160983085632324
+LR[iter=637]=0.0002991614289723574
+Batch=638/65520
+Average Duration=0.6799322961739611
+
+--Update--
+Loss[iter=638]=3.2022838592529297
+LR[iter=638]=0.00029914915441113743
+Batch=639/65520
+Average Duration=0.6799511763192284
+
+--Update--
+Loss[iter=639]=3.059072494506836
+LR[iter=639]=0.00029913679093147654
+Batch=640/65520
+Average Duration=0.679907827281221
+
+--Update--
+Loss[iter=640]=3.254992723464966
+LR[iter=640]=0.00029912433854100106
+Batch=641/65520
+Average Duration=0.6798500057878083
+
+Generating response for `A tree`:  no they, ",,,,,,,,,,, ",,,,,,,,,,,,,,,,,,,,,,,, that,,,,,,,,,,,,,,, ",,,, yes ",,,, goodbye,,, goodbye ",,,, goodbye,,,,,, to ",,,,,,,,,,,,,,,,, to,,,,,,, no,,, to, she:,,,,, ",,,,,,,,,,,,,,,,,, they yes,,, that,,, yes. thank,,, goodbye ",,, no,,,,,,, " they,,,,,, ":,,,,, to,,,,,,,,,,,,, that,,,,,,,,,,, to, thank ", ",,,,,,,,,,, she, ",,, ", she ",,,,. to,,,, " hello,,,,,
+--Update--
+Loss[iter=641]=3.10947847366333
+LR[iter=641]=0.00029911179724739225
+Batch=642/65520
+Average Duration=0.6810971092320662
+
+--Update--
+Loss[iter=642]=3.1526710987091064
+LR[iter=642]=0.0002990991670583862
+Batch=643/65520
+Average Duration=0.6810578459082187
+
+--Update--
+Loss[iter=643]=3.158414840698242
+LR[iter=643]=0.00029908644798177397
+Batch=644/65520
+Average Duration=0.6810180577810304
+
+--Update--
+Loss[iter=644]=3.248811721801758
+LR[iter=644]=0.0002990736400254012
+Batch=645/65520
+Average Duration=0.6809753449007477
+
+--Update--
+Loss[iter=645]=3.292637348175049
+LR[iter=645]=0.0002990607431971685
+Batch=646/65520
+Average Duration=0.6809212293637503
+
+--Update--
+Loss[iter=646]=3.1545188426971436
+LR[iter=646]=0.0002990477575050313
+Batch=647/65520
+Average Duration=0.6808645895192942
+
+--Update--
+Loss[iter=647]=3.11389422416687
+LR[iter=647]=0.00029903468295699987
+Batch=648/65520
+Average Duration=0.6808533251064546
+
+--Update--
+Loss[iter=648]=3.0911548137664795
+LR[iter=648]=0.0002990215195611392
+Batch=649/65520
+Average Duration=0.6808365113019779
+
+--Update--
+Loss[iter=649]=3.154752731323242
+LR[iter=649]=0.0002990082673255691
+Batch=650/65520
+Average Duration=0.6807824646815145
+
+--Update--
+Loss[iter=650]=3.1224918365478516
+LR[iter=650]=0.0002989949262584643
+Batch=651/65520
+Average Duration=0.6807265714316136
+
+--Update--
+Loss[iter=651]=3.1315901279449463
+LR[iter=651]=0.00029898149636805417
+Batch=652/65520
+Average Duration=0.6806690719600861
+
+--Update--
+Loss[iter=652]=3.129038095474243
+LR[iter=652]=0.0002989679776626229
+Batch=653/65520
+Average Duration=0.68061513552982
+
+--Update--
+Loss[iter=653]=3.0757412910461426
+LR[iter=653]=0.0002989543701505097
+Batch=654/65520
+Average Duration=0.6805737981024125
+
+--Update--
+Loss[iter=654]=3.2741429805755615
+LR[iter=654]=0.00029894067384010815
+Batch=655/65520
+Average Duration=0.6805256562350855
+
+--Update--
+Loss[iter=655]=3.2506747245788574
+LR[iter=655]=0.00029892688873986694
+Batch=656/65520
+Average Duration=0.6804704460121673
+
+--Update--
+Loss[iter=656]=3.2012007236480713
+LR[iter=656]=0.00029891301485828945
+Batch=657/65520
+Average Duration=0.6804283599710511
+
+--Update--
+Loss[iter=657]=3.0716872215270996
+LR[iter=657]=0.00029889905220393365
+Batch=658/65520
+Average Duration=0.6803833717720044
+
+--Update--
+Loss[iter=658]=3.174670934677124
+LR[iter=658]=0.00029888500078541246
+Batch=659/65520
+Average Duration=0.6803580509620308
+
+--Update--
+Loss[iter=659]=3.0446763038635254
+LR[iter=659]=0.0002988708606113936
+Batch=660/65520
+Average Duration=0.6803126429302706
+
+--Update--
+Loss[iter=660]=3.179159641265869
+LR[iter=660]=0.00029885663169059926
+Batch=661/65520
+Average Duration=0.6803150725551973
+
+Generating response for `A tree`: , to " “,,., goodbye,, ", yes,,, " ",, yes " " goodbye,,,,,,,, they,!.,,,,, " they,,,,,:,,,,,, " thank,,,, she goodbye ",,,,,,,,,,,., goodbye,,,, that hello,,, yes, yes. that " goodbye “: as, yes to,, " ",,, goodbye to they,:, ",,. it,, to,,,, hello,,,,,, ",,,, she,,,,,,,, goodbye,,,, to,,,, there " to that,,,,,, she ", Tim,,, " hello, " yes,,,,,,, goodbye,,:, yes,,,,, to, yes, goodbye ",, to,,,, " goodbye yes yes you,,,, ",, no hello to,, goodbye,:,,,,,, to, they hello,,,, no goodbye, the:, hello: ",,,
+--Update--
+Loss[iter=661]=3.183532476425171
+LR[iter=661]=0.0002988423140318067
+Batch=662/65520
+Average Duration=0.681418771024145
+
+--Update--
+Loss[iter=662]=2.964567184448242
+LR[iter=662]=0.0002988279076438477
+Batch=663/65520
+Average Duration=0.6813646466847398
+
+--Update--
+Loss[iter=663]=3.105747699737549
+LR[iter=663]=0.0002988134125356089
+Batch=664/65520
+Average Duration=0.6813052961867185
+
+--Update--
+Loss[iter=664]=3.0737600326538086
+LR[iter=664]=0.00029879882871603164
+Batch=665/65520
+Average Duration=0.6812837815187647
+
+--Update--
+Loss[iter=665]=3.0516271591186523
+LR[iter=665]=0.00029878415619411175
+Batch=666/65520
+Average Duration=0.681247415355827
+
+--Update--
+Loss[iter=666]=3.134786605834961
+LR[iter=666]=0.0002987693949789002
+Batch=667/65520
+Average Duration=0.6811965650944265
+
+--Update--
+Loss[iter=667]=3.085069179534912
+LR[iter=667]=0.0002987545450795024
+Batch=668/65520
+Average Duration=0.6811477049670408
+
+--Update--
+Loss[iter=668]=3.094302177429199
+LR[iter=668]=0.00029873960650507843
+Batch=669/65520
+Average Duration=0.6811030863243386
+
+--Update--
+Loss[iter=669]=3.1733860969543457
+LR[iter=669]=0.0002987245792648432
+Batch=670/65520
+Average Duration=0.6810643637447573
+
+--Update--
+Loss[iter=670]=3.0615012645721436
+LR[iter=670]=0.00029870946336806633
+Batch=671/65520
+Average Duration=0.6810226105946163
+
+--Update--
+Loss[iter=671]=3.1257734298706055
+LR[iter=671]=0.00029869425882407194
+Batch=672/65520
+Average Duration=0.6811202064121853
+
+--Update--
+Loss[iter=672]=2.958244562149048
+LR[iter=672]=0.0002986789656422391
+Batch=673/65520
+Average Duration=0.68109151733579
+
+--Update--
+Loss[iter=673]=3.0812859535217285
+LR[iter=673]=0.00029866358383200125
+Batch=674/65520
+Average Duration=0.6810488775979033
+
+--Update--
+Loss[iter=674]=3.042469024658203
+LR[iter=674]=0.00029864811340284684
+Batch=675/65520
+Average Duration=0.6809963539510985
+
+--Update--
+Loss[iter=675]=3.015230178833008
+LR[iter=675]=0.0002986325543643187
+Batch=676/65520
+Average Duration=0.6809831479911134
+
+--Update--
+Loss[iter=676]=3.1303789615631104
+LR[iter=676]=0.0002986169067260144
+Batch=677/65520
+Average Duration=0.6809306962702928
+
+--Update--
+Loss[iter=677]=3.193936824798584
+LR[iter=677]=0.0002986011704975863
+Batch=678/65520
+Average Duration=0.6809408448878881
+
+--Update--
+Loss[iter=678]=3.123195171356201
+LR[iter=678]=0.00029858534568874117
+Batch=679/65520
+Average Duration=0.6808931004550617
+
+--Update--
+Loss[iter=679]=3.131340503692627
+LR[iter=679]=0.0002985694323092406
+Batch=680/65520
+Average Duration=0.6808490008588117
+
+--Update--
+Loss[iter=680]=3.158378839492798
+LR[iter=680]=0.0002985534303689008
+Batch=681/65520
+Average Duration=0.6807940075256809
+
+Generating response for `A tree`:  to,,,, ", yes, yes,,,,,,,,,,,,,,,,,,,,:,, they,,,,,, to,, goodbye,, yes to,,,,,,,,,,,,, ",, yes,,,,,, to,,,,, to,,,,,:, yes,,, no,, ", no, " yes,,,,,, goodbye,,,,,,,.,,,,,,, ",, yes,,,,,: ",,, to,,,,, goodbye, no,,, no,, she, yes,,,, goodbye goodbye, ",,,,,,., to,,, ",,,,,,,,,,, ",,,,,,, to,,,,,,,,, yes,,,,,,,,,,,, ",, yes,,,,,,,,,,,.,, to, to,, ",,,,,,,, they,, that.,,,,
+--Update--
+Loss[iter=681]=3.085841655731201
+LR[iter=681]=0.0002985373398775926
+Batch=682/65520
+Average Duration=0.681917882026385
+
+--Update--
+Loss[iter=682]=3.168717384338379
+LR[iter=682]=0.00029852116084524126
+Batch=683/65520
+Average Duration=0.6818752579912113
+
+--Update--
+Loss[iter=683]=3.0448014736175537
+LR[iter=683]=0.000298504893281827
+Batch=684/65520
+Average Duration=0.6818240469049707
+
+--Update--
+Loss[iter=684]=3.1013379096984863
+LR[iter=684]=0.00029848853719738436
+Batch=685/65520
+Average Duration=0.6817750907547521
+
+--Update--
+Loss[iter=685]=3.09485125541687
+LR[iter=685]=0.00029847209260200266
+Batch=686/65520
+Average Duration=0.6817307022594816
+
+--Update--
+Loss[iter=686]=3.0816736221313477
+LR[iter=686]=0.0002984555595058257
+Batch=687/65520
+Average Duration=0.6816803965909896
+
+--Update--
+Loss[iter=687]=3.134964942932129
+LR[iter=687]=0.00029843893791905193
+Batch=688/65520
+Average Duration=0.6816349816482734
+
+--Update--
+Loss[iter=688]=3.1730470657348633
+LR[iter=688]=0.00029842222785193443
+Batch=689/65520
+Average Duration=0.6816474829448679
+
+--Update--
+Loss[iter=689]=3.0221505165100098
+LR[iter=689]=0.0002984054293147808
+Batch=690/65520
+Average Duration=0.6816151575478453
+
+--Update--
+Loss[iter=690]=3.0523743629455566
+LR[iter=690]=0.00029838854231795315
+Batch=691/65520
+Average Duration=0.6816801069088522
+
+--Update--
+Loss[iter=691]=2.979783058166504
+LR[iter=691]=0.00029837156687186826
+Batch=692/65520
+Average Duration=0.6817371514320982
+
+--Update--
+Loss[iter=692]=3.0160512924194336
+LR[iter=692]=0.0002983545029869975
+Batch=693/65520
+Average Duration=0.6817853207056447
+
+--Update--
+Loss[iter=693]=2.952638626098633
+LR[iter=693]=0.00029833735067386665
+Batch=694/65520
+Average Duration=0.6820210187305609
+
+--Update--
+Loss[iter=694]=2.970907688140869
+LR[iter=694]=0.0002983201099430562
+Batch=695/65520
+Average Duration=0.6820527203813169
+
+--Update--
+Loss[iter=695]=3.1232333183288574
+LR[iter=695]=0.000298302780805201
+Batch=696/65520
+Average Duration=0.6821247992083588
+
+--Update--
+Loss[iter=696]=3.079054594039917
+LR[iter=696]=0.0002982853632709907
+Batch=697/65520
+Average Duration=0.682370696315663
+
+--Update--
+Loss[iter=697]=3.106860637664795
+LR[iter=697]=0.000298267857351169
+Batch=698/65520
+Average Duration=0.6823843255114842
+
+--Update--
+Loss[iter=698]=3.11244797706604
+LR[iter=698]=0.0002982502630565348
+Batch=699/65520
+Average Duration=0.682363224068699
+
+--Update--
+Loss[iter=699]=3.084583044052124
+LR[iter=699]=0.0002982325803979409
+Batch=700/65520
+Average Duration=0.6823377388086009
+
+--Update--
+Loss[iter=700]=3.066762924194336
+LR[iter=700]=0.00029821480938629495
+Batch=701/65520
+Average Duration=0.6823620868987426
+
+Generating response for `A tree`: ,,,, Tim, " to to,,,,,,:,,, ", ",, the,,, no,,,,,,., yes,. yes,,,, goodbye, yes yes,, to,, ",,, goodbye,,,,, to,,,, ",., ",, to ",,,,,,, yes,,, to,, ", ",,,,,, for no sorry,, " sorry,, for,,,, to,,:,,,,, yes that,, goodbye hello,,,,,,: goodbye, ",, “ she,, yes that that goodbye,,,., " ",,,,,, goodbye sorry,,,,,,,, no,,,, to,,,,: yes, yes,, no., Tim it,: “ no,. hello the that, ",,, that, she thank,,:,, yes, ", no,,,, goodbye that, thank,,,,,, it,,, ",,, no goodbye,, that to that,,,,,
+Validation loss: 3.0430601837054323
+--Update--
+Loss[iter=701]=3.126711368560791
+LR[iter=701]=0.00029819695003255894
+Batch=702/65520
+Average Duration=0.6823711634615574
+
+--Update--
+Loss[iter=702]=2.9362080097198486
+LR[iter=702]=0.00029817900234774947
+Batch=703/65520
+Average Duration=0.6823584586301753
+
+--Update--
+Loss[iter=703]=3.0804355144500732
+LR[iter=703]=0.0002981609663429376
+Batch=704/65520
+Average Duration=0.6823469773324085
+
+--Update--
+Loss[iter=704]=3.128166913986206
+LR[iter=704]=0.00029814284202924873
+Batch=705/65520
+Average Duration=0.682327974113498
+
+--Update--
+Loss[iter=705]=2.98634672164917
+LR[iter=705]=0.00029812462941786297
+Batch=706/65520
+Average Duration=0.6823315029504486
+
+--Update--
+Loss[iter=706]=3.0590591430664062
+LR[iter=706]=0.0002981063285200147
+Batch=707/65520
+Average Duration=0.6823125784993151
+
+--Update--
+Loss[iter=707]=3.0896565914154053
+LR[iter=707]=0.00029808793934699287
+Batch=708/65520
+Average Duration=0.6823019762231869
+
+--Update--
+Loss[iter=708]=3.1832659244537354
+LR[iter=708]=0.0002980694619101408
+Batch=709/65520
+Average Duration=0.6822662212031243
+
+--Update--
+Loss[iter=709]=2.9963433742523193
+LR[iter=709]=0.00029805089622085643
+Batch=710/65520
+Average Duration=0.6822601025817048
+
+--Update--
+Loss[iter=710]=3.035179376602173
+LR[iter=710]=0.00029803224229059183
+Batch=711/65520
+Average Duration=0.682235856012677
+
+--Update--
+Loss[iter=711]=2.9172887802124023
+LR[iter=711]=0.00029801350013085374
+Batch=712/65520
+Average Duration=0.6822193119157541
+
+--Update--
+Loss[iter=712]=2.986773729324341
+LR[iter=712]=0.00029799466975320336
+Batch=713/65520
+Average Duration=0.6822724822931509
+
+--Update--
+Loss[iter=713]=3.085949659347534
+LR[iter=713]=0.00029797575116925616
+Batch=714/65520
+Average Duration=0.6823087505252399
+
+--Update--
+Loss[iter=714]=3.061143398284912
+LR[iter=714]=0.00029795674439068195
+Batch=715/65520
+Average Duration=0.6823000704545772
+
+--Update--
+Loss[iter=715]=3.043384552001953
+LR[iter=715]=0.00029793764942920525
+Batch=716/65520
+Average Duration=0.6823044340084096
+
+--Update--
+Loss[iter=716]=3.042508602142334
+LR[iter=716]=0.00029791846629660467
+Batch=717/65520
+Average Duration=0.6822998091576241
+
+--Update--
+Loss[iter=717]=2.9713404178619385
+LR[iter=717]=0.0002978991950047134
+Batch=718/65520
+Average Duration=0.6822649630905598
+
+--Update--
+Loss[iter=718]=2.9793624877929688
+LR[iter=718]=0.0002978798355654189
+Batch=719/65520
+Average Duration=0.6822498244075433
+
+--Update--
+Loss[iter=719]=3.1025707721710205
+LR[iter=719]=0.0002978603879906631
+Batch=720/65520
+Average Duration=0.682236357754194
+
+--Update--
+Loss[iter=720]=2.9761199951171875
+LR[iter=720]=0.0002978408522924422
+Batch=721/65520
+Average Duration=0.6821986380027978
+
+Generating response for `A tree`: ,,,, she,,,.,,,, she that,,,,,,,,,,,,,, they,, to,,, that,,,,.,,,,,,, that,,,,,,,, yes,,,,,,,,,, ", she,,,, ",,,: ",,:,,.,,,,,,,, " ".,,, ",,,,,,,, ",,,.,,. ",, goodbye,,,,,,,,, ",, yes,,,,,, goodbye goodbye " to,,,, that,,,, ",,,,,,,,,,,,,:,,,,,,,,,, " that,,,,,, to,,,,, ",,,,,,,,,,.,,,,,,,,,,.,,,,,,,,,,, that,,,,,, ",, to,,,,,,,,,,,,,., she,
+--Update--
+Loss[iter=721]=2.924525022506714
+LR[iter=721]=0.00029782122848280676
+Batch=722/65520
+Average Duration=0.6841167502881134
+
+--Update--
+Loss[iter=722]=2.8426671028137207
+LR[iter=722]=0.0002978015165738618
+Batch=723/65520
+Average Duration=0.6841528162738812
+
+--Update--
+Loss[iter=723]=2.96846342086792
+LR[iter=723]=0.0002977817165777666
+Batch=724/65520
+Average Duration=0.6841080982956013
+
+--Update--
+Loss[iter=724]=2.9645705223083496
+LR[iter=724]=0.00029776182850673475
+Batch=725/65520
+Average Duration=0.6840565874124325
+
+--Update--
+Loss[iter=725]=3.016211748123169
+LR[iter=725]=0.00029774185237303426
+Batch=726/65520
+Average Duration=0.6840084220027765
+
+--Update--
+Loss[iter=726]=2.870728015899658
+LR[iter=726]=0.0002977217881889874
+Batch=727/65520
+Average Duration=0.6839515424099251
+
+--Update--
+Loss[iter=727]=2.8899893760681152
+LR[iter=727]=0.00029770163596697075
+Batch=728/65520
+Average Duration=0.6838947684272231
+
+--Update--
+Loss[iter=728]=3.124358654022217
+LR[iter=728]=0.00029768139571941524
+Batch=729/65520
+Average Duration=0.683855534862851
+
+--Update--
+Loss[iter=729]=3.0146257877349854
+LR[iter=729]=0.0002976610674588061
+Batch=730/65520
+Average Duration=0.6838012525082452
+
+--Update--
+Loss[iter=730]=3.035862445831299
+LR[iter=730]=0.0002976406511976827
+Batch=731/65520
+Average Duration=0.6837458966566534
+
+--Update--
+Loss[iter=731]=3.000303268432617
+LR[iter=731]=0.0002976201469486389
+Batch=732/65520
+Average Duration=0.6836919122240674
+
+--Update--
+Loss[iter=732]=2.878647804260254
+LR[iter=732]=0.0002975995547243228
+Batch=733/65520
+Average Duration=0.6836344005771067
+
+--Update--
+Loss[iter=733]=3.0196805000305176
+LR[iter=733]=0.0002975788745374366
+Batch=734/65520
+Average Duration=0.6835778684128406
+
+--Update--
+Loss[iter=734]=3.010389804840088
+LR[iter=734]=0.000297558106400737
+Batch=735/65520
+Average Duration=0.6835217204054754
+
+--Update--
+Loss[iter=735]=2.8756203651428223
+LR[iter=735]=0.00029753725032703477
+Batch=736/65520
+Average Duration=0.6835070801603598
+
+--Update--
+Loss[iter=736]=2.968950033187866
+LR[iter=736]=0.0002975163063291949
+Batch=737/65520
+Average Duration=0.6836746326852443
+
+--Update--
+Loss[iter=737]=3.1629695892333984
+LR[iter=737]=0.00029749527442013695
+Batch=738/65520
+Average Duration=0.6836427638862148
+
+--Update--
+Loss[iter=738]=3.162665843963623
+LR[iter=738]=0.0002974741546128342
+Batch=739/65520
+Average Duration=0.6836115232828485
+
+--Update--
+Loss[iter=739]=3.008310079574585
+LR[iter=739]=0.0002974529469203145
+Batch=740/65520
+Average Duration=0.6835875971824616
+
+--Update--
+Loss[iter=740]=3.1008028984069824
+LR[iter=740]=0.00029743165135565986
+Batch=741/65520
+Average Duration=0.6836249409554975
+
+Generating response for `A tree`: ,,,,, to,, ",,,.,,,,,, yes,,,,,, to,,,,,,,,,,,,,,,, to ", that,,,,,, to, to,,,,,,,,,,,, they,:, no,,,,,,,,,,,, ",,.,, " to,,,,,,,,,,,.,,,,,,,,,,,,,,, to ", ", ",.,,.,,,,, yes,, ",,, to,,,,, goodbye,,,,,,:, goodbye,,,,, ",,,,,,,, no,,,,, to,,,,,,,:,,,,, to,,,,,,,,,,,,,,,, that ",,,, " goodbye,,,,,,,,,:, to " they " ",,,,, " goodbye to,,, to yes,,,,,,,,,
+--Update--
+Loss[iter=741]=2.9193503856658936
+LR[iter=741]=0.00029741026793200635
+Batch=742/65520
+Average Duration=0.6854887064218586
+
+--Update--
+Loss[iter=742]=2.835192918777466
+LR[iter=742]=0.00029738879666254447
+Batch=743/65520
+Average Duration=0.685496843873512
+
+--Update--
+Loss[iter=743]=2.91754150390625
+LR[iter=743]=0.0002973672375605187
+Batch=744/65520
+Average Duration=0.6854524025511001
+
+--Update--
+Loss[iter=744]=3.0674145221710205
+LR[iter=744]=0.0002973455906392278
+Batch=745/65520
+Average Duration=0.6853982323798968
+
+--Update--
+Loss[iter=745]=2.9671168327331543
+LR[iter=745]=0.0002973238559120247
+Batch=746/65520
+Average Duration=0.6853647240818073
+
+--Update--
+Loss[iter=746]=3.0403032302856445
+LR[iter=746]=0.0002973020333923164
+Batch=747/65520
+Average Duration=0.6853209799732654
+
+--Update--
+Loss[iter=747]=2.9849371910095215
+LR[iter=747]=0.0002972801230935642
+Batch=748/65520
+Average Duration=0.6852630460642074
+
+--Update--
+Loss[iter=748]=2.8722615242004395
+LR[iter=748]=0.00029725812502928343
+Batch=749/65520
+Average Duration=0.6852123559159291
+
+--Update--
+Loss[iter=749]=2.8999152183532715
+LR[iter=749]=0.0002972360392130436
+Batch=750/65520
+Average Duration=0.6852075049973743
+
+--Update--
+Loss[iter=750]=3.0539755821228027
+LR[iter=750]=0.0002972138656584684
+Batch=751/65520
+Average Duration=0.6852036832530386
+
+--Update--
+Loss[iter=751]=2.919259548187256
+LR[iter=751]=0.00029719160437923555
+Batch=752/65520
+Average Duration=0.6851577671183969
+
+--Update--
+Loss[iter=752]=2.9994781017303467
+LR[iter=752]=0.0002971692553890769
+Batch=753/65520
+Average Duration=0.6851304102457308
+
+--Update--
+Loss[iter=753]=2.948171615600586
+LR[iter=753]=0.0002971468187017785
+Batch=754/65520
+Average Duration=0.6850832955318842
+
+--Update--
+Loss[iter=754]=2.970329999923706
+LR[iter=754]=0.0002971242943311804
+Batch=755/65520
+Average Duration=0.68506812113383
+
+--Update--
+Loss[iter=755]=2.9396212100982666
+LR[iter=755]=0.0002971016822911767
+Batch=756/65520
+Average Duration=0.6850329438902726
+
+--Update--
+Loss[iter=756]=2.8475048542022705
+LR[iter=756]=0.0002970789825957158
+Batch=757/65520
+Average Duration=0.6849887401995327
+
+--Update--
+Loss[iter=757]=2.9899978637695312
+LR[iter=757]=0.0002970561952587998
+Batch=758/65520
+Average Duration=0.6849433837916138
+
+--Update--
+Loss[iter=758]=2.8685665130615234
+LR[iter=758]=0.00029703332029448526
+Batch=759/65520
+Average Duration=0.6849069481739708
+
+--Update--
+Loss[iter=759]=2.8415367603302
+LR[iter=759]=0.0002970103577168825
+Batch=760/65520
+Average Duration=0.684885544679008
+
+--Update--
+Loss[iter=760]=3.024587392807007
+LR[iter=760]=0.000296987307540156
+Batch=761/65520
+Average Duration=0.6848638920802194
+
+Generating response for `A tree`: ,,,,,,,, " to,,, yes,, to,,,, " ".,, to to to,,,,. ", " goodbye ",,,,,,,,,, to., yes., the,, ",,,,,,,,,, to,,.,,,, to, ",,, yes,, that.,. ",, ",,:,,, yes,,,,,, yes,.,,, to,,,, ",, to to,,,, to. that that,..:,,,, the,,,,,,,,, they,:: to,,,,,,,,, to,,,,,,,, " goodbye,,,,,,,,, the,, ",,, ",,,,,,,,, " goodbye " yes, ",,, to,,, to, ",,, to,,,,,,,,,,,,,, the, to to yes,,,,,, to ",,,, to,,, "
+--Update--
+Loss[iter=761]=3.004725933074951
+LR[iter=761]=0.00029696416977852434
+Batch=762/65520
+Average Duration=0.6869423791536077
+
+--Update--
+Loss[iter=762]=2.8490560054779053
+LR[iter=762]=0.00029694094444625995
+Batch=763/65520
+Average Duration=0.6869004112045206
+
+--Update--
+Loss[iter=763]=2.7275969982147217
+LR[iter=763]=0.00029691763155768945
+Batch=764/65520
+Average Duration=0.6868483793613217
+
+--Update--
+Loss[iter=764]=2.9344606399536133
+LR[iter=764]=0.0002968942311271934
+Batch=765/65520
+Average Duration=0.6868010356183648
+
+--Update--
+Loss[iter=765]=2.9982943534851074
+LR[iter=765]=0.00029687074316920637
+Batch=766/65520
+Average Duration=0.6867440827859723
+
+--Update--
+Loss[iter=766]=2.9319984912872314
+LR[iter=766]=0.0002968471676982169
+Batch=767/65520
+Average Duration=0.6867309722908124
+
+--Update--
+Loss[iter=767]=3.087794780731201
+LR[iter=767]=0.00029682350472876745
+Batch=768/65520
+Average Duration=0.6866819044024103
+
+--Update--
+Loss[iter=768]=2.850389003753662
+LR[iter=768]=0.00029679975427545464
+Batch=769/65520
+Average Duration=0.6866271442315399
+
+--Update--
+Loss[iter=769]=2.9653120040893555
+LR[iter=769]=0.00029677591635292886
+Batch=770/65520
+Average Duration=0.6865813861974727
+
+--Update--
+Loss[iter=770]=2.970789909362793
+LR[iter=770]=0.00029675199097589465
+Batch=771/65520
+Average Duration=0.6865282412944873
+
+--Update--
+Loss[iter=771]=2.9195380210876465
+LR[iter=771]=0.00029672797815911024
+Batch=772/65520
+Average Duration=0.6865017804897
+
+--Update--
+Loss[iter=772]=3.0471928119659424
+LR[iter=772]=0.00029670387791738803
+Batch=773/65520
+Average Duration=0.6864650588564687
+
+--Update--
+Loss[iter=773]=2.97025465965271
+LR[iter=773]=0.00029667969026559425
+Batch=774/65520
+Average Duration=0.6864213537855974
+
+--Update--
+Loss[iter=774]=2.970456123352051
+LR[iter=774]=0.000296655415218649
+Batch=775/65520
+Average Duration=0.6864168201032942
+
+--Update--
+Loss[iter=775]=2.9891982078552246
+LR[iter=775]=0.00029663105279152647
+Batch=776/65520
+Average Duration=0.6864289379794491
+
+--Update--
+Loss[iter=776]=2.9719431400299072
+LR[iter=776]=0.0002966066029992545
+Batch=777/65520
+Average Duration=0.6863887229151219
+
+--Update--
+Loss[iter=777]=2.822112798690796
+LR[iter=777]=0.00029658206585691507
+Batch=778/65520
+Average Duration=0.6863297784872106
+
+--Update--
+Loss[iter=778]=2.831984281539917
+LR[iter=778]=0.00029655744137964385
+Batch=779/65520
+Average Duration=0.6863492619769543
+
+--Update--
+Loss[iter=779]=2.9746291637420654
+LR[iter=779]=0.00029653272958263043
+Batch=780/65520
+Average Duration=0.6863654621218536
+
+--Update--
+Loss[iter=780]=2.841526508331299
+LR[iter=780]=0.00029650793048111837
+Batch=781/65520
+Average Duration=0.6863532085954572
+
+Generating response for `A tree`: ,,,,,,,.,,,,,,,,,,,,,,,,,,.,,,,.,,,,,, to,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, to,,,,,,,,,,,,,,,,,,,,,,,, to,.,,,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,,,,, to,,,,,,,,,,,,,,,,,,,,, to,,,,,,,,,,,,,,,,,,,,,,. to,,,,,,,,.,, to,,,.,,,.,,,,,,,,..,,,,,,,,,,,,,,
+--Update--
+Loss[iter=781]=2.903473138809204
+LR[iter=781]=0.0002964830440904049
+Batch=782/65520
+Average Duration=0.687372318836382
+
+--Update--
+Loss[iter=782]=2.9281580448150635
+LR[iter=782]=0.00029645807042584125
+Batch=783/65520
+Average Duration=0.6873748640345477
+
+--Update--
+Loss[iter=783]=2.9558756351470947
+LR[iter=783]=0.0002964330095028325
+Batch=784/65520
+Average Duration=0.6873379609873089
+
+--Update--
+Loss[iter=784]=2.9177489280700684
+LR[iter=784]=0.00029640786133683735
+Batch=785/65520
+Average Duration=0.6873811096573946
+
+--Update--
+Loss[iter=785]=2.8690600395202637
+LR[iter=785]=0.00029638262594336857
+Batch=786/65520
+Average Duration=0.6873628837443444
+
+--Update--
+Loss[iter=786]=2.8841724395751953
+LR[iter=786]=0.00029635730333799255
+Batch=787/65520
+Average Duration=0.6873361639111203
+
+--Update--
+Loss[iter=787]=2.978825807571411
+LR[iter=787]=0.00029633189353632955
+Batch=788/65520
+Average Duration=0.6873198503046417
+
+--Update--
+Loss[iter=788]=2.9756250381469727
+LR[iter=788]=0.0002963063965540537
+Batch=789/65520
+Average Duration=0.6872711867313822
+
+--Update--
+Loss[iter=789]=2.8167006969451904
+LR[iter=789]=0.0002962808124068927
+Batch=790/65520
+Average Duration=0.6872327875507076
+
+--Update--
+Loss[iter=790]=3.0146069526672363
+LR[iter=790]=0.00029625514111062816
+Batch=791/65520
+Average Duration=0.6871766554969188
+
+--Update--
+Loss[iter=791]=2.990025043487549
+LR[iter=791]=0.00029622938268109543
+Batch=792/65520
+Average Duration=0.687133455279125
+
+--Update--
+Loss[iter=792]=2.946965217590332
+LR[iter=792]=0.00029620353713418363
+Batch=793/65520
+Average Duration=0.6870971657176155
+
+--Update--
+Loss[iter=793]=2.8257806301116943
+LR[iter=793]=0.0002961776044858357
+Batch=794/65520
+Average Duration=0.6870928522217509
+
+--Update--
+Loss[iter=794]=2.8799874782562256
+LR[iter=794]=0.0002961515847520479
+Batch=795/65520
+Average Duration=0.6870585756780682
+
+--Update--
+Loss[iter=795]=2.85374116897583
+LR[iter=795]=0.00029612547794887086
+Batch=796/65520
+Average Duration=0.6870683140151556
+
+--Update--
+Loss[iter=796]=2.8588900566101074
+LR[iter=796]=0.0002960992840924083
+Batch=797/65520
+Average Duration=0.6870212490038452
+
+--Update--
+Loss[iter=797]=2.829221487045288
+LR[iter=797]=0.0002960730031988181
+Batch=798/65520
+Average Duration=0.6870246459875534
+
+--Update--
+Loss[iter=798]=2.9299888610839844
+LR[iter=798]=0.0002960466352843115
+Batch=799/65520
+Average Duration=0.6870361090927024
+
+--Update--
+Loss[iter=799]=2.830686092376709
+LR[iter=799]=0.00029602018036515356
+Batch=800/65520
+Average Duration=0.6870226093738393
+
+--Update--
+Loss[iter=800]=2.949826955795288
+LR[iter=800]=0.0002959936384576631
+Batch=801/65520
+Average Duration=0.6869854380974619
+
+Generating response for `A tree`: ,.,,,,,,,, ",,,,,,,,,.,,,, yes,,.,,,,,,,,,,, ",,,,,,,, goodbye, the ", ",,,,,,,,,,,,,,,,,,,,,,,,,, ",,,,,,,,,,,,,,,, yes,.,,,,,,,,, it,,.,,, goodbye, the, ",,.,,,,,, goodbye yes,,,,, they,,,,,,,.,,,, " the,,,,,,,,,,,,,.,.,,,,,,,,,,,,,,,,,, the,,,,. ",,,,,,,,,, goodbye. the., ",,,, goodbye,,,,,, the,.,,,,, ",,, yes,,,,,,,, they..,,,,,,,,, ",
+Validation loss: 2.892783493570048
+--Update--
+Loss[iter=801]=2.8856515884399414
+LR[iter=801]=0.0002959670095782124
+Batch=802/65520
+Average Duration=0.6869713217469611
+
+--Update--
+Loss[iter=802]=2.9027111530303955
+LR[iter=802]=0.00029594029374322757
+Batch=803/65520
+Average Duration=0.6869219448419283
+
+--Update--
+Loss[iter=803]=2.8484818935394287
+LR[iter=803]=0.00029591349096918824
+Batch=804/65520
+Average Duration=0.6868708039490917
+
+--Update--
+Loss[iter=804]=2.8744425773620605
+LR[iter=804]=0.0002958866012726277
+Batch=805/65520
+Average Duration=0.6868482917180943
+
+--Update--
+Loss[iter=805]=2.910201072692871
+LR[iter=805]=0.0002958596246701329
+Batch=806/65520
+Average Duration=0.6867976899293646
+
+--Update--
+Loss[iter=806]=3.0594472885131836
+LR[iter=806]=0.0002958325611783443
+Batch=807/65520
+Average Duration=0.6867579947857063
+
+--Update--
+Loss[iter=807]=2.9398930072784424
+LR[iter=807]=0.0002958054108139561
+Batch=808/65520
+Average Duration=0.6867038549926517
+
+--Update--
+Loss[iter=808]=2.7881124019622803
+LR[iter=808]=0.00029577817359371597
+Batch=809/65520
+Average Duration=0.686661614649026
+
+--Update--
+Loss[iter=809]=2.803719997406006
+LR[iter=809]=0.0002957508495344252
+Batch=810/65520
+Average Duration=0.6866182419247729
+
+--Update--
+Loss[iter=810]=2.8222649097442627
+LR[iter=810]=0.00029572343865293864
+Batch=811/65520
+Average Duration=0.6865635640679012
+
+--Update--
+Loss[iter=811]=2.8410439491271973
+LR[iter=811]=0.0002956959409661647
+Batch=812/65520
+Average Duration=0.6865086856022944
+
+--Update--
+Loss[iter=812]=2.8346540927886963
+LR[iter=812]=0.0002956683564910653
+Batch=813/65520
+Average Duration=0.6864661707159466
+
+--Update--
+Loss[iter=813]=2.9680728912353516
+LR[iter=813]=0.000295640685244656
+Batch=814/65520
+Average Duration=0.6864126768538839
+
+--Update--
+Loss[iter=814]=2.9706339836120605
+LR[iter=814]=0.0002956129272440058
+Batch=815/65520
+Average Duration=0.686356984562039
+
+--Update--
+Loss[iter=815]=2.78611421585083
+LR[iter=815]=0.0002955850825062372
+Batch=816/65520
+Average Duration=0.6863580760331629
+
+--Update--
+Loss[iter=816]=2.8713338375091553
+LR[iter=816]=0.0002955571510485262
+Batch=817/65520
+Average Duration=0.6863411298984817
+
+--Update--
+Loss[iter=817]=2.700032949447632
+LR[iter=817]=0.00029552913288810243
+Batch=818/65520
+Average Duration=0.6862919725978731
+
+--Update--
+Loss[iter=818]=2.940458059310913
+LR[iter=818]=0.0002955010280422488
+Batch=819/65520
+Average Duration=0.6862417151526968
+
+--Update--
+Loss[iter=819]=2.943899154663086
+LR[iter=819]=0.00029547283652830183
+Batch=820/65520
+Average Duration=0.6861885538134873
+
+--Update--
+Loss[iter=820]=2.936295509338379
+LR[iter=820]=0.0002954445583636515
+Batch=821/65520
+Average Duration=0.6861334404714505
+
+Generating response for `A tree`: ,,,,,,,, ", ",,,,,,,,,,,,,,,,,, ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,,,,,,,,,,,,,,,,,.,,,,, ",,,,,,,,, ",,,,,,,,,, ",,,,,.,,,,,,,,,,,,,,,,, ",,, ",.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+--Update--
+Loss[iter=821]=2.958988666534424
+LR[iter=821]=0.00029541619356574113
+Batch=822/65520
+Average Duration=0.6873159955925332
+
+--Update--
+Loss[iter=822]=2.7544593811035156
+LR[iter=822]=0.0002953877421520676
+Batch=823/65520
+Average Duration=0.6873681493548717
+
+--Update--
+Loss[iter=823]=2.8813962936401367
+LR[iter=823]=0.0002953592041401812
+Batch=824/65520
+Average Duration=0.6873978988204532
+
+--Update--
+Loss[iter=824]=2.7697463035583496
+LR[iter=824]=0.00029533057954768546
+Batch=825/65520
+Average Duration=0.6873559401043079
+
+--Update--
+Loss[iter=825]=2.8609459400177
+LR[iter=825]=0.00029530186839223766
+Batch=826/65520
+Average Duration=0.6873156434153239
+
+--Update--
+Loss[iter=826]=2.8900485038757324
+LR[iter=826]=0.0002952730706915482
+Batch=827/65520
+Average Duration=0.6872740889795097
+
+--Update--
+Loss[iter=827]=3.0384223461151123
+LR[iter=827]=0.0002952441864633809
+Batch=828/65520
+Average Duration=0.6872255886208416
+
+--Update--
+Loss[iter=828]=2.7946696281433105
+LR[iter=828]=0.0002952152157255531
+Batch=829/65520
+Average Duration=0.6872016591315504
+
+--Update--
+Loss[iter=829]=2.895996570587158
+LR[iter=829]=0.0002951861584959353
+Batch=830/65520
+Average Duration=0.6871759419217476
+
+--Update--
+Loss[iter=830]=2.7191572189331055
+LR[iter=830]=0.00029515701479245155
+Batch=831/65520
+Average Duration=0.6871801195885129
+
+--Update--
+Loss[iter=831]=2.7880282402038574
+LR[iter=831]=0.0002951277846330791
+Batch=832/65520
+Average Duration=0.6871491884555911
+
+--Update--
+Loss[iter=832]=2.7627172470092773
+LR[iter=832]=0.00029509846803584856
+Batch=833/65520
+Average Duration=0.6871348992629683
+
+--Update--
+Loss[iter=833]=2.8661413192749023
+LR[iter=833]=0.000295069065018844
+Batch=834/65520
+Average Duration=0.6871241575779969
+
+--Update--
+Loss[iter=834]=2.77138090133667
+LR[iter=834]=0.0002950395756002026
+Batch=835/65520
+Average Duration=0.6870870870299953
+
+--Update--
+Loss[iter=835]=2.7898168563842773
+LR[iter=835]=0.00029500999979811484
+Batch=836/65520
+Average Duration=0.6870569605801928
+
+--Update--
+Loss[iter=836]=2.745234966278076
+LR[iter=836]=0.0002949803376308247
+Batch=837/65520
+Average Duration=0.6870107464194024
+
+--Update--
+Loss[iter=837]=2.8552961349487305
+LR[iter=837]=0.00029495058911662916
+Batch=838/65520
+Average Duration=0.6869595918890685
+
+--Update--
+Loss[iter=838]=2.750697612762451
+LR[iter=838]=0.0002949207542738787
+Batch=839/65520
+Average Duration=0.686904379076329
+
+--Update--
+Loss[iter=839]=2.787019729614258
+LR[iter=839]=0.00029489083312097695
+Batch=840/65520
+Average Duration=0.6868630523345711
+
+--Update--
+Loss[iter=840]=2.9252820014953613
+LR[iter=840]=0.0002948608256763807
+Batch=841/65520
+Average Duration=0.6868148090095596
+
+Generating response for `A tree`: ,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, " ",,,,,,,,,,,,,,,,,,,,, ",,,,,.,,,,,,,,,,,,,.,,,,,,,,,,,,,,,,, ",,,,,,,,,.,, ",,,,,,,,,,,, ",,,,,,,,,, to,,,,,,,,,,,,, to to,, to,,,,,,,, to, to,,, ",,,,,,,., ",,,,,,,,,,,,,,,,,,,,,,,, to to,,,,,,,,,,,,,,,,,,,,,,,,,,
+--Update--
+Loss[iter=841]=2.780280828475952
+LR[iter=841]=0.00029483073195860006
+Batch=842/65520
+Average Duration=0.6884723991508784
+
+--Update--
+Loss[iter=842]=2.8476970195770264
+LR[iter=842]=0.00029480055198619846
+Batch=843/65520
+Average Duration=0.688431770463867
+
+--Update--
+Loss[iter=843]=2.838564395904541
+LR[iter=843]=0.0002947702857777923
+Batch=844/65520
+Average Duration=0.688410019896967
+
+--Update--
+Loss[iter=844]=2.8208346366882324
+LR[iter=844]=0.0002947399333520514
+Batch=845/65520
+Average Duration=0.6883793286509361
+
+--Update--
+Loss[iter=845]=2.8619136810302734
+LR[iter=845]=0.0002947094947276985
+Batch=846/65520
+Average Duration=0.6883649799563126
+
+--Update--
+Loss[iter=846]=2.9198577404022217
+LR[iter=846]=0.0002946789699235099
+Batch=847/65520
+Average Duration=0.6883224980342809
+
+--Update--
+Loss[iter=847]=2.787663459777832
+LR[iter=847]=0.0002946483589583146
+Batch=848/65520
+Average Duration=0.6882703916592421
+
+--Update--
+Loss[iter=848]=2.8697328567504883
+LR[iter=848]=0.0002946176618509952
+Batch=849/65520
+Average Duration=0.6882168425630574
+
+--Update--
+Loss[iter=849]=2.810781717300415
+LR[iter=849]=0.000294586878620487
+Batch=850/65520
+Average Duration=0.6881652143659277
+
+--Update--
+Loss[iter=850]=2.8744308948516846
+LR[iter=850]=0.0002945560092857788
+Batch=851/65520
+Average Duration=0.688113716219784
+
+--Update--
+Loss[iter=851]=2.9383327960968018
+LR[iter=851]=0.00029452505386591234
+Batch=852/65520
+Average Duration=0.6880601436361903
+
+--Update--
+Loss[iter=852]=2.807866096496582
+LR[iter=852]=0.0002944940123799824
+Batch=853/65520
+Average Duration=0.6880072321254772
+
+--Update--
+Loss[iter=853]=2.8437271118164062
+LR[iter=853]=0.000294462884847137
+Batch=854/65520
+Average Duration=0.6879574661920774
+
+--Update--
+Loss[iter=854]=2.8931891918182373
+LR[iter=854]=0.00029443167128657716
+Batch=855/65520
+Average Duration=0.6879132540000401
+
+--Update--
+Loss[iter=855]=2.8706445693969727
+LR[iter=855]=0.00029440037171755696
+Batch=856/65520
+Average Duration=0.6878607985339135
+
+--Update--
+Loss[iter=856]=2.8868796825408936
+LR[iter=856]=0.0002943689861593835
+Batch=857/65520
+Average Duration=0.6878084221155542
+
+--Update--
+Loss[iter=857]=2.7001700401306152
+LR[iter=857]=0.00029433751463141706
+Batch=858/65520
+Average Duration=0.6877665602214853
+
+--Update--
+Loss[iter=858]=2.767402172088623
+LR[iter=858]=0.00029430595715307075
+Batch=859/65520
+Average Duration=0.6877118620035325
+
+--Update--
+Loss[iter=859]=2.878678560256958
+LR[iter=859]=0.0002942743137438109
+Batch=860/65520
+Average Duration=0.6876569479198097
+
+--Update--
+Loss[iter=860]=2.7418370246887207
+LR[iter=860]=0.00029424258442315674
+Batch=861/65520
+Average Duration=0.6876028121405693
+
+Generating response for `A tree`: ,.,,,,,,,,,,,,,,,,,.,,,,,,,,,., they,,,, the,,,,,,, the, the ",,,,,,,,,,,,,.,,,,,,.,, they,,,,,,,,,,,,,,,,,,,,,,,,,, they that, it,,,,,,,,,,, to it,..,,,,, the,.,,,, the, it,,,,,,,,,,,,,,, to, ",.,,,,,,,, ",, to,,,,.,,,,,,, ",, that,,,.,,,,,:,, yes,,, the to it,,,,,,, to,,,,,,,,, the,.. ",, they,,,,.,,,., to, it it it to to,,,,,,,,,, they, it,
+--Update--
+Loss[iter=861]=2.7542436122894287
+LR[iter=861]=0.00029421076921068044
+Batch=862/65520
+Average Duration=0.6890560217065298
+
+--Update--
+Loss[iter=862]=2.791172504425049
+LR[iter=862]=0.0002941788681260073
+Batch=863/65520
+Average Duration=0.6890061363974783
+
+--Update--
+Loss[iter=863]=2.896721839904785
+LR[iter=863]=0.0002941468811888155
+Batch=864/65520
+Average Duration=0.6889570100821966
+
+--Update--
+Loss[iter=864]=2.895251750946045
+LR[iter=864]=0.0002941148084188362
+Batch=865/65520
+Average Duration=0.6889039044347035
+
+--Update--
+Loss[iter=865]=2.866126537322998
+LR[iter=865]=0.00029408264983585346
+Batch=866/65520
+Average Duration=0.6888489695473624
+
+--Update--
+Loss[iter=866]=2.759967088699341
+LR[iter=866]=0.0002940504054597043
+Batch=867/65520
+Average Duration=0.6888309202745273
+
+--Update--
+Loss[iter=867]=2.8537092208862305
+LR[iter=867]=0.00029401807531027863
+Batch=868/65520
+Average Duration=0.6887860297661462
+
+--Update--
+Loss[iter=868]=2.7368361949920654
+LR[iter=868]=0.00029398565940751944
+Batch=869/65520
+Average Duration=0.6887569324936867
+
+--Update--
+Loss[iter=869]=2.815828323364258
+LR[iter=869]=0.00029395315777142246
+Batch=870/65520
+Average Duration=0.688742848375879
+
+--Update--
+Loss[iter=870]=2.7901439666748047
+LR[iter=870]=0.0002939205704220363
+Batch=871/65520
+Average Duration=0.6887309813467408
+
+--Update--
+Loss[iter=871]=2.8051517009735107
+LR[iter=871]=0.00029388789737946235
+Batch=872/65520
+Average Duration=0.6887005324954254
+
+--Update--
+Loss[iter=872]=2.8063173294067383
+LR[iter=872]=0.0002938551386638552
+Batch=873/65520
+Average Duration=0.6886723281821424
+
+--Update--
+Loss[iter=873]=2.810378313064575
+LR[iter=873]=0.00029382229429542197
+Batch=874/65520
+Average Duration=0.6886321886476142
+
+--Update--
+Loss[iter=874]=2.8218865394592285
+LR[iter=874]=0.0002937893642944227
+Batch=875/65520
+Average Duration=0.6886029033371555
+
+--Update--
+Loss[iter=875]=2.827836513519287
+LR[iter=875]=0.00029375634868117025
+Batch=876/65520
+Average Duration=0.6885742374943012
+
+--Update--
+Loss[iter=876]=2.7644667625427246
+LR[iter=876]=0.0002937232474760304
+Batch=877/65520
+Average Duration=0.688571786348926
+
+--Update--
+Loss[iter=877]=2.7185049057006836
+LR[iter=877]=0.00029369006069942155
+Batch=878/65520
+Average Duration=0.6885474374088939
+
+--Update--
+Loss[iter=878]=2.789581060409546
+LR[iter=878]=0.00029365678837181504
+Batch=879/65520
+Average Duration=0.6885177084323201
+
+--Update--
+Loss[iter=879]=2.7956132888793945
+LR[iter=879]=0.00029362343051373487
+Batch=880/65520
+Average Duration=0.6884744272772836
+
+--Update--
+Loss[iter=880]=2.9464597702026367
+LR[iter=880]=0.00029358998714575785
+Batch=881/65520
+Average Duration=0.6884225581294122
+
+Generating response for `A tree`:  they, goodbye,, goodbye,, goodbye they,,,, yes,,: it, the,,., the,.,,,,,,, yes,,, ",,,,,,,,,,,,,,,,,,, they,,, ", it goodbye, goodbye, no that,,,,,,,,,,,,,,,,,, ",,,,, they,,,,,,,,, it,,,,,,, they,,,,,,,,,,:,.,, yes, it, it they the,,, yes, goodbye,,,,,,,,,,,,,,,, " they.,,,,,,,:,,,,,,,, it,.,,,, ",,,,,,,, they,,,,,,,,,,,,,.: goodbye,,,,,,,,,,,,,,,,,, the, yes, it the goodbye,, they,,,, goodbye,,, ",,,,,,,,
+--Update--
+Loss[iter=881]=2.8806662559509277
+LR[iter=881]=0.0002935564582885135
+Batch=882/65520
+Average Duration=0.6893747998435469
+
+--Update--
+Loss[iter=882]=2.757594585418701
+LR[iter=882]=0.0002935228439626842
+Batch=883/65520
+Average Duration=0.6893421546851749
+
+--Update--
+Loss[iter=883]=2.881791114807129
+LR[iter=883]=0.00029348914418900483
+Batch=884/65520
+Average Duration=0.6893127918122227
+
+--Update--
+Loss[iter=884]=2.775984764099121
+LR[iter=884]=0.00029345535898826324
+Batch=885/65520
+Average Duration=0.6892646083367341
+
+--Update--
+Loss[iter=885]=2.735473394393921
+LR[iter=885]=0.0002934214883812997
+Batch=886/65520
+Average Duration=0.6892139784650223
+
+--Update--
+Loss[iter=886]=2.768583059310913
+LR[iter=886]=0.0002933875323890073
+Batch=887/65520
+Average Duration=0.6891755387576272
+
+--Update--
+Loss[iter=887]=2.905940532684326
+LR[iter=887]=0.00029335349103233203
+Batch=888/65520
+Average Duration=0.6891268948040741
+
+--Update--
+Loss[iter=888]=2.8602089881896973
+LR[iter=888]=0.00029331936433227204
+Batch=889/65520
+Average Duration=0.6890801979786484
+
+--Update--
+Loss[iter=889]=2.759214401245117
+LR[iter=889]=0.00029328515230987853
+Batch=890/65520
+Average Duration=0.6890264954157522
+
+--Update--
+Loss[iter=890]=2.800489902496338
+LR[iter=890]=0.00029325085498625513
+Batch=891/65520
+Average Duration=0.6889729889674748
+
+--Update--
+Loss[iter=891]=2.7146005630493164
+LR[iter=891]=0.00029321647238255826
+Batch=892/65520
+Average Duration=0.6889202199215428
+
+--Update--
+Loss[iter=892]=2.8502590656280518
+LR[iter=892]=0.00029318200451999675
+Batch=893/65520
+Average Duration=0.6888641536058375
+
+--Update--
+Loss[iter=893]=2.7291064262390137
+LR[iter=893]=0.0002931474514198321
+Batch=894/65520
+Average Duration=0.6888158289563886
+
+--Update--
+Loss[iter=894]=2.8222031593322754
+LR[iter=894]=0.00029311281310337835
+Batch=895/65520
+Average Duration=0.6887756397150931
+
+--Update--
+Loss[iter=895]=2.83148455619812
+LR[iter=895]=0.00029307808959200233
+Batch=896/65520
+Average Duration=0.6887230001897373
+
+--Update--
+Loss[iter=896]=2.8794751167297363
+LR[iter=896]=0.0002930432809071231
+Batch=897/65520
+Average Duration=0.6886719653968891
+
+--Update--
+Loss[iter=897]=2.740849733352661
+LR[iter=897]=0.0002930083870702124
+Batch=898/65520
+Average Duration=0.6886328254487857
+
+--Update--
+Loss[iter=898]=2.704568862915039
+LR[iter=898]=0.00029297340810279464
+Batch=899/65520
+Average Duration=0.6885788666151349
+
+--Update--
+Loss[iter=899]=2.7853457927703857
+LR[iter=899]=0.00029293834402644646
+Batch=900/65520
+Average Duration=0.6885255281988915
+
+--Update--
+Loss[iter=900]=2.855013132095337
+LR[iter=900]=0.00029290319486279724
+Batch=901/65520
+Average Duration=0.688475776918987
+
+Generating response for `A tree`: ,,,,, yes,,, ",, ",, yes, to,,,,,,, ",,,,,,,,.,,.,,,.,,, goodbye,,,, ",,,,,,,,,,, to,,,, no,:,, goodbye,,,,,,,,,,,,,,, it, ",,,,,,,,,,,,,,,,,, no,,,,,,,,,,,,,,,,,,,,,,,,,,, goodbye, ",,,,,,, ",,, goodbye goodbye,,,.,,, to,,,,,,,,, to, no., it the,,,,,, the,,, they,, ",,,,,,,,,,, it,,,.,,. no,,,,,,, no,, it,,,,,,,,,,,,,,,,,:,,,, the,,,, no, the,,, the
+Validation loss: 2.7698990389727247
+--Update--
+Loss[iter=901]=2.697572708129883
+LR[iter=901]=0.0002928679606335287
+Batch=902/65520
+Average Duration=0.6884510686940204
+
+--Update--
+Loss[iter=902]=2.6808629035949707
+LR[iter=902]=0.0002928326413603751
+Batch=903/65520
+Average Duration=0.6884069800243693
+
+--Update--
+Loss[iter=903]=2.6912596225738525
+LR[iter=903]=0.0002927972370651231
+Batch=904/65520
+Average Duration=0.688374800842924
+
+--Update--
+Loss[iter=904]=2.8056416511535645
+LR[iter=904]=0.00029276174776961185
+Batch=905/65520
+Average Duration=0.6883415865138113
+
+--Update--
+Loss[iter=905]=2.8350610733032227
+LR[iter=905]=0.000292726173495733
+Batch=906/65520
+Average Duration=0.6883091967008834
+
+--Update--
+Loss[iter=906]=2.7646145820617676
+LR[iter=906]=0.00029269051426543055
+Batch=907/65520
+Average Duration=0.6882911744332977
+
+--Update--
+Loss[iter=907]=2.7397313117980957
+LR[iter=907]=0.0002926547701007008
+Batch=908/65520
+Average Duration=0.6882599095110109
+
+--Update--
+Loss[iter=908]=2.8032307624816895
+LR[iter=908]=0.0002926189410235927
+Batch=909/65520
+Average Duration=0.6882105187040686
+
+--Update--
+Loss[iter=909]=2.6739068031311035
+LR[iter=909]=0.0002925830270562073
+Batch=910/65520
+Average Duration=0.6881712453318659
+
+--Update--
+Loss[iter=910]=2.7801413536071777
+LR[iter=910]=0.0002925470282206981
+Batch=911/65520
+Average Duration=0.6881254768133845
+
+--Update--
+Loss[iter=911]=2.778388500213623
+LR[iter=911]=0.0002925109445392712
+Batch=912/65520
+Average Duration=0.6881007141381568
+
+--Update--
+Loss[iter=912]=2.7238173484802246
+LR[iter=912]=0.0002924747760341846
+Batch=913/65520
+Average Duration=0.688054735124859
+
+--Update--
+Loss[iter=913]=2.84443736076355
+LR[iter=913]=0.000292438522727749
+Batch=914/65520
+Average Duration=0.6880134326247193
+
+--Update--
+Loss[iter=914]=2.648833751678467
+LR[iter=914]=0.0002924021846423272
+Batch=915/65520
+Average Duration=0.6879741624797686
+
+--Update--
+Loss[iter=915]=2.766122341156006
+LR[iter=915]=0.00029236576180033435
+Batch=916/65520
+Average Duration=0.6879259968646141
+
+--Update--
+Loss[iter=916]=2.8133654594421387
+LR[iter=916]=0.0002923292542242379
+Batch=917/65520
+Average Duration=0.6878907933969299
+
+--Update--
+Loss[iter=917]=2.6677792072296143
+LR[iter=917]=0.0002922926619365576
+Batch=918/65520
+Average Duration=0.6878443144553216
+
+--Update--
+Loss[iter=918]=2.679220676422119
+LR[iter=918]=0.0002922559849598653
+Batch=919/65520
+Average Duration=0.6877940166430738
+
+--Update--
+Loss[iter=919]=2.8251466751098633
+LR[iter=919]=0.00029221922331678534
+Batch=920/65520
+Average Duration=0.6877429738260735
+
+--Update--
+Loss[iter=920]=2.8195810317993164
+LR[iter=920]=0.000292182377029994
+Batch=921/65520
+Average Duration=0.6877071345493855
+
+Generating response for `A tree`: ,,.,,,., " that,,, that,, the,,,,,,,,,,,,,, the,,,,,,,,,,,,,,,,,.,,, to,,,,,,, to,,,,,,,,,,,,,,,,,,,,,,,,,, the,,,,,,,, to,,,,,.,,,,,,,,,,, ",,,,,,,,,,,,,, it, that,,,,,,,,,,,,,,,,,,,,,,, it,, the,,,,,,,,,, to, ",,,, ",,,,,,,,, it,,,,,,,,.,,, it.,,,,,.,,,,,,, the ",,,,,,,,, ",,,.,,,,,,,, the,,,,,, that,,,,.,, that,
+--Update--
+Loss[iter=921]=2.718717098236084
+LR[iter=921]=0.0002921454461222201
+Batch=922/65520
+Average Duration=0.6884962930260198
+
+--Update--
+Loss[iter=922]=2.690295696258545
+LR[iter=922]=0.00029210843061624434
+Batch=923/65520
+Average Duration=0.6884545875351962
+
+--Update--
+Loss[iter=923]=2.675722122192383
+LR[iter=923]=0.00029207133053489983
+Batch=924/65520
+Average Duration=0.6884095375670811
+
+--Update--
+Loss[iter=924]=2.774139404296875
+LR[iter=924]=0.00029203414590107165
+Batch=925/65520
+Average Duration=0.688374332436742
+
+--Update--
+Loss[iter=925]=2.7602622509002686
+LR[iter=925]=0.0002919968767376973
+Batch=926/65520
+Average Duration=0.6883325667796873
+
+--Update--
+Loss[iter=926]=2.788109302520752
+LR[iter=926]=0.0002919595230677662
+Batch=927/65520
+Average Duration=0.6882833088867186
+
+--Update--
+Loss[iter=927]=2.8511300086975098
+LR[iter=927]=0.0002919220849143199
+Batch=928/65520
+Average Duration=0.6882323121012829
+
+--Update--
+Loss[iter=928]=2.7573347091674805
+LR[iter=928]=0.0002918845623004522
+Batch=929/65520
+Average Duration=0.6881840135059087
+
+--Update--
+Loss[iter=929]=2.7922306060791016
+LR[iter=929]=0.0002918469552493089
+Batch=930/65520
+Average Duration=0.688134863401067
+
+--Update--
+Loss[iter=930]=2.7332420349121094
+LR[iter=930]=0.000291809263784088
+Batch=931/65520
+Average Duration=0.6880863389333982
+
+--Update--
+Loss[iter=931]=2.7241039276123047
+LR[iter=931]=0.00029177148792803947
+Batch=932/65520
+Average Duration=0.6880426743615754
+
+--Update--
+Loss[iter=932]=2.8918979167938232
+LR[iter=932]=0.00029173362770446536
+Batch=933/65520
+Average Duration=0.6880089095273156
+
+--Update--
+Loss[iter=933]=2.726500988006592
+LR[iter=933]=0.00029169568313671963
+Batch=934/65520
+Average Duration=0.6879624801991235
+
+--Update--
+Loss[iter=934]=2.564195394515991
+LR[iter=934]=0.0002916576542482085
+Batch=935/65520
+Average Duration=0.6879232189015858
+
+--Update--
+Loss[iter=935]=2.7480952739715576
+LR[iter=935]=0.00029161954106239016
+Batch=936/65520
+Average Duration=0.6878838954390848
+
+--Update--
+Loss[iter=936]=2.695361614227295
+LR[iter=936]=0.0002915813436027746
+Batch=937/65520
+Average Duration=0.6878401995357326
+
+--Update--
+Loss[iter=937]=2.8377256393432617
+LR[iter=937]=0.00029154306189292406
+Batch=938/65520
+Average Duration=0.6877906927036045
+
+--Update--
+Loss[iter=938]=2.6502280235290527
+LR[iter=938]=0.0002915046959564525
+Batch=939/65520
+Average Duration=0.6877414518168117
+
+--Update--
+Loss[iter=939]=2.6691129207611084
+LR[iter=939]=0.00029146624581702607
+Batch=940/65520
+Average Duration=0.6877043229223226
+
+--Update--
+Loss[iter=940]=2.781705617904663
+LR[iter=940]=0.0002914277114983627
+Batch=941/65520
+Average Duration=0.6876609258820199
+
+Generating response for `A tree`: ,,,,,, it,.,,,.,,,,,,,,,,,, no, the,,,,,.,,,, yes,,,,, the,,, that,,,,,, to,,, yes,,,,,, it,,, it. ",.,,,,,,,,, the,,,,,,, the,,,,,. to,,,,,, the,,, that,,,,,, " ", to,,, yes,,,, they,,,,,,,,,,,,,, yes,,,,,,,, they yes,.,, it,, to,,,,,, the, that,,,,,, to,,,,,,,,,, no,,,,,, ",..,,,,, ", it,,, that,,,,,,,,,,,,,, yes,,, ",,,. that, to that,,, it,,.,,.,,,,,,,
+--Update--
+Loss[iter=941]=2.8175973892211914
+LR[iter=941]=0.0002913890930242322
+Batch=942/65520
+Average Duration=0.6882848643449883
+
+--Update--
+Loss[iter=942]=2.684112787246704
+LR[iter=942]=0.0002913503904184566
+Batch=943/65520
+Average Duration=0.6882537432449424
+
+--Update--
+Loss[iter=943]=2.7464208602905273
+LR[iter=943]=0.0002913116037049094
+Batch=944/65520
+Average Duration=0.6882157342044277
+
+--Update--
+Loss[iter=944]=2.671126365661621
+LR[iter=944]=0.00029127273290751633
+Batch=945/65520
+Average Duration=0.6881718895555341
+
+--Update--
+Loss[iter=945]=2.6995270252227783
+LR[iter=945]=0.00029123377805025477
+Batch=946/65520
+Average Duration=0.6881535535200646
+
+--Update--
+Loss[iter=946]=2.6464767456054688
+LR[iter=946]=0.0002911947391571541
+Batch=947/65520
+Average Duration=0.6881677062703051
+
+--Update--
+Loss[iter=947]=2.670520305633545
+LR[iter=947]=0.0002911556162522954
+Batch=948/65520
+Average Duration=0.6881678632257122
+
+--Update--
+Loss[iter=948]=2.811258554458618
+LR[iter=948]=0.00029111640935981174
+Batch=949/65520
+Average Duration=0.6881319702360164
+
+--Update--
+Loss[iter=949]=2.7660250663757324
+LR[iter=949]=0.0002910771185038878
+Batch=950/65520
+Average Duration=0.6880890859252395
+
+--Update--
+Loss[iter=950]=2.6318297386169434
+LR[iter=950]=0.00029103774370876017
+Batch=951/65520
+Average Duration=0.6880740141124881
+
+--Update--
+Loss[iter=951]=2.686333179473877
+LR[iter=951]=0.0002909982849987173
+Batch=952/65520
+Average Duration=0.6880292814295953
+
+--Update--
+Loss[iter=952]=2.7008283138275146
+LR[iter=952]=0.0002909587423980991
+Batch=953/65520
+Average Duration=0.6879831655340771
+
+--Update--
+Loss[iter=953]=2.7956643104553223
+LR[iter=953]=0.0002909191159312977
+Batch=954/65520
+Average Duration=0.6879433892421124
+
+--Update--
+Loss[iter=954]=2.6579372882843018
+LR[iter=954]=0.0002908794056227565
+Batch=955/65520
+Average Duration=0.6878994447245841
+
+--Update--
+Loss[iter=955]=2.860483169555664
+LR[iter=955]=0.0002908396114969709
+Batch=956/65520
+Average Duration=0.6878630343054173
+
+--Update--
+Loss[iter=956]=2.6273608207702637
+LR[iter=956]=0.0002907997335784879
+Batch=957/65520
+Average Duration=0.6878228952068748
+
+--Update--
+Loss[iter=957]=2.6193976402282715
+LR[iter=957]=0.0002907597718919061
+Batch=958/65520
+Average Duration=0.6877808203767996
+
+--Update--
+Loss[iter=958]=2.7195842266082764
+LR[iter=958]=0.00029071972646187605
+Batch=959/65520
+Average Duration=0.6877584555130073
+
+--Update--
+Loss[iter=959]=2.887413501739502
+LR[iter=959]=0.0002906795973130997
+Batch=960/65520
+Average Duration=0.6877287400218506
+
+--Update--
+Loss[iter=960]=2.673382043838501
+LR[iter=960]=0.0002906393844703307
+Batch=961/65520
+Average Duration=0.6876817099854123
+
+Generating response for `A tree`: ,, the,,,, ",,, it,,,,, to, that,,,,, ",,, ",,,,,,,..,, goodbye, to,,, goodbye that,,,,,, to,..,,,,,,,,.,,,,,,, it,,,,,,,,,,,,,,,,,,,.,,,,,,,, it, to,,,,,,,, ", yes,,,,,,.,,,, that,, ", ",, goodbye.,,,, to,,,,, to that, ",,,, to,,, to,,,,,,,,,,,,,. yes,,,,,, to,,,.,,, ",,,.,,,,,,,,..,,,,, ",, goodbye,,,,,,,, that that, ",,,, ", ",,,,,,,,,,,,,,,,,.,,,,
+--Update--
+Loss[iter=961]=2.849454402923584
+LR[iter=961]=0.0002905990879583744
+Batch=962/65520
+Average Duration=0.6884670516330418
+
+--Update--
+Loss[iter=962]=2.7583723068237305
+LR[iter=962]=0.0002905587078020877
+Batch=963/65520
+Average Duration=0.6884260190851412
+
+--Update--
+Loss[iter=963]=2.831794261932373
+LR[iter=963]=0.00029051824402637915
+Batch=964/65520
+Average Duration=0.6883798823091223
+
+--Update--
+Loss[iter=964]=2.6638529300689697
+LR[iter=964]=0.0002904776966562087
+Batch=965/65520
+Average Duration=0.6883346244435203
+
+--Update--
+Loss[iter=965]=2.6793885231018066
+LR[iter=965]=0.00029043706571658815
+Batch=966/65520
+Average Duration=0.6882879554917168
+
+--Update--
+Loss[iter=966]=2.697549343109131
+LR[iter=966]=0.0002903963512325806
+Batch=967/65520
+Average Duration=0.6882528792285384
+
+--Update--
+Loss[iter=967]=2.685275077819824
+LR[iter=967]=0.000290355553229301
+Batch=968/65520
+Average Duration=0.6882055492479249
+
+--Update--
+Loss[iter=968]=2.7284157276153564
+LR[iter=968]=0.0002903146717319153
+Batch=969/65520
+Average Duration=0.688204049239407
+
+--Update--
+Loss[iter=969]=2.6968750953674316
+LR[iter=969]=0.0002902737067656414
+Batch=970/65520
+Average Duration=0.6881837735020415
+
+--Update--
+Loss[iter=970]=2.7748467922210693
+LR[iter=970]=0.00029023265835574863
+Batch=971/65520
+Average Duration=0.6881427254603257
+
+--Update--
+Loss[iter=971]=2.79547119140625
+LR[iter=971]=0.0002901915265275576
+Batch=972/65520
+Average Duration=0.6881313263086185
+
+--Update--
+Loss[iter=972]=2.588569402694702
+LR[iter=972]=0.00029015031130644056
+Batch=973/65520
+Average Duration=0.6881472019578381
+
+--Update--
+Loss[iter=973]=2.6639580726623535
+LR[iter=973]=0.0002901090127178211
+Batch=974/65520
+Average Duration=0.6881801365122932
+
+--Update--
+Loss[iter=974]=2.715437173843384
+LR[iter=974]=0.00029006763078717426
+Batch=975/65520
+Average Duration=0.6881556703466347
+
+--Update--
+Loss[iter=975]=2.728156328201294
+LR[iter=975]=0.0002900261655400265
+Batch=976/65520
+Average Duration=0.6881093577571437
+
+--Update--
+Loss[iter=976]=2.7214057445526123
+LR[iter=976]=0.0002899846170019556
+Batch=977/65520
+Average Duration=0.688062686374593
+
+--Update--
+Loss[iter=977]=2.659332275390625
+LR[iter=977]=0.00028994298519859096
+Batch=978/65520
+Average Duration=0.688016452714701
+
+--Update--
+Loss[iter=978]=2.786750316619873
+LR[iter=978]=0.00028990127015561306
+Batch=979/65520
+Average Duration=0.6879697326823089
+
+--Update--
+Loss[iter=979]=2.7731103897094727
+LR[iter=979]=0.00028985947189875375
+Batch=980/65520
+Average Duration=0.687921407997935
+
+--Update--
+Loss[iter=980]=2.550564765930176
+LR[iter=980]=0.0002898175904537964
+Batch=981/65520
+Average Duration=0.6878767551865163
+
+Generating response for `A tree`: ,,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,.,,,,,,,,,,,,,,, to, to,,,,,,,,,.,,,,,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,,,,,,,.,,,,,,,,,,,,,,,,,,,,,,,,,,.,,,,,,,,,,,,,,.,,,.,,,.,,,,,.,.,,,,,,,,,,,,,,,, ",,,,,,,,,,,,.,,,,,,,,,,,,.,,,,,,,,,,,,,,.,,,,,.,,,,, ",,,,,,,,,,,,,, to,,,
+--Update--
+Loss[iter=981]=2.7119932174682617
+LR[iter=981]=0.00028977562584657566
+Batch=982/65520
+Average Duration=0.6892246160101559
+
+--Update--
+Loss[iter=982]=2.6878490447998047
+LR[iter=982]=0.00028973357810297724
+Batch=983/65520
+Average Duration=0.6891805044984446
+
+--Update--
+Loss[iter=983]=2.781097173690796
+LR[iter=983]=0.00028969144724893837
+Batch=984/65520
+Average Duration=0.6891348523515994
+
+--Update--
+Loss[iter=984]=2.6879327297210693
+LR[iter=984]=0.00028964923331044746
+Batch=985/65520
+Average Duration=0.6890896930690046
+
+--Update--
+Loss[iter=985]=2.710559368133545
+LR[iter=985]=0.0002896069363135443
+Batch=986/65520
+Average Duration=0.6890433836267403
+
+--Update--
+Loss[iter=986]=2.7086386680603027
+LR[iter=986]=0.0002895645562843197
+Batch=987/65520
+Average Duration=0.6889967183869977
+
+--Update--
+Loss[iter=987]=2.599254608154297
+LR[iter=987]=0.00028952209324891576
+Batch=988/65520
+Average Duration=0.6889491826568443
+
+--Update--
+Loss[iter=988]=2.612328052520752
+LR[iter=988]=0.00028947954723352584
+Batch=989/65520
+Average Duration=0.6889020159311999
+
+--Update--
+Loss[iter=989]=2.7562904357910156
+LR[iter=989]=0.00028943691826439455
+Batch=990/65520
+Average Duration=0.6888538308979362
+
+--Update--
+Loss[iter=990]=2.6988096237182617
+LR[iter=990]=0.0002893942063678175
+Batch=991/65520
+Average Duration=0.6888057118284093
+
+--Update--
+Loss[iter=991]=2.659626007080078
+LR[iter=991]=0.0002893514115701415
+Batch=992/65520
+Average Duration=0.688757663774144
+
+--Update--
+Loss[iter=992]=2.612774610519409
+LR[iter=992]=0.00028930853389776465
+Batch=993/65520
+Average Duration=0.688720058791491
+
+--Update--
+Loss[iter=993]=2.6129038333892822
+LR[iter=993]=0.00028926557337713595
+Batch=994/65520
+Average Duration=0.6887147942283194
+
+--Update--
+Loss[iter=994]=2.652631998062134
+LR[iter=994]=0.0002892225300347556
+Batch=995/65520
+Average Duration=0.6886982039828636
+
+--Update--
+Loss[iter=995]=2.606201171875
+LR[iter=995]=0.00028917940389717496
+Batch=996/65520
+Average Duration=0.6887168382740435
+
+--Update--
+Loss[iter=996]=2.6352570056915283
+LR[iter=996]=0.0002891361949909964
+Batch=997/65520
+Average Duration=0.6887236227471872
+
+--Update--
+Loss[iter=997]=2.8576934337615967
+LR[iter=997]=0.0002890929033428733
+Batch=998/65520
+Average Duration=0.6886978828105655
+
+--Update--
+Loss[iter=998]=2.7598588466644287
+LR[iter=998]=0.00028904952897951014
+Batch=999/65520
+Average Duration=0.6886677362391794
+
+--Update--
+Loss[iter=999]=2.775908946990967
+LR[iter=999]=0.0002890060719276624
+Batch=1000/65520
+Average Duration=0.688634525669946
+
+--Update--
+Loss[iter=1000]=2.7459630966186523
+LR[iter=1000]=0.00028896253221413656
+Batch=1001/65520
+Average Duration=0.6885992378490985
+
+Generating response for `A tree`: , ",,,,,,,,,.,,,,,, ",,,,,,,,.,,,,., yes,, ".,,,,,,,,,,,,,,,, it: ",,, yes,,,,,,,,,,., that, the,,, ",,,,, " to,,, to, to,,,,,,.,,,, the, yes to,,, hello,,.,,,,,,:, she,, they goodbye she,,,,. the,,,,., " the,,,..,,,,,,,,.,. hello,,, hello the,,,,,, ". it,,,, to,, goodbye,,,,. to,,.,,,, they,,,,,,., it, thank,,,,,, it, the hello yes,,,,,,,,,,,,,,,,,,,,, goodbye, they,,,,,,,,,, to, to
+Traceback (most recent call last):
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 292, in <module>
+    train(config)
+    ~~~~~^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 288, in train
+    eval(config, val_set, model, device)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ross/dev_workspace/tahoe/train.py", line 172, in eval
+    running_loss += cross_entropy(logits, targets).item()
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+KeyboardInterrupt

@@ -1,0 +1,21 @@
+{
+  "os": "macOS-26.2-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.5",
+  "startedAt": "2026-01-17T16:53:56.953523Z",
+  "args": [
+    "--config",
+    "configs/tiny-stories-1.yaml"
+  ],
+  "program": "/Users/ross/dev_workspace/tahoe/train.py",
+  "codePath": "train.py",
+  "codePathLocal": "train.py",
+  "git": {
+    "remote": "https://github.com/Rostifar/tahoe.git",
+    "commit": "4bd24398317ddbdcb30931f9d19b6aca3bd87631"
+  },
+  "email": "rcbridendev@gmail.com",
+  "root": "/Users/ross/dev_workspace/tahoe",
+  "host": "macbookpro.lan",
+  "executable": "/Users/ross/dev_workspace/tahoe/.venv/bin/python3",
+  "writerId": "09emzjwm2bqrw8tl06gjqk9ee977zu3x"
+}
