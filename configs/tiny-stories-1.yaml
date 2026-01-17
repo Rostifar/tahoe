@@ -26,6 +26,6 @@ max_grad: 1.0
 ckpt_iter: 500
 val_iter: 1000
 ckpt_path: ./checkpoints
-from_ckpt: ./checkpoints/tiny_stories_1_1000.pt
+from_ckpt: null
 max_iter: 5000
 run_id: tiny_stories_1

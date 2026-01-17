@@ -4,9 +4,10 @@ import yaml
 import wandb
 import torch
 import argparse
-import tokenizer as tok
 import numpy as np
 import torch.nn as nn
+from tqdm import tqdm
+import tokenizer as tok
 from data import (
     save_checkpoint,
     load_checkpoint,
@@ -24,55 +25,12 @@ from typing import Literal
 from pydantic import BaseModel
 from transformer import Transformer, decode
 
-"""
-# Training Loop Requirements
-
-## Args
-* vocab: str (path to vocabulary)
-* train_set: str (path to training set)
-* val_set: str (path to validation set)
-
-* batch_size: int (batch size of training iterations)
-* context_length: int (max context length)
-* num_layers: int (number of attention layers)
-* d_model: int (dimension of embedding space)
-* num_heads: int (number of heads for multi-head attention)
-* d_ff: int (dimension of feed-forward transformation)
-* theta: float (RoPE angle)
-
-* device: 'cpu' | 'mps' | 'cuda' (device for training)
-* dtype: 'fp16' | 'fp32' (data type for training)
-
-* lr_max: float (max learning rate for the model)
-* lr_min: float (min learning rate for the model)
-* t_warmup: int (iterations for LR scheduler warmup)
-* t_cos: int (iterations for LR scheduler cosine decay)
-
-* betas: beta values for AdamW (default=0.99,0.999)
-* weight_decay: weight decay value for AdamW (default=1e-2)
-* max_grad: float (maximum grad magnitude for gradient clipping)
-
-* ckpt_iter: int (number of iterations between checkpoints)
-* ckpt_path: str (path for model checkpointing)
-* from_ckpt: str | None (checkpoint to start from)
-
-## Logic
-1. Load model and optimizer from checkpoints. Otherwise, initialize model.
-2. mmap `train_set` and `val_set` before entering training loop.
-3. Enter training loop:
-    1. Sample token batch of size `(batch_size, context_length)` from training set.
-    2. Compute forward pass and loss.
-    3. Backprop, step, and update LR sechduler.
-    4. Every `ckpt_iter` iterations, save checkpoint.
-    5. Every `val_iter` iterations, evaluate loss on training set.
-"""
 
 class Config(BaseModel):
     vocab: str
     train_set: str
     val_set: str
 
-    vocab_size: int
     batch_size: int
     context_length: int
     num_layers: int
@@ -154,24 +112,17 @@ def get_checkpoint_path(iteration: int, config: Config):
         file = "iteration.pt"
     return os.path.join(config.ckpt_path, file)
 
-def plan(batch_size: int, context_length: int, path: str):
-    train_set = np.load(path, mmap_mode='r').astype(np.uint16)
-    set_len = len(train_set)
-    batches = set_len // (batch_size * (context_length + 1))
-    print(f"Dataset size (tokens): {set_len}.")
-    print(f"Total batches: {batches}.")
-
-def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device):
+def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device, iteration: int):
     model.eval()
     batch_size, context_length = config.batch_size, config.context_length
     running_loss = 0.
     batches = 0
     for batch in load_batches(val_set, batch_size, context_length, device):
-        inputs, targets = [x.clamp(max=config.vocab_size - 1) for x in batch]
+        inputs, targets = batch
         logits = model(inputs)
         running_loss += cross_entropy(logits, targets).item()
         batches += 1
-    print(f"Validation loss: {running_loss / batches}")
+    print(f"Validation loss at iteration {iteration}: {running_loss / batches}")
     model.train()
 
 def train(config: Config) -> None:
@@ -182,7 +133,7 @@ def train(config: Config) -> None:
         config=config.model_dump(),
     )
 
-    print("--Loading tokenizer--")
+    print("--Loading Tokenizer--")
     tokenizer = tok.Tokenizer(
         *tok.load(config.vocab), 
         special_tokens=["<|endoftext|>"]
@@ -194,7 +145,7 @@ def train(config: Config) -> None:
     
     # create transformer
     model = Transformer(
-        vocab_size=config.vocab_size, 
+        vocab_size=tokenizer.vocab_size, 
         context_length=config.context_length, 
         num_layers=config.num_layers,
         d_model=config.d_model,
@@ -204,8 +155,11 @@ def train(config: Config) -> None:
         device=device,
         dtype=dtype
     )
+    wandb.watch(model, log="all", log_freq=100)
+
     optimizer = AdamW(
         params=model.parameters(),
+        # placeholder value
         lr=config.lr_max,
         betas=config.betas,
         weight_decay=config.weight_decay
@@ -214,7 +168,7 @@ def train(config: Config) -> None:
     if config.from_ckpt:
         iteration = load_checkpoint(config.from_ckpt, model, optimizer)
     else:
-        iteration = 0
+        iteration = 1
 
     print("--Loading Datasets--")
     train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
@@ -237,13 +191,18 @@ def train(config: Config) -> None:
 
     model.train()
     running_duration = 0.
-    for batch in load_batches(train_set, batch_size, context_length, device, iteration):
+    for batch in tqdm(load_batches(train_set, batch_size, context_length, device, iteration)):
         if config.max_iter and iteration > config.max_iter:
             print("Terminating after max iterations...")
             return
+
+        # run this first to replace AdamW LR placeholder
+        lr = cosine_lr_scheduler(iteration, config.lr_max, config.lr_min, config.t_warmup, config.t_cos)
+        for group in optimizer.param_groups:
+            group["lr"] = lr
         
         start = time.perf_counter()
-        inputs, targets = [x.clamp(max=config.vocab_size - 1) for x in batch]
+        inputs, targets = batch
         logits = model(inputs)
         loss = cross_entropy(logits, targets)
         loss.backward()
@@ -251,25 +210,24 @@ def train(config: Config) -> None:
         clip_grads(model.parameters(), max_grad=config.max_grad)
         optimizer.step()
         optimizer.zero_grad()
-
-        iteration += 1
-        new_lr = cosine_lr_scheduler(iteration, config.lr_max, config.lr_min, config.t_warmup, config.t_cos)
-        for group in optimizer.param_groups:
-            group["lr"] = new_lr
-        
+       
         end = time.perf_counter()
         running_duration += end - start
 
-         # log loss
-        run.log({"loss": loss, "lr": new_lr, "duration": running_duration / (iteration + 1)})
-        if iteration % 1 == 0:
+        iteration += 1
+        run.log({
+            "loss": loss, 
+            "lr": lr, 
+            "duration": running_duration / (iteration + 1)},
+        )
+        if iteration % 100 == 0:
             print(f"--Update--")
             print(f"Loss[iter={iteration}]={loss}")
-            print(f"LR[iter={iteration}]={new_lr}")
+            print(f"LR[iter={iteration}]={lr}")
             print(f"Batch={iteration+1}/{total_batches}")
             print(f"Average Duration={running_duration / (iteration + 1)}\n")
         
-        if iteration % 20 == 0:
+        if iteration % 500 == 0:
             response = decode(
                 model=model,
                 prompt=tokenizer.encode("Ron said"),
@@ -285,11 +243,8 @@ def train(config: Config) -> None:
             save_checkpoint(model, optimizer, iteration, path)
 
         if config.val_iter and iteration % config.val_iter == 0:
-            eval(config, val_set, model, device)
+            eval(config, val_set, model, device, iteration)
 
 if __name__ == "__main__":
     config = Config.from_args()
     train(config)
-    #print(config)
-    #plan(64, 1024, "./data/owt_train.npy")
-    #plan(64, 1024, "./data/TinyStoriesV2-GPT4-train.npy")

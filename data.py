@@ -22,10 +22,12 @@ def load_batches(
     batch_size: int, 
     context_length: int, 
     device: str,
-    start_iteration: int=0
+    start_iteration: int = 1
 ) -> Iterable[tuple[torch.Tensor, torch.Tensor]]:
     batch_slice = batch_size * context_length
-    for i in range(batch_slice * start_iteration, len(x), batch_slice):
+    # restart from previous iteration
+    starting_pos = batch_slice * (start_iteration - 1)
+    for i in range(starting_pos, len(x), batch_slice):
         if len(x) - i < batch_slice + 1:
             return
         yield yield_batch(x[i: i + batch_slice + 1], batch_size, context_length, device)
