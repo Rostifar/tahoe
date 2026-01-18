@@ -1,9 +1,7 @@
 import os
 import time
-import yaml
 import wandb
 import torch
-import argparse
 import numpy as np
 import torch.nn as nn
 from tqdm import tqdm
@@ -21,89 +19,8 @@ from optim import (
     clip_grads,
     AdamW
 )
-from typing import Literal
-from pydantic import BaseModel
-from transformer import Transformer, decode
-
-
-class Config(BaseModel):
-    vocab: str
-    train_set: str
-    val_set: str
-
-    batch_size: int
-    context_length: int
-    num_layers: int
-    d_model: int
-    num_heads: int
-    d_ff: int
-    theta: float
-
-    device: Literal["cpu", "mps", "cuda"]
-    dtype: Literal["fp16", "fp32"]
-
-    lr_max: float
-    lr_min: float
-    t_warmup: int
-    t_cos: int
-
-    ckpt_iter: int
-    ckpt_path: str
-    run_id: str | None = None
-    val_iter: int | None = None
-    max_iter: int | None = None
-    from_ckpt: str | None = None
-
-    betas: tuple[float, float] = (0.99, 0.999)
-    weight_decay: float = 1e-2
-    max_grad: float = 1.0
-
-    @classmethod
-    def from_yaml(cls, path: str) -> "Config":
-        with open(path) as f:
-            data = yaml.safe_load(f)
-        if "betas" in data and isinstance(data["betas"], list):
-            data["betas"] = tuple(data["betas"])
-        return cls(**data)
-
-    @classmethod
-    def from_args(cls, args: list[str] | None = None) -> "Config":
-        parser = argparse.ArgumentParser(description="Training configuration")
-        parser.add_argument("--config", type=str, help="Path to model config file")
-        parsed = parser.parse_args(args)
-
-        if parsed.config:
-            config_data = yaml.safe_load(open(parsed.config))
-            if "betas" in config_data and isinstance(config_data["betas"], list):
-                config_data["betas"] = tuple(config_data["betas"])
-        else:
-            config_data = {}
-
-        cli_overrides = {
-            k.replace("-", "_"): v
-            for k, v in vars(parsed).items()
-            if v is not None and k != "config"
-        }
-
-        if "betas" in cli_overrides and isinstance(cli_overrides["betas"], str):
-            b1, b2 = cli_overrides["betas"].split(",")
-            cli_overrides["betas"] = (float(b1), float(b2))
-
-        config_data.update(cli_overrides)
-        return cls(**config_data)
-
-    def to_yaml(self, path: str) -> None:
-        data = {k: (list(v) if k == "betas" else v) for k, v in self.__dict__.items()}
-        with open(path, "w") as f:
-            yaml.dump(data, f, default_flow_style=False, sort_keys=False)
-
-
-def get_dtype(dtype: str) -> torch.dtype:
-    if dtype == "fp32":
-        return torch.float32
-    if dtype == "fp16":
-        return torch.float16
-    raise ValueError(f"Invalid dtype: {dtype}.")
+from config import Config, DataConfig, ExperimentConfig
+from transformer import Transformer
 
 def get_checkpoint_path(iteration: int, config: Config):
     if config.run_id:
@@ -112,7 +29,22 @@ def get_checkpoint_path(iteration: int, config: Config):
         file = "iteration.pt"
     return os.path.join(config.ckpt_path, file)
 
-def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device, iteration: int):
+
+def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
+    return Transformer(
+        vocab_size=vocab_size, 
+        context_length=exp_config.context_length, 
+        num_layers=exp_config.num_layers,
+        d_model=exp_config.d_model,
+        num_heads=exp_config.num_heads,
+        theta=exp_config.theta,
+        d_ff=exp_config.d_ff,
+        device=exp_config.primary_device(),
+        dtype=exp_config.get_dtype()
+    )
+
+
+def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device, iteration: int) -> float:
     model.eval()
     batch_size, context_length = config.batch_size, config.context_length
     running_loss = 0.
@@ -124,32 +56,34 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
         batches += 1
     print(f"Validation loss at iteration {iteration}: {running_loss / batches}")
     model.train()
+    return running_loss
 
-def train(config: Config) -> None:
-    print("--Initializing wandb--")
+
+def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
     run = wandb.init(
         entity="torusai",
-        project=config.run_id,
-        config=config.model_dump(),
+        project=exp_config.name,
+        config={
+            'data': data_config.model_dump(),
+            'exp': exp_config.model_dump()
+        },
     )
-
-    print("--Loading Tokenizer--")
     tokenizer = tok.Tokenizer(
-        *tok.load(config.vocab), 
+        *tok.load(data_config.vocab), 
         special_tokens=["<|endoftext|>"]
     )
     print(f"> Vocab Size: {len(tokenizer.vocab)}")
     
-    device = torch.device(config.device)
-    dtype = get_dtype(config.dtype)
+    device = exp_config.primary_device()
+    dtype = exp_config.get_dtype()
     
     # create transformer
     model = Transformer(
         vocab_size=tokenizer.vocab_size, 
-        context_length=config.context_length, 
-        num_layers=config.num_layers,
-        d_model=config.d_model,
-        num_heads=config.num_heads,
+        context_length=exp_config.context_length, 
+        num_layers=exp_config.num_layers,
+        d_model=exp_config.d_model,
+        num_heads=exp_.num_heads,
         theta=config.theta,
         d_ff=config.d_ff,
         device=device,
@@ -174,7 +108,6 @@ def train(config: Config) -> None:
     train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
 
     print(train_set[:1000])
-    exit(1)
     val_set = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
     print(f"> Training Set Size (tokens): {len(train_set)}")
     print(f"> Validation Set Size (token): {len(val_set)}\n")
@@ -229,25 +162,15 @@ def train(config: Config) -> None:
             print(f"LR[iter={iteration}]={lr}")
             print(f"Batch={iteration+1}/{total_batches}")
             print(f"Average Duration={running_duration / (iteration + 1)}\n")
-        
-        if iteration % 500 == 0:
-            response = decode(
-                model=model,
-                prompt=tokenizer.encode("Ron said"),
-                stop_token=tokenizer.encode("<|endoftext|>")[0],
-                max_tokens=256,
-                temperature=1.0,
-                top_p=0.9,
-            )
-            print(f"Generating response for `Ron said`: {tokenizer.decode(response)}")
 
         if iteration % config.ckpt_iter == 0:
             path = get_checkpoint_path(iteration, config)
             save_checkpoint(model, optimizer, iteration, path)
 
         if config.val_iter and iteration % config.val_iter == 0:
-            eval(config, val_set, model, device, iteration)
+            val_loss = eval(config, val_set, model, device, iteration)
+            run.log({"val_loss": val_loss})
 
 if __name__ == "__main__":
-    config = Config.from_args()
-    train(config)
+    configs = Config.from_args()
+    train(*configs)

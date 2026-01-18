@@ -2,7 +2,6 @@
 """Read and detokenize .npy files containing token IDs."""
 
 import argparse
-import mmap
 import numpy as np
 from tokenizer import Tokenizer
 
@@ -26,7 +25,7 @@ def main():
         help="Start index in token array"
     )
     parser.add_argument(
-        "--length", "-n", type=int, default=2048,
+        "--length", "-n", type=int, default=8192,
         help="Number of tokens to decode (default: 1000)"
     )
     args = parser.parse_args()
