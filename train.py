@@ -49,8 +49,9 @@ def eval(exp_config: ExperimentConfig, val_set: np.array, model: nn.Module, devi
     for batch in load_batches(val_set, batch_size, context_length, device):
         inputs, targets = batch
         logits = model(inputs)
-        running_loss += cross_entropy(logits, targets).item()
-        total_tokens += targets.numel()
+        num_tokens = targets.numel()
+        running_loss += cross_entropy(logits, targets).item() * num_tokens
+        total_tokens += num_tokens
     print(f"Validation loss at iteration {iteration}: {running_loss / total_tokens}")
     model.train()
     return running_loss / total_tokens
