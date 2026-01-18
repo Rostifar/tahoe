@@ -328,31 +328,30 @@ def decode(
     top_p: float = 0.8,
 ) -> list[int]:
     assert 0 < top_p <= 1
-    assert 0 < temperature <= 1
+    assert 0 < temperature
 
-    # squeeze to add batch dim
-    prompt = torch.tensor(prompt).unsqueeze(0)
-    response = []
-    tokens_generated = 0
+    prompt_len = len(prompt)
+    tokens = torch.tensor(prompt).unsqueeze(0)
+    
     for _ in range(max_tokens):
-        # remove batch dimension and take the last token's logits
-        logits = model(prompt).squeeze(0)[-1, :]
+        context = tokens[:, -model.context_length:]
+        logits = model(context).squeeze(0)[-1, :]
         probs = softmax(logits / temperature)
         probs, indices = torch.sort(probs, descending=True)
         
         cum_probs = torch.cumsum(probs, dim=-1)
-        cutoff = (cum_probs > top_p).nonzero(as_tuple=True)[0][0] + 1
+        cutoff = int((cum_probs <= top_p).sum().item()) + 1
 
         top_indices = indices[:cutoff]
         top_probs = probs[:cutoff]
-        token = top_indices[torch.multinomial(top_probs, 1)]
-        
-        response.append(token.item())
-        if token == stop_token:
-            break
-        tokens_generated += 1
-    return response
+        top_probs = top_probs / top_probs.sum()
+        token = top_indices[torch.multinomial(top_probs, 1).item()]
+        tokens = torch.cat([tokens, token.view(1, 1)], dim=1)
 
+        print(" > " + str(token.item()))
+        if token.item() == stop_token:
+            break
+    return tokens.squeeze(0).tolist()
 
 if __name__ == "__main__":
     GPT2_S =  dict(vocab_size = 50257, seq_len=1024, num_layers=12, d_model=768, d_ff=6400)

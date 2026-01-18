@@ -2,6 +2,7 @@ import sys
 import time
 import regex as re
 import numpy as np
+from tqdm import tqdm
 from tokenizer import Tokenizer, get_chunk_boundaries
 
 def test_tokenizer_compression(input: str) -> None:
@@ -29,7 +30,7 @@ def test_throughput():
         boundaries = get_chunk_boundaries(
             "data/owt_valid.txt", 
             parallelism=1,
-            max_mapped_size_bytes=1_000_000
+            max_mapped_size_bytes=100_000_000
         )
 
         with open("data/owt_valid.txt", "rb") as f:
@@ -62,13 +63,15 @@ def embed_training_set(path: str, out_path: str, tokenizer_path: str):
             for start, end in zip(boundaries[:-1], boundaries[1:]):
                 f.seek(start)
                 data = f.read(end - start)
-                for doc in re.split(re.escape(b"<|endoftext|>"), data):
-                    yield doc.decode("utf-8", errors="replace")
+                # ensure we split along doc boundaries :-)
+                for doc in re.split(rb'(<\|endoftext\|>)', data):
+                    # remove any leading whitespace between documents
+                    yield doc.decode("utf-8", errors="replace").lstrip()
 
     # Open training path, process along boundaries, and write to output
     tokens = []
     batch = 0
-    tokenizer = Tokenizer.from_files(tokenizer_path)
+    tokenizer = Tokenizer.from_files(tokenizer_path, special_tokens=["<|endoftext|>"])
     start = time.perf_counter()
     for batch_tokens in tokenizer.encode_iterable(iterable=dataset_iter()):
         batch += 1
@@ -85,7 +88,6 @@ def embed_training_set(path: str, out_path: str, tokenizer_path: str):
     print(f"Elapsed time: {end - start:0.04f}")
     print(f"Number of tokens: {len(tokens)}")
     print(f"Sample: {tokens[:100]}")
-
 
 if __name__ == "__main__":
     if "--test-compression" in sys.argv:

@@ -298,6 +298,10 @@ class Tokenizer:
         self.merges = merges
         self.merge_priority = {rule: i for i, rule in enumerate(self.merges)}
         self.separator = "(" + "|".join(re.escape(t) for t in special_tokens) + ")" if special_tokens else ""
+        if special_tokens:
+            self.special_tokens = {token: token.encode("utf-8") for token in special_tokens}
+        else:
+            self.special_tokens = {}
 
     @classmethod
     def from_files(cls, path: str, special_tokens: list[str] | None = None) -> "Tokenizer":
@@ -329,13 +333,13 @@ class Tokenizer:
         # 3. per pretoken, take pairs and apply 
         out = []
         segments = re.split(self.separator, text) if self.separator else [text]
-        for i, segment in enumerate(segments):
+        for segment in segments:
             # ignore if special token resides on left/right boundaries, as this produces an empty string
             if not segment:
                 continue 
 
-            if i % 2 != 0:
-                special_token = segment.encode("utf-8")
+            special_token = self.special_tokens.get(segment)
+            if special_token is not None:
                 out.append(self.inverse_vocab[special_token])
                 continue
 

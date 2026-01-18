@@ -166,12 +166,15 @@ def train(config: Config) -> None:
     )
 
     if config.from_ckpt:
-        iteration = load_checkpoint(config.from_ckpt, model, optimizer)
+        iteration = load_checkpoint(config.from_ckpt, model, optimizer, device)
     else:
         iteration = 1
 
     print("--Loading Datasets--")
     train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
+
+    print(train_set[:1000])
+    exit(1)
     val_set = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
     print(f"> Training Set Size (tokens): {len(train_set)}")
     print(f"> Validation Set Size (token): {len(val_set)}\n")
