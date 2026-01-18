@@ -74,45 +74,36 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
     )
     print(f"> Vocab Size: {len(tokenizer.vocab)}")
     
-    device = exp_config.primary_device()
-    dtype = exp_config.get_dtype()
-    
-    # create transformer
-    model = Transformer(
-        vocab_size=tokenizer.vocab_size, 
-        context_length=exp_config.context_length, 
-        num_layers=exp_config.num_layers,
-        d_model=exp_config.d_model,
-        num_heads=exp_.num_heads,
-        theta=config.theta,
-        d_ff=config.d_ff,
-        device=device,
-        dtype=dtype
-    )
+    model = get_model(tokenizer.vocab_size, exp_config)
     wandb.watch(model, log="all", log_freq=100)
 
     optimizer = AdamW(
         params=model.parameters(),
         # placeholder value
-        lr=config.lr_max,
-        betas=config.betas,
-        weight_decay=config.weight_decay
+        lr=exp_config.lr_max,
+        betas=exp_config.betas,
+        weight_decay=exp_config.weight_decay
     )
 
-    if config.from_ckpt:
-        iteration = load_checkpoint(config.from_ckpt, model, optimizer, device)
+    if data_config.from_ckpt:
+        iteration = load_checkpoint(
+            data_config.from_ckpt, 
+            model, 
+            optimizer, 
+            exp_config.primary_device()
+        )
     else:
         iteration = 1
 
     print("--Loading Datasets--")
-    train_set = np.load(config.train_set, mmap_mode='r').astype(np.uint16)
+    train_set = np.load(data_config.train_set, mmap_mode='r').astype(np.uint16)
 
     print(train_set[:1000])
-    val_set = np.load(config.val_set, mmap_mode='r').astype(np.uint16)
+    val_set = np.load(data_config.val_set, mmap_mode='r').astype(np.uint16)
     print(f"> Training Set Size (tokens): {len(train_set)}")
     print(f"> Validation Set Size (token): {len(val_set)}\n")
 
-    batch_size, context_length = config.batch_size, config.context_length
+    batch_size, context_length = exp_config.batch_size, exp_config.context_length
     total_batches = len(train_set) // ((batch_size - 1) * (context_length) + context_length + 1)
     
     print(f"--Run Stats--")
