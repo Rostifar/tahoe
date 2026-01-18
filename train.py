@@ -22,12 +22,9 @@ from optim import (
 from config import Config, DataConfig, ExperimentConfig
 from transformer import Transformer
 
-def get_checkpoint_path(iteration: int, config: Config):
-    if config.run_id:
-        file = f"{config.run_id}_{iteration}.pt"
-    else:
-        file = "iteration.pt"
-    return os.path.join(config.ckpt_path, file)
+def get_checkpoint_path(iteration: int, data_config: DataConfig, exp_config: ExperimentConfig):
+    file = f"{exp_config.name}_{iteration}.pt"
+    return os.path.join(data_config.ckpt_path, file)
 
 
 def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
@@ -39,14 +36,14 @@ def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
         num_heads=exp_config.num_heads,
         theta=exp_config.theta,
         d_ff=exp_config.d_ff,
-        device=exp_config.primary_device(),
+        device=exp_config.primary_device,
         dtype=exp_config.get_dtype()
     )
 
 
-def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.device, iteration: int) -> float:
+def eval(exp_config: ExperimentConfig, val_set: np.array, model: nn.Module, device: torch.device, iteration: int) -> float:
     model.eval()
-    batch_size, context_length = config.batch_size, config.context_length
+    batch_size, context_length = exp_config.batch_size, exp_config.context_length
     running_loss = 0.
     batches = 0
     for batch in load_batches(val_set, batch_size, context_length, device):
@@ -60,6 +57,7 @@ def eval(config: Config, val_set: np.array, model: nn.Module, device: torch.devi
 
 
 def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
+    print(f"> Starting run for {exp_config.name}.")
     run = wandb.init(
         entity="torusai",
         project=exp_config.name,
@@ -80,25 +78,23 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
     optimizer = AdamW(
         params=model.parameters(),
         # placeholder value
-        lr=exp_config.lr_max,
-        betas=exp_config.betas,
-        weight_decay=exp_config.weight_decay
+        lr=exp_config.optimizer.lr,
+        betas=exp_config.optimizer.betas,
+        weight_decay=exp_config.optimizer.weight_decay
     )
 
-    if data_config.from_ckpt:
+    if exp_config.from_ckpt:
         iteration = load_checkpoint(
             data_config.from_ckpt, 
             model, 
             optimizer, 
-            exp_config.primary_device()
+            exp_config.primary_device
         )
     else:
         iteration = 1
 
-    print("--Loading Datasets--")
+    print(f"> Loading Datasets: {data_config.train_set}, {data_config.val_set}")
     train_set = np.load(data_config.train_set, mmap_mode='r').astype(np.uint16)
-
-    print(train_set[:1000])
     val_set = np.load(data_config.val_set, mmap_mode='r').astype(np.uint16)
     print(f"> Training Set Size (tokens): {len(train_set)}")
     print(f"> Validation Set Size (token): {len(val_set)}\n")
@@ -106,27 +102,32 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
     batch_size, context_length = exp_config.batch_size, exp_config.context_length
     total_batches = len(train_set) // ((batch_size - 1) * (context_length) + context_length + 1)
     
-    print(f"--Run Stats--")
     print(f"> Total Batches: {total_batches}")
     print(f"> Batch Size: {batch_size}")
     print(f"> Context Length: {context_length}")    
     print(f"> Model Parameters: {sum(p.numel() for p in model.parameters() if p.requires_grad)}")
-    print(f"> dtype: {dtype}")
-    print(f"> device: {device}")
-    print(f"> Loaded checkpoint: {config.from_ckpt}")
+    print(f"> dtype: {exp_config.get_dtype()}")
+    print(f"> device: {exp_config.primary_device}")
+    print(f"> Loaded checkpoint: {exp_config.from_ckpt}")
     print(f"> Starting Iteration: {iteration}\n")
 
     model.train()
     running_duration = 0.
-    for batch in tqdm(load_batches(train_set, batch_size, context_length, device, iteration)):
-        if config.max_iter and iteration > config.max_iter:
+    for batch in tqdm(
+        load_batches(train_set, batch_size, context_length, exp_config.primary_device, iteration)
+    ):
+        if exp_config.max_iter and iteration > exp_config.max_iter:
             print("Terminating after max iterations...")
             return
 
         # run this first to replace AdamW LR placeholder
-        lr = cosine_lr_scheduler(iteration, config.lr_max, config.lr_min, config.t_warmup, config.t_cos)
-        for group in optimizer.param_groups:
-            group["lr"] = lr
+        scheduler = exp_config.scheduler
+        if scheduler:
+            lr = cosine_lr_scheduler(iteration, scheduler.lr_max, scheduler.lr_min, scheduler.t_warmup, scheduler.t_cos)
+            for group in optimizer.param_groups:
+                group["lr"] = lr
+        else:
+            lr = exp_config.optimizer.lr
         
         start = time.perf_counter()
         inputs, targets = batch
@@ -134,7 +135,7 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
         loss = cross_entropy(logits, targets)
         loss.backward()
         
-        clip_grads(model.parameters(), max_grad=config.max_grad)
+        clip_grads(model.parameters(), max_grad=exp_config.max_grad)
         optimizer.step()
         optimizer.zero_grad()
        
@@ -154,12 +155,12 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
             print(f"Batch={iteration+1}/{total_batches}")
             print(f"Average Duration={running_duration / (iteration + 1)}\n")
 
-        if iteration % config.ckpt_iter == 0:
-            path = get_checkpoint_path(iteration, config)
+        if iteration % exp_config.ckpt_iter == 0:
+            path = get_checkpoint_path(iteration, data_config, exp_config)
             save_checkpoint(model, optimizer, iteration, path)
 
-        if config.val_iter and iteration % config.val_iter == 0:
-            val_loss = eval(config, val_set, model, device, iteration)
+        if exp_config.val_iter and iteration % exp_config.val_iter == 0:
+            val_loss = eval(exp_config, val_set, model, exp_config.primary_device, iteration)
             run.log({"val_loss": val_loss})
 
 if __name__ == "__main__":
