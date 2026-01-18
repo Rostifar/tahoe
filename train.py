@@ -45,15 +45,15 @@ def eval(exp_config: ExperimentConfig, val_set: np.array, model: nn.Module, devi
     model.eval()
     batch_size, context_length = exp_config.batch_size, exp_config.context_length
     running_loss = 0.
-    batches = 0
+    total_tokens = 0
     for batch in load_batches(val_set, batch_size, context_length, device):
         inputs, targets = batch
         logits = model(inputs)
         running_loss += cross_entropy(logits, targets).item()
-        batches += 1
-    print(f"Validation loss at iteration {iteration}: {running_loss / batches}")
+        total_tokens += targets.numel()
+    print(f"Validation loss at iteration {iteration}: {running_loss / total_tokens}")
     model.train()
-    return running_loss
+    return running_loss / total_tokens
 
 
 def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
@@ -110,6 +110,8 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
     print(f"> device: {exp_config.primary_device}")
     print(f"> Loaded checkpoint: {exp_config.from_ckpt}")
     print(f"> Starting Iteration: {iteration}\n")
+    if exp_config.max_iter:
+        print(f"> Estimated training tokens: {batch_size * context_length * exp_config.max_iter}")
 
     model.train()
     running_duration = 0.
