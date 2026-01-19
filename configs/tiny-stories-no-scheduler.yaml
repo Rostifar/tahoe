@@ -24,7 +24,7 @@ experiments:
     max_grad: 1.0
 
     ckpt_iter: 500
-    val_iter: 100
+    val_iter: 250
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 5000

@@ -4,6 +4,7 @@ data:
   val_set: ./data/TinyStoriesV2-GPT4-valid.npy
 
 experiments:
+  # diverged
   tiny_stories_lrgrid_5p_3ne1_1ne5:
     vocab_size: 10000
     batch_size: 32
@@ -32,7 +33,7 @@ experiments:
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 20000
-  
+  # diverged (running)
   tiny_stories_lrgrid_5p_3ne2_1ne5:
     vocab_size: 10000
     batch_size: 32
@@ -61,7 +62,7 @@ experiments:
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 20000
-  
+  # running
   tiny_stories_lrgrid_5p_3ne3_1ne5:
     vocab_size: 10000
     batch_size: 32
@@ -86,11 +87,12 @@ experiments:
     max_grad: 1.0
 
     ckpt_iter: 500
-    val_iter: 250
+    val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 20000
 
+  # running
   tiny_stories_lrgrid_5p_3ne4_1ne5:
     vocab_size: 10000
     batch_size: 32
@@ -115,11 +117,12 @@ experiments:
     max_grad: 1.0
 
     ckpt_iter: 500
-    val_iter: 250
+    val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 20000
 
+  # running
   tiny_stories_lrgrid_5p_3ne5_1ne5:
     vocab_size: 10000
     batch_size: 32
@@ -144,7 +147,7 @@ experiments:
     max_grad: 1.0
 
     ckpt_iter: 500
-    val_iter: 250
+    val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 20000
@@ -172,11 +175,11 @@ experiments:
       weight_decay: 0.01
     max_grad: 1.0
 
-    ckpt_iter: 500
-    val_iter: 250
+    ckpt_iter: 2500
+    val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
-    max_iter: 20000
+    max_iter: 15000
   
   tiny_stories_lrgrid_5p_3ne3_1ne3:
     vocab_size: 10000
@@ -201,8 +204,8 @@ experiments:
       weight_decay: 0.01
     max_grad: 1.0
 
-    ckpt_iter: 500
-    val_iter: 250
+    ckpt_iter: 2500
+    val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
-    max_iter: 20000
+    max_iter: 15000

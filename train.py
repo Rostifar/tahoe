@@ -22,9 +22,9 @@ from optim import (
 from config import Config, DataConfig, ExperimentConfig
 from transformer import Transformer
 
-def get_checkpoint_path(iteration: int, data_config: DataConfig, exp_config: ExperimentConfig):
+def get_checkpoint_path(iteration: int, exp_config: ExperimentConfig):
     file = f"{exp_config.name}_{iteration}.pt"
-    return os.path.join(data_config.ckpt_path, file)
+    return os.path.join(exp_config.ckpt_path, file)
 
 
 def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
@@ -41,11 +41,19 @@ def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
     )
 
 
-def eval(exp_config: ExperimentConfig, val_set: np.array, model: nn.Module, device: torch.device, iteration: int) -> float:
+def eval(
+    exp_config: ExperimentConfig, 
+    val_set: np.array, 
+    model: nn.Module, 
+    device: torch.device, 
+    iteration: int
+) -> float:
     model.eval()
     batch_size, context_length = exp_config.batch_size, exp_config.context_length
     running_loss = 0.
     total_tokens = 0
+    # enforce a `batch_size` sensible default
+    batch_size = max(batch_size, 32)
     for batch in load_batches(val_set, batch_size, context_length, device):
         inputs, targets = batch
         logits = model(inputs)
@@ -159,7 +167,7 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
             print(f"Average Duration={running_duration / (iteration + 1)}\n")
 
         if iteration % exp_config.ckpt_iter == 0:
-            path = get_checkpoint_path(iteration, data_config, exp_config)
+            path = get_checkpoint_path(iteration, exp_config)
             save_checkpoint(model, optimizer, iteration, path)
 
         if exp_config.val_iter and iteration % exp_config.val_iter == 0:
