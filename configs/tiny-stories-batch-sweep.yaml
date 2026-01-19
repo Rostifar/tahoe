@@ -91,9 +91,9 @@ experiments:
     from_ckpt: null
     max_iter: 20000
   
-  tiny_stories_batch_2048:
+  tiny_stories_batch_256:
     vocab_size: 10000
-    batch_size: 2048
+    batch_size: 256
     context_length: 256
     num_layers: 4
     d_model: 512

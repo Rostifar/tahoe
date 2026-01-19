@@ -41,6 +41,13 @@ def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
     )
 
 
+def get_tokenizer(data_config: DataConfig) -> tok.Tokenizer:
+    return tok.Tokenizer(
+        *tok.load(data_config.vocab), 
+        special_tokens=["<|endoftext|>"]
+    )
+
+
 def eval(
     exp_config: ExperimentConfig, 
     val_set: np.array, 
@@ -54,13 +61,14 @@ def eval(
     total_tokens = 0
     # enforce a `batch_size` sensible default
     batch_size = max(batch_size, 32)
-    for batch in load_batches(val_set, batch_size, context_length, device):
-        inputs, targets = batch
-        logits = model(inputs)
-        num_tokens = targets.numel()
-        running_loss += cross_entropy(logits, targets).item() * num_tokens
-        total_tokens += num_tokens
-    print(f"Validation loss at iteration {iteration}: {running_loss / total_tokens}")
+    with torch.no_grad():
+        for batch in load_batches(val_set, batch_size, context_length, device):
+            inputs, targets = batch
+            logits = model(inputs)
+            num_tokens = targets.numel()
+            running_loss += cross_entropy(logits, targets).item() * num_tokens
+            total_tokens += num_tokens
+        print(f"> Validation loss at iteration {iteration}: {running_loss / total_tokens}")
     model.train()
     return running_loss / total_tokens
 
@@ -75,10 +83,8 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
             'exp': exp_config.model_dump()
         },
     )
-    tokenizer = tok.Tokenizer(
-        *tok.load(data_config.vocab), 
-        special_tokens=["<|endoftext|>"]
-    )
+    
+    tokenizer = get_tokenizer(data_config)
     print(f"> Vocab Size: {len(tokenizer.vocab)}")
     
     model = get_model(tokenizer.vocab_size, exp_config)
@@ -86,7 +92,7 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
 
     optimizer = AdamW(
         params=model.parameters(),
-        # placeholder value
+        # Note: may be overwritten by scheduler.
         lr=exp_config.optimizer.lr,
         betas=exp_config.optimizer.betas,
         weight_decay=exp_config.optimizer.weight_decay
@@ -124,9 +130,14 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
 
     model.train()
     running_duration = 0.
-    for batch in tqdm(
-        load_batches(train_set, batch_size, context_length, exp_config.primary_device, iteration)
-    ):
+    batch_iter = load_batches(
+        train_set, 
+        batch_size, 
+        context_length, 
+        exp_config.primary_device, 
+        iteration
+    )
+    for batch in tqdm(batch_iter):
         if exp_config.max_iter and iteration > exp_config.max_iter:
             print("Terminating after max iterations...")
             return
@@ -134,7 +145,13 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
         # run this first to replace AdamW LR placeholder
         scheduler = exp_config.scheduler
         if scheduler:
-            lr = cosine_lr_scheduler(iteration, scheduler.lr_max, scheduler.lr_min, scheduler.t_warmup, scheduler.t_cos)
+            lr = cosine_lr_scheduler(
+                iteration, 
+                scheduler.lr_max, 
+                scheduler.lr_min, 
+                scheduler.t_warmup, 
+                scheduler.t_cos
+            )
             for group in optimizer.param_groups:
                 group["lr"] = lr
         else:
@@ -154,16 +171,13 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
         running_duration += end - start
 
         iteration += 1
-        run.log({
-            "loss": loss, 
-            "lr": lr, 
-            "duration": running_duration / (iteration + 1)},
-        )
+        avg_duration = running_duration / iteration
+        run.log({"loss": loss.item(), "lr": lr, "duration": avg_duration})
         if iteration % 100 == 0:
             print(f"--Update--")
-            print(f"Loss[iter={iteration}]={loss}")
+            print(f"Loss[iter={iteration}]={loss.item()}")
             print(f"LR[iter={iteration}]={lr}")
-            print(f"Batch={iteration+1}/{total_batches}")
+            print(f"Batch={iteration}/{total_batches}")
             print(f"Average Duration={running_duration / (iteration + 1)}\n")
 
         if iteration % exp_config.ckpt_iter == 0:
@@ -173,6 +187,7 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
         if exp_config.val_iter and iteration % exp_config.val_iter == 0:
             val_loss = eval(exp_config, val_set, model, exp_config.primary_device, iteration)
             run.log({"val_loss": val_loss})
+
 
 if __name__ == "__main__":
     configs = Config.from_args()

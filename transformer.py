@@ -261,6 +261,7 @@ class Transformer(nn.Module):
         d_ff: int,
         device: torch.device | None = None,
         dtype: torch.dtype | None = None,
+        **kwargs
     ) -> None:
         super().__init__()
         kwargs = dict(device=device, dtype=dtype)
@@ -312,7 +313,6 @@ def decode(
         token = top_indices[torch.multinomial(top_probs, 1).item()]
         tokens = torch.cat([tokens, token.view(1, 1)], dim=1)
 
-        print(" > " + str(token.item()))
         if token.item() == stop_token:
             break
     return tokens.squeeze(0).tolist()
