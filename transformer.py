@@ -207,11 +207,11 @@ class MultiheadSelfAttention(nn.Module):
         V = self._split_heads(self.V_proj(x))
 
         assert K.shape == Q.shape, "Dim Mismatch"
-        #positions = torch.arange(seq_len, device=x.device).expand(*Q.shape[:-2], seq_len)
+        positions = torch.arange(seq_len, device=x.device).expand(*Q.shape[:-2], seq_len)
 
         # apply positional embeddings
-        #Q = self.rope(Q, token_positions=positions) 
-        #K = self.rope(K, token_positions=positions) 
+        Q = self.rope(Q, token_positions=positions) 
+        K = self.rope(K, token_positions=positions) 
         
         attn = scaled_dot_product_attention(K=K, Q=Q, V=V, mask=self.mask[:seq_len, :seq_len])
         # remove head dimension
