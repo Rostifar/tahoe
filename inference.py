@@ -4,6 +4,7 @@ from data import load_checkpoint
 from train import Config, get_dtype
 from transformer import Transformer, decode
 
+
 if __name__ == "__main__":
     config = Config.from_args()
 

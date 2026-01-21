@@ -249,4 +249,4 @@ def test_decode():
         temperature=0.8,
         top_p=0.9,
     )
-    assert result.tolist() == [5]
+    assert result == [1, 2, 3, 5]

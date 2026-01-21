@@ -5,6 +5,7 @@ import numpy as np
 import torch.nn as nn
 from collections.abc import Iterable
 
+
 def yield_batch(
     x: np.array, 
     batch_size: int, 
@@ -16,6 +17,7 @@ def yield_batch(
     shape = (batch_size, context_length)
     x = torch.tensor(x, dtype=torch.long).to(device)
     return x[:-1].view(*shape), x[1:].view(*shape)
+
 
 def load_batches(
     x: np.array,
@@ -32,6 +34,7 @@ def load_batches(
             return
         yield yield_batch(x[i: i + batch_slice + 1], batch_size, context_length, device)
 
+
 def save_checkpoint(
     model: nn.Module,
     optimizer: torch.optim.Optimizer,
@@ -44,6 +47,7 @@ def save_checkpoint(
         "iteration": iteration
     }
     torch.save(payload, out)
+
 
 def load_checkpoint(
     src: str | os.PathLike | typing.BinaryIO | typing.IO[bytes],

@@ -8,7 +8,6 @@ from data import (
     yield_batch
 )
 
-
 class DummyModule(nn.Module):
     def __init__(self, dim: int, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -36,7 +35,7 @@ def test_checkpoint(dummy_module, dummy_optimizer, tmp_path):
     new_module = DummyModule(10)
     new_optimizer = torch.optim.SGD(new_module.parameters(), lr=0.01)
 
-    iteration = load_checkpoint(path, new_module, new_optimizer)
+    iteration = load_checkpoint(path, new_module, new_optimizer, torch.device("cpu"))
     assert iteration == 42
     torch.testing.assert_close(new_module.param, dummy_module.param)
     assert new_optimizer.state_dict()['param_groups'] == dummy_optimizer.state_dict()['param_groups']

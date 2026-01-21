@@ -5,6 +5,7 @@ import numpy as np
 from tqdm import tqdm
 from tokenizer import Tokenizer, get_chunk_boundaries
 
+
 def test_tokenizer_compression(input: str) -> None:
     tokenizers = dict(
         owt=Tokenizer.from_files("data/tokenizers/owt-bpe/"),
@@ -20,6 +21,7 @@ def test_tokenizer_compression(input: str) -> None:
             f"Source Text: {input.replace("\n", ";;")}\n"
             f"Compression Rate: {(len(input_bytes) - len(tokens)) / len(input_bytes) * 100:0.2f}\n"
         )
+
 
 def test_throughput():
     total_bytes = 0
@@ -88,6 +90,7 @@ def embed_training_set(path: str, out_path: str, tokenizer_path: str):
     print(f"Elapsed time: {end - start:0.04f}")
     print(f"Number of tokens: {len(tokens)}")
     print(f"Sample: {tokens[:100]}")
+
 
 if __name__ == "__main__":
     if "--test-compression" in sys.argv:

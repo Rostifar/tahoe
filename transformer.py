@@ -296,7 +296,7 @@ def decode(
 ) -> list[int]:
     assert 0 < top_p <= 1
     assert 0 < temperature
-    tokens = torch.tensor(prompt).unsqueeze(0)
+    tokens = prompt.detach().clone().unsqueeze(0)
     
     for _ in range(max_tokens):
         context = tokens[:, -model.context_length:]
