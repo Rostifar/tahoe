@@ -1,3 +1,2 @@
 # Tahoe
-
-README.md
+An investigation into transformer pre-training.
