@@ -1,43 +1,38 @@
 import torch
 import tokenizer as tok
 from data import load_checkpoint
-from train import Config, get_dtype
+from train import Config
 from transformer import Transformer, decode
 
 
 if __name__ == "__main__":
-    config = Config.from_args()
-
-    print("--Loading Tokenizer--")
+    data_config, exp_config = Config.from_args()
     tokenizer = tok.Tokenizer(
-        *tok.load(config.vocab), 
+        *tok.load(data_config.vocab), 
         special_tokens=["<|endoftext|>"]
     )
-    print(f"> Vocab Size: {len(tokenizer.vocab)}")
-    
     device = torch.device("cpu")
-    dtype = get_dtype(config.dtype)
     
     # create transformer
     model = Transformer(
         vocab_size=tokenizer.vocab_size, 
-        context_length=config.context_length, 
-        num_layers=config.num_layers,
-        d_model=config.d_model,
-        num_heads=config.num_heads,
-        theta=config.theta,
-        d_ff=config.d_ff,
+        context_length=exp_config.context_length, 
+        num_layers=exp_config.num_layers,
+        d_model=exp_config.d_model,
+        num_heads=exp_config.num_heads,
+        theta=exp_config.theta,
+        d_ff=exp_config.d_ff,
         device=device,
-        dtype=dtype
+        dtype=exp_config.get_dtype()
     )
-    ckpt = load_checkpoint(config.from_ckpt, model, None, device)
+    ckpt = load_checkpoint(exp_config.from_ckpt, model, None, device)
     model.eval()
 
     response = decode(
         model=model,
-        prompt=tokenizer.encode("SELECT * FROM "),
+        prompt=torch.tensor(tokenizer.encode("Sangeetha was in the park.")),
         stop_token=tokenizer.encode("<|endoftext|>")[0],
-        max_tokens=512,
+        max_tokens=200,
         temperature=1.0,
         top_p=0.9,
     )

@@ -30,5 +30,5 @@ experiments:
     ckpt_iter: 500
     val_iter: 500
     ckpt_path: ./checkpoints
-    from_ckpt: null
+    from_ckpt: ./checkpoints/tiny_stories_final_17500.pt
     max_iter: 30000
