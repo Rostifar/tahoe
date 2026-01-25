@@ -32,7 +32,7 @@ if __name__ == "__main__":
         model=model,
         prompt=torch.tensor(tokenizer.encode("Sangeetha was in the park.")),
         stop_token=tokenizer.encode("<|endoftext|>")[0],
-        max_tokens=200,
+        max_tokens=250,
         temperature=1.0,
         top_p=0.9,
     )
