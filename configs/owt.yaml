@@ -60,4 +60,4 @@ experiments:
     val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
-    max_iter: 60001
+    max_iter: 60002
