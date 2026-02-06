@@ -100,7 +100,7 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
 
     if exp_config.from_ckpt:
         iteration = load_checkpoint(
-            data_config.from_ckpt, 
+            exp_config.from_ckpt, 
             model, 
             optimizer, 
             exp_config.primary_device
