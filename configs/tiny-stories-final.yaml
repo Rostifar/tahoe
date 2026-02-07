@@ -17,10 +17,10 @@ experiments:
     device: cuda
     dtype: fp32
     scheduler:
-      lr_max: 0.0003
+      lr_max: 0.0005
       lr_min: 0.00001
-      t_warmup: 1500
-      t_cos: 28500
+      t_warmup: 2000
+      t_cos: 38000
     optimizer:
       lr: 0.0003
       betas: [0.99, 0.999]
@@ -30,5 +30,92 @@ experiments:
     ckpt_iter: 500
     val_iter: 500
     ckpt_path: ./checkpoints
-    from_ckpt: ./checkpoints/tiny_stories_final_17500.pt
-    max_iter: 30000
+    from_ckpt: null
+    max_iter: 40000
+
+  tiny_stories_5hi2lo:
+    vocab_size: 10000
+    batch_size: 32
+    context_length: 256
+    num_layers: 4
+    d_model: 512
+    num_heads: 16
+    d_ff: 1344
+    theta: 10000.0
+
+    device: cuda
+    dtype: fp32
+    scheduler:
+      lr_max: 0.0005
+      lr_min: 0.00002
+      t_warmup: 2000
+      t_cos: 38000
+    optimizer:
+      lr: 0.0003
+      betas: [0.99, 0.999]
+      weight_decay: 0.01
+    max_grad: 1.0
+
+    ckpt_iter: 500
+    val_iter: 500
+    ckpt_path: ./checkpoints
+    from_ckpt: null
+    max_iter: 40000
+  
+  tiny_stories_5hi4lo:
+    vocab_size: 10000
+    batch_size: 32
+    context_length: 256
+    num_layers: 4
+    d_model: 512
+    num_heads: 16
+    d_ff: 1344
+    theta: 10000.0
+
+    device: cuda
+    dtype: fp32
+    scheduler:
+      lr_max: 0.0005
+      lr_min: 0.00004
+      t_warmup: 3000
+      t_cos: 37000
+    optimizer:
+      lr: 0.0003
+      betas: [0.99, 0.999]
+      weight_decay: 0.01
+    max_grad: 1.0
+
+    ckpt_iter: 500
+    val_iter: 500
+    ckpt_path: ./checkpoints
+    from_ckpt: null
+    max_iter: 40000
+
+  tiny_stories_1hi5lo:
+    vocab_size: 10000
+    batch_size: 32
+    context_length: 256
+    num_layers: 4
+    d_model: 512
+    num_heads: 16
+    d_ff: 1344
+    theta: 10000.0
+
+    device: cuda
+    dtype: fp32
+    scheduler:
+      lr_max: 0.001
+      lr_min: 0.00005
+      t_warmup: 2000
+      t_cos: 38000
+    optimizer:
+      lr: 0.0003
+      betas: [0.99, 0.999]
+      weight_decay: 0.01
+    max_grad: 1.0
+
+    ckpt_iter: 500
+    val_iter: 500
+    ckpt_path: ./checkpoints
+    from_ckpt: null
+    max_iter: 40000
