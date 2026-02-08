@@ -114,7 +114,7 @@ experiments:
       weight_decay: 0.01
     max_grad: 1.0
 
-    ckpt_iter: 500
+    ckpt_iter: 5000
     val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null

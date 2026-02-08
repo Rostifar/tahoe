@@ -5,7 +5,7 @@ data:
 
 experiments:
   owt_small_spec:
-    vocab_size: 10000
+    vocab_size: 32000
     batch_size: 32
     context_length: 256
     num_layers: 4
@@ -17,47 +17,18 @@ experiments:
     device: cuda
     dtype: fp32
     scheduler:
-      lr_max: 0.0003
-      lr_min: 0.00001
-      t_warmup: 1500
-      t_cos: 28500
+      lr_max: 0.001
+      lr_min: 0.00005
+      t_warmup: 2000
+      t_cos: 38000
     optimizer:
       lr: 0.0003
       betas: [0.99, 0.999]
       weight_decay: 0.01
     max_grad: 1.0
 
-    ckpt_iter: 500
+    ckpt_iter: 5000
     val_iter: 500
     ckpt_path: ./checkpoints
     from_ckpt: null
-    max_iter: 30000
-  
-  owt_bf16:
-    vocab_size: 10000
-    batch_size: 32
-    context_length: 256
-    num_layers: 4
-    d_model: 512
-    num_heads: 16
-    d_ff: 1344
-    theta: 10000.0
-
-    device: cuda
-    dtype: fp32
-    scheduler:
-      lr_max: 0.0003
-      lr_min: 0.00001
-      t_warmup: 1500
-      t_cos: 28500
-    optimizer:
-      lr: 0.0003
-      betas: [0.99, 0.999]
-      weight_decay: 0.01
-    max_grad: 1.0
-
-    ckpt_iter: 1000
-    val_iter: 500
-    ckpt_path: ./checkpoints
-    from_ckpt: null
-    max_iter: 60002
+    max_iter: 40000
