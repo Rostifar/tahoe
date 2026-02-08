@@ -1,5 +1,6 @@
 import math
 import torch
+from torch._C import device
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -35,23 +36,20 @@ class Linear(nn.Module):
         out_dim: int,
         device: torch.device | None = None,
         dtype: torch.dtype | None = None,
-        weights: torch.Tensor | None = None
+        std: float = 1.0
     ) -> None:
         super().__init__()
         # skip bias term because that's what modern LLMs do
         kwargs = dict(device=device, dtype=dtype)
-        if weights:
-            self.W = weights
-        else:
-            self.W = nn.Parameter(torch.empty(out_dim, in_dim, **kwargs))
+        self.W = nn.Parameter(torch.empty(out_dim, in_dim, **kwargs))
 
-            # Xavier/Glorot: normalize to keep unit variance, even after summing 
-            # ~ (in_dim + out_dim) elements.
-            # Unit variance is necessary because variance is multiplicative across 
-            # layers via independence: V[K-layers] ~ V[layer]^k
-            # TODO: come back to this fact
-            std = math.sqrt(2. / (in_dim + out_dim))
-            nn.init.trunc_normal_(self.W, mean=0., std=std, a=-3*std, b=3*std)
+        # Xavier/Glorot: normalize to keep unit variance, even after summing 
+        # ~ (in_dim + out_dim) elements.
+        # Unit variance is necessary because variance is multiplicative across 
+        # layers via independence: V[K-layers] ~ V[layer]^k
+        # TODO: come back to this fact
+        std = math.sqrt(2. / (in_dim + out_dim))
+        nn.init.trunc_normal_(self.W, mean=0., std=std, a=-3*std, b=3*std)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return x @ self.W.T
@@ -135,7 +133,8 @@ class RotaryPositionalEmbedding(nn.Module):
         theta: float,
         d_k: int,
         max_seq_len: int,
-        device: torch.device | None = None,  
+        device: torch.device | None = None,
+        dtype: torch.dtype | None = None
     ) -> None:
         super().__init__()
         pairs = d_k // 2
@@ -157,6 +156,9 @@ class RotaryPositionalEmbedding(nn.Module):
             torch.sin(angles).repeat_interleave(2, dim=-1),
             persistent=False,
         )
+
+        if dtype:
+            self.cos, self.sin = self.cos.to(dtype), self.sin.to(dtype)
 
     def forward(self, x: torch.Tensor, token_positions: torch.Tensor) -> torch.Tensor:
         # (..., max_seq_len, ...) -> (..., seq_len, ...)
@@ -191,12 +193,11 @@ class MultiheadSelfAttention(nn.Module):
         self.Q_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, **kwargs)
         self.K_proj = Linear(in_dim=d_model, out_dim=self.d_k * num_heads, **kwargs)
         self.V_proj = Linear(in_dim=d_model, out_dim=self.d_v * num_heads, **kwargs)
+        
+        self.rope = RotaryPositionalEmbedding(theta=theta, d_k=self.d_k, max_seq_len=max_seq_len, device=device, dtype=dtype)
         self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, **kwargs)
         
-        self.rope = RotaryPositionalEmbedding(theta=theta, d_k=self.d_k, max_seq_len=max_seq_len, device=device)
-        self.head_proj = Linear(in_dim=self.d_v * num_heads, out_dim=d_model, **kwargs)
-        
-        self.register_buffer('mask', torch.tril(torch.ones(max_seq_len, max_seq_len, device=device)).bool())
+        self.register_buffer('mask', torch.tril(torch.ones(max_seq_len, max_seq_len, **kwargs)).bool())
 
     def _split_heads(self, x: torch.Tensor) -> torch.Tensor:
         *leading, embed_dim = x.shape
@@ -283,21 +284,18 @@ class Transformer(nn.Module):
             ) for _ in range(num_layers)
         ])
         self.post_norm = RMSNorm(d_model=d_model, **kwargs)
-
-        # TODO: clean this up
-        if tie_weights:
-            self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, std=math.sqrt(d_model), **kwargs)
-            shared_weights = self.vocab_embed.table.T
-            self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, weights=shared_weights, **kwargs)
-        else:
-            self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, **kwargs)
+        
+        std = math.sqrt(d_model) if tie_weights else 1.0
+        self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, std=std, **kwargs)
+        if not tie_weights:
             self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, **kwargs)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.vocab_embed(x)
         x = self.post_norm(self.blocks(x))
-        # return logits
-        return self.lm_head(x)
+        if hasattr(self, "lm_head"):
+            return self.lm_head(x)
+        return x @ self.vocab_embed.table.T
 
 def decode(
     model: nn.Module,

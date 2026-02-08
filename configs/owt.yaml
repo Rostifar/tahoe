@@ -33,9 +33,9 @@ experiments:
     from_ckpt: null
     max_iter: 40000
 
-  owt_b16_wtie_50m_64b_1024ctx:
+  owt_b16_wtie_50m_32b_1024ctx:
     vocab_size: 32000
-    batch_size: 64
+    batch_size: 32
     context_length: 1024
     num_layers: 4
     d_model: 768
@@ -58,7 +58,7 @@ experiments:
     max_grad: 1.0
 
     ckpt_iter: 5000
-    val_iter: 500
+    val_iter: 250
     ckpt_path: ./checkpoints
     from_ckpt: null
     max_iter: 30000

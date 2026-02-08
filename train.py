@@ -88,7 +88,9 @@ def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
     tokenizer = get_tokenizer(data_config)
     print(f"> Vocab Size: {len(tokenizer.vocab)}")
     
+    # optim: 3 it/s -> ~5.5 it/s
     model = get_model(tokenizer.vocab_size, exp_config)
+    model = torch.compile(model)
     wandb.watch(model, log="all", log_freq=100)
 
     optimizer = AdamW(
