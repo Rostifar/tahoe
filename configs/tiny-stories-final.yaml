@@ -117,5 +117,5 @@ experiments:
     ckpt_iter: 5000
     val_iter: 500
     ckpt_path: ./checkpoints
-    from_ckpt: null
+    from_ckpt: ./checkpoints/tiny_stories_1hi5lo_40000.pt
     max_iter: 40000
