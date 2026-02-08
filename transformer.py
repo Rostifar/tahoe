@@ -34,20 +34,24 @@ class Linear(nn.Module):
         in_dim: int, 
         out_dim: int,
         device: torch.device | None = None,
-        dtype: torch.dtype | None = None
+        dtype: torch.dtype | None = None,
+        weights: torch.Tensor | None = None
     ) -> None:
         super().__init__()
         # skip bias term because that's what modern LLMs do
         kwargs = dict(device=device, dtype=dtype)
-        self.W = nn.Parameter(torch.empty(out_dim, in_dim, **kwargs))
+        if weights:
+            self.W = weights
+        else:
+            self.W = nn.Parameter(torch.empty(out_dim, in_dim, **kwargs))
 
-        # Xavier/Glorot: normalize to keep unit variance, even after summing 
-        # ~ (in_dim + out_dim) elements.
-        # Unit variance is necessary because variance is multiplicative across 
-        # layers via independence: V[K-layers] ~ V[layer]^k
-        # TODO: come back to this fact
-        std = math.sqrt(2. / (in_dim + out_dim))
-        nn.init.trunc_normal_(self.W, mean=0., std=std, a=-3*std, b=3*std)
+            # Xavier/Glorot: normalize to keep unit variance, even after summing 
+            # ~ (in_dim + out_dim) elements.
+            # Unit variance is necessary because variance is multiplicative across 
+            # layers via independence: V[K-layers] ~ V[layer]^k
+            # TODO: come back to this fact
+            std = math.sqrt(2. / (in_dim + out_dim))
+            nn.init.trunc_normal_(self.W, mean=0., std=std, a=-3*std, b=3*std)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return x @ self.W.T
@@ -59,11 +63,12 @@ class Embedding(nn.Module):
         num_embeddings: int, 
         embed_dim: int, 
         device: torch.dtype | None = None,
-        dtype: torch.dtype | None = None
+        dtype: torch.dtype | None = None,
+        std: float = 1.
     ) -> None:
         super().__init__()
         self.table = nn.Parameter(torch.empty(num_embeddings, embed_dim, dtype=dtype, device=device))
-        nn.init.trunc_normal_(self.table, mean=0., std=1., a=-3, b=3)
+        nn.init.trunc_normal_(self.table, mean=0., std=std, a=-3 * std, b=3 * std)
 
     def forward(self, token_ids: torch.Tensor) -> torch.Tensor:
         return self.table[token_ids] 
@@ -261,12 +266,12 @@ class Transformer(nn.Module):
         d_ff: int,
         device: torch.device | None = None,
         dtype: torch.dtype | None = None,
+        tie_weights: bool = False,
         **kwargs
     ) -> None:
         super().__init__()
         kwargs = dict(device=device, dtype=dtype)
         self.context_length = context_length
-        self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, **kwargs)
         self.blocks = nn.Sequential(*[
             Block(
                 d_model=d_model,
@@ -278,7 +283,15 @@ class Transformer(nn.Module):
             ) for _ in range(num_layers)
         ])
         self.post_norm = RMSNorm(d_model=d_model, **kwargs)
-        self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, **kwargs)
+
+        # TODO: clean this up
+        if tie_weights:
+            self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, std=math.sqrt(d_model), **kwargs)
+            shared_weights = self.vocab_embed.table.T
+            self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, weights=shared_weights, **kwargs)
+        else:
+            self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, **kwargs)
+            self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, **kwargs)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.vocab_embed(x)

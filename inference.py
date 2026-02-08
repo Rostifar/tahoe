@@ -23,7 +23,8 @@ if __name__ == "__main__":
         theta=exp_config.theta,
         d_ff=exp_config.d_ff,
         device=device,
-        dtype=exp_config.get_dtype()
+        dtype=exp_config.get_dtype(),
+        tie_weights=exp_config.tie_weights,
     )
     ckpt = load_checkpoint(exp_config.from_ckpt, model, None, device)
     model.eval()

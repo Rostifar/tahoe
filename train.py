@@ -37,7 +37,8 @@ def get_model(vocab_size: int, exp_config: ExperimentConfig) -> nn.Module:
         theta=exp_config.theta,
         d_ff=exp_config.d_ff,
         device=exp_config.primary_device,
-        dtype=exp_config.get_dtype()
+        dtype=exp_config.get_dtype(),
+        tie_weights=exp_config.tie_weights,
     )
 
 

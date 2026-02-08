@@ -36,6 +36,7 @@ class ExperimentConfig(BaseModel):
     num_heads: int
     d_ff: int
     theta: float
+    tie_weights: bool = False
 
     device: Literal["cpu", "mps", "cuda"] | list[int]
     dtype: Literal["fp16", "fp32"]
