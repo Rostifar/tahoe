@@ -39,7 +39,7 @@ class ExperimentConfig(BaseModel):
     tie_weights: bool = False
 
     device: Literal["cpu", "mps", "cuda"] | list[int]
-    dtype: Literal["fp16", "fp32"]
+    dtype: Literal["fp16", "fp32", "bf16"]
 
     scheduler: SchedulerConfig | None = None
     optimizer: AdamWConfig
@@ -69,7 +69,14 @@ class ExperimentConfig(BaseModel):
         return torch.device(self.device)
 
     def get_dtype(self) -> torch.dtype:
-        return torch.float16 if self.dtype == "fp16" else torch.float32
+        if self.dtype == "fp16":
+            return torch.float16
+        elif self.dtype == "bf16":
+            return torch.bfloat16
+        elif self.dtype == "fp32":
+            return torch.float32
+        else:
+            raise ValueError(f"Unknown dtype: {self.dtype}")
 
     def wrap_model(self, model: nn.Module) -> nn.Module:
         model = model.to(self.primary_device)

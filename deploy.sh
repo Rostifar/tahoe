@@ -54,8 +54,7 @@ rsync -avz --progress \
     --exclude '.ruff_cache' \
     --exclude 'wandb' \
     --exclude 'checkpoints/*.pt' \
-    --exclude '*owt_train.npy' \
-    --exclude '*owt_valid.npy' \
+    --exclude '*TinyStories*.npy' \
     --exclude '*.txt' \
     --exclude '.DS_Store' \
     --exclude 'notebooks' \

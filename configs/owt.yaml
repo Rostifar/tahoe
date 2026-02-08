@@ -33,7 +33,7 @@ experiments:
     from_ckpt: null
     max_iter: 40000
 
-  owt_b16_wtie_50m:
+  owt_b16_wtie_50m_64b_1024ctx:
     vocab_size: 32000
     batch_size: 64
     context_length: 1024
@@ -63,10 +63,10 @@ experiments:
     from_ckpt: null
     max_iter: 30000
 
-  owt_b16_wtie_100m:
+  owt_b16_wtie_100m_512b:
     vocab_size: 32000
-    batch_size: 64
-    context_length: 1024
+    batch_size: 512
+    context_length: 2048
     num_layers: 6
     d_model: 1024
     num_heads: 16
@@ -77,18 +77,18 @@ experiments:
     device: cuda
     dtype: bf16
     scheduler:
-      lr_max: 0.001
+      lr_max: 0.0006
       lr_min: 0.00005
-      t_warmup: 1500
-      t_cos: 28500
+      t_warmup: 90
+      t_cos: 1810
     optimizer:
       lr: 0.0003
-      betas: [0.99, 0.999]
+      betas: [0.9, 0.95]
       weight_decay: 0.01
     max_grad: 1.0
 
-    ckpt_iter: 5000
-    val_iter: 500
+    ckpt_iter: 500
+    val_iter: 100
     ckpt_path: ./checkpoints
     from_ckpt: null
-    max_iter: 30000
+    max_iter: 1900
