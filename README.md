@@ -54,7 +54,7 @@ Experiments are defined by YAML files under `./configs`, which encode model attr
 Experiment tracking is handled by Weights & Biases.
 
 ## Results
-Over 20+ models were trained across both datasets. This section showcases two models, one per dataset.
+Over 20+ models were trained across both datasets. This section showcases two models, one per dataset. Please see the **[Work Log](https://github.com/Rostifar/tahoe/blob/4d2a5cc6ff947a0095debd1b61765a201c09cdce/Work%20Log.pdf)** for additional details. 
 
 ### tiny_stories_1hi5lo
 This model was trained on $32 \cdot 256 \cdot 40000 \approx 320,000,000$ tokens, comprised primarily of children's stories. Its [architecture](https://github.com/Rostifar/tahoe/blob/704388161990ed8b7ff3e60969bced314fa83376/configs/tiny-stories-final.yaml#L94) is fairly small with 20M parameters, a 256 token context window, and a compact semantic space of size 512.
