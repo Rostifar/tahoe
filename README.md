@@ -7,7 +7,7 @@ This repo largely follows Stanford's [cs336](https://stanford-cs336.github.io/sp
 Tahoe models are trained on two datasets: TinyStories v2 ([TSv2](https://huggingface.co/datasets/roneneldan/TinyStories)) and a sampled version of OpenWebText ([OWT](https://huggingface.co/datasets/stanford-cs336/owt-sample)). Both of these datasets can be downloaded by running `./download_data.sh`. No additional preprocessing is applied for these datasets, outside of whitespace stripping.
 
 ## Tokenization
-Both TSv2 and OWT datasets are BPE tokenized. Pre-tokenization is handled by splitting along categories using GPT-2's regex pattern, and tokenization is split along document boundaries.
+Both TSv2 and OWT datasets are BPE tokenized. Pre-tokenization is handled by splitting along word categories using GPT-2's regex pattern, and tokenization is split along document boundaries.
 
 TSv2 and OWT tokenizers are trained up to 10k and 32k tokens, respectively. Tokenizer training leverages a single worker process, as neither dataset is large enough to warrant multi-process or multi-node training; concretely, training an OWT tokenizer for 32k tokens takes around ~6 hours on a M1 MacBook Pro. Single-process tracking also enables clever optimizations, such as **incremental tracking** where the byte-pair occurence table is built [once](https://github.com/Rostifar/tahoe/blob/5ef2c24a948dbf9c3cfb64bb48c007ac4fdf991a/tokenizer.py#L182) and incrementally updated with each merge.
 
