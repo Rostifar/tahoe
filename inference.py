@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     response = decode(
         model=model,
-        prompt=torch.tensor(tokenizer.encode("Sangeetha was in the park.")),
+        prompt=torch.tensor(tokenizer.encode("This just in!")),
         stop_token=tokenizer.encode("<|endoftext|>")[0],
         max_tokens=250,
         temperature=1.0,

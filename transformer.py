@@ -285,7 +285,7 @@ class Transformer(nn.Module):
         ])
         self.post_norm = RMSNorm(d_model=d_model, **kwargs)
         
-        std = math.sqrt(d_model) if tie_weights else 1.0
+        std = 1.0 / math.sqrt(d_model)  if tie_weights else 1.0
         self.vocab_embed = Embedding(num_embeddings=vocab_size, embed_dim=d_model, std=std, **kwargs)
         if not tie_weights:
             self.lm_head = Linear(in_dim=d_model, out_dim=vocab_size, **kwargs)

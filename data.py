@@ -56,7 +56,10 @@ def load_checkpoint(
     device: torch.device
 ) -> int:
     payload = torch.load(src, map_location=device)
-    model.load_state_dict(payload["model"])
+    state_dict = payload["model"]
+    # Strip `_orig_mod.` prefix added by torch.compile()
+    state_dict = {k.removeprefix("_orig_mod."): v for k, v in state_dict.items()}
+    model.load_state_dict(state_dict)
     if optimizer:
         optimizer.load_state_dict(payload["optimizer"])
     return payload["iteration"]
