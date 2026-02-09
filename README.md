@@ -53,5 +53,27 @@ Experiments are defined by YAML files under `./configs`, which encode model attr
 
 Experiment tracking is handled by Weights & Biases.
 
-### Results
-After training, both models 
+## Results
+Over 20+ models were trained across both datasets. This section showcases two models, one per dataset.
+
+### tiny_stories_1hi5lo
+This model was trained on $32 \cdot 256 \cdot 40000 \approx 320,000,000$ tokens, comprised primarily of children's stories. Its [architecture](https://github.com/Rostifar/tahoe/blob/704388161990ed8b7ff3e60969bced314fa83376/configs/tiny-stories-final.yaml#L94) is fairly small with 20M parameters, a 256 token context window, and a compact semantic space of size 512.
+
+After 40k steps, the model achieved a validation loss of ~1.45, and exhibited the ability to generate basic children's stories. One such story is presented below:
+```
+This just in! It's a great spoon that makes your mustache look much better," Mom said.
+Sara nodded. She was happy that her parents liked her new spoon. She decided to use it to eat some more. She ate some of her soup. She liked it. It made her smile.
+<|endoftext|>
+```
+
+### owt_b16_wtie_100m_32b_1024ctx
+This model was trained on $32 \cdot 1024 \cdot 16000 \approx 450,000,000$ tokens, sampled from the open web. As a result, training set documents are higher variance with more complex language compared to TSv2. Accordingly, the context window for this model was increased from 512 to 1024, and overall model capacity was increased from 20M to 100M parameters.
+
+After 16k steps and 1.5 gpu-hours, the model achieved a validation loss of ~4.5. Training was stopped early to match [cs336](https://github.com/stanford-cs336/assignment1-basics-leaderboard/tree/master) leaderboard constraints. Consequently, this model is undertrained by a factor of around 5x tokens, based on Chinchilla scaling laws. Token generation suffers, generating semi-coherent results:
+```
+The location of the famous 86-year-old throng and clearly shouldn’t be available at all on a freight train and train. And cruising all weekend again to distant villages on North Central Coast, then west west of New York, the line between North Central and Lebine with the same height as the Greatfield line that fell from New York along-decker to the Deepwater valley.
+
+If you had a serious lift in the road that may have to be fine, this is the first of three days, and yet the road was covered to an electronic town of almost 100,000 people: the Greatfield intersection of Edinne County and Amdown, Surrey County, on the South end of Manhattan. In 2009, the Grand Central and Lower East Side posted a human cost of nearly $2.2 million in winning bids from poor urbanites. An estimated $500 million in profit was the result of $100 million in the construction and maintenance of Manhattan’s café, Macquarie last year.
+
+But then again, the report included a detailed analysis of the design and design factors that made and timing most relevant, along with the usual pattern of bars on the inside of buildings.
+```
