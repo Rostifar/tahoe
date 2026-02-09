@@ -4,7 +4,7 @@ Tahoe is a foray into Large Language Model (LLM) autoregressive pretraining. The
 This repo largely follows Stanford's [cs336](https://stanford-cs336.github.io/spring2025/) course, though with some minor deviations.
 
 ## Data
-Tahoe models are trained on two datasets: TinyStories v2 ([TSv2](https://huggingface.co/datasets/roneneldan/TinyStories)]) and a sampled version of OpenWebText ([OWT](https://huggingface.co/datasets/stanford-cs336/owt-sample)). Both of these datasets can be downloaded by running `./download_data.sh`. No additional preprocessing is applied for these datasets, outside of whitespace stripping.
+Tahoe models are trained on two datasets: TinyStories v2 ([TSv2](https://huggingface.co/datasets/roneneldan/TinyStories)) and a sampled version of OpenWebText ([OWT](https://huggingface.co/datasets/stanford-cs336/owt-sample)). Both of these datasets can be downloaded by running `./download_data.sh`. No additional preprocessing is applied for these datasets, outside of whitespace stripping.
 
 ## Tokenization
 Both TSv2 and OWT datasets are BPE tokenized. Pre-tokenization is handled by splitting along categories using GPT-2's regex pattern, and tokenization is split along document boundaries.
@@ -28,7 +28,7 @@ uv run build_datasets.py --build-train-tsv2 --build-val-tsv2
 ```
 
 ## Training
-Model training relied on identifying the right infra (eg. compute stack, config system, experiment tracking) and several rounds of iteration per dataset. Given the trial-and-error nature of this work, I maintained a Work Log which covers design decisions, experiment results, and other details. 
+Model training relied on identifying the right infra (eg. compute stack, config system, experiment tracking) and several rounds of iteration per dataset. Given the trial-and-error nature of this work, I maintained a **[Work Log](https://github.com/Rostifar/tahoe/blob/4d2a5cc6ff947a0095debd1b61765a201c09cdce/Work%20Log.pdf)** which covers design decisions, experiment results, and other details. 
 
 The sections below provide a high-level overview of infra decisions and experiment results.
 
@@ -43,10 +43,15 @@ A combination of A40, RTX 4090, and RTX 6000 PRO GPUs were used for model traini
 * RTX 4090 (~$0.60/hr) pods were used for pre-training with TSv2 and smaller OWT models (<50M parameters).
 * RTX 6000 PRO (~$1.60/hr) pods used for large OWT models (~100M parameters). 
 
-Datasets, checkpoints, and code were loaded onto pods via a deploy script, which used leverages rsync:
+Datasets, checkpoints, and code were loaded onto pods via a deploy script, which leverages `rsync`:
 ```
 ./deploy.sh "ssh root@<...>"
 ```
 
 ### Experiment Configuration and Tracking
-Config system.
+Experiments are defined by YAML files under `./configs`, which encode model attributes, optimizer hyperparameters, datasets, and other metadata per experiment. 
+
+Experiment tracking is handled by Weights & Biases.
+
+### Results
+After training, both models 

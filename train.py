@@ -74,10 +74,10 @@ def eval(
     return running_loss / total_tokens
 
 
-def train(data_config: DataConfig, exp_config: ExperimentConfig) -> None:
+def train(data_config: DataConfig, exp_config: ExperimentConfig, entity="torusai") -> None:
     print(f"> Starting run for {exp_config.name}.")
     run = wandb.init(
-        entity="torusai",
+        entity=entity,
         project=exp_config.name,
         config={
             'data': data_config.model_dump(),
